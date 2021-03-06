@@ -1,29 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <Photo :src="require('@/assets/logo.png')" style="width: 50%;" />
+    <PhotoViewer />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
+import Photo from "./components/Photo.vue";
+import PhotoViewer from "./components/PhotoViewer.vue";
 
 @Component({
   components: {
-    HelloWorld
-  }
+    Photo,
+    PhotoViewer,
+  },
 })
 export default class App extends Vue {}
 </script>
 
 <style lang="scss">
+html,
+body,
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+#app {
+  background-color: rgb(190, 190, 190);
 }
 </style>
