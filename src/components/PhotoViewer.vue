@@ -83,6 +83,7 @@ export default class PhotoViewer extends Vue {
   > .viewed-photo {
     object-fit: cover;
     position: relative;
+    transform: scale(1.05);
   }
 }
 html .photo-viewer-close {
@@ -100,6 +101,7 @@ html .photo-viewer-close {
   to {
     $h: var(--enlarged-photo-h);
     $w: var(--enlarged-photo-w);
+    transform: scale(1);
 
     width: $w;
     height: $h;

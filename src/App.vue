@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Photo :src="require('@/assets/logo.png')" style="width: 50%;" />
+    <Photo :src="require('@/assets/bird.jpg')" class="photo" />
     <PhotoViewer />
   </div>
 </template>
@@ -33,5 +33,8 @@ body,
 }
 #app {
   background-color: rgb(190, 190, 190);
+  .photo {
+    width: 60%;
+  }
 }
 </style>
