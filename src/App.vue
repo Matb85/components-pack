@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-    <Photo :src="require('@/assets/bird.jpg')" class="photo" />
+    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
+    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
+    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
+    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
     <PhotoViewer />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Photo from "./components/Photo.vue";
-import PhotoViewer from "./components/PhotoViewer.vue";
+import { Photo, PhotoViewer } from "@/setup";
 
 @Component({
   components: {
@@ -34,7 +36,22 @@ body,
 #app {
   background-color: rgb(190, 190, 190);
   .photo {
-    width: 60%;
+    position: relative;
+    &:nth-of-type(1) {
+      width: 100%;
+      height: 100%;
+    }
+    &:nth-of-type(2) {
+      width: 60%;
+      float: right;
+    }
+    &:nth-of-type(3) {
+      width: 20%;
+    }
+    &:nth-of-type(4) {
+      width: 50%;
+      height: 50vw;
+    }
   }
 }
 </style>

@@ -1,8 +1,6 @@
 <template>
   <div class="medium-pack-photo" @click="enlarge">
-    <figure class="photo-con">
-      <img ref="img" :src="src" :alt="alt" />
-    </figure>
+    <img ref="img" :src="src" :data-src="dataSrc" :alt="alt" />
     <i class="cross h-24 w-24"></i>
   </div>
 </template>
@@ -11,10 +9,16 @@
 import { Component, Vue, Prop } from "vue-property-decorator";
 @Component
 export default class Photo extends Vue {
-  @Prop() src: string;
+  $refs!: { img: HTMLImageElement };
+  @Prop({ required: true }) src: string;
+  @Prop() dataSrc: string;
   @Prop() alt: string;
   enlarge() {
-    this.$root.$emit("enlargePhoto", this.$refs.img);
+    if (this.$refs.img.classList.contains("revealed")) this.$root.$emit("enlargePhoto", this.$refs.img);
+  }
+  mounted() {
+    console.log(this.$mediumPack);
+    this.$mediumPack.observer.observe(this.$refs.img);
   }
 }
 </script>
@@ -28,50 +32,52 @@ export default class Photo extends Vue {
 .medium-pack-photo {
   display: block;
   position: relative;
-  figure.photo-con {
-    overflow: hidden;
-    @include wh;
-    > img {
-      display: block;
-      object-fit: cover;
-      transition: 0.4s transform, 0.4s filter;
-      filter: brightness(100%);
-      @include wh;
-    }
-  }
-  .cross {
-    $dim: 8rem;
-    $offset: calc(50% - #{$dim/2});
-    left: $offset;
-    top: $offset;
-    @include wh($dim);
+  overflow: hidden;
+  > img {
     display: block;
-    position: absolute;
-    opacity: 0;
-    transition: transform 0.4s, opacity 0.4s;
-    &::before,
-    &::after {
-      position: absolute;
-      left: 50%;
-      content: " ";
-      height: 100%;
-      width: 0.4px;
-      background-color: white;
-    }
-    &::after {
-      transform: rotate(90deg);
-    }
+    object-fit: cover;
+    @include wh;
+    transition: 0.4s transform, 0.4s filter;
+    filter: blur(3vw) brightness(100%);
+    transform: scale(1.05);
   }
-
+  > img.revealed {
+    cursor: pointer;
+    filter: blur(0vw) brightness(100%);
+    transform: scale(1);
+  }
   &:hover {
-    figure.photo-con img {
+    > img.revealed {
       transform: scale(1.05);
-      filter: brightness(60%);
+      filter: blur(0vw) brightness(60%);
     }
-    .cross {
+    > img.revealed + .cross {
       opacity: 1;
       transform: rotate(180deg);
     }
+  }
+}
+.medium-pack-photo .cross {
+  $dim: 8rem;
+  $offset: calc(50% - #{$dim/2});
+  left: $offset;
+  top: $offset;
+  @include wh($dim);
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: transform 0.4s, opacity 0.4s;
+  &::before,
+  &::after {
+    position: absolute;
+    left: 50%;
+    content: " ";
+    height: 100%;
+    width: 0.4px;
+    background-color: white;
+  }
+  &::after {
+    transform: rotate(90deg);
   }
 }
 </style>
