@@ -10,6 +10,7 @@ module.exports = {
     "@vue/prettier",
     "@vue/prettier/@typescript-eslint",
   ],
+  ignorepatterns: ["/imgs"],
   parserOptions: {
     ecmaVersion: 2020,
   },
