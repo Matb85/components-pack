@@ -1,9 +1,10 @@
 import Photo from "@/components/Photo.vue";
 import PhotoViewer from "@/components/PhotoViewer.vue";
+import PhotoMultiViewer from "@/components/PhotoMultiViewer.vue";
 import observer from "./observer";
 
 // Export the components one by one
-export { Photo, PhotoViewer };
+export { Photo, PhotoViewer, PhotoMultiViewer };
 
 interface Config {
   installComponents?: boolean;
