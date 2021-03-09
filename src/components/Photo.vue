@@ -13,11 +13,13 @@ export default class Photo extends Vue {
   @Prop({ required: true }) src: string;
   @Prop() dataSrc: string;
   @Prop() alt: string;
+  @Prop() dontenlargeonclick: string;
+  @Prop() multiview: string;
   enlarge() {
-    if (this.$refs.img.classList.contains("revealed")) this.$root.$emit("enlargePhoto", this.$refs.img);
+    if (this.$refs.img.classList.contains("loaded") && typeof this.dontenlargeonclick === "undefined")
+      this.$root.$emit(typeof this.multiview === "undefined" ? "enlargePhoto" : "enlargeManyPhotos", this.$refs.img);
   }
   mounted() {
-    console.log(this.$mediumPack);
     this.$mediumPack.observer.observe(this.$refs.img);
   }
 }
@@ -41,17 +43,19 @@ export default class Photo extends Vue {
     filter: blur(3vw) brightness(100%);
     transform: scale(1.05);
   }
-  > img.revealed {
+  &:not(.no-hover) > img {
     cursor: pointer;
+  }
+  > img.loaded {
     filter: blur(0vw) brightness(100%);
     transform: scale(1);
   }
-  &:hover {
-    > img.revealed {
+  &:not(.no-hover):hover {
+    > img.loaded {
       transform: scale(1.05);
       filter: blur(0vw) brightness(60%);
     }
-    > img.revealed + .cross {
+    > img.loaded + .cross {
       opacity: 1;
       transform: rotate(180deg);
     }

@@ -9,7 +9,9 @@ import { Component, Mixins } from "vue-property-decorator";
 import PhotoViewerMixin from "@/mixins/photoViewerMixin";
 
 @Component
-export default class PhotoViewer extends Mixins(PhotoViewerMixin) {}
+export default class PhotoViewer extends Mixins(PhotoViewerMixin) {
+  trigger = "enlargePhoto";
+}
 </script>
 
 <style lang="scss">
@@ -18,6 +20,7 @@ export default class PhotoViewer extends Mixins(PhotoViewerMixin) {}
   height: $dim;
 }
 .photo-viewer {
+  cursor: zoom-out;
   background-color: rgba(255, 255, 255, 0);
   transition-property: opacity, background-color;
   transition-duration: 0.6s;
@@ -26,10 +29,11 @@ export default class PhotoViewer extends Mixins(PhotoViewerMixin) {}
   left: 0;
   z-index: 50;
   @include wh;
-  > .viewed-photo {
+  .viewed-photo {
     object-fit: cover;
     position: relative;
     transform: scale(1.05);
+    transition: 0.6s all;
   }
 }
 html .photo-viewer-close {
@@ -38,8 +42,16 @@ html .photo-viewer-close {
 .photo-viewer-open {
   top: 0;
   background-color: white;
-  > .viewed-photo {
-    animation: 0.6s place-img forwards;
+  .viewed-photo {
+    $h: var(--enlarged-photo-h);
+    $w: var(--enlarged-photo-w);
+    transform: scale(1);
+
+    width: $w !important;
+    height: $h !important;
+    top: calc((100vh - #{$h}) / 2) !important;
+    left: calc((100% - #{$w}) / 2) !important;
+    //animation: 0.6s place-img forwards;
   }
 }
 

@@ -11,13 +11,16 @@ export default class PhotoViewerMixin extends Vue {
     img: HTMLImageElement;
   };
   $el!: HTMLElement;
+  trigger: string;
 
   mounted() {
-    this.$root.$on("enlargePhoto", (img: HTMLImageElement) => {
+    this.$root.$on(this.trigger, (img: HTMLImageElement) => {
+      console.log(this.trigger);
       // console.dir(img);console.log(img.x, img.y, img.offsetHeight, img.offsetWidth);
       const root = document.documentElement;
       const { x, y } = this.getPosition(img);
       const ref = this.$refs.img;
+      console.log(ref);
       ref.style.cssText = `
         top: ${y - root.scrollTop}px;
         left: ${x}px;
@@ -28,11 +31,11 @@ export default class PhotoViewerMixin extends Vue {
         this.$el.classList.add("photo-viewer-open");
         const aspectR = img.naturalWidth / img.naturalHeight;
         if (window.innerWidth / window.innerHeight > aspectR) {
-          this.$el.style.setProperty("--enlarged-photo-w", 90 * aspectR + "vh");
-          this.$el.style.setProperty("--enlarged-photo-h", "90vh");
+          ref.style.setProperty("--enlarged-photo-w", 95 * aspectR + "vh");
+          ref.style.setProperty("--enlarged-photo-h", "95vh");
         } else {
-          this.$el.style.setProperty("--enlarged-photo-w", "95vw");
-          this.$el.style.setProperty("--enlarged-photo-h", 95 * (1 / aspectR) + "vw");
+          ref.style.setProperty("--enlarged-photo-w", "95vw");
+          ref.style.setProperty("--enlarged-photo-h", 95 * (1 / aspectR) + "vw");
         }
       };
       ref.src = img.src;
@@ -54,6 +57,7 @@ export default class PhotoViewerMixin extends Vue {
       "transitionend",
       () => {
         this.$el.classList.remove("photo-viewer-close", "photo-viewer-open");
+        this.$refs.img.style.cssText = "";
       },
       { once: true }
     );

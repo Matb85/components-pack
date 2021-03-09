@@ -1,11 +1,26 @@
 <template>
   <div id="app">
     <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
+    <Photo
+      :src="require('@/assets/thumbnail_gorge.jpg')"
+      multiview
+      :data-src="require('@/assets/gorge.jpg')"
+      class="photo"
+    />
     <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
-    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
-    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
+    <Photo
+      :src="require('@/assets/thumbnail_mountains.jpg')"
+      :data-src="require('@/assets/mountains.jpg')"
+      class="photo"
+    />
     <PhotoViewer />
     <PhotoMultiViewer />
+    <div style="width: 100%; height:100%;">
+      <img
+        style="position: relative; left: 2.5%; height: 95%; width: 95%; object-fit: contain"
+        src="@/assets/bird.jpg"
+      />
+    </div>
   </div>
 </template>
 
@@ -45,7 +60,7 @@ body,
       width: 20%;
     }
     &:nth-of-type(4) {
-      width: 50%;
+      width: 50vw;
       height: 50vw;
     }
   }
