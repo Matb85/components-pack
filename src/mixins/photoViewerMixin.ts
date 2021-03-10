@@ -53,14 +53,18 @@ export default class PhotoViewerMixin extends Vue {
     return { x: xPosition, y: yPosition };
   }
   close() {
-    this.$el.addEventListener(
-      "transitionend",
-      () => {
-        this.$el.classList.remove("photo-viewer-close", "photo-viewer-open");
-        this.$refs.img.style.cssText = "";
-      },
-      { once: true }
-    );
-    this.$el.classList.add("photo-viewer-close");
+    return new Promise<void>(resolve => {
+      this.$el.addEventListener(
+        "transitionend",
+        () => {
+          console.log("transitionend");
+          this.$el.classList.remove("photo-viewer-close", "photo-viewer-open");
+          this.$refs.img.style.cssText = "";
+          resolve();
+        },
+        { once: true }
+      );
+      this.$el.classList.add("photo-viewer-close");
+    });
   }
 }

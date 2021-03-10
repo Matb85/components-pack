@@ -1,5 +1,5 @@
 <template>
-  <section class="photo-viewer" @click.self="close">
+  <section class="photo-viewer" @click="close">
     <img ref="img" class="viewed-photo" />
   </section>
 </template>
@@ -28,12 +28,13 @@ export default class PhotoViewer extends Mixins(PhotoViewerMixin) {
   position: fixed;
   left: 0;
   z-index: 50;
-  @include wh;
+  width: 100%;
+  height: 100vh;
   .viewed-photo {
     object-fit: cover;
     position: relative;
     transform: scale(1.05);
-    transition: 0.6s all;
+    transition: 1s all !important;
   }
 }
 html .photo-viewer-close {
