@@ -74,7 +74,7 @@ export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
             },
             { once: true }
           );
-          document.querySelector(".tns-outer > .tns-controls")!.appendChild(closeBtn);
+          document.querySelector(".tns-outer > .tns-controls")?.appendChild(closeBtn);
         },
         { once: true }
       );

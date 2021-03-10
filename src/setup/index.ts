@@ -1,3 +1,4 @@
+import { VueConstructor } from "vue";
 import Photo from "@/components/Photo.vue";
 import PhotoViewer from "@/components/PhotoViewer.vue";
 import PhotoMultiViewer from "@/components/PhotoMultiViewer.vue";
@@ -11,7 +12,7 @@ interface Config {
 }
 
 // What should happen if the user installs the library as a plugin
-function install(Vue: any, config: Config = {}) {
+function install(Vue: VueConstructor, config: Config = {}) {
   if (config.installComponents) {
     Vue.component("Photo", Photo);
     Vue.component("PhotoViewer", PhotoViewer);
