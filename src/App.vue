@@ -15,12 +15,6 @@
     />
     <PhotoViewer />
     <PhotoMultiViewer />
-    <div style="width: 100%; height:100%;">
-      <img
-        style="position: relative; left: 2.5%; height: 95%; width: 95%; object-fit: contain"
-        src="@/assets/bird.jpg"
-      />
-    </div>
   </div>
 </template>
 
