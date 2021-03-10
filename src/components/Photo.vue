@@ -1,6 +1,6 @@
 <template>
   <div class="medium-pack-photo" @click="enlarge">
-    <img ref="img" :src="src" :data-src="dataSrc" :alt="alt" />
+    <img ref="img" :src="src" :data-src="dataSrc" :data-srcset="dataSrcset" :sizes="sizes" :alt="alt" />
     <i class="cross h-24 w-24"></i>
   </div>
 </template>
@@ -11,8 +11,10 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 export default class Photo extends Vue {
   $refs!: { img: HTMLImageElement };
   @Prop({ required: true }) src: string;
-  @Prop() dataSrc: string;
   @Prop() alt: string;
+  @Prop() sizes: string;
+  @Prop() dataSrc: string;
+  @Prop() dataSrcset: string;
   @Prop() dontenlargeonclick: string;
   @Prop() multiview: string;
   enlarge() {

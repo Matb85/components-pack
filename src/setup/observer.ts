@@ -3,7 +3,9 @@ const observer = new IntersectionObserver(
     entries.forEach(entry => {
       if (entry.intersectionRatio <= 0) return;
       const img = entry.target as HTMLImageElement;
-      img.src = img.dataset.src as string;
+      if (!img.dataset.srcset) img.src = img.dataset.src as string;
+      else img.srcset = img.dataset.srcset as string;
+
       observer.unobserve(img);
       img.addEventListener("load", () => {
         img.classList.add("loaded");

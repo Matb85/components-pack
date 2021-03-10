@@ -4,7 +4,9 @@
     <Photo
       :src="require('@/assets/thumbnail_gorge.jpg')"
       multiview
-      :data-src="require('@/assets/gorge.jpg')"
+      :data-srcset="
+        `${require('@/assets/hvga_gorge.jpg')} 720w, ${require('@/assets/hd_gorge.jpg')} 1280w, ${require('@/assets/fhd_gorge.jpg')} 1920w, ${require('@/assets/gorge.jpg')} 2400w`
+      "
       class="photo"
     />
     <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />

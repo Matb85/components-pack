@@ -38,7 +38,8 @@ export default class PhotoViewerMixin extends Vue {
           ref.style.setProperty("--enlarged-photo-h", 95 * (1 / aspectR) + "vw");
         }
       };
-      ref.src = img.src;
+      if (!img.dataset.srcset) ref.src = img.src;
+      else ref.srcset = img.dataset.srcset;
     });
   }
 
@@ -59,7 +60,7 @@ export default class PhotoViewerMixin extends Vue {
         () => {
           console.log("transitionend");
           this.$el.classList.remove("photo-viewer-close", "photo-viewer-open");
-          this.$refs.img.style.cssText = "";
+          this.$refs.img.removeAttribute("style");
           resolve();
         },
         { once: true }

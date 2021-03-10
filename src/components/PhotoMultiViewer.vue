@@ -20,6 +20,7 @@ import { Component, Mixins } from "vue-property-decorator";
 import PhotoViewerMixin from "@/mixins/photoViewerMixin";
 import { tns, TinySliderInstance } from "tiny-slider/src/tiny-slider";
 import arrow from "!raw-loader!@/assets/arrow.svg";
+const IMGPATH = ".photo-multi-viewer .first-slide img.viewed-photo";
 type ImageArray = HTMLImageElement[];
 
 @Component
@@ -30,7 +31,7 @@ export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
   mounted() {
     this.$root.$on(this.trigger, (img: HTMLImageElement) => {
       /** reset reference for the enlarged image */
-      this.$refs.img = document.querySelector(".photo-multi-viewer .first-slide > img") as HTMLImageElement;
+      this.$refs.img = document.querySelector(IMGPATH) as HTMLImageElement;
 
       /** get all the images on the page exluding those with duplicate urls and the enlarged picture */
       const setObj: Array<string | undefined> = []; // create key value pair from array of array
@@ -71,6 +72,8 @@ export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
             async () => {
               await this.close();
               if (this.slider) this.slider.destroy();
+              this.$refs.img = document.querySelector(IMGPATH) as HTMLImageElement;
+              this.$refs.img.removeAttribute("style");
             },
             { once: true }
           );
