@@ -34,6 +34,7 @@
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "pwa-asset-generator": "^4.1.1",
+    "raw-loader": "^4.0.2",
     "sass-loader": "^8.0.2",
     "sharp": "^0.27.2",
     "typescript": "~3.9.3",

@@ -1,5 +1,5 @@
 <template>
-  <section class="photo-viewer" @click="close">
+  <section class="photo-viewer" @click.self="close">
     <img ref="img" class="viewed-photo" />
   </section>
 </template>
