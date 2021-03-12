@@ -17,9 +17,9 @@
 
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
-import PhotoViewerMixin from "@/mixins/photoViewerMixin";
+import PhotoViewerMixin from "../mixins/photoViewerMixin";
 import { tns, TinySliderInstance } from "tiny-slider/src/tiny-slider";
-import arrow from "!raw-loader!@/assets/arrow.svg";
+import arrow from "!raw-loader!../assets/arrow.svg";
 const IMGPATH = ".photo-multi-viewer .first-slide img.viewed-photo";
 type ImageArray = HTMLImageElement[];
 
@@ -46,6 +46,7 @@ export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
         return acc;
       }, []);
 
+      /** wait for the image to transition to full screen */
       this.$refs.img.addEventListener(
         "transitionend",
         () => {

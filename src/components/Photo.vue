@@ -21,8 +21,10 @@ export default class Photo extends Vue {
     if (this.$refs.img.classList.contains("loaded") && typeof this.dontenlargeonclick === "undefined")
       this.$root.$emit(typeof this.multiview === "undefined" ? "enlargePhoto" : "enlargeManyPhotos", this.$refs.img);
   }
-  mounted() {
-    this.$mediumPack.observer.observe(this.$refs.img);
+  async mounted() {
+    const observer =
+      this.$store && this.$store.state.observer ? this.$store.state.observer : (await import("@/setup")).observer;
+    observer.observe(this.$refs.img);
   }
 }
 </script>

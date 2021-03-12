@@ -5,11 +5,18 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:docs": "vue-cli-service build --modern --dest ./docs ./src/main.ts",
+    "build:lib": "vue-cli-service build --target lib --name photoviewer ./src/setup/index.ts",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "imgs": "node ./imgs/imageResizer.js",
     "release": "standard-version"
   },
+  "main": "dist/photoviewer.umd.js",
+  "files": [
+    "dist/*"
+  ],
+  "types": "index.d.ts",
   "dependencies": {
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",

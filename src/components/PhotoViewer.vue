@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
-import PhotoViewerMixin from "@/mixins/photoViewerMixin";
+import PhotoViewerMixin from "../mixins/photoViewerMixin";
 
 @Component
 export default class PhotoViewer extends Mixins(PhotoViewerMixin) {
@@ -34,7 +34,7 @@ export default class PhotoViewer extends Mixins(PhotoViewerMixin) {
     object-fit: cover;
     position: relative;
     transform: scale(1.05);
-    transition: 1s all !important;
+    transition: 0.6s all !important;
   }
 }
 html .photo-viewer-close {
