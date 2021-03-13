@@ -15,7 +15,6 @@ export default class PhotoViewerMixin extends Vue {
 
   mounted() {
     this.$root.$on(this.trigger, (img: HTMLImageElement) => {
-      console.log(this.trigger);
       // console.dir(img);console.log(img.x, img.y, img.offsetHeight, img.offsetWidth);
       const root = document.documentElement;
       const { x, y } = this.getPosition(img);

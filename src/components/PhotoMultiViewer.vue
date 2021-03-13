@@ -18,7 +18,7 @@
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
 import PhotoViewerMixin from "../mixins/photoViewerMixin";
-import { tns, TinySliderInstance } from "tiny-slider/src/tiny-slider";
+import type { TinySliderInstance } from "tiny-slider";
 import arrow from "!raw-loader!../assets/arrow.svg";
 const IMGPATH = ".photo-multi-viewer .first-slide img.viewed-photo";
 type ImageArray = HTMLImageElement[];
@@ -27,8 +27,8 @@ type ImageArray = HTMLImageElement[];
 export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
   trigger = "enlargeManyPhotos";
   allImgs: HTMLImageElement[] = [];
-  slider: null | TinySliderInstance;
-  mounted() {
+  slider: TinySliderInstance;
+  async mounted() {
     this.$root.$on(this.trigger, (img: HTMLImageElement) => {
       /** reset reference for the enlarged image */
       this.$refs.img = document.querySelector(IMGPATH) as HTMLImageElement;
@@ -49,9 +49,9 @@ export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
       /** wait for the image to transition to full screen */
       this.$refs.img.addEventListener(
         "transitionend",
-        () => {
+        async () => {
           if (!this.slider) {
-            this.slider = tns({
+            this.slider = (await import("tiny-slider/src/tiny-slider")).tns({
               container: ".photo-slider",
               mouseDrag: true,
               preventScrollOnTouch: "auto",

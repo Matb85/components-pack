@@ -16,6 +16,7 @@
       class="photo"
     />
     <PhotoViewer />
+    <PhotoMultiViewer />
   </div>
 </template>
 
