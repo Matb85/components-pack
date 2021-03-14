@@ -1,34 +1,36 @@
 <template>
   <div class="medium-pack-photo" @click="enlarge">
     <img ref="img" :src="src" :data-src="dataSrc" :data-srcset="dataSrcset" :sizes="sizes" :alt="alt" />
-    <i class="cross h-24 w-24"></i>
+    <span class="cross"></span>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator";
-@Component
-export default class Photo extends Vue {
-  $refs!: { img: HTMLImageElement };
-  @Prop({ required: true }) src: string;
-  @Prop() alt: string;
-  @Prop() sizes: string;
-  @Prop() dataSrc: string;
-  @Prop() dataSrcset: string;
-  @Prop() dontenlargeonclick: string;
-  @Prop() multiview: string;
-  enlarge() {
-    if (this.$refs.img.classList.contains("loaded") && typeof this.dontenlargeonclick === "undefined")
-      this.$root.$emit(typeof this.multiview === "undefined" ? "enlargePhoto" : "enlargeManyPhotos", this.$refs.img);
-  }
+<script>
+export default {
+  name: "Photo",
+  props: {
+    src: String,
+    alt: String,
+    sizes: String,
+    dataSrc: String,
+    dataSrcset: String,
+    dontenlargeonclick: String,
+    multiview: String,
+  },
+  methods: {
+    enlarge() {
+      if (this.$refs.img.classList.contains("loaded") && typeof this.dontenlargeonclick === "undefined")
+        this.$root.$emit(typeof this.multiview === "undefined" ? "enlargePhoto" : "enlargeManyPhotos", this.$refs.img);
+    },
+  },
   async mounted() {
     const observer = new IntersectionObserver(
       async entries => {
         entries.forEach(entry => {
           if (entry.intersectionRatio <= 0) return;
-          const img = entry.target as HTMLImageElement;
-          if (!img.dataset.srcset) img.src = img.dataset.src as string;
-          else img.srcset = img.dataset.srcset as string;
+          const img = entry.target;
+          if (!img.dataset.srcset) img.src = img.dataset.src;
+          else img.srcset = img.dataset.srcset;
 
           observer.unobserve(img);
           img.addEventListener("load", () => {
@@ -41,8 +43,8 @@ export default class Photo extends Vue {
     );
 
     observer.observe(this.$refs.img);
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">

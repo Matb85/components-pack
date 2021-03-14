@@ -1,9 +1,8 @@
 import type { VueConstructor } from "vue";
-import Photo from "@/components/Photo.vue";
-import PhotoViewer from "@/components/PhotoViewer.vue";
-// import PhotoMultiViewer from "@/components/PhotoMultiViewer.vue";
+import Photo from "../components/Photo.vue";
+import PhotoViewer from "../components/PhotoViewer.vue";
+// import PhotoMultiViewer from "../components/PhotoMultiViewer.vue";
 // import observer from "./observer";
-
 // Export the components one by one
 export { Photo, PhotoViewer };
 
@@ -16,9 +15,3 @@ function install(Vue: VueConstructor) {
 // Export the library as a plugin
 export default install;
 
-//this project does not use vuex, it's only to appease typescript in Photo.vue
-//declare module "vue/types/vue" {
-//  interface Vue {
-//    $store: { state: { observer: IntersectionObserver } };
-//  }
-//}

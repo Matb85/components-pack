@@ -15,30 +15,32 @@
   </section>
 </template>
 
-<script lang="ts">
-import { Component, Mixins } from "vue-property-decorator";
-import PhotoViewerMixin from "../mixins/photoViewerMixin";
-import type { TinySliderInstance } from "tiny-slider";
-import arrow from "!raw-loader!../assets/arrow.svg";
+<script>
+import PhotoViewerMixin from "../mixins/photoViewerMixin.js";
+import { tns } from "tiny-slider/src/tiny-slider.module.js";
+import "tiny-slider/dist/tiny-slider.css";
+const arrow = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"><path d="M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z"/></svg>`;
 const IMGPATH = ".photo-multi-viewer .first-slide img.viewed-photo";
-type ImageArray = HTMLImageElement[];
 
-@Component
-export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
-  trigger = "enlargeManyPhotos";
-  allImgs: HTMLImageElement[] = [];
-  slider: TinySliderInstance;
+export default {
+  mixins: [PhotoViewerMixin],
+  name: "PhotoMultiViewer",
+  data: () => ({
+    trigger: "enlargeManyPhotos",
+    allImgs: [],
+    slider: null,
+  }),
   async mounted() {
-    this.$root.$on(this.trigger, (img: HTMLImageElement) => {
+    this.$root.$on(this.trigger, img => {
       /** reset reference for the enlarged image */
-      this.$refs.img = document.querySelector(IMGPATH) as HTMLImageElement;
+      this.$refs.img = document.querySelector(IMGPATH);
 
       /** get all the images on the page exluding those with duplicate urls and the enlarged picture */
-      const setObj: Array<string | undefined> = []; // create key value pair from array of array
-      const nodes: ImageArray = Array.from(
-        document.querySelectorAll("div.medium-pack-photo > img:not(.tns-lazy)") as NodeListOf<HTMLImageElement>
-      ).filter(x => x.src !== img.src);
-      this.allImgs = nodes.reduce((acc: ImageArray, item) => {
+      const setObj = []; // create key value pair from array of array
+      const nodes = Array.from(document.querySelectorAll("div.medium-pack-photo > img:not(.tns-lazy)")).filter(
+        x => x.src !== img.src
+      );
+      this.allImgs = nodes.reduce((acc, item) => {
         if (!setObj.includes(item.dataset.src)) {
           setObj.push(item.dataset.src);
           acc.push(item);
@@ -49,9 +51,9 @@ export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
       /** wait for the image to transition to full screen */
       this.$refs.img.addEventListener(
         "transitionend",
-        async () => {
+        () => {
           if (!this.slider) {
-            this.slider = (await import("tiny-slider/src/tiny-slider")).tns({
+            this.slider = tns({
               container: ".photo-slider",
               mouseDrag: true,
               preventScrollOnTouch: "auto",
@@ -73,7 +75,7 @@ export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
             async () => {
               await this.close();
               if (this.slider) this.slider.destroy();
-              this.$refs.img = document.querySelector(IMGPATH) as HTMLImageElement;
+              this.$refs.img = document.querySelector(IMGPATH);
               this.$refs.img.removeAttribute("style");
             },
             { once: true }
@@ -83,13 +85,11 @@ export default class PhotoMultiViewer extends Mixins(PhotoViewerMixin) {
         { once: true }
       );
     });
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">
-@import "~tiny-slider/src/tiny-slider.scss";
-
 @mixin wh($dim: 100%) {
   width: $dim;
   height: $dim;

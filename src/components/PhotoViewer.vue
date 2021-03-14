@@ -4,14 +4,15 @@
   </section>
 </template>
 
-<script lang="ts">
-import { Component, Mixins } from "vue-property-decorator";
-import PhotoViewerMixin from "../mixins/photoViewerMixin";
-
-@Component
-export default class PhotoViewer extends Mixins(PhotoViewerMixin) {
-  trigger = "enlargePhoto";
-}
+<script>
+import Mixin from "../mixins/photoViewerMixin.js";
+export default {
+  mixins: [Mixin],
+  name: "PhotoViewer",
+  data: () => ({
+    trigger: "enlargePhoto",
+  }),
+};
 </script>
 
 <style lang="scss">
