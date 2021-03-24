@@ -16,14 +16,16 @@
       class="photo"
     />
     <PhotoViewer />
+    <PhotoMultiViewer />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { Photo, PhotoViewer } from "@/setup";
+import PhotoMultiViewer from "@/components/PhotoMultiViewer.vue";
 
-@Component({ components: { Photo, PhotoViewer } })
+@Component({ components: { Photo, PhotoViewer, PhotoMultiViewer } })
 export default class App extends Vue {}
 </script>
 

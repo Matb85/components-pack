@@ -9,9 +9,7 @@ import Mixin from "../mixins/photoViewerMixin.js";
 export default {
   mixins: [Mixin],
   name: "PhotoViewer",
-  data: () => ({
-    trigger: "enlargePhoto",
-  }),
+  data: () => ({ trigger: "enlargePhoto" }),
 };
 </script>
 
@@ -35,7 +33,7 @@ export default {
     object-fit: cover;
     position: relative;
     transform: scale(1.05);
-    transition: 0.6s all !important;
+    // transition: 0.6s all !important;
   }
 }
 html .photo-viewer-close {
@@ -47,13 +45,12 @@ html .photo-viewer-close {
   .viewed-photo {
     $h: var(--enlarged-photo-h);
     $w: var(--enlarged-photo-w);
-    transform: scale(1);
 
-    width: $w !important;
-    height: $h !important;
-    top: calc((100vh - #{$h}) / 2) !important;
-    left: calc((100% - #{$w}) / 2) !important;
-    //animation: 0.6s place-img forwards;
+    // width: $w !important;
+    // height: $h !important;
+    // top: calc((100vh - #{$h}) / 2) !important;
+    // left: calc((100% - #{$w}) / 2) !important;
+    animation: 0.5s place-img forwards;
   }
 }
 

@@ -10,7 +10,7 @@ module.exports = {
     "@vue/prettier",
     "@vue/prettier/@typescript-eslint",
   ],
-  ignorePatterns: ["imgs", "dist", "node_modules"],
+  ignorePatterns: ["imgs", "dist", "node_modules/*", "modular-slider.js"],
   parserOptions: {
     ecmaVersion: 2020,
   },

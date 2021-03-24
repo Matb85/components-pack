@@ -40,16 +40,12 @@ export default {
     },
     close() {
       return new Promise(resolve => {
-        this.$el.addEventListener(
-          "transitionend",
-          () => {
-            console.log("transitionend");
-            this.$el.classList.remove("photo-viewer-close", "photo-viewer-open");
-            this.$refs.img.removeAttribute("style");
-            resolve();
-          },
-          { once: true }
-        );
+        setTimeout(() => {
+          console.log("transitionend");
+          this.$el.classList.remove("photo-viewer-close", "photo-viewer-open");
+          this.$refs.img.removeAttribute("style");
+          resolve();
+        }, process.env.VUE_APP_TRANSITION_DUR);
         this.$el.classList.add("photo-viewer-close");
       });
     },

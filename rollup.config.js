@@ -1,11 +1,13 @@
 import vue from "rollup-plugin-vue";
-import typescript from "rollup-plugin-typescript2";
 import scss from "rollup-plugin-scss";
-import { terser } from "rollup-plugin-terser";
-import strip from "@rollup/plugin-strip";
+import typescript from "rollup-plugin-typescript2";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
+import replace from "@rollup/plugin-replace";
+import strip from "@rollup/plugin-strip";
+import { terser } from "rollup-plugin-terser";
 //import babel from "@rollup/plugin-babel";
+
 export default {
   input: "src/setup/index.ts",
   output: {
@@ -38,6 +40,8 @@ export default {
     commonjs(),
     resolve(),
     strip(),
+    replace({ "process.env.VUE_APP_TRANSITION_DUR": 500 }),
+    replace(),
     terser(),
   ],
 };

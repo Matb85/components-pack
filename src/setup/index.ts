@@ -1,10 +1,10 @@
 import type { VueConstructor } from "vue";
 import Photo from "../components/Photo.vue";
 import PhotoViewer from "../components/PhotoViewer.vue";
-// import PhotoMultiViewer from "../components/PhotoMultiViewer.vue";
+import PhotoMultiViewer from "../components/PhotoMultiViewer.vue";
 // import observer from "./observer";
 // Export the components one by one
-export { Photo, PhotoViewer };
+export { Photo, PhotoViewer,PhotoMultiViewer };
 
 // What should happen if the user installs the library as a plugin
 function install(Vue: VueConstructor) {
