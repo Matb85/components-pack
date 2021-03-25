@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Mixin from "../mixins/photoViewerMixin.js";
+import Mixin from "./photoViewerMixin.js";
 export default {
   mixins: [Mixin],
   name: "PhotoViewer",

@@ -28,14 +28,14 @@
 </template>
 
 <script>
-import PhotoViewerMixin from "../mixins/photoViewerMixin.js";
+import Mixin from "./photoViewerMixin.js";
 import { setup, Slidehandler, Noloop, lazyloading, buttons } from "modular-slider";
 import "modular-slider/dist/modular-slider.css";
 // const IMGPATH = ".photo-multi-viewer .first-slide img.viewed-photo";
 
 const Slider = setup(Slidehandler, Noloop);
 export default {
-  mixins: [PhotoViewerMixin],
+  mixins: [Mixin],
   name: "PhotoMultiViewer",
   data: () => ({
     svgPath:
@@ -45,7 +45,6 @@ export default {
     slider: null,
   }),
   async mounted() {
-    console.log(process.env);
     this.$root.$on(this.trigger, img => {
       /** get all the images on the page exluding those with duplicate urls and the enlarged picture */
       const setObj = []; // a reference array for ruling out duplicate imgs
