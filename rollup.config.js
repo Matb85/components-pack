@@ -40,7 +40,7 @@ export default {
     commonjs(),
     resolve(),
     strip(),
-    replace({ "process.env.VUE_APP_TRANSITION_DUR": 500 }),
+    replace({ "process.env.VUE_APP_TRANSITION_DUR": 500, preventAssignment: true }),
     replace(),
     terser(),
   ],

@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve dev/main.ts",
-    "build:docs": "vue-cli-service build --modern --dest ./docs ./src/main.ts",
-    "build:lib": "rimraf ./dist/* -Recurse -Force && rollup -c",
+    "build:docs": "vue-cli-service build --modern --dest ./docs ./dev/main.ts",
+    "build": "rimraf ./dist/* -Recurse -Force && rollup -c",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "imgs": "node ./imgs/imageResizer.js",
@@ -15,7 +15,7 @@
   "files": [
     "dist/*"
   ],
-  "types": "./dist/index.d.ts",
+  "types": "./index.d.ts",
   "peerDependencies": {
     "vue": "^2.6.11"
   },
