@@ -1,7 +1,6 @@
 {
   "name": "@matb85/vue-pack",
   "version": "0.3.0",
-  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve dev/main.ts",
     "build:docs": "vue-cli-service build --modern --dest ./docs ./dev/main.ts",
@@ -11,9 +10,10 @@
     "imgs": "node ./imgs/imageResizer.js",
     "release": "standard-version"
   },
-  "main": "dist/photopack.js",
+  "main": "dist/vuepack.js",
   "files": [
-    "dist/*"
+    "dist/*",
+    "index.d.ts"
   ],
   "types": "./index.d.ts",
   "peerDependencies": {

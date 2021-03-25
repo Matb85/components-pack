@@ -12,8 +12,8 @@ export default {
   input: "src/index.ts",
   output: {
     format: "umd",
-    file: "dist/photopack.js",
-    name: "photopack",
+    file: "dist/vuepack.js",
+    name: "vuepack",
     globals: {
       vue: "Vue",
     },
