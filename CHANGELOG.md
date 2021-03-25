@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](///compare/v0.2.0...v0.3.0) (2021-03-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* :truck: move revelant files to /dev
+* :boom: move over to Modular Slider
+
+### Features
+
+* :boom: move over to Modular Slider 223d507
+
+
+* :truck: move revelant files to /dev 8d92ab6
+
 ## [0.2.0](///compare/v0.1.1...v0.2.0) (2021-03-14)
 
 
