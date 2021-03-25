@@ -1,7 +1,7 @@
 {
-  "name": "photoviewer",
+  "name": "@matb85/vue-pack",
   "version": "0.2.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve dev/main.ts",
     "build:docs": "vue-cli-service build --modern --dest ./docs ./dev/main.ts",
