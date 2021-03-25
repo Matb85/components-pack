@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { Photo, PhotoViewer } from "@/setup";
+import { Photo, PhotoViewer } from "@/index";
 import PhotoMultiViewer from "@/components/PhotoMultiViewer.vue";
 
 @Component({ components: { Photo, PhotoViewer, PhotoMultiViewer } })

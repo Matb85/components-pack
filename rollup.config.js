@@ -9,7 +9,7 @@ import { terser } from "rollup-plugin-terser";
 //import babel from "@rollup/plugin-babel";
 
 export default {
-  input: "src/setup/index.ts",
+  input: "src/index.ts",
   output: {
     format: "umd",
     file: "dist/photopack.js",
