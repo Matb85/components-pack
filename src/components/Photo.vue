@@ -1,6 +1,6 @@
 <template>
   <div class="medium-pack-photo" @click="enlarge">
-    <img ref="img" :src="src" :data-srcset="srcset" :sizes="sizes" :alt="alt" />
+    <img ref="img" :src="src" :data-srcset="srcset" :sizes="sizes" :alt="alt" data-observerhandler="photo" />
     <span class="cross"></span>
   </div>
 </template>
@@ -23,8 +23,7 @@ export default {
     },
   },
   async mounted() {
-    this.$store.state.vuePackModule.observer.observe(this.$refs.img);
-    // this.$store.state.vuePackModule.observer.observe(this.$refs.img);
+    this.$store.state.vuepack.observer.observe(this.$refs.img);
   },
 };
 </script>

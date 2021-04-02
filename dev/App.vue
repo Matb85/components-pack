@@ -27,7 +27,17 @@ import PhotoViewer from "@/components/Viewers/PhotoViewer.vue";
 import Photo from "@/components/Photo.vue";
 
 @Component({ components: { Photo, PhotoViewer, PhotoMultiViewer } })
-export default class App extends Vue {}
+export default class App extends Vue {
+  mounted() {
+    this.$store.commit("vuepack/addhandler", {
+      name: "map",
+      handler: () => {
+        console.log("hi");
+      },
+    });
+    console.log(this.$store);
+  }
+}
 </script>
 
 <style lang="scss">
