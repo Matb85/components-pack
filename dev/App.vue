@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
+    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :srcset="require('@/assets/bird.jpg')" class="photo" />
     <Photo
       :src="require('@/assets/thumbnail_gorge.jpg')"
       multiview
-      :data-srcset="
+      :srcset="
         `${require('@/assets/hvga_gorge.jpg')} 720w, ${require('@/assets/hd_gorge.jpg')} 1280w, ${require('@/assets/fhd_gorge.jpg')} 1920w, ${require('@/assets/gorge.jpg')} 2400w`
       "
       class="photo"
     />
-    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :data-src="require('@/assets/bird.jpg')" class="photo" />
+    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :srcset="require('@/assets/bird.jpg')" class="photo" />
     <Photo
       :src="require('@/assets/thumbnail_mountains.jpg')"
-      :data-src="require('@/assets/mountains.jpg')"
+      :srcset="require('@/assets/mountains.jpg')"
       class="photo"
     />
     <PhotoViewer />

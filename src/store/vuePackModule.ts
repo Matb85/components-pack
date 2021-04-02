@@ -1,34 +1,22 @@
 import { Module } from "vuex";
 
-function getObserver(): IntersectionObserver | null {
-  if (typeof window === "undefined") return null;
-  const observer = new IntersectionObserver(
-    async entries => {
-      entries.forEach(entry => {
-        if (entry.intersectionRatio <= 0) return;
-        const img = entry.target as HTMLImageElement;
-        if (!img.dataset.srcset) img.src = img.dataset.src as string;
-        else img.srcset = img.dataset.srcset as string;
+class ObserverWrapper {
+  async handler(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio <= 0) return;
+      console.log(entry.target);
+      const img = entry.target as HTMLImageElement;
+      if (!img.dataset.srcset) img.src = img.dataset.src as string;
+      else img.srcset = img.dataset.srcset as string;
 
-        observer.unobserve(img);
-        img.addEventListener("load", () => {
-          img.classList.add("loaded");
-        });
-        return;
-      });
-    },
-    { rootMargin: "0px", threshold: 0.05 }
-  );
-  return observer;
-}
-
-interface StateI {
-  observer: IntersectionObserver | null;
+      observer.unobserve(img);
+      img.addEventListener("load", () => img.classList.add("loaded"));
+    });
+  }
+  observer = new IntersectionObserver(this.handler.bind(this), { rootMargin: "0px", threshold: 0.05 });
 }
 
 export default {
   namespaced: true,
-  state: {
-    observer: getObserver(),
-  },
-} as Module<StateI, StateI>;
+  state: new ObserverWrapper(),
+} as Module<{}, {}>;

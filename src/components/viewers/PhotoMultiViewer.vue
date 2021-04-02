@@ -7,7 +7,7 @@
       <div v-for="img of allImgs" :key="img.src" class="other-slides">
         <div class="wrapper">
           <div class="medium-pack-photo no-hover">
-            <img class="ms-lazy" :src="img.src" :data-src="img.dataset.src" />
+            <img class="ms-lazy" :src="img.src" :data-srcset="img.dataset.src" />
           </div>
         </div>
       </div>

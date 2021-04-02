@@ -1,6 +1,6 @@
 <template>
   <div class="medium-pack-photo" @click="enlarge">
-    <img ref="img" :src="src" :data-src="dataSrc" :data-srcset="dataSrcset" :sizes="sizes" :alt="alt" />
+    <img ref="img" :src="src" :data-srcset="srcset" :sizes="sizes" :alt="alt" />
     <span class="cross"></span>
   </div>
 </template>
@@ -12,8 +12,7 @@ export default {
     src: String,
     alt: String,
     sizes: String,
-    dataSrc: String,
-    dataSrcset: String,
+    srcset: String,
     dontenlargeonclick: String,
     multiview: String,
   },
@@ -25,6 +24,7 @@ export default {
   },
   async mounted() {
     this.$store.state.vuePackModule.observer.observe(this.$refs.img);
+    // this.$store.state.vuePackModule.observer.observe(this.$refs.img);
   },
 };
 </script>
