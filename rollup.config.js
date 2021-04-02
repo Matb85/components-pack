@@ -4,8 +4,8 @@ import typescript from "rollup-plugin-typescript2";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
-import strip from "@rollup/plugin-strip";
-import { terser } from "rollup-plugin-terser";
+// import strip from "@rollup/plugin-strip";
+// import { terser } from "rollup-plugin-terser";
 //import babel from "@rollup/plugin-babel";
 
 export default {
@@ -39,9 +39,8 @@ export default {
     scss({ sass: require("node-sass") }),
     commonjs(),
     resolve(),
-    strip(),
     replace({ "process.env.VUE_APP_TRANSITION_DUR": 500, preventAssignment: true }),
-    replace(),
-    terser(),
+    // strip(),
+    // terser(),
   ],
 };

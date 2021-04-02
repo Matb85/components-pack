@@ -45,6 +45,7 @@ export default {
     slider: null,
   }),
   async mounted() {
+    console.log(this.$store);
     this.$root.$on(this.trigger, img => {
       /** get all the images on the page exluding those with duplicate urls and the enlarged picture */
       const setObj = []; // a reference array for ruling out duplicate imgs
