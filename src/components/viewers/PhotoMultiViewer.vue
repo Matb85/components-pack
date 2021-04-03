@@ -44,7 +44,7 @@ export default {
     slider: null,
   }),
   async mounted() {
-    this.$root.$on(this.trigger, img => {
+    this.$root.$on(this.trigger, ({ img }) => {
       this.imgs = this.$store.state.vuepack.photolist.filter(x => x.src !== img.src);
       setTimeout(() => {
         this.slider = new Slider({
@@ -71,7 +71,7 @@ export default {
   width: $dim;
   height: $dim;
 }
-.photo-multi-viewer {
+.photo-viewer.photo-multi-viewer {
   --number-of-slides: 3;
   --slides-per-view: 1;
   cursor: grab;
@@ -122,9 +122,6 @@ export default {
     &:hover,
     &:focus {
       outline: none;
-    }
-    &:hover {
-      opacity: 1;
     }
     svg {
       width: 1.25rem;
@@ -177,15 +174,9 @@ export default {
 }
 
 .photo-multi-viewer.photo-viewer-open:not(.photo-viewer-close) button {
-  opacity: 1;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.6;
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
   }
 }
 </style>

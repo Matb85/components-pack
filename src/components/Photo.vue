@@ -19,8 +19,9 @@ export default {
   },
   methods: {
     enlarge() {
-      if (this.$refs.img.classList.contains("loaded") && typeof this.dontenlargeonclick === "undefined")
-        this.$root.$emit(typeof this.multiview === "undefined" ? "enlargePhoto" : "enlargeManyPhotos", this.$refs.img);
+      if (!this.$refs.img.classList.contains("loaded") || typeof this.dontenlargeonclick !== "undefined") return;
+      const enlarger = typeof this.multiview === "undefined" ? "enlargePhoto" : "enlargeManyPhotos";
+      this.$root.$emit(enlarger, { rect: this.$el.getBoundingClientRect(), img: this.$refs.img });
     },
   },
   async mounted() {
@@ -28,7 +29,6 @@ export default {
       this.$store.commit("vuepack/addphoto", { src: this.src, srcset: this.srcset });
 
     this.$store.state.vuepack.observer.observe(this.$refs.img);
-    console.log(this.$el.getBoundingClientRect());
   },
 };
 </script>
