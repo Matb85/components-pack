@@ -14,6 +14,7 @@ export default {
     sizes: String,
     srcset: String,
     dontenlargeonclick: String,
+    dontaddtolist: String,
     multiview: String,
   },
   methods: {
@@ -23,7 +24,11 @@ export default {
     },
   },
   async mounted() {
+    if (typeof this.dontaddtolist === "undefined")
+      this.$store.commit("vuepack/addphoto", { src: this.src, srcset: this.srcset });
+
     this.$store.state.vuepack.observer.observe(this.$refs.img);
+    console.log(this.$store.state.vuepack.photolist);
   },
 };
 </script>

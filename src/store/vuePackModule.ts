@@ -1,8 +1,13 @@
 import { Module } from "vuex";
 
 type Handler = (target: any) => void;
-
-class ObserverWrapper {
+interface Photo {
+  src: string;
+  srcset: string;
+}
+class VuePack {
+  /** IntersectionObserver's logic */
+  /** handler for the IntersectionObserver */
   async callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
     entries.forEach(entry => {
       if (entry.intersectionRatio <= 0) return;
@@ -11,8 +16,12 @@ class ObserverWrapper {
       observer.unobserve(target);
     });
   }
-  observer = new IntersectionObserver(this.callback.bind(this), { rootMargin: "0px", threshold: 0.05 });
-
+  /** set up a new IntersectionObserver if in the browser */
+  observer =
+    typeof window === "undefined"
+      ? {}
+      : new IntersectionObserver(this.callback.bind(this), { rootMargin: "0px", threshold: 0.05 });
+  /** handler for different needs */
   handlers: Record<string, Handler> = {
     photo(img: HTMLImageElement) {
       if (!img.dataset.srcset) img.src = img.dataset.src as string;
@@ -20,22 +29,22 @@ class ObserverWrapper {
       img.addEventListener("load", () => img.classList.add("loaded"));
     },
   };
+  /** list of photos on the page */
+  photolist: Photo[] = [];
 }
 
-interface AddHandlerForm {
-  name: string;
-  handler: Handler;
-}
-
-export default {
+export const vuepack = {
   namespaced: true,
-  state: new ObserverWrapper(),
+  state: new VuePack(),
   mutations: {
-    addhandler(state: ObserverWrapper, { name, handler }: AddHandlerForm) {
+    addhandler(state: VuePack, { name, handler }: { name: string; handler: Handler }) {
       state.handlers[name] = handler;
     },
-    removeHandler(state: ObserverWrapper, name: string) {
+    removeHandler(state: VuePack, name: string) {
       delete state.handlers[name];
     },
+    addphoto(state: VuePack, payload: Photo) {
+      if (!state.photolist.map(x => x.src).includes(payload.src)) state.photolist.push(payload);
+    },
   },
-} as Module<ObserverWrapper, ObserverWrapper>;
+} as Module<VuePack, VuePack>;

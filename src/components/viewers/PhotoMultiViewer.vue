@@ -4,10 +4,14 @@
       <div class="first-slide">
         <img ref="img" class="viewed-photo" />
       </div>
-      <div v-for="img of allImgs" :key="img.src" class="other-slides">
+      <div
+        v-for="img of $store.state.vuepack.photolist.filter(x => x.src !== imgsrc)"
+        :key="img.src"
+        class="other-slides"
+      >
         <div class="wrapper">
           <div class="medium-pack-photo no-hover">
-            <img class="ms-lazy" :src="img.src" :data-srcset="img.dataset.src" />
+            <img class="ms-lazy" :src="img.src" :data-srcset="img.srcset" />
           </div>
         </div>
       </div>
@@ -23,7 +27,7 @@
         <path :d="svgPath" />
       </svg>
     </button>
-    <button ref="close" id="close-multi-viewer"></button>
+    <button @click="closeviewer" id="close-multi-viewer"></button>
   </section>
 </template>
 
@@ -31,7 +35,6 @@
 import Mixin from "./photoViewerMixin.js";
 import { setup, Slidehandler, Noloop, lazyloading, buttons } from "modular-slider";
 import "modular-slider/dist/modular-slider.css";
-// const IMGPATH = ".photo-multi-viewer .first-slide img.viewed-photo";
 
 const Slider = setup(Slidehandler, Noloop);
 export default {
@@ -41,40 +44,29 @@ export default {
     svgPath:
       "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z",
     trigger: "enlargeManyPhotos",
-    allImgs: [],
+    imgsrc: "",
     slider: null,
   }),
   async mounted() {
     console.log(this.$store);
     this.$root.$on(this.trigger, img => {
-      /** get all the images on the page exluding those with duplicate urls and the enlarged picture */
-      const setObj = []; // a reference array for ruling out duplicate imgs
-      const nodes = Array.from(document.querySelectorAll("div.medium-pack-photo > img:not(.ms-lazy)")).filter(
-        x => x.src !== img.src
-      );
-      this.allImgs = nodes.reduce((acc, item) => {
-        if (!setObj.includes(item.dataset.src)) {
-          setObj.push(item.dataset.src);
-          acc.push(item);
-        }
-        return acc;
-      }, []);
-      /** wait for the image to transition to full screen */
+      this.imgsrc = img.src;
       setTimeout(() => {
         this.slider = new Slider({
           container: "photo-slider",
           transitionSpeed: 500,
           plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })],
         });
-        this.$refs.close.onclick = null;
-        this.$refs.close.onclick = async () => {
-          await this.close();
-          this.slider.slideTo(0);
-          this.slider.destroy();
-          this.$refs.img.removeAttribute("style");
-        };
       }, process.env.VUE_APP_TRANSITION_DUR);
     });
+  },
+  methods: {
+    async closeviewer() {
+      await this.close();
+      this.slider.slideTo(0);
+      this.slider.destroy();
+      this.$refs.img.removeAttribute("style");
+    },
   },
 };
 </script>
