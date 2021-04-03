@@ -28,7 +28,7 @@ export default {
       this.$store.commit("vuepack/addphoto", { src: this.src, srcset: this.srcset });
 
     this.$store.state.vuepack.observer.observe(this.$refs.img);
-    console.log(this.$store.state.vuepack.photolist);
+    console.log(this.$el.getBoundingClientRect());
   },
 };
 </script>

@@ -4,11 +4,7 @@
       <div class="first-slide">
         <img ref="img" class="viewed-photo" />
       </div>
-      <div
-        v-for="img of $store.state.vuepack.photolist.filter(x => x.src !== imgsrc)"
-        :key="img.src"
-        class="other-slides"
-      >
+      <div v-for="img of imgs" :key="img.src" class="other-slides">
         <div class="wrapper">
           <div class="medium-pack-photo no-hover">
             <img class="ms-lazy" :src="img.src" :data-srcset="img.srcset" />
@@ -44,13 +40,12 @@ export default {
     svgPath:
       "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z",
     trigger: "enlargeManyPhotos",
-    imgsrc: "",
+    imgs: [],
     slider: null,
   }),
   async mounted() {
-    console.log(this.$store);
     this.$root.$on(this.trigger, img => {
-      this.imgsrc = img.src;
+      this.imgs = this.$store.state.vuepack.photolist.filter(x => x.src !== img.src);
       setTimeout(() => {
         this.slider = new Slider({
           container: "photo-slider",

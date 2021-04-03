@@ -5,7 +5,7 @@ interface Photo {
   src: string;
   srcset: string;
 }
-class VuePack {
+export class VuePackClass {
   /** IntersectionObserver's logic */
   /** handler for the IntersectionObserver */
   async callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
@@ -35,16 +35,16 @@ class VuePack {
 
 export const vuepack = {
   namespaced: true,
-  state: new VuePack(),
+  state: new VuePackClass(),
   mutations: {
-    addhandler(state: VuePack, { name, handler }: { name: string; handler: Handler }) {
+    addhandler(state: VuePackClass, { name, handler }: { name: string; handler: Handler }) {
       state.handlers[name] = handler;
     },
-    removeHandler(state: VuePack, name: string) {
+    removeHandler(state: VuePackClass, name: string) {
       delete state.handlers[name];
     },
-    addphoto(state: VuePack, payload: Photo) {
+    addphoto(state: VuePackClass, payload: Photo) {
       if (!state.photolist.map(x => x.src).includes(payload.src)) state.photolist.push(payload);
     },
   },
-} as Module<VuePack, VuePack>;
+} as Module<VuePackClass, VuePackClass>;
