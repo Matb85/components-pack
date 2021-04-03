@@ -6,7 +6,10 @@
       </div>
       <div v-for="img of imgs" :key="img.src" class="other-slides">
         <div class="wrapper">
-          <div class="medium-pack-photo no-hover">
+          <div
+            class="medium-pack-photo no-hover"
+            :style="{ '--enlarged-photo-w': img.width, '--enlarged-photo-h': img.height }"
+          >
             <img class="ms-lazy" :src="img.src" :data-srcset="img.srcset" />
           </div>
         </div>
@@ -45,7 +48,12 @@ export default {
   }),
   async mounted() {
     this.$root.$on(this.trigger, ({ img }) => {
-      this.imgs = this.$store.state.vuepack.photolist.filter(x => x.src !== img.src);
+      this.imgs = this.$store.state.vuepack.photolist.filter(x => {
+        const { w, h } = this.getdimensions(x.ratio);
+        x.width = w;
+        x.height = h;
+        return x.src !== img.src;
+      });
       setTimeout(() => {
         this.slider = new Slider({
           container: "photo-slider",
@@ -75,12 +83,13 @@ export default {
   --number-of-slides: 3;
   --slides-per-view: 1;
   cursor: grab;
-  .medium-pack-photo.tns-slide-clone > img {
-    filter: blur(0vw) !important;
-  }
   .photo-slider {
     width: 100%;
     height: 100vh;
+  }
+  .first-slide,
+  .other-slides {
+    overflow: hidden;
   }
   > .viewed-photo {
     @include wh;
@@ -98,10 +107,8 @@ export default {
       justify-content: center;
       align-items: center;
       .medium-pack-photo {
-        width: auto;
-        height: auto;
-        max-width: 95%;
-        max-height: 95%;
+        width: var(--enlarged-photo-w);
+        height: var(--enlarged-photo-h);
       }
     }
   }

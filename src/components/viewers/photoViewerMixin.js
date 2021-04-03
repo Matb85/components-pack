@@ -5,14 +5,9 @@ export default {
       ref.style.cssText = `top: ${rect.y}px; left: ${rect.x}px; width: ${img.offsetWidth}px; height: ${img.offsetHeight}px;`;
       ref.onload = () => {
         this.$el.classList.add("photo-viewer-open");
-        const aspectR = img.naturalWidth / img.naturalHeight;
-        if (window.innerWidth / window.innerHeight > aspectR) {
-          ref.style.setProperty("--enlarged-photo-w", 95 * aspectR + "vh");
-          ref.style.setProperty("--enlarged-photo-h", "95vh");
-        } else {
-          ref.style.setProperty("--enlarged-photo-w", "95vw");
-          ref.style.setProperty("--enlarged-photo-h", 95 * (1 / aspectR) + "vw");
-        }
+        const { w, h } = this.getdimensions(img.naturalWidth / img.naturalHeight);
+        ref.style.setProperty("--enlarged-photo-w", w);
+        ref.style.setProperty("--enlarged-photo-h", h);
       };
       ref.srcset = img.dataset.srcset;
     });
@@ -28,6 +23,10 @@ export default {
         }, process.env.VUE_APP_TRANSITION_DUR);
         this.$el.classList.add("photo-viewer-close");
       });
+    },
+    getdimensions(aspectR) {
+      if (window.innerWidth / window.innerHeight > aspectR) return { w: 95 * aspectR + "vh", h: "95vh" };
+      else return { w: "95vw", h: 95 * (1 / aspectR) + "vw" };
     },
   },
 };

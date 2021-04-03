@@ -24,11 +24,21 @@ export default {
       this.$root.$emit(enlarger, { rect: this.$el.getBoundingClientRect(), img: this.$refs.img });
     },
   },
-  async mounted() {
-    if (typeof this.dontaddtolist === "undefined")
-      this.$store.commit("vuepack/addphoto", { src: this.src, srcset: this.srcset });
+  mounted() {
+    const img = this.$refs.img;
 
-    this.$store.state.vuepack.observer.observe(this.$refs.img);
+    if (typeof this.dontaddtolist === "undefined")
+      img.addEventListener(
+        "load",
+        () =>
+          this.$store.commit("vuepack/addphoto", {
+            src: this.src,
+            srcset: this.srcset,
+            ratio: img.naturalWidth / img.naturalHeight,
+          }),
+        { once: true }
+      );
+    this.$store.state.vuepack.observer.observe(img);
   },
 };
 </script>
@@ -52,7 +62,7 @@ export default {
     transform: scale(1.05);
   }
   &:not(.no-hover) > img {
-    cursor: pointer;
+    cursor: zoom-in;
   }
   > img.loaded {
     filter: blur(0vw) brightness(100%);

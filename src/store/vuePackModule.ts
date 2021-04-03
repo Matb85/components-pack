@@ -4,7 +4,9 @@ type Handler = (target: any) => void;
 interface Photo {
   src: string;
   srcset: string;
+  ratio: string;
 }
+
 export class VuePackClass {
   /** IntersectionObserver's logic */
   /** handler for the IntersectionObserver */
@@ -24,9 +26,8 @@ export class VuePackClass {
   /** handler for different needs */
   handlers: Record<string, Handler> = {
     photo(img: HTMLImageElement) {
-      if (!img.dataset.srcset) img.src = img.dataset.src as string;
-      else img.srcset = img.dataset.srcset as string;
       img.addEventListener("load", () => img.classList.add("loaded"));
+      img.srcset = img.dataset.srcset as string;
     },
   };
   /** list of photos on the page */
