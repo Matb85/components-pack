@@ -61,7 +61,7 @@ export default {
     filter: blur(3vw) brightness(100%);
     transform: scale(1.05);
   }
-  &:not(.no-hover) > img {
+  &:not(.no-hover) {
     cursor: zoom-in;
   }
   > img.loaded {
