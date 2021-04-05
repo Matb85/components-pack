@@ -1,6 +1,6 @@
 {
   "name": "@matb85/vue-pack",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "scripts": {
     "serve": "vue-cli-service serve dev/main.ts",
     "build:docs": "vue-cli-service build --modern --dest ./docs ./dev/main.ts",

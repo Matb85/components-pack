@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](///compare/v0.3.1...v0.4.0) (2021-04-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* :boom: remove the data-src prop from Photo
+* :boom: add vuex
+
+### Features
+
+* **multi-viewer:** :iphone: adjust images' dimensions based on the viewport c0cd361
+* :sparkles: 00b878e
+* **multi-viewer:** :zap: load images from vuex e3862d4
+* :boom: add vuex 2ef0a07
+* :sparkles: add vuex mutations d39d46b
+* :zap: add a global IntersectionObserver 00d40b2
+
+
+### Bug Fixes
+
+* :bug: css e6bd772
+
+
+* :boom: remove the data-src prop from Photo e215608
+
 ### [0.3.1](///compare/v0.3.0...v0.3.1) (2021-03-25)
 
 
