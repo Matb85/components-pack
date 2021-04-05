@@ -39,7 +39,7 @@ export default {
     scss({ sass: require("node-sass") }),
     commonjs(),
     resolve(),
-    replace({ "process.env.VUE_APP_TRANSITION_DUR": 500, preventAssignment: true }),
+    replace({ "process.env.VUE_APP_TRANSITION_DUR": 400, preventAssignment: true }),
     // strip(),
     // terser(),
   ],
