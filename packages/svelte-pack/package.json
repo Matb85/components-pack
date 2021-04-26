@@ -1,0 +1,15 @@
+{
+  "name": "@matb85/svelte-pack",
+  "version": "0.4.0",
+  "scripts": {
+    "dev": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "devDependencies": {
+    "@snowpack/plugin-svelte": "^3.6.1",
+    "snowpack": "^3.0.1"
+  },
+  "dependencies": {
+    "svelte": "^3.37.0"
+  }
+}
