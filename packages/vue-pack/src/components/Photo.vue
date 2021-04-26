@@ -58,20 +58,20 @@ export default {
     object-fit: cover;
     @include wh;
     transition: 0.4s transform, 0.4s filter;
-    filter: blur(3vw) brightness(100%);
+    filter: blur(24px) brightness(100%);
     transform: scale(1.05);
   }
   &:not(.no-hover) {
     cursor: zoom-in;
   }
   > img.loaded {
-    filter: blur(0vw) brightness(100%);
+    filter: blur(0px) brightness(100%);
     transform: scale(1);
   }
   &:not(.no-hover):hover {
     > img.loaded {
       transform: scale(1.05);
-      filter: blur(0vw) brightness(60%);
+      filter: blur(0px) brightness(60%);
     }
     > img.loaded + .cross {
       opacity: 1;
