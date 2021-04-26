@@ -1,0 +1,245 @@
+.medium-pack-photo {
+  display: block;
+  position: relative;
+  overflow: hidden; }
+
+.medium-pack-photo > img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: .4s transform,.4s filter;
+  filter: blur(3vw) brightness(100%);
+  transform: scale(1.05); }
+
+.medium-pack-photo:not(.no-hover) {
+  cursor: zoom-in; }
+
+.medium-pack-photo > img.loaded {
+  filter: blur(0) brightness(100%);
+  transform: scale(1); }
+
+.medium-pack-photo:not(.no-hover):hover > img.loaded {
+  transform: scale(1.05);
+  filter: blur(0) brightness(60%); }
+
+.medium-pack-photo:not(.no-hover):hover > img.loaded + .cross {
+  opacity: 1;
+  transform: rotate(180deg); }
+
+.medium-pack-photo .cross {
+  left: calc(50% - 4rem);
+  top: calc(50% - 4rem);
+  width: 8rem;
+  height: 8rem;
+  display: block;
+  position: absolute;
+  opacity: 0;
+  transition: transform .4s,opacity .4s; }
+
+.medium-pack-photo .cross::after, .medium-pack-photo .cross::before {
+  position: absolute;
+  left: 50%;
+  content: " ";
+  height: 100%;
+  width: .4px;
+  background-color: #fff; }
+
+.medium-pack-photo .cross::after {
+  transform: rotate(90deg); }
+
+.photo-viewer {
+  cursor: zoom-out;
+  background-color: rgba(255, 255, 255, 0);
+  transition-property: opacity,background-color;
+  transition-duration: .6s;
+  top: 200vh;
+  position: fixed;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  height: 100vh; }
+
+.photo-viewer .viewed-photo {
+  object-fit: cover;
+  position: relative;
+  transform: scale(1.05); }
+
+html .photo-viewer-close {
+  opacity: 0; }
+
+.photo-viewer-open {
+  top: 0;
+  background-color: #fff; }
+
+.photo-viewer-open .viewed-photo {
+  animation: .5s place-img forwards; }
+
+@keyframes place-img {
+  to {
+    transform: scale(1);
+    width: var(--enlarged-photo-w);
+    height: var(--enlarged-photo-h);
+    top: calc((100vh - var(--enlarged-photo-h))/ 2);
+    left: calc((100% - var(--enlarged-photo-w))/ 2); } }
+
+.photo-viewer.photo-multi-viewer {
+  --number-of-slides:3;
+  --slides-per-view:1;
+  cursor: grab; }
+
+.photo-viewer.photo-multi-viewer .photo-slider {
+  width: 100%;
+  height: 100vh; }
+
+.photo-viewer.photo-multi-viewer .first-slide, .photo-viewer.photo-multi-viewer .other-slides {
+  overflow: hidden; }
+
+.photo-viewer.photo-multi-viewer > .viewed-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
+.photo-viewer.photo-multi-viewer .first-slide {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+.photo-viewer.photo-multi-viewer .other-slides {
+  width: 100%;
+  height: 100%; }
+
+.photo-viewer.photo-multi-viewer .other-slides .wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.photo-viewer.photo-multi-viewer .other-slides .wrapper .medium-pack-photo {
+  width: var(--enlarged-photo-w);
+  height: var(--enlarged-photo-h); }
+
+.photo-multi-viewer button {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  position: absolute;
+  z-index: 99;
+  top: calc(50vh - 2rem);
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 6rem;
+  width: 3rem;
+  opacity: 0;
+  transition: opacity .6s; }
+
+.photo-multi-viewer button:focus, .photo-multi-viewer button:hover {
+  outline: 0; }
+
+.photo-multi-viewer button svg {
+  width: 1.25rem;
+  height: auto;
+  display: inline-block; }
+
+.photo-multi-viewer button svg path {
+  stroke: #000;
+  stroke-width: .5; }
+
+.photo-multi-viewer button#multi-viewer-prev {
+  left: 0;
+  border-radius: 0 999px 999px 0; }
+
+.photo-multi-viewer button#multi-viewer-prev svg {
+  margin-left: -.75rem;
+  transform: scaleX(-1); }
+
+.photo-multi-viewer button#multi-viewer-next {
+  right: 0;
+  border-radius: 999px 0 0 999px; }
+
+.photo-multi-viewer button#multi-viewer-next svg {
+  margin-right: -.75rem; }
+
+.photo-multi-viewer button#close-multi-viewer {
+  right: 0;
+  top: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0 0 0 999px;
+  background-color: rgba(255, 255, 255, 0.9); }
+
+.photo-multi-viewer button#close-multi-viewer:after, .photo-multi-viewer button#close-multi-viewer:before {
+  position: absolute;
+  top: .9rem;
+  right: 1.6rem;
+  content: " ";
+  height: 1.5rem;
+  width: 2px;
+  background-color: #000; }
+
+.photo-multi-viewer button#close-multi-viewer:before {
+  transform: rotate(45deg); }
+
+.photo-multi-viewer button#close-multi-viewer:after {
+  transform: rotate(-45deg); }
+
+.photo-multi-viewer.photo-viewer-open:not(.photo-viewer-close) button {
+  opacity: .6; }
+
+.photo-multi-viewer.photo-viewer-open:not(.photo-viewer-close) button:hover {
+  opacity: 1; }
+
+:root {
+  --slide-margin: 0px; }
+
+.ms-outer-con {
+  overflow: hidden;
+  /* hide the slides that should be out of view*/ }
+
+.ms-outer-con .ms-inner-con {
+  /* the position MUST be set to relative because some carousel transitions use the left css property */
+  display: flex;
+  flex-wrap: nowrap;
+  height: auto;
+  position: relative;
+  width: auto; }
+
+.ms-outer-con .ms-inner-con > * {
+  flex: 0 0 auto;
+  margin-left: var(--slide-margin);
+  margin-right: var(--slide-margin); }
+
+.ms-outer-con .ms-inner-con > *,
+.ms-outer-con .ms-inner-con > * img {
+  -webkit-user-drag: none;
+  /* prevent imgs from being dragged*/
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/* variant with a specified width of the slides - the container subordinates to them
+  required variables with examples:
+    --slide-width: 15rem; // the width of each slide
+    --slide-margin: 25px; // the left and right margin of each element
+    --slides-per-view: 2; // the number of how many slides are displayed at once
+    they can be put in this element or in the :root 
+  */
+.ms-outer-con:not(.width-in-percentage) {
+  width: calc((var(--slide-width) + 2 * var(--slide-margin)) * var(--slides-per-view)); }
+
+.ms-outer-con:not(.width-in-percentage) .ms-inner-con > * {
+  width: var(--slide-width); }
+
+/* variant with a specified width of the container - the slides subordinate to it
+  required variables with examples:
+  --number-of-slides: 6; // the number of the slides, total
+  you don't have to set --number-of-slides - it's just a fallback value just in case something goes wrong 
+  --slides-per-view: 2; // the number of how many slides are displayed at once - this one is compulsory!
+  --slide-margin: 25px; // the left and right margin of each element
+*/
+.ms-outer-con.width-in-percentage .ms-inner-con {
+  width: calc(100% * var(--number-of-slides) / var(--slides-per-view)); }
+
+.ms-outer-con.width-in-percentage .ms-inner-con > * {
+  width: calc((100%) / var(--number-of-slides) - 2 * var(--slide-margin)); }
