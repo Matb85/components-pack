@@ -1,7 +1,9 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   mount: {
-    /* ... */
+    "./dev": "/",
+    "./assets": "/assets",
+    "./components": "/components",
   },
   plugins: ["@snowpack/plugin-svelte", "@snowpack/plugin-sass", "@snowpack/plugin-typescript"],
   routes: [
