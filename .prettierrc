@@ -1,0 +1,8 @@
+{
+  "svelteSortOrder": "markup-scripts-styles-options",
+  "svelteStrictMode": true,
+  "svelteBracketNewLine": false,
+  "svelteIndentScriptAndStyle": false,
+  "printWidth": 120,
+  "arrowParens": "avoid"
+}

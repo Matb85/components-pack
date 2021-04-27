@@ -3,7 +3,7 @@ module.exports = {
   mount: {
     /* ... */
   },
-  plugins: ["@snowpack/plugin-svelte"],
+  plugins: ["@snowpack/plugin-svelte", "@snowpack/plugin-sass", "@snowpack/plugin-typescript"],
   routes: [
     /* Enable an SPA Fallback in development: */
     // {"match": "routes", "src": ".*", "dest": "/index.html"},

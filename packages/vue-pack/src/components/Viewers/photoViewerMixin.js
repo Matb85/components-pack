@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     close() {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           console.log("transitionend");
           this.$el.classList.remove("photo-viewer-close", "photo-viewer-open");

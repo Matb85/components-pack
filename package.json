@@ -6,6 +6,7 @@
     "release": "lerna version --conventional-commits --no-push"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "sharp": "^0.28.1"
   }
 }

@@ -1,5 +1,7 @@
 const sharp = require("sharp");
-
+const fs = require("fs").promises;
+const FIRST_FOLDER = "./packages/vue-pack/src/assets/";
+const SECOND_FOLDER = "./packages/svelte-pack/assets/";
 const images = [
   { path: "/bird.jpg", name: "bird.jpg" },
   { path: "/dunajecgorge.jpg", name: "gorge.jpg" },
@@ -24,6 +26,12 @@ for (const img of images) {
   for (const spec of specification) {
     sharp(__dirname + img.path)
       .resize(Object.assign(defaults, spec))
-      .toFile("./src/assets/" + spec.prefix + img.name);
+      .toFile(FIRST_FOLDER + spec.prefix + img.name);
   }
 }
+
+fs.readdir(FIRST_FOLDER).then(files => {
+  for (const file of files) {
+    if (file[0] !== ".") fs.copyFile(FIRST_FOLDER + file, SECOND_FOLDER + file);
+  }
+});

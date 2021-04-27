@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "strictPropertyInitialization": false,
+    "declaration": false,
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["components/*"]
+    }
+  },
+  "include": ["components/**/*.ts"],
+  "exclude": ["node_modules"]
+}

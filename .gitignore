@@ -1,8 +1,8 @@
 .DS_Store
-/src/assets/
+assets
 node_modules
-/dist
-/docs
+dist
+docs
 .env
 
 /tests/e2e/videos/
