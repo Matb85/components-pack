@@ -1,0 +1,22 @@
+{
+  "name": "@matb85/base-pack",
+  "version": "0.4.0",
+  "author": "matb85",
+  "scripts": {
+    "build": "rimraf ./dist && npm run build:ts && npm run build:css",
+    "build:ts": "tsc",
+    "build:css": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^5.0.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.2.4"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts"
+}

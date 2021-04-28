@@ -21,7 +21,8 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "svelte": "^3.37.0"
+    "svelte": "^3.37.0",
+    "@matb85/base-pack": "^0.4.0"
   },
   "types": "./index.d.ts",
   "main": "dist/sveltepack.js",
