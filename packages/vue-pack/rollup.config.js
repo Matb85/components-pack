@@ -1,17 +1,14 @@
 import vue from "rollup-plugin-vue";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
-import replace from "@rollup/plugin-replace";
+import css from "rollup-plugin-css-only";
 
 export default {
-  input: "src/index.ts",
+  input: "src/index.js",
   output: {
     format: "umd",
-    file: "dist/vuepack.js",
+    file: "dist/index.js",
     name: "vuepack",
-    globals: {
-      vue: "Vue",
-    },
   },
   external: ["vue"],
   plugins: [
@@ -19,13 +16,11 @@ export default {
       css: false,
       template: {
         isProduction: true,
-        compilerOptions: {
-          whitespace: "condense",
-        },
+        compilerOptions: { whitespace: "condense" },
       },
     }),
     commonjs(),
-    resolve(),
-    replace({ "process.env.VUE_APP_TRANSITION_DUR": 400, preventAssignment: true }),
+    resolve({ browser: true }),
+    css({ output: "index.css" }),
   ],
 };
