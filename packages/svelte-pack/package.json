@@ -4,12 +4,13 @@
   "author": "matb85",
   "scripts": {
     "dev": "snowpack dev",
-    "build": "rollup -c"
+    "build": "rimraf ./dist && rollup -c"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-node-resolve": "^11.2.1",
     "@snowpack/plugin-svelte": "^3.6.1",
+    "rimraf": "^3.0.2",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-svelte": "^7.1.0",
     "snowpack": "^3.0.1",
@@ -20,8 +21,9 @@
     "@matb85/base-pack": "^0.4.0"
   },
   "types": "./index.d.ts",
-  "main": "dist/sveltepack.js",
+  "main": "dist/index.js",
   "files": [
-    "dist/*"
+    "dist/*",
+    "index.d.ts"
   ]
 }

@@ -9,17 +9,12 @@ export default {
   output: {
     format: "es",
     name: "sveltepack",
-    file: "dist/sveltepack.js",
+    file: "dist/index.js",
   },
   plugins: [
-    svelte({
-      preprocess: autoPreprocess(),
-    }),
-    resolve({
-      browser: true,
-      dedupe: ["svelte"],
-    }),
+    svelte({ preprocess: autoPreprocess() }),
+    resolve({ browser: true, dedupe: ["svelte"] }),
     commonjs(),
-    css({ output: "sveltepack.css" }),
+    css({ output: "index.css" }),
   ],
 };

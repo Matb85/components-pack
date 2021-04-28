@@ -4,11 +4,11 @@
   "author": "matb85",
   "scripts": {
     "dev": "vue-cli-service serve dev/main.js",
-    "build": "rimraf ./dist/* -Recurse -Force && rollup -c",
+    "build": "rimraf ./dist && rollup -c",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
   },
-  "main": "dist/vuepack.js",
+  "main": "dist/index.js",
   "files": [
     "dist/*",
     "index.d.ts"
