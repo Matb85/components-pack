@@ -1,4 +1,4 @@
-<section class="photo-viewer" bind:this="{el}" on:click="{close}">
+<section class="photo-viewer" on:click="{close}">
   <img bind:this="{img}" class="viewed-photo" alt="enlarged content" />
 </section>
 
@@ -7,8 +7,10 @@ import { mixin } from "@matb85/base-pack";
 import { onMount } from "svelte";
 
 let img;
-let el;
-const close = () => mixin.close(img);
+const close = () => mixin.close(img, img.parentElement);
 
-onMount(() => mixin.mounted(img, el));
+onMount(() => {
+  const hander = mixin.mounted.bind({ ref: img, el: img.parentElement, getdimensions: mixin.getdimensions });
+  window.addEventListener("enlargePhoto", event => hander(event.detail));
+});
 </script>

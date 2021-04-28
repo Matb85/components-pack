@@ -6,7 +6,7 @@ module.exports = {
     "./assets": "/assets",
     "./components": "/components",
   },
-  plugins: ["@snowpack/plugin-svelte", "@snowpack/plugin-typescript"],
+  plugins: ["@snowpack/plugin-svelte"],
   routes: [
     /* Enable an SPA Fallback in development: */
     // {"match": "routes", "src": ".*", "dest": "/index.html"},

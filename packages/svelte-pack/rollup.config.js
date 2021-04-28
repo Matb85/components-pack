@@ -2,7 +2,6 @@ import svelte from "rollup-plugin-svelte";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import autoPreprocess from "svelte-preprocess";
-import typescript from "@rollup/plugin-typescript";
 import css from "rollup-plugin-css-only";
 
 export default {
@@ -21,7 +20,6 @@ export default {
       dedupe: ["svelte"],
     }),
     commonjs(),
-    typescript(),
     css({ output: "sveltepack.css" }),
   ],
 };
