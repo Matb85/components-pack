@@ -3,7 +3,7 @@ module.exports = {
   workspaceRoot: "../../",
   mount: {
     "./dev": "/",
-    "./assets": "/assets",
+    "./assets": { url: "/assets", static: true },
     "./components": "/components",
   },
   plugins: ["@snowpack/plugin-svelte"],

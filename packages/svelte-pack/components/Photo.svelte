@@ -7,33 +7,34 @@
 import { onMount } from "svelte";
 
 export let src;
-export let alt;
+export let alt = undefined;
 export let sizes = undefined;
 export let srcset;
-export let dontenlargeonclick = undefined;
-export let dontaddtolist = undefined;
-export let multiview = undefined;
+export let prevent = [];
+export let multiview = false;
 export let className = "";
 let img;
 let el;
+
 function enlarge() {
-  if (!img.classList.contains("loaded") || typeof dontenlargeonclick !== "undefined") return;
-  const enlarger = typeof multiview === "undefined" ? "enlargePhoto" : "enlargeManyPhotos";
+  if (!img.classList.contains("loaded") || prevent.includes("enlargeonclick")) return;
+  const enlarger = !multiview ? "enlargePhoto" : "enlargeManyPhotos";
   window.dispatchEvent(new CustomEvent(enlarger, { detail: { rect: el.getBoundingClientRect(), img } }));
 }
 
 onMount(() => {
-  img.addEventListener(
-    "load",
-    () => {
-      window.dispatchEvent(
-        new CustomEvent("sveltepack-addphoto", {
-          detail: { src: src, srcset: srcset, ratio: img.naturalWidth / img.naturalHeight }
-        })
-      );
-      window.dispatchEvent(new CustomEvent("sveltepack-observe-photo", { detail: img }));
-    },
-    { once: true }
-  );
+  if (!prevent.includes("addtolist"))
+    img.addEventListener(
+      "load",
+      () => {
+        window.dispatchEvent(
+          new CustomEvent("sveltepack-addphoto", {
+            detail: { src: src, srcset: srcset, ratio: img.naturalWidth / img.naturalHeight }
+          })
+        );
+        window.sveltepackstate.observer.observe(img);
+      },
+      { once: true }
+    );
 });
 </script>
