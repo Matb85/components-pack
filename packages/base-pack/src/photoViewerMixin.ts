@@ -30,7 +30,7 @@ export default {
         el.classList.remove("photo-viewer-close", "photo-viewer-open");
         img.removeAttribute("style");
         resolve();
-      }, 400);
+      }, process.env.VIEWER_TRANSITION_SPEED as any);
       el.classList.add("photo-viewer-close");
     });
   },

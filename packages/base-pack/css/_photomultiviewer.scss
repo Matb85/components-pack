@@ -48,7 +48,7 @@
     height: 6rem;
     width: 3rem;
     opacity: 0;
-    transition: opacity 0.6s;
+    transition: opacity env(--viewer-transtion-speed);
     &:hover,
     &:focus {
       outline: none;
