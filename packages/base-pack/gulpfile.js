@@ -1,9 +1,9 @@
-require('dotenv').config()
+require('dotenv').config({ path: __dirname + "/./../../.env" })
 const gulp = require("gulp");
 const sass = require("gulp-sass");
 const postcss = require('gulp-postcss');
 const postcssEnvFunction = require('postcss-env-function')
-
+console.log(process.env.VIEWER_TRANSITION_SPEED)
 const plugins = [
   postcssEnvFunction({importFrom: {environmentVariables: {
     '--viewer-transtion-speed': process.env.VIEWER_TRANSITION_SPEED + "ms"

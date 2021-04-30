@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({ path: __dirname + "/./../../.env" })
 import replace from '@rollup/plugin-replace';
 import typescript from 'rollup-plugin-typescript2';
 
