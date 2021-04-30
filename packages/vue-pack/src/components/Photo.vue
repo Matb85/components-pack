@@ -1,6 +1,14 @@
 <template>
   <div class="medium-pack-photo" @click="enlarge">
-    <img ref="img" :src="src" :data-srcset="srcset" :sizes="sizes" :alt="alt" :data-group="group" data-observerhandler="photo" />
+    <img
+      ref="img"
+      :src="src"
+      :data-srcset="srcset"
+      :sizes="sizes"
+      :alt="alt"
+      :data-group="group"
+      data-observerhandler="photo"
+    />
     <span class="cross"></span>
   </div>
 </template>

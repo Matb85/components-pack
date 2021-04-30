@@ -13,15 +13,18 @@ interface Ambience {
 }
 
 export default {
-  mounted(this: Ambience, { img, rect }: EnlargeData) {
-    this.ref.style.cssText = `top: ${rect.y}px; left: ${rect.x}px; width: ${img.offsetWidth}px; height: ${img.offsetHeight}px;`;
-    this.ref.onload = () => {
-      this.el.classList.add("photo-viewer-open");
-      const { w, h } = this.getdimensions(img.naturalWidth / img.naturalHeight);
-      this.ref.style.setProperty("--enlarged-photo-w", w);
-      this.ref.style.setProperty("--enlarged-photo-h", h);
-    };
-    this.ref.srcset = (img.dataset.fullsrcset as string) || (img.dataset.srcset as string);
+  mounted(this: Ambience, { img, rect }: EnlargeData): Promise<void> {
+    return new Promise((resolve)=>{
+      this.ref.style.cssText = `top: ${rect.y}px; left: ${rect.x}px; width: ${img.offsetWidth}px; height: ${img.offsetHeight}px;`;
+      this.ref.onload = () => {
+        this.el.classList.add("photo-viewer-open");
+        const { w, h } = this.getdimensions(img.naturalWidth / img.naturalHeight);
+        this.ref.style.setProperty("--enlarged-photo-w", w);
+        this.ref.style.setProperty("--enlarged-photo-h", h);
+        resolve();
+      };
+      this.ref.srcset = (img.dataset.fullsrcset as string) || (img.dataset.srcset as string);
+    })
   },
 
   close(img: HTMLImageElement, el: HTMLElement): Promise<void> {

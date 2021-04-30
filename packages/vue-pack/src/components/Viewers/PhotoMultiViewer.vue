@@ -47,20 +47,19 @@ export default {
     slider: null,
   }),
   async mounted() {
-    this.$root.$on(this.trigger, ({ img }) => {
+    this.$root.$on(this.trigger, async ({ img, rect }) => {
       this.imgs = this.$store.state.vuepack.photolist[img.dataset.group || "rest"].filter((x) => {
         const { w, h } = this.getdimensions(x.ratio);
         x.width = w;
         x.height = h;
         return x.srcset !== img.srcset;
       });
-      setTimeout(() => {
-        this.slider = new Slider({
-          container: "photo-slider",
-          transitionSpeed: 500,
-          plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })],
-        });
-      }, process.env.VUE_APP_TRANSITION_DUR);
+      await this.enlargeHandler({ img, rect });
+      this.slider = new Slider({
+        container: "photo-slider",
+        transitionSpeed: 500,
+        plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })],
+      });
     });
   },
   methods: {

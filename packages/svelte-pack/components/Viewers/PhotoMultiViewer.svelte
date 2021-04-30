@@ -32,9 +32,10 @@
 
 <script>
 import { mixin } from "@matb85/base-pack";
-import { Slider, lazyloading, buttons } from "../index";
+import { setup, Slidehandler, Noloop, lazyloading, buttons } from "modular-slider";
 import "modular-slider/dist/modular-slider.css";
 import { onMount } from "svelte";
+const Slider = setup(Slidehandler, Noloop);
 let image;
 let el;
 const svgPath =
@@ -44,21 +45,19 @@ let slider;
 
 onMount(async () => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
-  window.addEventListener("enlargeManyPhotos", ({ detail }) => {
-    hander(detail);
+  window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
     imgs = window.sveltepackstate.photolist[detail.img.dataset.group || "rest"].filter(x => {
       const { w, h } = mixin.getdimensions(x.ratio);
       x.width = w;
       x.height = h;
       return x.srcset !== detail.img.srcset;
     });
-    setTimeout(() => {
-      slider = new Slider({
-        container: "photo-slider",
-        transitionSpeed: 500,
-        plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })]
-      });
-    }, 400);
+    await hander(detail);
+    slider = new Slider({
+      container: "photo-slider",
+      transitionSpeed: 500,
+      plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })]
+    });
   });
 });
 

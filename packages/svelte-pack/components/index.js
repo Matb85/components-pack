@@ -3,9 +3,6 @@ import PhotoViewer from "./Viewers/PhotoViewer.svelte";
 import PhotoMultiViewer from "./Viewers/PhotoMultiViewer.svelte";
 import { store } from "@matb85/base-pack";
 import "@matb85/base-pack/dist/index.css";
-import { setup, Slidehandler, Noloop, lazyloading, buttons } from "modular-slider";
-const Slider = setup(Slidehandler, Noloop);
-export { lazyloading, buttons, Slider };
 
 const { VuePackClass, mutations } = store;
 
