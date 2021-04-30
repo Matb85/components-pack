@@ -21,7 +21,7 @@ export default {
       this.ref.style.setProperty("--enlarged-photo-w", w);
       this.ref.style.setProperty("--enlarged-photo-h", h);
     };
-    this.ref.srcset = img.dataset.srcset as string;
+    this.ref.srcset = (img.dataset.fullsrcset as string) || (img.dataset.srcset as string);
   },
 
   close(img: HTMLImageElement, el: HTMLElement): Promise<void> {

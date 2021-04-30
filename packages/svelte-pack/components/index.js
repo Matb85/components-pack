@@ -14,4 +14,4 @@ function init() {
   window.addEventListener("sveltepack-addphoto", ({ detail }) => mutations.addphoto(window.sveltepackstate, detail));
 }
 
-export { Photo, PhotoViewer, init, VuePackClass, mutations, PhotoMultiViewer };
+export { Photo, PhotoViewer, PhotoMultiViewer, init, VuePackClass, mutations };

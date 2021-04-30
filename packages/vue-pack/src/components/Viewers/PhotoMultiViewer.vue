@@ -52,7 +52,7 @@ export default {
         const { w, h } = this.getdimensions(x.ratio);
         x.width = w;
         x.height = h;
-        return x.src !== img.src;
+        return x.srcset !== img.srcset;
       });
       setTimeout(() => {
         this.slider = new Slider({
@@ -66,6 +66,7 @@ export default {
   methods: {
     async closeviewer() {
       await this.close();
+      this.imgs = [];
       this.slider.slideTo(0);
       this.slider.destroy();
       this.$refs.img.removeAttribute("style");
