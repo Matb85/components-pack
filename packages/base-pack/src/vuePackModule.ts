@@ -3,6 +3,7 @@ interface Photo {
   src: string;
   srcset: string;
   ratio: string;
+  group: string
 }
 
 export class VuePackClass {
@@ -26,7 +27,7 @@ export class VuePackClass {
     },
   };
   /** list of photos on the page */
-  photolist: Photo[] = [];
+  photolist: Record<string, Photo[]> = {}
 }
 
 export const mutations = {
@@ -37,6 +38,8 @@ export const mutations = {
     delete state.handlers[name];
   },
   addphoto(state: VuePackClass, payload: Photo) {
-    if (!state.photolist.map(x => x.src).includes(payload.src)) state.photolist.push(payload);
+    const group = payload.group || "rest"
+    if(!state.photolist[group]) state.photolist[group] = [];
+    if (!state.photolist[group].map(x => x.src).includes(payload.src)) state.photolist[group].push(payload);
   },
 };

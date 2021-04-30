@@ -46,7 +46,7 @@ onMount(async () => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
   window.addEventListener("enlargeManyPhotos", ({ detail }) => {
     hander(detail);
-    imgs = window.sveltepackstate.photolist.filter(x => {
+    imgs = window.sveltepackstate.photolist[detail.img.dataset.group || "rest"].filter(x => {
       const { w, h } = mixin.getdimensions(x.ratio);
       x.width = w;
       x.height = h;

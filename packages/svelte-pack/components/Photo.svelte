@@ -1,5 +1,5 @@
 <div class="medium-pack-photo {className}" bind:this="{el}" on:click="{enlarge}">
-  <img bind:this="{img}" src="{src}" data-srcset="{srcset}" sizes="{sizes}" alt="{alt}" data-observerhandler="photo" />
+  <img bind:this="{img}" src="{src}" data-srcset="{srcset}" sizes="{sizes}" alt="{alt}" data-group="{group}" data-observerhandler="photo" />
   <span class="cross"></span>
 </div>
 
@@ -12,6 +12,7 @@ export let sizes = undefined;
 export let srcset;
 export let prevent = [];
 export let multiview = false;
+export let group = undefined;
 export let className = "";
 let img;
 let el;
@@ -29,7 +30,7 @@ onMount(() => {
       () => {
         window.dispatchEvent(
           new CustomEvent("sveltepack-addphoto", {
-            detail: { src: src, srcset: srcset, ratio: img.naturalWidth / img.naturalHeight }
+            detail: { src: src, srcset: srcset, ratio: img.naturalWidth / img.naturalHeight, group }
           })
         );
         window.sveltepackstate.observer.observe(img);

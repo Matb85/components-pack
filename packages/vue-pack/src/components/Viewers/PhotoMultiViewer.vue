@@ -48,7 +48,7 @@ export default {
   }),
   async mounted() {
     this.$root.$on(this.trigger, ({ img }) => {
-      this.imgs = this.$store.state.vuepack.photolist.filter((x) => {
+      this.imgs = this.$store.state.vuepack.photolist[img.dataset.group || "rest"].filter((x) => {
         const { w, h } = this.getdimensions(x.ratio);
         x.width = w;
         x.height = h;
