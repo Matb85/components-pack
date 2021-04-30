@@ -46,12 +46,7 @@ let slider;
 onMount(async () => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
-    imgs = window.sveltepackstate.photolist[detail.img.dataset.group || "rest"].filter(x => {
-      const { w, h } = mixin.getdimensions(x.ratio);
-      x.width = w;
-      x.height = h;
-      return x.srcset !== detail.img.srcset;
-    });
+    imgs = mixin.filterimgs(window.sveltepack, detail.img)
     await hander(detail);
     slider = new Slider({
       container: "photo-slider",

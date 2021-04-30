@@ -1,9 +1,9 @@
 import { store } from "@matb85/base-pack";
-const { VuePackClass, mutations } = store;
+const { Store, mutations } = store;
 
-export { VuePackClass };
+export { Store };
 export const vuepack = {
   namespaced: true,
-  state: new VuePackClass(),
+  state: new Store(),
   mutations,
 };

@@ -1,11 +1,20 @@
+import type { StoreI, Photo } from "./store"
+
 interface EnlargeData {
   img: HTMLImageElement;
   rect: DOMRect;
 }
+
 interface Position {
   w: string;
   h: string;
 }
+
+interface ExtendedPhoto extends Photo {
+  width?: string;
+  height?: string;
+};
+
 interface Ambience {
   ref: HTMLImageElement;
   el: HTMLElement;
@@ -42,4 +51,13 @@ export default {
     if (window.innerWidth / window.innerHeight > aspectR) return { w: 95 * aspectR + "vh", h: "95vh" };
     else return { w: "95vw", h: 95 * (1 / aspectR) + "vw" };
   },
+  // utility for photoMultiViewers
+  filterimgs(state: StoreI, img: HTMLImageElement){
+    return state.photolist[img.dataset.group || "rest"].filter((x: ExtendedPhoto) => {
+      const { w, h } = this.getdimensions(x.ratio);
+      x.width = w;
+      x.height = h;
+      return x.srcset !== img.srcset;
+    });
+  }
 };

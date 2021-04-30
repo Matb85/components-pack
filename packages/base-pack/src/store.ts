@@ -1,12 +1,20 @@
 type Handler = (target: any) => void;
-interface Photo {
+
+export interface Photo {
   src: string;
   srcset: string;
-  ratio: string;
+  ratio: number;
   group: string
 }
 
-export class VuePackClass {
+export interface StoreI {
+  callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver): void;
+  observer: IntersectionObserver;
+  handlers: Record<string, Handler>
+  photolist: Record<string, Photo[]>
+}
+
+export class Store implements StoreI{
   /** IntersectionObserver's logic */
   /** handler for the IntersectionObserver */
   async callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
@@ -31,13 +39,13 @@ export class VuePackClass {
 }
 
 export const mutations = {
-  addhandler(state: VuePackClass, { name, handler }: { name: string; handler: Handler }) {
+  addhandler(state: Store, { name, handler }: { name: string; handler: Handler }) {
     state.handlers[name] = handler;
   },
-  removeHandler(state: VuePackClass, name: string) {
+  removeHandler(state: Store, name: string) {
     delete state.handlers[name];
   },
-  addphoto(state: VuePackClass, payload: Photo) {
+  addphoto(state: Store, payload: Photo) {
     const group = payload.group || "rest"
     if(!state.photolist[group]) state.photolist[group] = [];
     if (!state.photolist[group].map(x => x.src).includes(payload.src)) state.photolist[group].push(payload);

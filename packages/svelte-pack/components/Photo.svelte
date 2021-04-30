@@ -33,7 +33,7 @@ onMount(() => {
             detail: { src: src, srcset: srcset, ratio: img.naturalWidth / img.naturalHeight, group }
           })
         );
-        window.sveltepackstate.observer.observe(img);
+        window.sveltepack.observer.observe(img);
       },
       { once: true }
     );
