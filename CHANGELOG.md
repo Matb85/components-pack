@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](/compare/v0.5.0...v0.6.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* **vue-pack:** :hammer: build setup 4813b7b
+* :art: improve photoviewers' open event hadlers a6b3c0f
+
+
+### Features
+
+* **base-pack:** :hammer: env variables support 4091c5a
+
+
+
+
+
 # [0.5.0](/compare/v0.4.0...v0.5.0) (2021-04-30)
 
 
