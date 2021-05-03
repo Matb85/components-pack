@@ -1,10 +1,10 @@
 import Photo from "./components/Photo.vue";
 import { PhotoViewer, PhotoMultiViewer } from "./components/Viewers/index";
-import { vuepack, VuePackClass } from "./vuePackModule";
+import { vuepack, Store } from "./vuePackModule";
 import "@matb85/base-pack/dist/index.css";
 
 // Export the components one by one
-export { Photo, PhotoViewer, PhotoMultiViewer, vuepack, VuePackClass };
+export { Photo, PhotoViewer, PhotoMultiViewer, vuepack, Store as VuePackClass };
 
 // What should happen if the user installs the library as a plugin
 function install(Vue) {
