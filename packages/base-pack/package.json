@@ -1,6 +1,6 @@
 {
   "name": "@matb85/base-pack",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": "matb85",
   "scripts": {
     "build": "rimraf ./dist && npm run build:ts && npm run build:css",
