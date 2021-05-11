@@ -3,7 +3,6 @@ assets
 node_modules
 dist
 docs
-.env
 
 /tests/e2e/videos/
 /tests/e2e/screenshots/
