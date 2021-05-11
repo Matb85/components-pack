@@ -3,7 +3,8 @@
   "version": "0.4.0",
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
-    "release": "lerna version --conventional-commits --no-push"
+    "release": "lerna version --conventional-commits --no-push",
+    "pub": "lerna run build && lerna publish from-package"
   },
   "devDependencies": {
     "lerna": "^4.0.0",
