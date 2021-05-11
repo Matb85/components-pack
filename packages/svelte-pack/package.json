@@ -11,11 +11,11 @@
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@snowpack/plugin-svelte": "^3.6.1",
     "rimraf": "^3.0.2",
+    "rollup": "^2.47.0",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-svelte": "^7.1.0",
     "snowpack": "^3.3.7",
-    "svelte": "^3.38.2",
-    "svelte-preprocess": "^4.7.3"
+    "svelte": "^3.38.2"
   },
   "dependencies": {
     "@matb85/base-pack": "^0.6.1",
