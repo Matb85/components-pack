@@ -1,6 +1,6 @@
 {
   "name": "@matb85/vue-pack",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "author": "matb85",
   "scripts": {
     "dev": "vue-cli-service serve dev/main.js",
@@ -19,7 +19,7 @@
     "vuex": "^3.6.2"
   },
   "dependencies": {
-    "@matb85/base-pack": "^0.6.1",
+    "@matb85/base-pack": "^0.6.2",
     "modular-slider": "^0.5.5"
   },
   "devDependencies": {
