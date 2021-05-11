@@ -1,34 +1,31 @@
-<template>
-  <section bind:this="{el}" class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
-    <div class="photo-slider ms-inner-con" id="photo-slider">
-      <div class="first-slide">
-        <img bind:this="{image}" class="viewed-photo" alt="main" />
-      </div>
-      {#each imgs as img}
-        <div class="other-slides">
-          <div class="wrapper">
-            <div
-              class="medium-pack-photo no-hover"
-              style=" --enlarged-photo-w: {img.width}; --enlarged-photo-h: {img.height};">
-              <img class="ms-lazy" src="{img.src}" data-srcset="{img.srcset}" alt="other" />
-            </div>
+<section bind:this="{el}" class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
+  <div class="photo-slider ms-inner-con" id="photo-slider">
+    <div class="first-slide">
+      <img bind:this="{image}" class="viewed-photo" alt="main" />
+    </div>
+    {#each imgs as img}
+      <div class="other-slides">
+        <div class="wrapper">
+          <div
+            class="medium-pack-photo no-hover"
+            style=" --enlarged-photo-w: {img.width}; --enlarged-photo-h: {img.height};">
+            <img class="ms-lazy" src="{img.src}" data-srcset="{img.srcset}" alt="other" />
           </div>
         </div>
-      {/each}
-    </div>
-    <!-- navigation -->
-    <button id="multi-viewer-prev">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24">
-        <path d="{svgPath}"></path>
-      </svg>
-    </button>
-    <button id="multi-viewer-next">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
-        ><path d="{svgPath}"></path></svg>
-    </button>
-    <button on:click="{closeviewer}" id="close-multi-viewer"></button>
-  </section>
-</template>
+      </div>
+    {/each}
+  </div>
+  <!-- navigation -->
+  <button id="multi-viewer-prev">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24">
+      <path d="{svgPath}"></path>
+    </svg>
+  </button>
+  <button id="multi-viewer-next">
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"><path d="{svgPath}"></path></svg>
+  </button>
+  <button on:click="{closeviewer}" id="close-multi-viewer"></button>
+</section>
 
 <script>
 import { mixin } from "@matb85/base-pack";
@@ -46,12 +43,12 @@ let slider;
 onMount(async () => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
-    imgs = mixin.filterimgs(window.sveltepack, detail.img)
+    imgs = mixin.filterimgs(window.sveltepack, detail.img);
     await hander(detail);
     slider = new Slider({
       container: "photo-slider",
       transitionSpeed: 500,
-      plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })]
+      plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })],
     });
   });
 });
