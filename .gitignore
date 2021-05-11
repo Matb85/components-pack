@@ -1,5 +1,5 @@
 .DS_Store
-assets/*
+assets
 node_modules
 dist
 docs
