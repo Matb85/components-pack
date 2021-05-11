@@ -1,6 +1,6 @@
 {
   "name": "@matb85/svelte-pack",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "author": "matb85",
   "scripts": {
     "dev": "snowpack dev",

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/Redinn-Pages/components-pack/compare/v0.6.2...v0.6.3) (2021-05-11)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :ambulance: remove template tags ([ebf10ee](https://github.com/Redinn-Pages/components-pack/commit/ebf10ee47fecba27d55a9800d0ba1372cac7529b))
+* **svelte-pack:** :label: types ([40b01b0](https://github.com/Redinn-Pages/components-pack/commit/40b01b0832e3a9ffe87f8d92b79915069504d2c9))
+
+
+
+
+
 ## 0.6.2 (2021-05-11)
 
 
