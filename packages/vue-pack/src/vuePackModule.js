@@ -4,6 +4,6 @@ const { Store, mutations } = store;
 export { Store };
 export const vuepack = {
   namespaced: true,
-  state: () => new Store(),
+  state: Store,
   mutations,
 };
