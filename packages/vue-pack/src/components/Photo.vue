@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import { photo } from "@matb85/base-pack";
+
 export default {
   name: "Photo",
   props: {
@@ -34,26 +36,9 @@ export default {
     },
   },
   created() {
-    const sizes = this.$store.state.vuepack.sizes;
-
-    // example: [480, 1920, 2400, integer, integer ...]
-    if (Array.isArray(this.sizes)) {
-      for (let i = 0; i < this.sizes.length; i++) {
-        const sizedsrc = this.src.replace(sizes.thumbnail, sizes[this.sizes[i]]);
-        this.genSrcset += `${sizedsrc} ${this.sizes[i]}w, `;
-      }
-    } else {
-      // example: {480: 363, 1920: 433, 2400: 1234, imgversion: sizetopick, ... }
-      this.genSizes = "";
-      const keys = Object.keys(this.sizes);
-      for (let i = 0; i < keys.length; i++) {
-        const curSize = keys[i]; //current size
-        const sizedsrc = this.src.replace(sizes.thumbnail, sizes[curSize]);
-        this.genSrcset += `${sizedsrc} ${keys[i]}w, `;
-        if (i < keys.length - 1) this.genSizes += `(max-width: ${this.sizes[curSize]}px) ${curSize}px, `;
-      }
-      this.genSizes += "100vw";
-    }
+    const settings = photo(this.src, this.$store.state.vuepacksizes, this.sizes);
+    this.genSrcset = settings.genSrcset;
+    this.genSizes = settings.genSizes;
   },
   mounted() {
     const img = this.$refs.img;
@@ -64,7 +49,7 @@ export default {
         () =>
           this.$store.commit("vuepack/addphoto", {
             src: this.src,
-            srcset: this.srcset,
+            srcset: this.genSrcset,
             ratio: img.naturalWidth / img.naturalHeight,
             group: this.group,
           }),

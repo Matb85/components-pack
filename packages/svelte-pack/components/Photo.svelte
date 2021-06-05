@@ -12,11 +12,12 @@
 
 <script>
 import { onMount } from "svelte";
+import { photo } from "@matb85/base-pack";
+import { getContext } from "svelte";
 
 export let src;
 export let alt = undefined;
 export let sizes = undefined;
-export let srcset;
 export let prevent = [];
 export let multiview = false;
 export let group = undefined;
@@ -24,8 +25,10 @@ export let className = "";
 // bingings to DOM elements
 let img, el;
 
-let genSrcset = "",
-  genSizes;
+// setup sizes & srcset
+const settings = photo(src, getContext("svelte-pack-sizes"), sizes);
+const genSrcset = settings.genSrcset,
+  genSizes = settings.genSizes;
 
 function enlarge() {
   if (!img.classList.contains("loaded") || prevent.includes("enlargeonclick")) return;
@@ -38,30 +41,9 @@ onMount(() => {
     img.addEventListener(
       "load",
       () => {
-        const baseSizes = window.sveltepack.sizes;
-        console.log(sizes);
-        // example: [480, 1920, 2400, integer, integer ...]
-        if (Array.isArray(sizes)) {
-          for (let i = 0; i < sizes.length; i++) {
-            const sizedsrc = src.replace(baseSizes.thumbnail, baseSizes[sizes[i]]);
-            console.log(sizedsrc);
-            genSrcset += `${sizedsrc} ${sizes[i]}w, `;
-          }
-        } else {
-          // example: {480: 363, 1920: 433, 2400: 1234, imgversion: sizetopick, ... }
-          genSizes = "";
-          const keys = Object.keys(sizes);
-          for (let i = 0; i < keys.length; i++) {
-            const curSize = keys[i]; //current size
-            const sizedsrc = src.replace(baseSizes.thumbnail, baseSizes[curSize]);
-            genSrcset += `${sizedsrc} ${keys[i]}w, `;
-            if (i < keys.length - 1) genSizes += `(max-width: ${sizes[curSize]}px) ${curSize}px, `;
-          }
-          genSizes += "100vw";
-        }
         window.dispatchEvent(
           new CustomEvent("sveltepack-addphoto", {
-            detail: { src: src, srcset: srcset, ratio: img.naturalWidth / img.naturalHeight, group },
+            detail: { src, srcset: genSrcset, group, ratio: img.naturalWidth / img.naturalHeight },
           })
         );
         window.sveltepack.observer.observe(img);

@@ -7,18 +7,14 @@ export interface Photo {
   group: string;
 }
 
-export interface Sizes extends Record<number, string> {
-  thumbnail: string;
-}
-
 export interface StoreI {
   callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver): void;
   observer: IntersectionObserver;
   handlers: Record<string, Handler>;
   photolist: Record<string, Photo[]>;
-  sizes: Sizes;
 }
-export function Store(sizes: Sizes): StoreI {
+
+export function Store(): StoreI {
   /** handler for different needs */
   const handlers: Record<string, Handler> = {
     photo(img: HTMLImageElement) {
@@ -41,7 +37,7 @@ export function Store(sizes: Sizes): StoreI {
 
   /** list of photos on the page */
   const photolist: Record<string, Photo[]> = {};
-  return { callback, observer, photolist, handlers, sizes };
+  return { callback, observer, photolist, handlers };
 }
 
 export const mutations = {

@@ -5,7 +5,7 @@
     <Photo
       src="/assets/thumbnail_gorge.jpg"
       multiview
-      :sizes="[720, 1280, 1920, 2400]"
+      :sizes="[720, 1290, 1920, 2400]"
       class="photo"
       group="mountains"
     />

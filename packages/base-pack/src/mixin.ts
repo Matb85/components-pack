@@ -1,4 +1,4 @@
-import type { StoreI, Photo } from "./store"
+import type { StoreI, Photo } from "./store";
 
 interface EnlargeData {
   img: HTMLImageElement;
@@ -13,7 +13,7 @@ interface Position {
 interface ExtendedPhoto extends Photo {
   width?: string;
   height?: string;
-};
+}
 
 interface Ambience {
   ref: HTMLImageElement;
@@ -23,7 +23,7 @@ interface Ambience {
 
 export default {
   mounted(this: Ambience, { img, rect }: EnlargeData): Promise<void> {
-    return new Promise((resolve)=>{
+    return new Promise(resolve => {
       this.ref.style.cssText = `top: ${rect.y}px; left: ${rect.x}px; width: ${img.offsetWidth}px; height: ${img.offsetHeight}px;`;
       this.ref.onload = () => {
         this.el.classList.add("photo-viewer-open");
@@ -33,7 +33,7 @@ export default {
         resolve();
       };
       this.ref.srcset = (img.dataset.fullsrcset as string) || (img.dataset.srcset as string);
-    })
+    });
   },
 
   close(img: HTMLImageElement, el: HTMLElement): Promise<void> {
@@ -52,12 +52,12 @@ export default {
     else return { w: "95vw", h: 95 * (1 / aspectR) + "vw" };
   },
   // utility for photoMultiViewers
-  filterimgs(state: StoreI, img: HTMLImageElement){
+  filterimgs(state: StoreI, img: HTMLImageElement) {
     return state.photolist[img.dataset.group || "rest"].filter((x: ExtendedPhoto) => {
       const { w, h } = this.getdimensions(x.ratio);
       x.width = w;
       x.height = h;
-      return x.srcset !== img.srcset;
+      return x.srcset !== img.dataset.srcset;
     });
-  }
+  },
 };
