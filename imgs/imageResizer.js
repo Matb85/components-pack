@@ -1,7 +1,7 @@
 const sharp = require("sharp");
 const fs = require("fs").promises;
 const CWD = process.cwd();
-const FIRST_FOLDER = CWD + "/packages/vue-pack/src/assets/";
+const FIRST_FOLDER = CWD + "/packages/vue-pack/public/assets/";
 const SECOND_FOLDER = CWD + "/packages/svelte-pack/assets/";
 const images = [
   { path: "/bird.jpg", name: "bird.jpg" },
