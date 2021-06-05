@@ -1,20 +1,17 @@
 <template>
   <div id="app">
-    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :srcset="require('@/assets/bird.jpg')" class="photo" />
+    <Photo src="/assets/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" />
+
     <Photo
-      :src="require('@/assets/thumbnail_gorge.jpg')"
+      src="/assets/thumbnail_gorge.jpg"
       multiview
-      :srcset="`${require('@/assets/hvga_gorge.jpg')} 720w, ${require('@/assets/hd_gorge.jpg')} 1280w, ${require('@/assets/fhd_gorge.jpg')} 1920w, ${require('@/assets/gorge.jpg')} 2400w`"
+      :sizes="[720, 1280, 1920, 2400]"
       class="photo"
       group="mountains"
     />
-    <Photo :src="require('@/assets/thumbnail_bird.jpg')" :srcset="require('@/assets/bird.jpg')" class="photo" />
-    <Photo
-      :src="require('@/assets/thumbnail_mountains.jpg')"
-      :srcset="require('@/assets/mountains.jpg')"
-      class="photo"
-      group="mountains"
-    />
+    <Photo src="/assets/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" />
+    <Photo src="/assets/thumbnail_mountains.jpg" :sizes="[2400]" class="photo" group="mountains" />
+
     <PhotoViewer />
     <PhotoMultiViewer />
   </div>

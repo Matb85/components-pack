@@ -6,8 +6,8 @@ import "@matb85/base-pack/dist/index.css";
 
 const { Store, mutations } = store;
 
-function init() {
-  window.sveltepack = Store();
+function init(sizes) {
+  window.sveltepack = Store(sizes);
   window.addEventListener("sveltepack-addphoto", ({ detail }) => mutations.addphoto(window.sveltepack, detail));
 }
 
