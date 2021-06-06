@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/Redinn-Pages/components-pack/compare/v0.6.0...v0.7.0) (2021-06-06)
+
+
+### Bug Fixes
+
+* :zap: exports ([d711a36](https://github.com/Redinn-Pages/components-pack/commit/d711a367a2d3787b84e02d9d8af837b854462918))
+
+
+### Performance Improvements
+
+* :zap: use function syntax for the Store ([037d8f4](https://github.com/Redinn-Pages/components-pack/commit/037d8f407dd59abc34c619f78ed85b74ecb6ed8e))
+
+
+
+
+
+
 ## 0.6.2 (2021-05-11)
 
 

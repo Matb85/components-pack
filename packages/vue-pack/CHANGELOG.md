@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/Redinn-Pages/components-pack/compare/v0.6.0...v0.7.0) (2021-06-06)
+
+
+### Bug Fixes
+
+* :zap: exports ([d711a36](https://github.com/Redinn-Pages/components-pack/commit/d711a367a2d3787b84e02d9d8af837b854462918))
+* **svelte-pack:** :ambulance: bundling issues ([e482acc](https://github.com/Redinn-Pages/components-pack/commit/e482accf7cf16cc62ff1f8867188a14c690a27b0))
+* **vue-pack:** :ambulance: compile to vue 2 + ssr support ([9cea463](https://github.com/Redinn-Pages/components-pack/commit/9cea463f321874749de06b947ea27ec4489a3add))
+
+
+### Performance Improvements
+
+* :art: remove unnecessary exports ([c163b53](https://github.com/Redinn-Pages/components-pack/commit/c163b536aec39f24245bded73d2a352d9442fa1c))
+* :zap: use function syntax for the Store ([037d8f4](https://github.com/Redinn-Pages/components-pack/commit/037d8f407dd59abc34c619f78ed85b74ecb6ed8e))
+
+
+
+
+
+
 ## 0.6.2 (2021-05-11)
 
 

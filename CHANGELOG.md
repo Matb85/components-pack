@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/Redinn-Pages/components-pack/compare/v0.6.0...v0.7.0) (2021-06-06)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :ambulance: a typo in index.js ([afeae91](https://github.com/Redinn-Pages/components-pack/commit/afeae915c66d4605de005b815874e79f1b839f78))
+* :zap: exports ([d711a36](https://github.com/Redinn-Pages/components-pack/commit/d711a367a2d3787b84e02d9d8af837b854462918))
+* **svelte-pack:** :ambulance: remove template tags ([ebf10ee](https://github.com/Redinn-Pages/components-pack/commit/ebf10ee47fecba27d55a9800d0ba1372cac7529b))
+* **svelte-pack:** :label: types ([40b01b0](https://github.com/Redinn-Pages/components-pack/commit/40b01b0832e3a9ffe87f8d92b79915069504d2c9))
+* :ambulance: generating imgs ([aefcc55](https://github.com/Redinn-Pages/components-pack/commit/aefcc557f449137aa3a81753a31ee176aa5f4cde))
+* **svelte-pack:** :ambulance: bundling issues ([e482acc](https://github.com/Redinn-Pages/components-pack/commit/e482accf7cf16cc62ff1f8867188a14c690a27b0))
+* **vue-pack:** :ambulance: compile to vue 2 + ssr support ([9cea463](https://github.com/Redinn-Pages/components-pack/commit/9cea463f321874749de06b947ea27ec4489a3add))
+* :pencil2: name ([adcb16a](https://github.com/Redinn-Pages/components-pack/commit/adcb16ae3198a9feaf7a5536757fdfe802718613))
+
+
+### Performance Improvements
+
+* :art: remove unnecessary exports ([c163b53](https://github.com/Redinn-Pages/components-pack/commit/c163b536aec39f24245bded73d2a352d9442fa1c))
+* :zap: use function syntax for the Store ([037d8f4](https://github.com/Redinn-Pages/components-pack/commit/037d8f407dd59abc34c619f78ed85b74ecb6ed8e))
+
+
+
+
+
+
 ## [0.6.3](https://github.com/Redinn-Pages/components-pack/compare/v0.6.2...v0.6.3) (2021-05-11)
 
 
