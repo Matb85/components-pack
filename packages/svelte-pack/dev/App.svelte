@@ -17,7 +17,7 @@
 
   <PhotoViewer />
   <PhotoMultiViewer />
-  <Map className="map" key="gdsfgdgfds" callback="{map => console.log(map)}" />
+  <Map className="map" apikey="gdsfgdgfds" callback="{map => console.log(map)}" />
 </div>
 
 <script context="module">

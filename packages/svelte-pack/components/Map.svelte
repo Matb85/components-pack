@@ -2,7 +2,7 @@
 
 <script>
 import { onMount } from "svelte";
-import { maputil, store } from "@matb85/base-pack";
+import { maputil, mutations } from "@matb85/base-pack";
 let map;
 
 export let className = null,
@@ -10,7 +10,7 @@ export let className = null,
   callback = m => console.log(m);
 
 onMount(() => {
-  store.mutations.addhandler(window.sveltepack, {
+  mutations.addhandler(window.sveltepack, {
     name: "map",
     handler: () => maputil(apikey, callback, map),
   });

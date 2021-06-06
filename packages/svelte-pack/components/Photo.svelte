@@ -12,7 +12,7 @@
 
 <script>
 import { onMount } from "svelte";
-import { photo } from "@matb85/base-pack";
+import { photo, mutations } from "@matb85/base-pack";
 import { getContext } from "svelte";
 
 export let src;
@@ -41,11 +41,9 @@ onMount(() => {
     img.addEventListener(
       "load",
       () => {
-        window.dispatchEvent(
-          new CustomEvent("sveltepack-addphoto", {
-            detail: { src, srcset: genSrcset, group, ratio: img.naturalWidth / img.naturalHeight },
-          })
-        );
+        const detail = { src, srcset: genSrcset, group, ratio: img.naturalWidth / img.naturalHeight };
+        mutations.addphoto(window.sveltepack, detail);
+
         window.sveltepack.observer.observe(img);
       },
       { once: true }

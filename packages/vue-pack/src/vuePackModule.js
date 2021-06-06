@@ -1,5 +1,4 @@
-import { store } from "@matb85/base-pack";
-const { Store, mutations } = store;
+import { Store, mutations } from "@matb85/base-pack";
 
 export { Store };
 export const vuepack = {
