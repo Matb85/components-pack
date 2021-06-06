@@ -3,10 +3,9 @@ import Photo from "./Photo.svelte";
 import PhotoViewer from "./Viewers/PhotoViewer.svelte";
 import PhotoMultiViewer from "./Viewers/PhotoMultiViewer.svelte";
 import { Store } from "@matb85/base-pack";
-import "@matb85/base-pack/dist/index.css";
 
 function init() {
   window.sveltepack = Store();
 }
 
-export { Map, Photo, PhotoViewer, PhotoMultiViewer, inits };
+export { Map, Photo, PhotoViewer, PhotoMultiViewer, init };
