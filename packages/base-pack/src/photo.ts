@@ -11,7 +11,6 @@ export default function (src: string, baseSizes: BaseSizes, sizes: Sizes) {
   if (Array.isArray(sizes)) {
     for (let i = 0; i < sizes.length; i++) {
       const sizedsrc = src.replace(baseSizes.thumbnail, baseSizes[sizes[i]]);
-      console.log(sizedsrc);
       genSrcset += `${sizedsrc} ${sizes[i]}w, `;
     }
   } else {
