@@ -21,7 +21,7 @@ export default {
       },
     }),
     commonjs(),
-    resolve({ browser: true }),
+    resolve({ browser: true, dedupe: ["@matb85/base-pack"] }),
     css({ output: "index.css" }),
   ],
 };

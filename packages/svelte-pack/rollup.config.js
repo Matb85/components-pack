@@ -10,5 +10,11 @@ export default {
     name: "sveltepack",
     file: "dist/index.js",
   },
-  plugins: [svelte(), resolve({ browser: true, dedupe: ["svelte"] }), commonjs(), css({ output: "index.css" })],
+  external: ["@matb85/base-pack"],
+  plugins: [
+    svelte(),
+    resolve({ browser: true, dedupe: ["svelte", "@matb85/base-pack"] }),
+    commonjs(),
+    css({ output: "index.css" }),
+  ],
 };
