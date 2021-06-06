@@ -7,7 +7,9 @@
     "pub": "lerna run build && lerna publish from-package"
   },
   "devDependencies": {
-    "lerna": "^4.0.0",
     "sharp": "^0.28.1"
+  },
+  "peerDependencies": {
+    "lerna": "^4.0.0"
   }
 }
