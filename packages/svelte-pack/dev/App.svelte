@@ -17,11 +17,15 @@
 
   <PhotoViewer />
   <PhotoMultiViewer />
+  <Map className="map" key="gdsfgdgfds" callback="{map => console.log(map)}" />
 </div>
 
+<script context="module">
+init();
+</script>
+
 <script>
-import { init, Photo, PhotoViewer, PhotoMultiViewer } from "./components/index";
-import { onMount } from "svelte";
+import { init, Map, Photo, PhotoViewer, PhotoMultiViewer } from "./components/index";
 import { setContext } from "svelte";
 
 setContext("svelte-pack-sizes", {
@@ -32,6 +36,4 @@ setContext("svelte-pack-sizes", {
   720: "wvga_",
   480: "hvga_",
 });
-
-onMount(init);
 </script>

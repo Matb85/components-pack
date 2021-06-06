@@ -14,6 +14,7 @@
 
     <PhotoViewer />
     <PhotoMultiViewer />
+    <Map class="map" apikey="gfsgdsgds" :callback="mapCallback" />
   </div>
 </template>
 
@@ -21,16 +22,22 @@
 import PhotoMultiViewer from "../src/components/Viewers/PhotoMultiViewer.vue";
 import PhotoViewer from "../src/components/Viewers/PhotoViewer.vue";
 import Photo from "../src/components/Photo.vue";
+import Map from "../src/components/Map.vue";
 
 export default {
-  components: { Photo, PhotoViewer, PhotoMultiViewer },
+  components: { Map, Photo, PhotoViewer, PhotoMultiViewer },
   mounted() {
     this.$store.commit("vuepack/addhandler", {
-      name: "map",
+      name: "example",
       handler: () => {
         console.log("hi");
       },
     });
+  },
+  methods: {
+    mapCallback(m) {
+      console.log(m);
+    },
   },
 };
 </script>
@@ -65,5 +72,11 @@ body,
 .photo:nth-of-type(4) {
   width: 50vw;
   height: 50vw;
+}
+
+.map {
+  width: 100%;
+  height: 60%;
+  background-color: aqua;
 }
 </style>
