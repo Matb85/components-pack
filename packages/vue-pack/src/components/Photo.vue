@@ -35,6 +35,12 @@ export default {
       this.$root.$emit(enlarger, { rect: this.$el.getBoundingClientRect(), img: this.$refs.img });
     },
   },
+  watch: {
+    src() {
+      this.genSrcset = photo(this.src, this.$store.state.vuepacksizes, this.sizes).genSrcset;
+      if (this.$refs.img.classList.contains("loaded")) this.$refs.img.srcset = this.genSrcset;
+    },
+  },
   created() {
     const settings = photo(this.src, this.$store.state.vuepacksizes, this.sizes);
     this.genSrcset = settings.genSrcset;
