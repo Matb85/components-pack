@@ -1,4 +1,5 @@
-/** overload window's interface */
+/** overload window's and google's interface */
+declare const google: any;
 declare global {
   interface Window {
     initMap: (map: HTMLElement) => void;
@@ -6,6 +7,7 @@ declare global {
 }
 
 export default function (key: string, callback: (map: HTMLElement) => void, map: HTMLElement) {
+  if (typeof google != "undefined" && typeof google.maps != "undefined") return;
   /** Create the script tag, set the appropriate attributes */
   const script = document.createElement("script");
   script.src = `https://maps.googleapis.com/maps/api/js?v=weekly&key=${key}&callback=initMap`;
