@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/Redinn-Pages/components-pack/compare/v0.7.0...v0.7.1) (2021-06-26)
+
+
+### Bug Fixes
+
+* :bug: load maps multiple times ([98e7548](https://github.com/Redinn-Pages/components-pack/commit/98e754886250ee4da0e393eee09db7b18f11ada9))
+
+
+
+
+
+
 # [0.7.0](https://github.com/Redinn-Pages/components-pack/compare/v0.6.0...v0.7.0) (2021-06-06)
 
 
