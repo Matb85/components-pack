@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/Redinn-Pages/components-pack/compare/v0.7.1...v0.7.2) (2021-06-26)
+
+
+### Bug Fixes
+
+* **vue-pack:** :bug: watch for src changes ([c02a4a5](https://github.com/Redinn-Pages/components-pack/commit/c02a4a5df959777df55f1a9b326f76b07523a4a0))
+
+
+
+
+
 ## [0.7.1](https://github.com/Redinn-Pages/components-pack/compare/v0.7.0...v0.7.1) (2021-06-26)
 
 
