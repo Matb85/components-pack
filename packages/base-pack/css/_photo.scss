@@ -4,15 +4,13 @@
 }
 
 .medium-pack-photo {
-  position: relative;
-  overflow: hidden;
+  @apply relative hidden;
   > img {
-    display: block;
-    object-fit: cover;
-    @include wh;
     transition: 0.4s transform, 0.4s filter;
     filter: blur(24px) brightness(100%);
     transform: scale(1.05);
+    @apply block object-cover;
+    @include wh;
   }
   &:not(.no-hover) {
     cursor: zoom-in;
@@ -38,18 +36,13 @@
   left: $offset;
   top: $offset;
   @include wh($dim);
-  display: block;
-  position: absolute;
-  opacity: 0;
+  @apply block  absolute opacity-0;
   transition: transform 0.4s, opacity 0.4s;
   &::before,
   &::after {
-    position: absolute;
-    left: 50%;
     content: "";
-    height: 100%;
     width: 0.4px;
-    background-color: white;
+    @apply absolute left-1/2 h-full bg-white;
   }
   &::after {
     transform: rotate(90deg);
