@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <Navbar style="background-color: white">
+      <template v-slot:logo><h1>logo</h1></template>
+      <p v-for="nav of [1, 2, 3]" :key="nav">nav</p>
+    </Navbar>
     <Photo src="/assets/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" />
 
     <Photo
@@ -19,13 +23,10 @@
 </template>
 
 <script>
-import PhotoMultiViewer from "../src/components/Viewers/PhotoMultiViewer.vue";
-import PhotoViewer from "../src/components/Viewers/PhotoViewer.vue";
-import Photo from "../src/components/Photo.vue";
-import Map from "../src/components/Map.vue";
+import { PhotoMultiViewer, Navbar, PhotoViewer, Photo, Map } from "../src/index";
 
 export default {
-  components: { Map, Photo, PhotoViewer, PhotoMultiViewer },
+  components: { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar },
   mounted() {
     this.$store.commit("vuepack/addhandler", {
       name: "example",

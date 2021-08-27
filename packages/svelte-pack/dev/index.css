@@ -10,6 +10,13 @@ body,
   margin: 0;
 }
 
+.bg-white {
+  background-color: white;
+}
+.navbar .nav {
+  background-color: white;
+}
+
 #app .photo {
   position: relative;
 }

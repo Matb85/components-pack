@@ -1,3 +1,9 @@
+<Navbar className="bg-white">
+  <h1 slot="logo">logo</h1>
+  {#each [1, 2, 3] as id}
+    <p>nav{id}</p>
+  {/each}
+</Navbar>
 <div id="app">
   <Photo
     src="/assets/thumbnail_bird.jpg"
@@ -25,7 +31,7 @@ init();
 </script>
 
 <script>
-import { init, Map, Photo, PhotoViewer, PhotoMultiViewer } from "./components/index";
+import { init, Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar } from "./components/index";
 import { setContext } from "svelte";
 
 setContext("svelte-pack-sizes", {
