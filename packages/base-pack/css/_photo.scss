@@ -4,7 +4,7 @@
 }
 
 .medium-pack-photo {
-  @apply relative hidden;
+  @apply relative overflow-hidden;
   > img {
     transition: 0.4s transform, 0.4s filter;
     filter: blur(24px) brightness(100%);
