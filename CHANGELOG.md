@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/Redinn-Pages/components-pack/compare/v0.7.2...v0.8.0) (2021-08-27)
+
+
+### Bug Fixes
+
+* **base-pack:** :ambulance: overflow hidden ([ec702c5](https://github.com/Redinn-Pages/components-pack/commit/ec702c5fbba634e1069e31a57e510917d4014279))
+* **base-pack:** :bug: modular-slider.css ([47f873f](https://github.com/Redinn-Pages/components-pack/commit/47f873f01723f4954fa24a41fb0267fafd255e60))
+
+
+### Features
+
+* :sparkles: a footer component ([e6d3856](https://github.com/Redinn-Pages/components-pack/commit/e6d3856ac8af344d377f53a01bf5f7f69f8a740e))
+* :sparkles: add a navbar component ([477a24f](https://github.com/Redinn-Pages/components-pack/commit/477a24f20a8a643ef0e61194610bec2ae10db275))
+* **base-pack:** :heavy_plus_sign: use tailwindcss ([7abf291](https://github.com/Redinn-Pages/components-pack/commit/7abf291fa561c92fdbbeadc477b40233b222c24e))
+
+
+
+
+
 ## [0.7.2](https://github.com/Redinn-Pages/components-pack/compare/v0.7.1...v0.7.2) (2021-06-26)
 
 
