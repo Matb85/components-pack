@@ -13,6 +13,9 @@ body,
 .bg-white {
   background-color: white;
 }
+.bg-aqua {
+  background-color: aquamarine;
+}
 .navbar .nav {
   background-color: white;
 }

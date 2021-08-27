@@ -24,6 +24,11 @@
   <PhotoViewer />
   <PhotoMultiViewer />
   <Map className="map" apikey="gdsfgdgfds" callback="{map => console.log(map)}" />
+  <Footer
+    className="bg-aqua"
+    background="/assets/thumbnail_bird.jpg"
+    name="Testing"
+    references="{[{ name: 'cos', id: 1, links: [{ id: 1, name: 'link 1', url: '/' }] }]}"><h3>hello</h3></Footer>
 </div>
 
 <script context="module">
@@ -31,7 +36,7 @@ init();
 </script>
 
 <script>
-import { init, Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar } from "./components/index";
+import { init, Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, Footer } from "./components/index";
 import { setContext } from "svelte";
 
 setContext("svelte-pack-sizes", {

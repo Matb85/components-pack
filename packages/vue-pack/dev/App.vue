@@ -19,14 +19,21 @@
     <PhotoViewer />
     <PhotoMultiViewer />
     <Map class="map" apikey="gfsgdsgds" :callback="mapCallback" />
+    <Footer
+      style="background-color: aqua"
+      background="/assets/thumbnail_mountains.jpg"
+      name="Testing"
+      :references="[{ name: 'cos', id: 1, links: [{ id: 1, name: 'link 1', url: '/' }] }]"
+      ><h3>hello</h3></Footer
+    >
   </div>
 </template>
 
 <script>
-import { PhotoMultiViewer, Navbar, PhotoViewer, Photo, Map } from "../src/index";
+import { PhotoMultiViewer, Navbar, PhotoViewer, Photo, Map, Footer } from "../src/index";
 
 export default {
-  components: { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar },
+  components: { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, Footer },
   mounted() {
     this.$store.commit("vuepack/addhandler", {
       name: "example",
