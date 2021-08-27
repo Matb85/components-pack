@@ -17,5 +17,13 @@ const plugins = [
 ];
 
 gulp.task("default", function () {
-  return gulp.src("./css/**/*").pipe(sass()).pipe(postcss(plugins)).pipe(gulp.dest("./dist"));
+  return gulp
+    .src("./css/**/*")
+    .pipe(
+      sass({
+        includePaths: ["./node_modules/modular-slider/dist/"],
+      })
+    )
+    .pipe(postcss(plugins))
+    .pipe(gulp.dest("./dist"));
 });
