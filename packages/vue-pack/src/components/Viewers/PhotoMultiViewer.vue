@@ -35,7 +35,6 @@ import Mixin from "./photoViewerMixin.js";
 import { mixin } from "@matb85/base-pack";
 
 import { setup, Slidehandler, Noloop, lazyloading, buttons } from "modular-slider";
-import "modular-slider/dist/modular-slider.css";
 
 const Slider = setup(Slidehandler, Noloop);
 export default {

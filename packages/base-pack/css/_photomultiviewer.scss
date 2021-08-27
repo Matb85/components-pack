@@ -1,3 +1,5 @@
+@use "~modular-slider/dist/modular-slider.css";
+
 @mixin wh($dim: 100%) {
   width: $dim;
   height: $dim;
