@@ -3,18 +3,33 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import css from "rollup-plugin-css-only";
 
-export default {
-  input: "components/index.js",
-  output: {
-    format: "es",
-    name: "sveltepack",
-    file: "dist/index.js",
+const format = "es";
+const name = "sveltepack";
+const input = "components/index.js";
+const external = ["@matb85/base-pack", "svelte"];
+
+const plugins = [resolve({ browser: true, dedupe: external }), commonjs(), css({ output: "index.css" })];
+
+export default [
+  {
+    input,
+    output: { format, name, file: "dist/index.js" },
+    external,
+    plugins: [svelte({ compilerOptions: { dev: false } }), ...plugins],
   },
-  external: ["@matb85/base-pack"],
-  plugins: [
-    svelte(),
-    resolve({ browser: true, dedupe: ["svelte", "@matb85/base-pack"] }),
-    commonjs(),
-    css({ output: "index.css" }),
-  ],
-};
+  {
+    input,
+    output: { format, name, file: "dist/index.ssr.js" },
+    external,
+    plugins: [
+      svelte({
+        compilerOptions: {
+          dev: false,
+          generate: "ssr",
+          hydratable: true,
+        },
+      }),
+      ...plugins,
+    ],
+  },
+];
