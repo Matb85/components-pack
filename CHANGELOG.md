@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/Redinn-Pages/components-pack/compare/v0.8.0...v0.8.1) (2021-08-28)
+
+
+### Features
+
+* **svelte-pack:** :hammer: ssr build ([5de07bd](https://github.com/Redinn-Pages/components-pack/commit/5de07bd68fe6fbe75296cbab6f3be7b0c6073a4f))
+
+
+
+
+
 # [0.8.0](https://github.com/Redinn-Pages/components-pack/compare/v0.7.2...v0.8.0) (2021-08-27)
 
 
