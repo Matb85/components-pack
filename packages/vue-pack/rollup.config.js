@@ -9,6 +9,7 @@ export default {
     format: "umd",
     file: "dist/index.js",
     name: "vuepack",
+    exports: "named",
     globals: { vue: "vue" },
   },
   external: ["vue"],
