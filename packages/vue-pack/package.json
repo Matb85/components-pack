@@ -23,8 +23,8 @@
     "modular-slider": "^0.5.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.0",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@vue/cli-plugin-babel": "^4.5.12",
@@ -32,17 +32,17 @@
     "@vue/cli-service": "^4.5.12",
     "@vue/compiler-sfc": "^3.0.11",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "core-js": "^3.11.1",
-    "eslint": "^7.25.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.9.0",
-    "prettier": "^2.2.1",
+    "core-js": "^3.16.3",
+    "eslint": "^7.32.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-vue": "^7.17.0",
+    "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.46.0",
+    "rollup": "^2.56.3",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-vue": "5.0.0",
-    "vue": "^2.6.12",
-    "vue-template-compiler": "^2.6.12",
+    "vue": "^2.6.14",
+    "vue-template-compiler": "^2.6.14",
     "vuex": "^3.6.2"
   }
 }
