@@ -1,6 +1,6 @@
 {
   "name": "@matb85/svelte-pack",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "author": "matb85",
   "types": "./index.d.ts",
   "main": "dist/index.js",
