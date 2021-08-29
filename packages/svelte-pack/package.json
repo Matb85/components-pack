@@ -4,11 +4,11 @@
   "author": "matb85",
   "types": "./index.d.ts",
   "main": "dist/index.js",
-  "svelte": "src/index.js",
+  "svelte": "components/index.js",
   "files": [
     "dist/*",
     "index.d.ts",
-    "src/*"
+    "components/**/*"
   ],
   "scripts": {
     "dev": "snowpack dev",
