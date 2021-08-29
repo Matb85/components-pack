@@ -2,6 +2,14 @@
   "name": "@matb85/svelte-pack",
   "version": "0.8.2",
   "author": "matb85",
+  "types": "./index.d.ts",
+  "main": "dist/index.js",
+  "svelte": "src/index.js",
+  "files": [
+    "dist/*",
+    "index.d.ts",
+    "src/*"
+  ],
   "scripts": {
     "dev": "snowpack dev",
     "build": "rimraf ./dist && rollup -c"
@@ -20,11 +28,5 @@
   "dependencies": {
     "@matb85/base-pack": "^0.8.1",
     "modular-slider": "^0.5.5"
-  },
-  "types": "./index.d.ts",
-  "main": "dist/index.js",
-  "files": [
-    "dist/*",
-    "index.d.ts"
-  ]
+  }
 }
