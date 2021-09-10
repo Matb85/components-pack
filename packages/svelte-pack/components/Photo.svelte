@@ -10,9 +10,13 @@
   <span class="cross"></span>
 </div>
 
+<script context="module">
+if (typeof window != "undefined") window.sveltepack = Store();
+</script>
+
 <script>
 import { onMount } from "svelte";
-import { photo, mutations } from "@matb85/base-pack";
+import { photo, mutations, Store } from "@matb85/base-pack";
 import { getContext } from "svelte";
 
 export let src;
