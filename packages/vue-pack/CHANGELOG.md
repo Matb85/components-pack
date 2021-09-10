@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.5](https://github.com/Redinn-Pages/components-pack/compare/v0.8.4...v0.8.5) (2021-09-10)
+
+**Note:** Version bump only for package @matb85/vue-pack
+
+
+
+
+
 ## [0.8.1](https://github.com/Redinn-Pages/components-pack/compare/v0.8.0...v0.8.1) (2021-08-28)
 
 **Note:** Version bump only for package @matb85/vue-pack

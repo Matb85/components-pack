@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.5](https://github.com/Redinn-Pages/components-pack/compare/v0.8.4...v0.8.5) (2021-09-10)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :bug: types ([181138c](https://github.com/Redinn-Pages/components-pack/commit/181138c48509e75a5c3714c74edd780c491bf74d))
+
+
+
+
+
 ## [0.8.4](https://github.com/Redinn-Pages/components-pack/compare/v0.8.3...v0.8.4) (2021-08-29)
 
 **Note:** Version bump only for package @matb85/svelte-pack
