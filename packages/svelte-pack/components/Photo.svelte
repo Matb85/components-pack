@@ -10,13 +10,9 @@
   <span class="cross"></span>
 </div>
 
-<script context="module">
-if (typeof window != "undefined") window.sveltepack = Store();
-</script>
-
 <script>
 import { onMount } from "svelte";
-import { photo, mutations, Store } from "@matb85/base-pack";
+import { photo, mutations } from "@matb85/base-pack";
 import { getContext } from "svelte";
 
 export let src;
@@ -39,18 +35,20 @@ function enlarge() {
   const enlarger = !multiview ? "enlargePhoto" : "enlargeManyPhotos";
   window.dispatchEvent(new CustomEvent(enlarger, { detail: { rect: el.getBoundingClientRect(), img } }));
 }
+// dispatching/adding to the store
+function dispatch() {
+  const detail = { src, srcset: genSrcset, group, ratio: img.naturalWidth / img.naturalHeight };
+  mutations.addphoto(window.sveltepack, detail);
+
+  window.sveltepack.observer.observe(img);
+}
 
 onMount(() => {
-  if (!prevent.includes("addtolist"))
-    img.addEventListener(
-      "load",
-      () => {
-        const detail = { src, srcset: genSrcset, group, ratio: img.naturalWidth / img.naturalHeight };
-        mutations.addphoto(window.sveltepack, detail);
-
-        window.sveltepack.observer.observe(img);
-      },
-      { once: true }
-    );
+  if (prevent.includes("addtolist")) return;
+  if (img.complete) {
+    dispatch();
+  } else {
+    img.addEventListener("load", () => dispatch(), { once: true });
+  }
 });
 </script>
