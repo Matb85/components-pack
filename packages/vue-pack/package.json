@@ -3,10 +3,8 @@
   "version": "0.8.5",
   "author": "matb85",
   "scripts": {
-    "dev": "vue-cli-service serve dev/main.js",
-    "build": "rimraf ./dist && rollup -c",
-    "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "dev": "snowpack dev",
+    "build": "rimraf ./dist && rollup -c"
   },
   "main": "dist/index.js",
   "files": [
@@ -23,24 +21,15 @@
     "modular-slider": "^0.5.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
+    "@morgul/snowpack-plugin-vue2": "^0.4.2",
     "@rollup/plugin-commonjs": "^18.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
-    "@vue/cli-plugin-babel": "^4.5.12",
-    "@vue/cli-plugin-eslint": "^4.5.12",
-    "@vue/cli-service": "^4.5.12",
-    "@vue/compiler-sfc": "^3.0.11",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "core-js": "^3.16.3",
-    "eslint": "^7.32.0",
-    "eslint-plugin-prettier": "^3.4.1",
-    "eslint-plugin-vue": "^7.17.0",
-    "prettier": "^2.3.2",
+    "@snowpack/plugin-vue": "^2.6.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.56.3",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-vue": "5.0.0",
+    "snowpack": "^3.8.8",
     "vue": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
     "vuex": "^3.6.2"
