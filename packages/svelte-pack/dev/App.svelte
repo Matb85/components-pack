@@ -31,8 +31,12 @@
     references="{[{ name: 'cos', id: 1, links: [{ id: 1, name: 'link 1', url: '/' }] }]}"><h3>hello</h3></Footer>
 </div>
 
+<script context="module">
+init();
+</script>
+
 <script>
-import { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, Footer } from "./components/index";
+import { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, Footer, init } from "./components/index";
 import { setContext } from "svelte";
 
 setContext("svelte-pack-sizes", {
