@@ -1,6 +1,6 @@
-require('dotenv').config({ path: __dirname + "/./../../.env" })
-import replace from '@rollup/plugin-replace';
-import typescript from 'rollup-plugin-typescript2';
+import settings from "../../build.settings.json";
+import replace from "@rollup/plugin-replace";
+import typescript from "rollup-plugin-typescript2";
 
 export default {
   input: "src/index.ts",
@@ -10,9 +10,9 @@ export default {
   },
   plugins: [
     replace({
-        preventAssignment: true,
-        'process.env.VIEWER_TRANSITION_SPEED': process.env.VIEWER_TRANSITION_SPEED,
+      preventAssignment: true,
+      "process.env.VIEWER_TRANSITION_SPEED": settings.VIEWER_TRANSITION_SPEED,
     }),
-    typescript()
+    typescript(),
   ],
 };

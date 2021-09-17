@@ -1,16 +1,16 @@
-require("dotenv").config({ path: __dirname + "/./../../.env" });
+const settings = require("../../build.settings.json");
 const gulp = require("gulp");
 const tailwind = require("tailwindcss");
 const sass = require("gulp-sass");
 const postcss = require("gulp-postcss");
 const postcssEnvFunction = require("postcss-env-function");
-console.log(process.env.VIEWER_TRANSITION_SPEED);
+console.log(settings.VIEWER_TRANSITION_SPEED);
 const plugins = [
   tailwind(),
   postcssEnvFunction({
     importFrom: {
       environmentVariables: {
-        "--viewer-transtion-speed": process.env.VIEWER_TRANSITION_SPEED + "ms",
+        "--viewer-transtion-speed": settings.VIEWER_TRANSITION_SPEED + "ms",
       },
     },
   }),
