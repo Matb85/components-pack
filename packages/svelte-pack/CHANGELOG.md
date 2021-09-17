@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/Redinn-Pages/components-pack/compare/v0.8.6...v0.9.0) (2021-09-17)
+
+
+### Features
+
+* :sparkles: organise photos better in PhotoMultiViewer ([bbe100a](https://github.com/Redinn-Pages/components-pack/commit/bbe100aeecba3b41d721aa280f02716511501449))
+
+
+
+
+
 ## [0.8.6](https://github.com/Redinn-Pages/components-pack/compare/v0.8.5...v0.8.6) (2021-09-12)
 
 
