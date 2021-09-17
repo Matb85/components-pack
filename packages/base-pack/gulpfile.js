@@ -1,7 +1,7 @@
 const settings = require("../../build.settings.json");
 const gulp = require("gulp");
 const tailwind = require("tailwindcss");
-const sass = require("gulp-sass");
+const sass = require("gulp-sass")(require("node-sass"));
 const postcss = require("gulp-postcss");
 const postcssEnvFunction = require("postcss-env-function");
 console.log(settings.VIEWER_TRANSITION_SPEED);
