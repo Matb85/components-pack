@@ -59,9 +59,9 @@ export default {
       const chosen = this.slider.container.children[result.index].children[0].children[0];
       this.$store.state.vuepack.handlers.photo(chosen);
       this.slider.slideNext(result.index, 0);
-      setTimeout(() => {
+      this.$refs.img.addEventListener("animationend", () => {
         this.$refs.img.parentElement.style.display = "none";
-      }, 400);
+      });
     });
   },
   methods: {

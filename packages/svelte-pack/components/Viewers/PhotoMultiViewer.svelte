@@ -52,9 +52,9 @@ onMount(() => {
     const chosen = slider.container.children[result.index].children[0].children[0];
     window.sveltepack.handlers.photo(chosen);
     slider.slideNext(result.index, 0);
-    setTimeout(() => {
+    image.addEventListener("animationend", () => {
       image.parentElement.style.display = "none";
-    }, 400);
+    });
   });
 });
 
