@@ -52,12 +52,20 @@ export default {
     else return { w: "95vw", h: 95 * (1 / aspectR) + "vw" };
   },
   // utility for photoMultiViewers
-  filterimgs(state: StoreI, img: HTMLImageElement) {
-    return state.photolist[img.dataset.group || "rest"].filter((x: ExtendedPhoto) => {
-      const { w, h } = this.getdimensions(x.ratio);
-      x.width = w;
-      x.height = h;
-      return x.srcset !== img.dataset.srcset;
-    });
+  setupimgs(state: StoreI, img: HTMLImageElement) {
+    const photos = state.photolist[img.dataset.group || "rest"];
+    let index;
+    for (let i = 0; i < photos.length; i++) {
+      const photo = photos[i] as ExtendedPhoto;
+      if (typeof img != "undefined") {
+        const { w, h } = this.getdimensions(photo.ratio);
+        photo.width = w;
+        photo.height = h;
+        if (photo.srcset == img.dataset.srcset) {
+          index = i;
+        }
+      }
+    }
+    return { photos, index };
   },
 };

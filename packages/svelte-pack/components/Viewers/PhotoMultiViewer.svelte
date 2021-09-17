@@ -1,24 +1,22 @@
 <section bind:this="{el}" class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
+  <div class="first-slide">
+    <img bind:this="{image}" class="viewed-photo" alt="main" />
+  </div>
   <div class="photo-slider ms-inner-con" id="photo-slider">
-    <div class="first-slide">
-      <img bind:this="{image}" class="viewed-photo" alt="main" />
-    </div>
     {#each imgs as img}
       <div class="other-slides">
-        <div class="wrapper">
-          <div
-            class="medium-pack-photo no-hover"
-            style=" --enlarged-photo-w: {img.width}; --enlarged-photo-h: {img.height};">
-            <img class="ms-lazy" src="{img.src}" data-srcset="{img.srcset}" alt="other" />
-          </div>
+        <div
+          class="medium-pack-photo no-hover"
+          style=" --enlarged-photo-w: {img.width}; --enlarged-photo-h: {img.height};">
+          <img class="ms-lazy" src="{img.src}" data-srcset="{img.srcset}" alt="other" />
         </div>
       </div>
     {/each}
   </div>
   <!-- navigation -->
   <button id="multi-viewer-prev">
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24">
-      <path d="{svgPath}"></path>
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
+      ><path d="{svgPath}"></path>
     </svg>
   </button>
   <button id="multi-viewer-next">
@@ -39,16 +37,24 @@ const svgPath =
 let imgs = [];
 let slider;
 
-onMount(async () => {
+onMount(() => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
-    imgs = mixin.filterimgs(window.sveltepack, detail.img);
+    const result = mixin.setupimgs(window.sveltepack, detail.img);
+
+    imgs = result.photos;
     await hander(detail);
     slider = new Slider({
       container: "photo-slider",
       transitionSpeed: 500,
       plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })],
     });
+    const chosen = slider.container.children[result.index].children[0].children[0];
+    window.sveltepack.handlers.photo(chosen);
+    slider.slideNext(result.index, 0);
+    setTimeout(() => {
+      image.parentElement.style.display = "none";
+    }, 400);
   });
 });
 
@@ -57,5 +63,6 @@ async function closeviewer() {
   imgs = [];
   slider.slideTo(0);
   slider.destroy();
+  image.parentElement.style.display = "block";
 }
 </script>

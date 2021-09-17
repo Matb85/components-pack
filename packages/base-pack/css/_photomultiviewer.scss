@@ -23,13 +23,10 @@
   }
   .other-slides {
     @include wh;
-    .wrapper {
-      @include wh;
-      @apply flex justify-center items-center;
-      .medium-pack-photo {
-        width: var(--enlarged-photo-w);
-        height: var(--enlarged-photo-h);
-      }
+    @apply flex justify-center items-center;
+    .medium-pack-photo {
+      width: var(--enlarged-photo-w);
+      height: var(--enlarged-photo-h);
     }
   }
 }

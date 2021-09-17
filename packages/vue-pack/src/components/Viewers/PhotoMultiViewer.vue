@@ -1,17 +1,15 @@
 <template>
   <section class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
+    <div class="first-slide">
+      <img ref="img" class="viewed-photo" />
+    </div>
     <div class="photo-slider ms-inner-con" id="photo-slider">
-      <div class="first-slide">
-        <img ref="img" class="viewed-photo" />
-      </div>
       <div v-for="img of imgs" :key="img.src" class="other-slides">
-        <div class="wrapper">
-          <div
-            class="medium-pack-photo no-hover"
-            :style="{ '--enlarged-photo-w': img.width, '--enlarged-photo-h': img.height }"
-          >
-            <img class="ms-lazy" :src="img.src" :data-srcset="img.srcset" />
-          </div>
+        <div
+          class="medium-pack-photo no-hover"
+          :style="{ '--enlarged-photo-w': img.width, '--enlarged-photo-h': img.height }"
+        >
+          <img class="ms-lazy" :src="img.src" :data-srcset="img.srcset" />
         </div>
       </div>
     </div>
@@ -49,13 +47,21 @@ export default {
   }),
   async mounted() {
     this.$root.$on(this.trigger, async ({ img, rect }) => {
-      this.imgs = mixin.filterimgs(this.$store.state.vuepack, img);
+      const result = mixin.setupimgs(this.$store.state.vuepack, img);
+      this.imgs = result.photos;
+
       await this.enlargeHandler({ img, rect });
       this.slider = new Slider({
         container: "photo-slider",
         transitionSpeed: 500,
         plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })],
       });
+      const chosen = this.slider.container.children[result.index].children[0].children[0];
+      this.$store.state.vuepack.handlers.photo(chosen);
+      this.slider.slideNext(result.index, 0);
+      setTimeout(() => {
+        this.$refs.img.parentElement.style.display = "none";
+      }, 400);
     });
   },
   methods: {
@@ -64,7 +70,7 @@ export default {
       this.imgs = [];
       this.slider.slideTo(0);
       this.slider.destroy();
-      this.$refs.img.removeAttribute("style");
+      this.$refs.img.parentElement.style.display = "block";
     },
   },
 };
