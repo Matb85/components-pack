@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/Redinn-Pages/components-pack/compare/v0.9.0...v0.9.1) (2021-09-25)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :bug: Photo.svelte - watch for src changes ([3c61d12](https://github.com/Redinn-Pages/components-pack/commit/3c61d127911229a7d0af3773a5e8fae4ada33333))
+
+
+
+
+
 # [0.9.0](https://github.com/Redinn-Pages/components-pack/compare/v0.8.6...v0.9.0) (2021-09-17)
 
 
