@@ -27,7 +27,7 @@ let img, el;
 
 // setup sizes & srcset
 const settings = photo(src, getContext("svelte-pack-sizes"), sizes);
-const genSrcset = settings.genSrcset,
+let genSrcset = settings.genSrcset,
   genSizes = settings.genSizes;
 
 // update srcset on change
