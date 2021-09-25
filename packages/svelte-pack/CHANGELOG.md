@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.3](https://github.com/Redinn-Pages/components-pack/compare/v0.9.2...v0.9.3) (2021-09-25)
+
+
+### Features
+
+* :sparkles: additional slot in Footer ([a59f86b](https://github.com/Redinn-Pages/components-pack/commit/a59f86b3147b7dc5e7ffa96638dbfc0ea9b47381))
+
+
+
+
+
 ## [0.9.2](https://github.com/Redinn-Pages/components-pack/compare/v0.9.1...v0.9.2) (2021-09-25)
 
 
