@@ -19,6 +19,7 @@
       </div>
     {/each}
   </div>
+  <slot name="above-copyright" />
   <div class="footer-copyright">Copyright © {name} {new Date().getFullYear()}</div>
 </footer>
 
