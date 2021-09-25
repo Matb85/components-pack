@@ -30,6 +30,14 @@ const settings = photo(src, getContext("svelte-pack-sizes"), sizes);
 const genSrcset = settings.genSrcset,
   genSizes = settings.genSizes;
 
+// update srcset on change
+function updateSrc() {
+  if (typeof window == "undefined" || typeof img == "undefined") return;
+  genSrcset = photo(src, getContext("svelte-pack-sizes"), sizes).genSrcset;
+  if (img.classList.contains("loaded")) img.srcset = genSrcset;
+}
+$: updateSrc() || src;
+
 function enlarge() {
   if (!img.classList.contains("loaded") || prevent.includes("enlargeonclick")) return;
   const enlarger = !multiview ? "enlargePhoto" : "enlargeManyPhotos";
