@@ -19,6 +19,11 @@ export default [
   },
   {
     input,
+    output: { format, name, file: "dist/index.bundle.js" },
+    plugins: [svelte({ compilerOptions: { dev: false } }), resolve({ browser: true, dedupe: external }), commonjs()],
+  },
+  {
+    input,
     output: { format, name, file: "dist/index.ssr.js" },
     external,
     plugins: [
