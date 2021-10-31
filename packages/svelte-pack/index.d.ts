@@ -5,12 +5,12 @@ type options = {
   target: HTMLElement;
 };
 
-export const Photo: new (options: options) => SvelteComponentTyped;
-export const PhotoViewer: new (options: options) => SvelteComponentTyped;
-export const PhotoMultiViewer: new (options: options) => SvelteComponentTyped;
-export const Navbar: new (options: options) => SvelteComponentTyped;
-export const Footer: new (options: options) => SvelteComponentTyped;
-export const Map: new (options: options) => SvelteComponentTyped;
-export const Store: () => StoreI;
-export const mutations: typeof Mutations;
+type SvelteComponent = new (options: options) => SvelteComponentTyped;
+
+export const Map: SvelteComponent;
+export const Photo: SvelteComponent;
+export const PhotoViewer: SvelteComponent;
+export const PhotoMultiViewer: SvelteComponent;
+export const Navbar: SvelteComponent;
+export const Footer: SvelteComponent;
 export function init(): void;

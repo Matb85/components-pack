@@ -10,4 +10,4 @@ function init() {
   window.sveltepack = Store();
 }
 
-export { Map, Photo, PhotoViewer, PhotoMultiViewer, init, Navbar, Footer };
+export { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, Footer, init };
