@@ -1,4 +1,4 @@
-type Handler = (target: any) => void;
+type Handler = (target: HTMLImageElement | HTMLElement) => void;
 
 export interface Photo {
   src: string;
@@ -17,9 +17,9 @@ export interface StoreI {
 export function Store(): StoreI {
   /** handler for different needs */
   const handlers: Record<string, Handler> = {
-    photo(img: HTMLImageElement) {
-      img.addEventListener("load", () => img.classList.add("loaded"));
-      img.srcset = img.dataset.srcset as string;
+    photo(img) {
+      (img as HTMLImageElement).addEventListener("load", () => img.classList.add("loaded"));
+      (img as HTMLImageElement).srcset = img.dataset.srcset as string;
     },
   };
   /** IntersectionObserver's logic */

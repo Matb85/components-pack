@@ -1,5 +1,5 @@
 /** overload window's and google's interface */
-declare const google: any;
+declare const google: { maps?: object };
 declare global {
   interface Window {
     initMap: (map: HTMLElement) => void;
