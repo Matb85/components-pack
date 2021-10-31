@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.4](https://github.com/Redinn-Pages/components-pack/compare/v0.9.3...v0.9.4) (2021-10-31)
+
+
+### Bug Fixes
+
+* :lipstick: Photo's cross thickness ([8d1d7ce](https://github.com/Redinn-Pages/components-pack/commit/8d1d7ced3fddb3d18c481c27462c64fe0df97ca6))
+* **base-pack:** :rotating_light: linter warnings ([bcc2e33](https://github.com/Redinn-Pages/components-pack/commit/bcc2e3302848eee8750997917a76c665d196a34c))
+
+
+
+
+
 # [0.9.0](https://github.com/Redinn-Pages/components-pack/compare/v0.8.6...v0.9.0) (2021-09-17)
 
 

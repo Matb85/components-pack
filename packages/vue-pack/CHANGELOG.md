@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.4](https://github.com/Redinn-Pages/components-pack/compare/v0.9.3...v0.9.4) (2021-10-31)
+
+
+### Bug Fixes
+
+* :label: typescript types ([97ce41b](https://github.com/Redinn-Pages/components-pack/commit/97ce41bb049f28e4532714257254e90dc7c96207))
+
+
+
+
+
 ## [0.9.3](https://github.com/Redinn-Pages/components-pack/compare/v0.9.2...v0.9.3) (2021-09-25)
 
 
