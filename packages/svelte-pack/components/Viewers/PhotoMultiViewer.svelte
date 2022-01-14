@@ -22,7 +22,14 @@
   <button id="multi-viewer-next">
     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"><path d="{svgPath}"></path></svg>
   </button>
-  <button on:click="{closeviewer}" id="close-multi-viewer"></button>
+  <div class="medium-pack-photo-viewer-navbar">
+    <p>
+      {#if slider != false}{Math.abs(counter) + 1}/{imgs.length}
+        {imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : ""}
+      {/if}
+    </p>
+    <button on:click="{closeviewer}" id="close-multi-viewer"> </button>
+  </div>
 </section>
 
 <script>
@@ -36,7 +43,7 @@ const svgPath =
   "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z";
 let imgs = [];
 let slider;
-
+let counter;
 onMount(() => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
   window.addEventListener("keyup", e => {
@@ -63,12 +70,17 @@ onMount(() => {
       transitionSpeed: 500,
       plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })],
     });
+
     const chosen = slider.container.children[result.index].children[0].children[0];
     window.sveltepack.handlers.photo(chosen);
     slider.slideTo(result.index, 0);
-    image.addEventListener("animationend", () => {
-      image.parentElement.style.display = "none";
+    counter = slider.counter;
+    Object.defineProperty(slider, "counter", {
+      get: () => counter,
+      set: val => (counter = val),
     });
+
+    image.addEventListener("animationend", () => (image.parentElement.style.display = "none"), { once: true });
   });
 });
 

@@ -3,6 +3,7 @@
     <img
       ref="img"
       :src="src"
+      :data-src="src"
       :data-srcset="genSrcset"
       :sizes="genSizes"
       :alt="alt"
@@ -58,6 +59,7 @@ export default {
             srcset: this.genSrcset,
             ratio: img.naturalWidth / img.naturalHeight,
             group: this.group,
+            alt: this.alt,
           }),
         { once: true }
       );
