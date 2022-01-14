@@ -1,7 +1,6 @@
 import vue from "rollup-plugin-vue";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
-import css from "rollup-plugin-css-only";
 
 export default {
   input: "src/index.js",
@@ -23,6 +22,5 @@ export default {
     }),
     commonjs(),
     resolve({ browser: true, dedupe: ["@matb85/base-pack"] }),
-    css({ output: "index.css" }),
   ],
 };
