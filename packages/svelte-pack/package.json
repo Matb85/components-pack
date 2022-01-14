@@ -26,6 +26,6 @@
   },
   "dependencies": {
     "@matb85/base-pack": "^0.9.4",
-    "modular-slider": "^0.6.0"
+    "modular-slider": "^0.6.2"
   }
 }
