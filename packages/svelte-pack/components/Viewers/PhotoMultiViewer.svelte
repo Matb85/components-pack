@@ -7,7 +7,7 @@
       <div class="other-slides">
         <div
           class="medium-pack-photo no-hover"
-          style=" --enlarged-photo-w: {img.width}; --enlarged-photo-h: {img.height};">
+          style="--enlarged-photo-w: {img.width}; --enlarged-photo-h: {img.height};">
           <img class="ms-lazy" src="{img.src}" data-srcset="{img.srcset}" alt="other" />
         </div>
       </div>
@@ -39,6 +39,20 @@ let slider;
 
 onMount(() => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
+  window.addEventListener("keyup", e => {
+    if (slider != false)
+      switch (e.key) {
+        case "Escape":
+          closeviewer();
+          break;
+        case "ArrowLeft":
+          slider.slideBy(-1);
+          break;
+        case "ArrowRight":
+          slider.slideBy(1);
+          break;
+      }
+  });
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
     const result = mixin.setupimgs(window.sveltepack, detail.img);
 
@@ -51,7 +65,7 @@ onMount(() => {
     });
     const chosen = slider.container.children[result.index].children[0].children[0];
     window.sveltepack.handlers.photo(chosen);
-    slider.slideNext(result.index, 0);
+    slider.slideTo(result.index, 0);
     image.addEventListener("animationend", () => {
       image.parentElement.style.display = "none";
     });
@@ -63,6 +77,7 @@ async function closeviewer() {
   imgs = [];
   slider.slideTo(0);
   slider.destroy();
+  slider = false;
   image.parentElement.style.display = "block";
 }
 </script>
