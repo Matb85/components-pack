@@ -3,6 +3,7 @@
     <img
       ref="img"
       :src="src"
+      :data-src="src"
       :data-srcset="genSrcset"
       :sizes="genSizes"
       :alt="alt"

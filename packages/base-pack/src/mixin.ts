@@ -61,9 +61,7 @@ export default {
         const { w, h } = this.getdimensions(photo.ratio);
         photo.width = w;
         photo.height = h;
-        if (photo.srcset == img.dataset.srcset) {
-          index = i;
-        }
+        if (photo.src == img.dataset.src) index = i;
       }
     }
     return { photos, index };
