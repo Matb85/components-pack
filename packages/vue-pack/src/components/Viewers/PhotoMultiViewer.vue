@@ -24,7 +24,13 @@
         <path :d="svgPath" />
       </svg>
     </button>
-    <button @click="closeviewer" id="close-multi-viewer"></button>
+    <div class="medium-pack-photo-viewer-navbar">
+      <p v-if="slider != false">
+        {{ Math.abs(counter) + 1 }}/{{ imgs.length }}
+        {{ imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : "" }}
+      </p>
+      <button @click="closeviewer" id="close-multi-viewer"></button>
+    </div>
   </section>
 </template>
 
@@ -44,8 +50,23 @@ export default {
     trigger: "enlargeManyPhotos",
     imgs: [],
     slider: null,
+    counter: 0,
   }),
   async mounted() {
+    window.addEventListener("keyup", (e) => {
+      if (this.slider != false)
+        switch (e.key) {
+          case "Escape":
+            this.closeviewer();
+            break;
+          case "ArrowLeft":
+            this.slider.slideBy(-1);
+            break;
+          case "ArrowRight":
+            this.slider.slideBy(1);
+            break;
+        }
+    });
     this.$root.$on(this.trigger, async ({ img, rect }) => {
       const result = mixin.setupimgs(this.$store.state.vuepack, img);
       this.imgs = result.photos;
@@ -58,10 +79,13 @@ export default {
       });
       const chosen = this.slider.container.children[result.index].children[0].children[0];
       this.$store.state.vuepack.handlers.photo(chosen);
-      this.slider.slideNext(result.index, 0);
-      this.$refs.img.addEventListener("animationend", () => {
-        this.$refs.img.parentElement.style.display = "none";
+      this.slider.slideTo(result.index, 0);
+      this.counter = this.slider.counter;
+      Object.defineProperty(this.slider, "counter", {
+        get: () => this.counter,
+        set: (val) => (this.counter = val),
       });
+      this.$refs.img.addEventListener("animationend", () => (this.$refs.img.parentElement.style.display = "none"));
     });
   },
   methods: {
@@ -70,6 +94,7 @@ export default {
       this.imgs = [];
       this.slider.slideTo(0);
       this.slider.destroy();
+      this.slider = false;
       this.$refs.img.parentElement.style.display = "block";
     },
   },

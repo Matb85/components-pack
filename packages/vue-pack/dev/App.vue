@@ -12,9 +12,23 @@
       :sizes="[720, 1290, 1920, 2400]"
       class="photo"
       group="mountains"
+      alt="a photo of the Dunajec Gorge"
     />
-    <Photo src="/assets/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" />
-    <Photo src="/assets/thumbnail_mountains.jpg" :sizes="[2400]" class="photo" group="mountains" />
+    <Photo
+      src="/assets/thumbnail_bird.jpg"
+      :sizes="{ 2400: 800, 480: 1000 }"
+      class="photo"
+      alt="a bird"
+      group="mountains"
+    />
+    <Photo
+      src="/assets/thumbnail_mountains.jpg"
+      :sizes="[2400]"
+      class="photo"
+      group="mountains"
+      alt="a panorama of mountains"
+      multiview
+    />
 
     <PhotoViewer />
     <PhotoMultiViewer />
