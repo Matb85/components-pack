@@ -59,6 +59,7 @@ export default {
             srcset: this.genSrcset,
             ratio: img.naturalWidth / img.naturalHeight,
             group: this.group,
+            alt: this.alt,
           }),
         { once: true }
       );

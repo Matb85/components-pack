@@ -5,6 +5,7 @@ export interface Photo {
   srcset: string;
   ratio: number;
   group: string;
+  alt: string;
 }
 
 export interface StoreI {

@@ -46,7 +46,7 @@ function enlarge() {
 }
 // dispatching/adding to the store
 function dispatch() {
-  const detail = { src, srcset: genSrcset, group, ratio: img.naturalWidth / img.naturalHeight };
+  const detail = { src, srcset: genSrcset, group, ratio: img.naturalWidth / img.naturalHeight, alt };
   mutations.addphoto(window.sveltepack, detail);
 
   window.sveltepack.observer.observe(img);
