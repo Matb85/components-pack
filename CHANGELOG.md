@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/Redinn-Pages/components-pack/compare/v0.9.4...v0.10.0) (2022-01-14)
+
+
+### Bug Fixes
+
+* :bug: result.index is not defined when opening the multiviewer ([282ec27](https://github.com/Redinn-Pages/components-pack/commit/282ec270f9c56b5db799118f48ab15e855e667cb))
+
+
+### Features
+
+* :sparkles: add navbar to PhotoMultiViewer ([23b0493](https://github.com/Redinn-Pages/components-pack/commit/23b0493a89775f3589ed6a3912144c932c355b29))
+* :sparkles: store alt text in the ssot ([94674c2](https://github.com/Redinn-Pages/components-pack/commit/94674c2527c8dee5e5f40f60b358926610980a6a))
+* **svelte-pack:** :sparkles: add keyboard events ([fa50983](https://github.com/Redinn-Pages/components-pack/commit/fa5098393da5cb8ba3356353432c81e708a2d494))
+
+
+
+
+
 ## [0.9.4](https://github.com/Redinn-Pages/components-pack/compare/v0.9.3...v0.9.4) (2021-10-31)
 
 
