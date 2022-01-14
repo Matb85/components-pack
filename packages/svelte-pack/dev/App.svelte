@@ -10,16 +10,23 @@
     sizes="{[720, 1290, 1920, 2400]}"
     className="photo"
     group="mountains"
-    multiview />
+    multiview
+    alt="a portrait of a bird" />
   <Photo
     src="/assets/thumbnail_gorge.jpg"
     multiview
     sizes="{[720, 1290, 1920, 2400]}"
     className="photo"
-    group="mountains" />
+    group="mountains"
+    alt="a photo of the Dunajec Gorge" />
 
   <Photo src="/assets/thumbnail_bird.jpg" sizes="{[480, 720]}" className="photo" group="mountains" />
-  <Photo src="/assets/thumbnail_mountains.jpg" sizes="{[480, 720]}" className="photo" group="mountains" />
+  <Photo
+    src="/assets/thumbnail_mountains.jpg"
+    sizes="{[480, 720]}"
+    className="photo"
+    group="mountains"
+    alt="a panorama of mountains" />
 
   <PhotoViewer />
   <PhotoMultiViewer />
