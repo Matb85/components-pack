@@ -1,5 +1,8 @@
-<section bind:this="{el}" class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
-  <div class="first-slide">
+<section
+  aria-label="Photo viewer"
+  bind:this="{el}"
+  class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
+  <div aria-hidden="true" class="first-slide">
     <img bind:this="{image}" class="viewed-photo" alt="main" />
   </div>
   <div class="photo-slider ms-inner-con" id="photo-slider">
@@ -8,19 +11,24 @@
         <div
           class="medium-pack-photo no-hover"
           style="--enlarged-photo-w: {img.width}; --enlarged-photo-h: {img.height};">
-          <img class="ms-lazy" src="{img.src}" data-srcset="{img.srcset}" alt="other" />
+          <img
+            class="ms-lazy"
+            src="{img.src}"
+            data-srcset="{img.srcset}"
+            alt="{img.alt || 'a photo with no alt text'}" />
         </div>
       </div>
     {/each}
   </div>
   <!-- navigation -->
-  <button id="multi-viewer-prev">
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
+  <button aria-label="previous photo" id="multi-viewer-prev">
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path>
     </svg>
   </button>
-  <button id="multi-viewer-next">
-    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"><path d="{svgPath}"></path></svg>
+  <button aria-label="next photo" id="multi-viewer-next">
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
+      ><path d="{svgPath}"></path></svg>
   </button>
   <div class="medium-pack-photo-viewer-navbar">
     <p>
@@ -28,7 +36,7 @@
         {imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : ""}
       {/if}
     </p>
-    <button on:click="{closeviewer}" id="close-multi-viewer"> </button>
+    <button aria-label="close the viewer" on:click="{closeviewer}" id="close-multi-viewer"></button>
   </div>
 </section>
 

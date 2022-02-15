@@ -1,4 +1,4 @@
-<section class="photo-viewer" on:click="{close}">
+<section class="photo-viewer" role="button" aria-label="Photo viewer - click to close" on:click="{close}">
   <img bind:this="{img}" class="viewed-photo" alt="enlarged content" />
 </section>
 

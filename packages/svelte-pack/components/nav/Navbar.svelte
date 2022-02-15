@@ -15,6 +15,6 @@
 </nav>
 
 <script>
-export let className;
+export let className = "";
 let isActive = false;
 </script>

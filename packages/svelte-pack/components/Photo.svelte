@@ -1,4 +1,9 @@
-<div class="medium-pack-photo {className}" bind:this="{el}" on:click="{enlarge}">
+<div
+  class="medium-pack-photo {className}"
+  bind:this="{el}"
+  role="button"
+  aria-label="photo - click to enlarge"
+  on:click="{enlarge}">
   <img
     bind:this="{img}"
     src="{src}"

@@ -1,5 +1,5 @@
 <template>
-  <section data-observerhandler="map"></section>
+  <section aria-label="google maps" role="application" data-observerhandler="map"></section>
 </template>
 
 <script>
