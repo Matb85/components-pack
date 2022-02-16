@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/Redinn-Pages/components-pack/compare/v0.10.0...v0.11.0) (2022-02-16)
+
+
+### Bug Fixes
+
+* :bug: prevent closing the multiviewer incorrectly ([02d938c](https://github.com/Redinn-Pages/components-pack/commit/02d938c6794f419d0dcd511f5df13824b3cd9a41))
+
+
+
+
+
 # [0.10.0](https://github.com/Redinn-Pages/components-pack/compare/v0.9.4...v0.10.0) (2022-01-14)
 
 

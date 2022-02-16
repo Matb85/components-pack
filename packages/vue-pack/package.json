@@ -1,6 +1,6 @@
 {
   "name": "@matb85/vue-pack",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "author": "matb85",
   "scripts": {
     "dev": "snowpack dev",
@@ -17,7 +17,7 @@
     "vuex": "^3.6.2"
   },
   "dependencies": {
-    "@matb85/base-pack": "^0.10.0",
+    "@matb85/base-pack": "^0.11.0",
     "modular-slider": "^0.6.2"
   },
   "devDependencies": {
