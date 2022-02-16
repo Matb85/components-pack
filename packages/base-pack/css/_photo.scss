@@ -32,11 +32,11 @@
 }
 .medium-pack-photo .cross {
   $dim: 8rem;
-  $offset: calc(50% - #{$dim/2});
+  $offset: calc(50% - calc($dim / 2));
   left: $offset;
   top: $offset;
   @include wh($dim);
-  @apply block  absolute opacity-0;
+  @apply block absolute opacity-0;
   transition: transform 0.4s, opacity 0.4s;
   &::before,
   &::after {

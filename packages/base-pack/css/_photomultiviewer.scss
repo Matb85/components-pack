@@ -32,28 +32,26 @@
 }
 .photo-multi-viewer {
   .medium-pack-photo-viewer-navbar {
-    @apply cursor-default whitespace-nowrap	absolute top-0 left-0 w-full h-12 px-2 flex justify-between items-center bg-white bg-opacity-75;
+    transition: opacity env(--viewer-transtion-speed);
+    @apply opacity-0 bg-primary bg-opacity-75 cursor-default whitespace-nowrap absolute top-0 left-0 w-full h-12 px-2 flex justify-between items-center;
+  }
+  &.photo-viewer-open .medium-pack-photo-viewer-navbar {
+    @apply opacity-100;
   }
   button {
-    cursor: pointer;
-    appearance: none;
-    border: none;
-    position: absolute;
-    z-index: 99;
-    opacity: 0.6;
+    transition: opacity env(--viewer-transtion-speed);
+    @apply z-50 cursor-pointer appearance-none border-none absolute opacity-60;
     &:hover {
-      opacity: 1;
+      @apply opacity-100;
     }
   }
   button:not(#close-multi-viewer) {
     top: calc(50vh - 2rem);
-    background-color: rgba(255, 255, 255, 0.9);
-    transition: opacity env(--viewer-transtion-speed);
-    @apply h-24 w-12;
+    @apply h-24 w-12 bg-primary bg-opacity-90;
     svg {
       @apply w-5 h-auto inline-block;
       path {
-        stroke: black;
+        @apply stroke-secondary fill-secondary;
         stroke-width: 0.5;
       }
     }
@@ -85,7 +83,7 @@
       height: 1.5rem;
       width: 2px;
       border-radius: 1px;
-      background-color: black;
+      @apply bg-secondary;
     }
     &:before {
       transform: rotate(45deg);

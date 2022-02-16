@@ -3,28 +3,20 @@
   height: $dim;
 }
 .photo-viewer {
-  cursor: zoom-out;
-  background-color: rgba(255, 255, 255, 0);
   transition-property: opacity, background-color;
   transition-duration: env(--viewer-transtion-speed);
   top: 200vh;
-  position: fixed;
-  left: 0;
-  z-index: 50;
-  width: 100%;
-  height: 100vh;
+  @apply w-full h-screen fixed left-0 z-50 bg-primary bg-opacity-0 cursor-zoom-out;
   .viewed-photo {
-    object-fit: cover;
-    position: relative;
     transform: scale(1.05);
+    @apply relative object-cover;
   }
 }
-.photo-viewer-close {
-  opacity: 0 !important;
+.photo-viewer.photo-viewer-close {
+  @apply opacity-0;
 }
 .photo-viewer-open {
-  top: 0;
-  background-color: white;
+  @apply top-0 bg-opacity-100;
   .viewed-photo {
     $h: var(--enlarged-photo-h);
     $w: var(--enlarged-photo-w);
