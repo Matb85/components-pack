@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/Redinn-Pages/components-pack/compare/v0.11.1...v0.12.0) (2022-02-16)
+
+
+### Features
+
+* **base-pack:** :lipstick: make use of css variables ([8758e39](https://github.com/Redinn-Pages/components-pack/commit/8758e39795049ec7d50efc8df7268b501f85ba80))
+
+
+
+
+
 ## [0.11.1](https://github.com/Redinn-Pages/components-pack/compare/v0.11.0...v0.11.1) (2022-02-16)
 
 **Note:** Version bump only for package components-pack
