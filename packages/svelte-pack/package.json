@@ -2,6 +2,7 @@
   "name": "@matb85/svelte-pack",
   "version": "0.11.0",
   "author": "matb85",
+  "type": "module",
   "types": "./index.d.ts",
   "main": "dist/index.js",
   "svelte": "components/index.js",
