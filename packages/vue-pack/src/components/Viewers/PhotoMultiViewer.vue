@@ -54,18 +54,18 @@ export default {
   }),
   async mounted() {
     window.addEventListener("keyup", (e) => {
-      if (this.slider != false)
-        switch (e.key) {
-          case "Escape":
-            this.closeviewer();
-            break;
-          case "ArrowLeft":
-            this.slider.slideBy(-1);
-            break;
-          case "ArrowRight":
-            this.slider.slideBy(1);
-            break;
-        }
+      if (!this.slider) return;
+      switch (e.key) {
+        case "Escape":
+          this.closeviewer();
+          break;
+        case "ArrowLeft":
+          this.slider.slideBy(-1);
+          break;
+        case "ArrowRight":
+          this.slider.slideBy(1);
+          break;
+      }
     });
     this.$root.$on(this.trigger, async ({ img, rect }) => {
       const result = mixin.setupimgs(this.$store.state.vuepack, img);
@@ -92,10 +92,11 @@ export default {
     async closeviewer() {
       await this.close();
       this.imgs = [];
+      this.$refs.img.parentElement.style.display = "block";
+      if (!this.slider) return;
       this.slider.slideTo(0);
       this.slider.destroy();
       this.slider = false;
-      this.$refs.img.parentElement.style.display = "block";
     },
   },
 };

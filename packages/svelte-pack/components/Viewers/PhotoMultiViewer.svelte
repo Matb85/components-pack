@@ -55,18 +55,18 @@ let counter;
 onMount(() => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
   window.addEventListener("keyup", e => {
-    if (slider != false)
-      switch (e.key) {
-        case "Escape":
-          closeviewer();
-          break;
-        case "ArrowLeft":
-          slider.slideBy(-1);
-          break;
-        case "ArrowRight":
-          slider.slideBy(1);
-          break;
-      }
+    if (!slider) return;
+    switch (e.key) {
+      case "Escape":
+        closeviewer();
+        break;
+      case "ArrowLeft":
+        slider.slideBy(-1);
+        break;
+      case "ArrowRight":
+        slider.slideBy(1);
+        break;
+    }
   });
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
     const result = mixin.setupimgs(window.sveltepack, detail.img);
@@ -95,9 +95,10 @@ onMount(() => {
 async function closeviewer() {
   await mixin.close(image, el);
   imgs = [];
+  image.parentElement.style.display = "block";
+  if (!slider) return;
   slider.slideTo(0);
   slider.destroy();
   slider = false;
-  image.parentElement.style.display = "block";
 }
 </script>
