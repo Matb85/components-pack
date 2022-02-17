@@ -1,6 +1,6 @@
 {
   "name": "@matb85/svelte-pack",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "author": "matb85",
   "type": "module",
   "types": "./index.d.ts",
