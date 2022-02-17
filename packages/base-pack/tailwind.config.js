@@ -6,7 +6,6 @@ module.exports = {
     colors: {
       white: colors.white,
       black: colors.black,
-      black: "var(--medium-pack-primary-color, #000)",
       primary: "var(--medium-pack-primary-color, rgba(255,255,255,var(--tw-bg-opacity, 1)))",
       secondary: "var(--medium-pack-secondary-color, rgba(0,0,0,var(--tw-bg-opacity, 1)))",
     },
