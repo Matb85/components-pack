@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/Redinn-Pages/components-pack/compare/v0.12.0...v0.12.1) (2022-02-17)
+
+
+### Features
+
+* :sparkles: close the mobile navbar programmatically ([024aed9](https://github.com/Redinn-Pages/components-pack/commit/024aed9e48f4170595cd273e14e238490552802a))
+
+
+
+
+
 # [0.12.0](https://github.com/Redinn-Pages/components-pack/compare/v0.11.1...v0.12.0) (2022-02-16)
 
 
