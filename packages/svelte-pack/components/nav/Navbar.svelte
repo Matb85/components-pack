@@ -15,6 +15,14 @@
 </nav>
 
 <script>
+import { onMount, onDestroy } from "svelte";
 export let className = "";
 let isActive = false;
+
+onMount(() => window.addEventListener("medium-pack-navbar-mobile-close", () => close()));
+onDestroy(() => window.removeEventListener("medium-pack-navbar-mobile-close", () => close()));
+
+function close() {
+  isActive = false;
+}
 </script>

@@ -15,5 +15,16 @@
 <script>
 export default {
   data: () => ({ isActive: false }),
+  mounted() {
+    window.addEventListener("medium-pack-navbar-mobile-close", () => this.close());
+  },
+  destroyed() {
+    window.removeEventListener("medium-pack-navbar-mobile-close", () => this.close());
+  },
+  methods: {
+    close() {
+      this.isActive = false;
+    },
+  },
 };
 </script>
