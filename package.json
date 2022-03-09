@@ -7,10 +7,10 @@
     "build": "pnpm run -r build"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.21.1",
     "sharp": "^0.28.1"
   },
   "peerDependencies": {
-    "pnpm": "^4.0.0"
+    "lerna": "^4.0.0",
+    "pnpm": "^6.32.3"
   }
 }
