@@ -3,12 +3,14 @@
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
     "release": "lerna version --conventional-commits --no-push",
-    "pub": "lerna run build && lerna publish from-package"
+    "pub": "lerna run build && lerna publish from-package",
+    "build": "pnpm run -r build"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.21.1",
     "sharp": "^0.28.1"
   },
   "peerDependencies": {
-    "lerna": "^4.0.0"
+    "pnpm": "^4.0.0"
   }
 }
