@@ -5,6 +5,7 @@
       :src="src"
       :data-src="src"
       :data-srcset="genSrcset"
+      :data-enlargedsrcset="enlargedsrcset"
       :sizes="genSizes"
       :alt="alt"
       :data-group="group"
@@ -28,7 +29,7 @@ export default {
     multiview: String,
     group: String,
   },
-  data: () => ({ genSrcset: "", genSizes: null }),
+  data: () => ({ genSrcset: "", genSizes: null, enlargedsrcset: "" }),
   methods: {
     enlarge() {
       if (!this.$refs.img.classList.contains("loaded") || typeof this.dontenlargeonclick !== "undefined") return;
@@ -38,14 +39,20 @@ export default {
   },
   watch: {
     src() {
-      this.genSrcset = photo(this.src, this.$store.state.vuepacksizes, this.sizes).genSrcset;
+      this.genSrcset = photo(this.src, this.$store.state.vuepacksizes.formats, this.sizes).genSrcset;
       if (this.$refs.img.classList.contains("loaded")) this.$refs.img.srcset = this.genSrcset;
     },
   },
   created() {
-    const settings = photo(this.src, this.$store.state.vuepacksizes, this.sizes);
+    /** @type {import('@matb85/base-pack').StoreDataI}  */
+    console.log(this.$store.state.vuepacksizes);
+    const GlobalConfig = this.$store.state.vuepacksizes;
+
+    const settings = photo(this.src, GlobalConfig.formats, this.sizes);
     this.genSrcset = settings.genSrcset;
     this.genSizes = settings.genSizes;
+
+    this.enlargedsrcset = photo(this.src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
   },
   mounted() {
     const img = this.$refs.img;

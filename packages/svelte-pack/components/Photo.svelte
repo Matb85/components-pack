@@ -9,6 +9,7 @@
     src="{src}"
     data-src="{src}"
     data-srcset="{genSrcset}"
+    data-enlargedsrcset="{enlargedsrcset}"
     sizes="{genSizes}"
     alt="{alt}"
     data-group="{group}"
@@ -31,15 +32,19 @@ export let className = "";
 // bingings to DOM elements
 let img, el;
 
-// setup sizes & srcset
-const settings = photo(src, getContext("svelte-pack-sizes"), sizes);
+/** setup sizes & srcset
+ * @type {import('@matb85/base-pack').StoreDataI}  */
+const GlobalConfig = getContext("svelte-pack-sizes");
+const settings = photo(src, GlobalConfig.formats, sizes);
 let genSrcset = settings.genSrcset,
   genSizes = settings.genSizes;
 
+// setup sizes & srcset when the photo is enlarged
+const enlargedsrcset = photo(src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
 // update srcset on change
 function updateSrc() {
   if (typeof window == "undefined" || typeof img == "undefined") return;
-  genSrcset = photo(src, getContext("svelte-pack-sizes"), sizes).genSrcset;
+  genSrcset = photo(src, GlobalConfig.formats, sizes).genSrcset;
   if (img.classList.contains("loaded")) img.srcset = genSrcset;
 }
 $: updateSrc() || src;

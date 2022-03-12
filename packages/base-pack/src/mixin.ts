@@ -1,6 +1,6 @@
 import type { StoreI, Photo } from "./store";
 
-interface EnlargeData {
+interface EnlargeDataEvent {
   img: HTMLImageElement;
   rect: DOMRect;
 }
@@ -22,17 +22,22 @@ interface Ambience {
 }
 
 export default {
-  mounted(this: Ambience, { img, rect }: EnlargeData): Promise<void> {
+  mounted(this: Ambience, { img, rect }: EnlargeDataEvent): Promise<void> {
     return new Promise(resolve => {
       this.ref.style.cssText = `top: ${rect.y}px; left: ${rect.x}px; width: ${img.offsetWidth}px; height: ${img.offsetHeight}px;`;
-      this.ref.onload = () => {
+      const onloadcallback = () => {
         this.el.classList.add("photo-viewer-open");
         const { w, h } = this.getdimensions(img.naturalWidth / img.naturalHeight);
         this.ref.style.setProperty("--enlarged-photo-w", w);
         this.ref.style.setProperty("--enlarged-photo-h", h);
         resolve();
       };
-      this.ref.srcset = (img.dataset.fullsrcset as string) || (img.dataset.srcset as string);
+      if (this.ref.srcset != (img.dataset.enlargedsrcset as string)) {
+        this.ref.onload = onloadcallback;
+        this.ref.srcset = img.dataset.enlargedsrcset as string;
+      } else {
+        onloadcallback();
+      }
     });
   },
 

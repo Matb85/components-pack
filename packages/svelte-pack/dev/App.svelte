@@ -6,7 +6,7 @@
 </Navbar>
 <div id="app">
   <Photo
-    src="/assets/thumbnail_bird.jpg"
+    src="/assets/thumbnail_mountains.jpg"
     sizes="{[720, 1290, 1920, 2400]}"
     className="photo"
     group="mountains"
@@ -28,6 +28,8 @@
     group="mountains"
     alt="a panorama of mountains" />
 
+  <!---->
+
   <PhotoViewer />
   <PhotoMultiViewer />
   <Map className="map" apikey="gdsfgdgfds" callback="{map => console.log(map)}" />
@@ -45,13 +47,19 @@ init();
 <script>
 import { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, Footer, init } from "./components/index";
 import { setContext } from "svelte";
+/** config
+ * @type {import('@matb85/base-pack').StoreDataI}  */
+const config = {
+  formats: {
+    thumbnail: "thumbnail_",
+    2400: "",
+    1920: "fhd_",
+    1290: "hd_",
+    720: "wvga_",
+    480: "hvga_",
+  },
+  enlarged: [1920, 2400],
+};
 
-setContext("svelte-pack-sizes", {
-  thumbnail: "thumbnail_",
-  2400: "",
-  1920: "fhd_",
-  1290: "hd_",
-  720: "wvga_",
-  480: "hvga_",
-});
+setContext("svelte-pack-sizes", config);
 </script>
