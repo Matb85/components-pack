@@ -1,6 +1,6 @@
 {
   "name": "@matb85/vue-pack",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "author": "matb85",
   "scripts": {
     "dev": "snowpack dev",

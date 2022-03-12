@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.1](https://github.com/Redinn-Pages/components-pack/compare/v0.13.0...v0.13.1) (2022-03-12)
+
+
+### Features
+
+* :sparkles: push enlarged srcset to the store ([b8fe75a](https://github.com/Redinn-Pages/components-pack/commit/b8fe75a6d0c7107bdc58ba20d30028878640dfdd))
+
+
+
+
+
 # [0.13.0](https://github.com/Redinn-Pages/components-pack/compare/v0.12.2...v0.13.0) (2022-03-12)
 
 
