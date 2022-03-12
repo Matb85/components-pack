@@ -23,7 +23,8 @@
     "rollup": "^2.64.0",
     "rollup-plugin-svelte": "^7.1.0",
     "snowpack": "^3.8.8",
-    "svelte": "^3.46.1"
+    "svelte": "^3.46.1",
+    "svelte-hmr": "^0.14.11"
   },
   "dependencies": {
     "@matb85/base-pack": "^0.12.1",
