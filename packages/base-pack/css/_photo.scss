@@ -41,7 +41,7 @@
   &::before,
   &::after {
     content: "";
-    width: 0.6px;
+    width: 0.8px;
     @apply absolute left-1/2 h-full bg-white;
   }
   &::after {
