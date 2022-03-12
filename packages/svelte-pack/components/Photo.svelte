@@ -35,6 +35,7 @@ let img, el;
 /** setup sizes & srcset
  * @type {import('@matb85/base-pack').StoreDataI}  */
 const GlobalConfig = getContext("svelte-pack-sizes");
+
 const settings = photo(src, GlobalConfig.formats, sizes);
 let genSrcset = settings.genSrcset,
   genSizes = settings.genSizes;
@@ -56,7 +57,7 @@ function enlarge() {
 }
 // dispatching/adding to the store
 function dispatch() {
-  const detail = { src, srcset: genSrcset, group, ratio: img.naturalWidth / img.naturalHeight, alt };
+  const detail = { src, srcset: enlargedsrcset, group, ratio: img.naturalWidth / img.naturalHeight, alt };
   mutations.addphoto(window.sveltepack, detail);
 
   window.sveltepack.observer.observe(img);

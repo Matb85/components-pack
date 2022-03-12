@@ -45,7 +45,6 @@ export default {
   },
   created() {
     /** @type {import('@matb85/base-pack').StoreDataI}  */
-    console.log(this.$store.state.vuepacksizes);
     const GlobalConfig = this.$store.state.vuepacksizes;
 
     const settings = photo(this.src, GlobalConfig.formats, this.sizes);
@@ -63,7 +62,7 @@ export default {
         () =>
           this.$store.commit("vuepack/addphoto", {
             src: this.src,
-            srcset: this.genSrcset,
+            srcset: this.enlargedsrcset,
             ratio: img.naturalWidth / img.naturalHeight,
             group: this.group,
             alt: this.alt,

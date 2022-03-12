@@ -15,7 +15,7 @@
   <Photo
     src="/assets/thumbnail_gorge.jpg"
     multiview
-    sizes="{[720, 1290, 1920, 2400]}"
+    sizes="{[480, 720]}"
     className="photo"
     group="mountains"
     alt="a photo of the Dunajec Gorge" />
