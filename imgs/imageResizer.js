@@ -1,12 +1,13 @@
 const sharp = require("sharp");
 const fs = require("fs").promises;
 const CWD = process.cwd();
-const FIRST_FOLDER = CWD + "/packages/vue-pack/public/assets/";
+const FIRST_FOLDER = CWD + "/packages/vue-pack/assets/";
 const SECOND_FOLDER = CWD + "/packages/svelte-pack/assets/";
+
 const images = [
   { path: "/bird.jpg", name: "bird.jpg" },
-  { path: "/dunajecgorge.jpg", name: "gorge.jpg" },
   { path: "/mountains.jpg", name: "mountains.jpg" },
+  { path: "/dunajecgorge.jpg", name: "gorge.jpg" },
 ];
 
 /** specify how to resize the images and how to name them */
@@ -23,16 +24,24 @@ const specification = [
 const defaults = {
   withoutEnlargement: true,
 };
+
+const allProcesses = [];
 for (const img of images) {
   for (const spec of specification) {
-    sharp(__dirname + img.path)
-      .resize(Object.assign(defaults, spec))
-      .toFile(FIRST_FOLDER + spec.prefix + img.name);
+    allProcesses.push(
+      sharp(__dirname + img.path)
+        .resize(Object.assign(defaults, spec))
+        .toFile(FIRST_FOLDER + spec.prefix + img.name)
+        .then(newFileInfo => console.log("Success", newFileInfo))
+    );
   }
 }
 
-fs.readdir(FIRST_FOLDER).then(files => {
-  for (const file of files) {
-    if (file[0] !== ".") fs.copyFile(FIRST_FOLDER + file, SECOND_FOLDER + file);
-  }
+Promise.all(allProcesses).then(() => {
+  fs.readdir(FIRST_FOLDER).then(files => {
+    for (const file of files) {
+      if (file[0] !== ".")
+        fs.copyFile(FIRST_FOLDER + file, SECOND_FOLDER + file).then(() => console.log("Successfully copied " + file));
+    }
+  });
 });
