@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/Redinn-Pages/components-pack/compare/v0.12.2...v0.13.0) (2022-03-12)
+
+
+### Bug Fixes
+
+* **base-pack:** :lipstick: the cross on photos ([ce91f8c](https://github.com/Redinn-Pages/components-pack/commit/ce91f8cc66c4a4152a55830a69ecd0a0b4360793))
+* **svelte-pack:** :bug: image section when enlarged ([e2aa77c](https://github.com/Redinn-Pages/components-pack/commit/e2aa77c1b556b5efc1c097efe291ece888643544))
+
+
+### Features
+
+* :sparkles: standarise sizes for photo viewers ([4cec7a8](https://github.com/Redinn-Pages/components-pack/commit/4cec7a8e15f5391c35362e16b9e961a5947507bf))
+
+
+
+
+
 ## [0.12.1](https://github.com/Redinn-Pages/components-pack/compare/v0.12.0...v0.12.1) (2022-02-17)
 
 **Note:** Version bump only for package @matb85/base-pack

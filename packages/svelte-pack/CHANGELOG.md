@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/Redinn-Pages/components-pack/compare/v0.12.2...v0.13.0) (2022-03-12)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :heavy_plus_sign: add svelte-hmr - missing dep ([12acd93](https://github.com/Redinn-Pages/components-pack/commit/12acd933b901822f949f2036721ae22ee6512ccf))
+
+
+### Features
+
+* :sparkles: standarise sizes for photo viewers ([4cec7a8](https://github.com/Redinn-Pages/components-pack/commit/4cec7a8e15f5391c35362e16b9e961a5947507bf))
+
+
+
+
+
 ## [0.12.2](https://github.com/Redinn-Pages/components-pack/compare/v0.12.1...v0.12.2) (2022-02-17)
 
 

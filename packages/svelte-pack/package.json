@@ -1,6 +1,6 @@
 {
   "name": "@matb85/svelte-pack",
-  "version": "0.12.2",
+  "version": "0.13.0",
   "author": "matb85",
   "type": "module",
   "types": "./index.d.ts",
@@ -27,7 +27,7 @@
     "svelte-hmr": "^0.14.11"
   },
   "dependencies": {
-    "@matb85/base-pack": "^0.12.1",
+    "@matb85/base-pack": "^0.13.0",
     "modular-slider": "^0.6.2"
   }
 }
