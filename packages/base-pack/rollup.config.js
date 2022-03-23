@@ -6,7 +6,7 @@ export default {
   input: "src/index.ts",
   output: {
     format: "es",
-    file: "dist/index.js",
+    file: "dist/index.mjs",
   },
   plugins: [
     replace({
