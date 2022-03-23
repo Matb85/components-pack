@@ -4,7 +4,6 @@ module.exports = {
   mount: {
     "./dev": "/",
     "./assets": { url: "/assets", static: true },
-    "./components": "/components",
   },
   plugins: ["@morgul/snowpack-plugin-vue2"],
   routes: [

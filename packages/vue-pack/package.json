@@ -13,12 +13,12 @@
   ],
   "types": "./index.d.ts",
   "peerDependencies": {
-    "vue": "^2.6.11",
+    "vue": "^2.6.14",
     "vuex": "^3.6.2"
   },
   "dependencies": {
     "@matb85/base-pack": "^0.13.0",
-    "modular-slider": "^0.6.2"
+    "modular-slider": "^0.7.1"
   },
   "devDependencies": {
     "@morgul/snowpack-plugin-vue2": "^0.4.2",
@@ -26,7 +26,7 @@
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@snowpack/plugin-vue": "^2.6.2",
     "rimraf": "^3.0.2",
-    "rollup": "^2.64.0",
+    "rollup": "^2.70.1",
     "rollup-plugin-vue": "5.0.0",
     "snowpack": "^3.8.8",
     "vue": "^2.6.14",

@@ -7,7 +7,7 @@
     "build": "pnpm run -r build"
   },
   "devDependencies": {
-    "sharp": "^0.28.1"
+    "sharp": "^0.28.3"
   },
   "peerDependencies": {
     "lerna": "^4.0.0",
