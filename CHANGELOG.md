@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/Redinn-Pages/components-pack/compare/v0.13.1...v0.13.2) (2022-03-23)
+
+
+### Bug Fixes
+
+* **base-pack:** :wrench: export the lib in the .mjs format ([3df0f7f](https://github.com/Redinn-Pages/components-pack/commit/3df0f7fadea57f0434135dd1712d83dab5e3df1d))
+
+
+
+
+
 ## [0.13.1](https://github.com/Redinn-Pages/components-pack/compare/v0.13.0...v0.13.1) (2022-03-12)
 
 
