@@ -1,19 +1,19 @@
 .navbar {
-  @apply fixed top-0 left-0 z-40 w-full h-14 md:h-16 px-3 flex justify-between;
+  @apply fixed top-0 left-0 z-40 w-full h-14 lg:h-16 px-3 flex justify-between;
   .nav {
     transition: transform 150ms;
-    @apply absolute md:static left-full top-14 flex items-center justify-center gap-4 flex-col md:flex-row w-screen h-screen md:w-auto md:h-full;
+    @apply absolute lg:static left-full top-14 flex items-center justify-center gap-4 flex-col lg:flex-row w-screen h-screen lg:w-auto lg:h-full;
   }
 }
 
 .hamburger-container {
-  @apply h-full flex cursor-pointer md:hidden;
+  @apply h-full flex cursor-pointer lg:hidden;
 }
 .hamburger {
   width: 1.75rem;
   transition-property: opacity, filter;
   color: inherit;
-  @apply duration-150 ease-linear relative inline-block md:hidden;
+  @apply duration-150 ease-linear relative inline-block lg:hidden;
   &:hover,
   &.is-active:hover {
     opacity: 0.7;
