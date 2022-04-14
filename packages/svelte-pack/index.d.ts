@@ -1,8 +1,11 @@
 import { SvelteComponentTyped } from "svelte";
-import type { StoreI, mutations as Mutations } from "@matb85/base-pack/dist/store";
 
 type options = {
   target: HTMLElement;
+  context?: Map<string, any>;
+  hydrate?: boolean;
+  intro?: boolean;
+  props?: Record<string, any>;
 };
 
 type SvelteComponent = new (options: options) => SvelteComponentTyped;
