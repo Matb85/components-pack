@@ -7,7 +7,7 @@
   "main": "dist/svelte-pack.es.js",
   "svelte": "components/index.js",
   "files": [
-    "dist/*",
+    "dist/svelte-pack.es.js",
     "index.d.ts",
     "components/**/*"
   ],
