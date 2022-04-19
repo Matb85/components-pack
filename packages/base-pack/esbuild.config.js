@@ -4,12 +4,13 @@ const settings = require("../../build.settings.json");
 
 const options = {
   entryPoints: ["./src/index.ts"],
-  outdir: "./dist/",
+  outfile: "./dist/index.mjs",
   bundle: true,
   define: {
     "process.env.VIEWER_TRANSITION_SPEED": settings.VIEWER_TRANSITION_SPEED,
   },
   incremental: true,
+  format: "esm",
 };
 
 build(options)
