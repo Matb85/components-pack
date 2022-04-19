@@ -4,7 +4,7 @@
     "es2021": true
   },
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
-  "exclude": ["**/*.js"],
+  "ignorePatterns": ["**/*.js"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2021,
