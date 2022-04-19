@@ -59,7 +59,7 @@ export default {
   // utility for photoMultiViewers
   setupimgs(state: StoreI, img: HTMLImageElement) {
     const photos = state.photolist[img.dataset.group || "rest"];
-    let index;
+    let index = 0;
     for (let i = 0; i < photos.length; i++) {
       const photo = photos[i] as ExtendedPhoto;
       if (typeof img != "undefined") {
