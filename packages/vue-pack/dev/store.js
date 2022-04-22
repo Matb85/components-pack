@@ -1,7 +1,5 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import { createStore } from "vuex";
 import { vuepack } from "../src/vuePackModule";
-Vue.use(Vuex);
 
 /**
  * config
@@ -18,7 +16,7 @@ const config = {
   enlarged: [1920, 2400],
 };
 
-export default new Vuex.Store({
+export default createStore({
   modules: { vuepack },
   state: () => ({
     vuepacksizes: config,

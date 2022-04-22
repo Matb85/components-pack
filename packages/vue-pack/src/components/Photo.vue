@@ -33,8 +33,10 @@ export default {
   methods: {
     enlarge() {
       if (!this.$refs.img.classList.contains("loaded") || typeof this.dontenlargeonclick !== "undefined") return;
-      const enlarger = typeof this.multiview === "undefined" ? "enlargePhoto" : "enlargeManyPhotos";
-      this.$root.$emit(enlarger, { rect: this.$el.getBoundingClientRect(), img: this.$refs.img });
+      const enlarger = typeof this.multiview === "undefined" ? "vuepack-enlargephoto" : "vuepack-enlargemanyphotos";
+      window.dispatchEvent(
+        new CustomEvent(enlarger, { detail: { rect: this.$el.getBoundingClientRect(), img: this.$refs.img } })
+      );
     },
   },
   watch: {

@@ -47,7 +47,7 @@ export default {
   data: () => ({
     svgPath:
       "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z",
-    trigger: "enlargeManyPhotos",
+    trigger: "vuepack-enlargemanyphotos",
     imgs: [],
     slider: null,
     counter: 0,
@@ -67,7 +67,7 @@ export default {
           break;
       }
     });
-    this.$root.$on(this.trigger, async ({ img, rect }) => {
+    window.addEventListener(this.trigger, async ({ detail: { img, rect } }) => {
       const result = mixin.setupimgs(this.$store.state.vuepack, img);
       this.imgs = result.photos;
 

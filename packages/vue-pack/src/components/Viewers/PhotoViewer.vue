@@ -10,9 +10,11 @@ import Mixin from "./photoViewerMixin.js";
 export default {
   mixins: [Mixin],
   name: "PhotoViewer",
-  data: () => ({ trigger: "enlargePhoto" }),
+  data: () => ({ trigger: "vuepack-enlargephoto" }),
   mounted() {
-    this.$root.$on(this.trigger, (data) => this.enlargeHandler(data));
+    window.addEventListener(this.trigger, (data) => {
+      this.enlargeHandler(data.detail);
+    });
   },
 };
 </script>

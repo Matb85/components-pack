@@ -1,13 +1,12 @@
-import Vue from "vue";
-import App from "./App.vue";
+import { createApp } from "vue";
 import store from "./store";
+import App from "./App.vue";
 import "@matb85/base-pack/dist/index.css";
 import "@matb85/base-pack/dist/navbar.css";
 import "@matb85/base-pack/dist/footer.css";
 
-Vue.config.productionTip = false;
+const app = createApp(App);
 
-new Vue({
-  store,
-  render: (h) => h(App),
-}).$mount("#app");
+app.use(store);
+
+app.mount("#app");

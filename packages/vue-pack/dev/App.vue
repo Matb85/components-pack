@@ -4,25 +4,19 @@
       <template v-slot:logo><h1>logo</h1></template>
       <p v-for="nav of [1, 2, 3]" :key="nav">nav</p>
     </Navbar>
-    <Photo src="/assets/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" />
+    <Photo src="/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" />
 
     <Photo
-      src="/assets/thumbnail_gorge.jpg"
+      src="/thumbnail_gorge.jpg"
       multiview
       :sizes="[720, 1290, 1920, 2400]"
       class="photo"
       group="mountains"
       alt="a photo of the Dunajec Gorge"
     />
+    <Photo src="/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" alt="a bird" group="mountains" />
     <Photo
-      src="/assets/thumbnail_bird.jpg"
-      :sizes="{ 2400: 800, 480: 1000 }"
-      class="photo"
-      alt="a bird"
-      group="mountains"
-    />
-    <Photo
-      src="/assets/thumbnail_mountains.jpg"
+      src="/thumbnail_mountains.jpg"
       :sizes="[2400]"
       class="photo"
       group="mountains"
@@ -35,7 +29,7 @@
     <Map class="map" apikey="gfsgdsgds" :callback="mapCallback" />
     <Footer
       style="background-color: aqua"
-      background="/assets/thumbnail_mountains.jpg"
+      background="/thumbnail_mountains.jpg"
       name="Testing"
       :references="[{ name: 'cos', id: 1, links: [{ id: 1, name: 'link 1', url: '/' }] }]"
       ><h3>hello</h3></Footer
