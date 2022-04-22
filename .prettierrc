@@ -3,6 +3,11 @@
   "svelteStrictMode": true,
   "svelteBracketNewLine": false,
   "svelteIndentScriptAndStyle": false,
-  "printWidth": 120,
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "semi": true,
+  "singleQuote": false,
+  "endOfLine": "auto",
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 120
 }
