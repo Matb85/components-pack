@@ -4,48 +4,41 @@
     <p>nav{id}</p>
   {/each}
 </Navbar>
-<div id="app">
-  <Photo
-    src="/thumbnail_mountains.jpg"
-    sizes="{[720, 1290, 1920, 2400]}"
-    className="photo"
-    group="mountains"
-    multiview
-    alt="a portrait of a bird" />
-  <Photo
-    src="/thumbnail_gorge.jpg"
-    multiview
-    sizes="{[480, 720]}"
-    className="photo"
-    group="mountains"
-    alt="a photo of the Dunajec Gorge" />
+<Photo
+  src="/thumbnail_mountains.jpg"
+  sizes="{[720, 1290, 1920, 2400]}"
+  className="photo"
+  group="mountains"
+  multiview
+  alt="a portrait of a bird" />
+<Photo
+  src="/thumbnail_gorge.jpg"
+  multiview
+  sizes="{[480, 720]}"
+  className="photo"
+  group="mountains"
+  alt="a photo of the Dunajec Gorge" />
 
-  <Photo src="/thumbnail_bird.jpg" sizes="{[480, 720]}" className="photo" group="mountains" />
-  <Photo
-    src="/thumbnail_mountains.jpg"
-    sizes="{[480, 720]}"
-    className="photo"
-    group="mountains"
-    alt="a panorama of mountains" />
+<Photo src="/thumbnail_bird.jpg" sizes="{[480, 720]}" className="photo" group="mountains" />
+<Photo
+  src="/thumbnail_mountains.jpg"
+  sizes="{[480, 720]}"
+  className="photo"
+  group="mountains"
+  alt="a panorama of mountains" />
 
-  <!---->
+<!---->
 
-  <PhotoViewer />
-  <PhotoMultiViewer />
-  <Map className="map" apikey="gdsfgdgfds" callback="{map => console.log(map)}" />
-  <Footer
-    className="bg-aqua"
-    background="/thumbnail_bird.jpg"
-    name="Testing"
-    references="{[{ name: 'cos', id: 1, links: [{ id: 1, name: 'link 1', url: '/' }] }]}"><h3>hello</h3></Footer>
-</div>
+<PhotoViewer />
+<PhotoMultiViewer />
+<Map className="map" apikey="gdsfgdgfds" callback="{map => console.log(map)}" />
 
 <script context="module">
 init();
 </script>
 
 <script>
-import { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, Footer, init } from "../components/index";
+import { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, init } from "../components/index";
 import { setContext } from "svelte";
 /** config
  * @type {import('@matb85/base-pack').StoreDataI}  */
