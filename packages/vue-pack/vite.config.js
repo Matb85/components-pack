@@ -7,7 +7,6 @@ const external = ["@matb85/base-pack"];
 const dedupe = [...external, "svelte"];
 
 export default defineConfig({
-  publicDir: "assets",
   plugins: [vue()],
   resolve: { dedupe },
   build: {
