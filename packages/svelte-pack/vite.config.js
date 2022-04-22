@@ -7,14 +7,15 @@ const external = ["@matb85/base-pack"];
 const dedupe = [...external, "svelte"];
 export default defineConfig({
   publicDir: "assets",
-  root: "./dev",
   plugins: [svelte()],
+  resolve: { dedupe },
   build: {
+    rollupOptions: { external },
     lib: {
       entry: entry,
       name,
       formats: ["es"],
     },
-    outDir: process.cwd() + "/dist/",
+    outDir: "dist",
   },
 });
