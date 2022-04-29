@@ -1,5 +1,5 @@
 <section
-  aria-label="Photo viewer"
+  aria-label="Podgląd wielu zdjęć"
   bind:this="{el}"
   class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
   <div aria-hidden="true" class="first-slide">
@@ -11,22 +11,18 @@
         <div
           class="medium-pack-photo no-hover"
           style="--enlarged-photo-w: {img.width}; --enlarged-photo-h: {img.height};">
-          <img
-            class="ms-lazy"
-            src="{img.src}"
-            data-srcset="{img.srcset}"
-            alt="{img.alt || 'a photo with no alt text'}" />
+          <img class="ms-lazy" src="{img.src}" data-srcset="{img.srcset}" alt="{img.alt || 'zdjęcie bez podpisu'}" />
         </div>
       </div>
     {/each}
   </div>
   <!-- navigation -->
-  <button aria-label="previous photo" id="multi-viewer-prev" on:click="{() => slider?.slidePrev()}">
+  <button aria-label="Poprzednie zdjęcie" id="multi-viewer-prev" on:click="{() => slider?.slidePrev()}">
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path>
     </svg>
   </button>
-  <button aria-label="next photo" id="multi-viewer-next" on:click="{() => slider?.slideNext()}">
+  <button aria-label="Kolejne zdjęcie" id="multi-viewer-next" on:click="{() => slider?.slideNext()}">
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path></svg>
   </button>
@@ -36,7 +32,8 @@
         {imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : ""}
       {/if}
     </p>
-    <button aria-label="close the viewer" on:click="{closeviewer}" id="close-multi-viewer"></button>
+    <button aria-label="Zamknij podgląd" title="Zamknij podgląd" on:click="{closeviewer}" id="close-multi-viewer"
+    ></button>
   </div>
 </section>
 

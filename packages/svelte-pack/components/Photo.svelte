@@ -2,7 +2,7 @@
   class="medium-pack-photo {className}"
   bind:this="{el}"
   role="button"
-  aria-label="photo - click to enlarge"
+  aria-label="Zdjęcie - kliknij aby powiększyć"
   on:click="{enlarge}">
   <img
     bind:this="{img}"

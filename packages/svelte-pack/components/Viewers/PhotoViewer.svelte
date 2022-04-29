@@ -1,5 +1,5 @@
-<section class="photo-viewer" role="button" aria-label="Photo viewer - click to close" on:click="{close}">
-  <img bind:this="{img}" class="viewed-photo" alt="enlarged content" />
+<section class="photo-viewer" role="button" aria-label="Podgląd zdjęcia - kliknij by zamknąć" on:click="{close}">
+  <img bind:this="{img}" class="viewed-photo" alt="Powiększone zdjęcie" />
 </section>
 
 <script>

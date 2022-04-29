@@ -1,4 +1,4 @@
-<section bind:this="{map}" class="{className}" data-observerhandler="map"></section>
+<section bind:this="{map}" class="{className}" aria-label="Mapa Google" data-observerhandler="map"></section>
 
 <script>
 import { onMount } from "svelte";

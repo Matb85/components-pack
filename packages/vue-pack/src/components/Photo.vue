@@ -1,5 +1,5 @@
 <template>
-  <div class="medium-pack-photo" @click="enlarge" role="button" aria-label="photo - click to enlarge">
+  <div class="medium-pack-photo" @click="enlarge" role="button" aria-label="Zdjęcie - kliknij aby powiększyć">
     <img
       ref="img"
       :src="src"

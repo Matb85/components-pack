@@ -1,5 +1,5 @@
 <template>
-  <section aria-label="Photo viewer" class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
+  <section aria-label="Podgląd wielu zdjęć" class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
     <div aria-hidden="true" class="first-slide">
       <img ref="img" class="viewed-photo" />
     </div>
@@ -9,17 +9,17 @@
           class="medium-pack-photo no-hover"
           :style="{ '--enlarged-photo-w': img.width, '--enlarged-photo-h': img.height }"
         >
-          <img class="ms-lazy" :src="img.src" :data-srcset="img.srcset" :alt="img.alt || 'a photo with no alt text'" />
+          <img class="ms-lazy" :src="img.src" :data-srcset="img.srcset" :alt="img.alt || 'zdjęcie bez podpisu'" />
         </div>
       </div>
     </div>
     <!-- navigation -->
-    <button aria-label="previous photo" id="multi-viewer-prev" @click="() => slider?.slidePrev()">
+    <button aria-label="Poprzednie zdjęcie" id="multi-viewer-prev" @click="() => slider?.slidePrev()">
       <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24">
         <path :d="svgPath" />
       </svg>
     </button>
-    <button aria-label="next photo" id="multi-viewer-next" @click="() => slider?.slideNext()">
+    <button aria-label="Kolejne zdjęcie" id="multi-viewer-next" @click="() => slider?.slideNext()">
       <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24">
         <path :d="svgPath" />
       </svg>
@@ -29,7 +29,12 @@
         {{ Math.abs(counter) + 1 }}/{{ imgs.length }}
         {{ imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : "" }}
       </p>
-      <button aria-label="close the viewer" @click="closeviewer" id="close-multi-viewer"></button>
+      <button
+        aria-label="Zamknij podgląd"
+        title="Zamknij podgląd"
+        @click="closeviewer"
+        id="close-multi-viewer"
+      ></button>
     </div>
   </section>
 </template>
