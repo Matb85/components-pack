@@ -14,12 +14,12 @@
       </div>
     </div>
     <!-- navigation -->
-    <button aria-label="previous photo" id="multi-viewer-prev">
+    <button aria-label="previous photo" id="multi-viewer-prev" @click="() => slider?.slidePrev()">
       <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24">
         <path :d="svgPath" />
       </svg>
     </button>
-    <button aria-label="next photo" id="multi-viewer-next">
+    <button aria-label="next photo" id="multi-viewer-next" @click="() => slider?.slideNext()">
       <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24">
         <path :d="svgPath" />
       </svg>
@@ -38,7 +38,7 @@
 import Mixin from "./photoViewerMixin.js";
 import { mixin } from "@matb85/base-pack";
 
-import { setup, Slidehandler, Noloop, lazyloading, buttons } from "modular-slider";
+import { setup, Slidehandler, Noloop, lazyloading } from "modular-slider";
 
 const Slider = setup(Slidehandler, Noloop);
 export default {
@@ -53,20 +53,7 @@ export default {
     counter: 0,
   }),
   async mounted() {
-    window.addEventListener("keyup", (e) => {
-      if (!this.slider) return;
-      switch (e.key) {
-        case "Escape":
-          this.closeviewer();
-          break;
-        case "ArrowLeft":
-          this.slider.slideBy(-1);
-          break;
-        case "ArrowRight":
-          this.slider.slideBy(1);
-          break;
-      }
-    });
+    window.addEventListener("keyup", this.onKeyUp);
     window.addEventListener(this.trigger, async ({ detail: { img, rect } }) => {
       const result = mixin.setupimgs(this.$store.state.vuepack, img);
       this.imgs = result.photos;
@@ -75,17 +62,18 @@ export default {
       this.slider = new Slider({
         container: "photo-slider",
         transitionSpeed: 500,
-        plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })],
+        plugins: [lazyloading()],
       });
       const chosen = this.slider.container.children[result.index].children[0].children[0];
       this.$store.state.vuepack.handlers.photo(chosen);
-      this.slider.slideTo(result.index, 0);
+
+      this.$refs.img.addEventListener("animationend", () => (this.$refs.img.parentElement.style.display = "none"));
       this.counter = this.slider.counter;
       Object.defineProperty(this.slider, "counter", {
         get: () => this.counter,
-        set: (val) => (this.counter = val),
+        set: val => (this.counter = val),
       });
-      this.$refs.img.addEventListener("animationend", () => (this.$refs.img.parentElement.style.display = "none"));
+      setTimeout(() => this.slider.slideTo(result.index, 0), 0);
     });
   },
   methods: {
@@ -97,6 +85,13 @@ export default {
       this.slider.slideTo(0);
       this.slider.destroy();
       this.slider = false;
+      window.removeEventListener("keyup", this.onKeyUp);
+    },
+    onKeyUp(e) {
+      if (!this.slider) return;
+      if (e.key == "Escape") this.closeviewer();
+      else if (e.key == "ArrowLeft") this.slider.slidePrev();
+      else if (e.key == "ArrowRight") this.slider.slideNext();
     },
   },
 };

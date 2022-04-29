@@ -21,12 +21,12 @@
     {/each}
   </div>
   <!-- navigation -->
-  <button aria-label="previous photo" id="multi-viewer-prev">
+  <button aria-label="previous photo" id="multi-viewer-prev" on:click="{() => slider?.slidePrev()}">
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path>
     </svg>
   </button>
-  <button aria-label="next photo" id="multi-viewer-next">
+  <button aria-label="next photo" id="multi-viewer-next" on:click="{() => slider?.slideNext()}">
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path></svg>
   </button>
@@ -52,22 +52,15 @@ const svgPath =
 let imgs = [];
 let slider;
 let counter;
+function onKeyUp(e) {
+  if (!slider) return;
+  if (e.key == "Escape") closeviewer();
+  else if (e.key == "ArrowLeft") slider.slidePrev();
+  else if (e.key == "ArrowRight") slider.slideNext();
+}
 onMount(() => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
-  window.addEventListener("keyup", e => {
-    if (!slider) return;
-    switch (e.key) {
-      case "Escape":
-        closeviewer();
-        break;
-      case "ArrowLeft":
-        slider.slideBy(-1);
-        break;
-      case "ArrowRight":
-        slider.slideBy(1);
-        break;
-    }
-  });
+  window.addEventListener("keyup", onKeyUp);
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
     const result = mixin.setupimgs(window.sveltepack, detail.img);
 
@@ -76,19 +69,19 @@ onMount(() => {
     slider = new Slider({
       container: "photo-slider",
       transitionSpeed: 500,
-      plugins: [lazyloading(), buttons({ prevBtn: "#multi-viewer-prev", nextBtn: "#multi-viewer-next" })],
+      plugins: [lazyloading()],
     });
 
     const chosen = slider.container.children[result.index].children[0].children[0];
     window.sveltepack.handlers.photo(chosen);
-    slider.slideTo(result.index, 0);
+
+    image.addEventListener("animationend", () => (image.parentElement.style.display = "none"), { once: true });
     counter = slider.counter;
     Object.defineProperty(slider, "counter", {
       get: () => counter,
       set: val => (counter = val),
     });
-
-    image.addEventListener("animationend", () => (image.parentElement.style.display = "none"), { once: true });
+    setTimeout(() => slider.slideTo(result.index, 0), 0);
   });
 });
 
@@ -100,5 +93,6 @@ async function closeviewer() {
   slider.slideTo(0);
   slider.destroy();
   slider = false;
+  window.removeEventListener("keyup", onKeyUp);
 }
 </script>
