@@ -57,8 +57,9 @@ function onKeyUp(e) {
 }
 onMount(() => {
   const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
-  window.addEventListener("keyup", onKeyUp);
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
+    window.addEventListener("keyup", onKeyUp);
+
     const result = mixin.setupimgs(window.sveltepack, detail.img);
 
     imgs = result.photos;

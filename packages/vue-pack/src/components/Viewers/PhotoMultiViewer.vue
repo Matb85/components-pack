@@ -58,8 +58,9 @@ export default {
     counter: 0,
   }),
   async mounted() {
-    window.addEventListener("keyup", this.onKeyUp);
     window.addEventListener(this.trigger, async ({ detail: { img, rect } }) => {
+      window.addEventListener("keyup", this.onKeyUp);
+
       const result = mixin.setupimgs(this.$store.state.vuepack, img);
       this.imgs = result.photos;
 
