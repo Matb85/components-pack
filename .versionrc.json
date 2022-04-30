@@ -18,7 +18,7 @@
     { "filename": "package.json", "type": "json" },
 
     { "filename": "packages/base-pack/package.json", "type": "json" },
-    { "filename": "packages/svelte-pack/package.json", "type": "json" },
-    { "filename": "packages/vue-pack/package.json", "type": "json" }
+    { "filename": "packages/svelte-pack/package.json", "type": "json", "updater": "standard-version-updater.js" },
+    { "filename": "packages/vue-pack/package.json", "type": "json", "updater": "standard-version-updater.js" }
   ]
 }

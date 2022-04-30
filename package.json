@@ -1,5 +1,6 @@
 {
   "name": "components-pack",
+  "version": "0.14.1",
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
     "release": "standard-version",
@@ -10,5 +11,9 @@
     "sharp": "^0.28.3",
     "standard-version": "^9.3.2"
   },
-  "version": "0.14.0"
+  "standard-version": {
+    "scripts": {
+      "postbump": "pnpm i && git add pnpm-lock.yaml && git commit -m 'chore: :wrench: update pnpm-lock.yaml'"
+    }
+  }
 }

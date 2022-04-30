@@ -6,10 +6,9 @@ importers:
     specifiers:
       sharp: ^0.28.3
       standard-version: ^9.3.2
-    dependencies:
-      standard-version: 9.3.2
     devDependencies:
       sharp: 0.28.3
+      standard-version: 9.3.2
 
   packages/base-pack:
     specifiers:
@@ -41,7 +40,7 @@ importers:
 
   packages/svelte-pack:
     specifiers:
-      '@matb85/base-pack': workspace:^0.13.3
+      '@matb85/base-pack': workspace:^0.14.1
       '@sveltejs/vite-plugin-svelte': ^1.0.0-next.42
       modular-slider: ^0.8.1
       svelte: ^3.47.0
@@ -56,7 +55,7 @@ importers:
 
   packages/vue-pack:
     specifiers:
-      '@matb85/base-pack': workspace:^0.13.3
+      '@matb85/base-pack': workspace:^0.14.1
       '@vitejs/plugin-vue': ^2.3.1
       modular-slider: ^0.8.1
       vite: ^2.9.6
