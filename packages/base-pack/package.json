@@ -16,7 +16,7 @@
     "gulp": "^4.0.2",
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.1.0",
-    "modular-slider": "^0.8.1",
+    "modular-slider": "^0.8.2",
     "postcss": "^8.4.12",
     "postcss-env-function": "^4.0.6",
     "sass": "^1.51.0",

@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@matb85/base-pack": "workspace:^0.14.1",
-    "modular-slider": "^0.8.1"
+    "modular-slider": "^0.8.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",

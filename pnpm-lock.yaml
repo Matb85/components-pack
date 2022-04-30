@@ -19,7 +19,7 @@ importers:
       gulp: ^4.0.2
       gulp-postcss: ^9.0.1
       gulp-sass: ^5.1.0
-      modular-slider: ^0.8.1
+      modular-slider: ^0.8.2
       postcss: ^8.4.12
       postcss-env-function: ^4.0.6
       sass: ^1.51.0
@@ -32,7 +32,7 @@ importers:
       gulp: 4.0.2
       gulp-postcss: 9.0.1_postcss@8.4.12
       gulp-sass: 5.1.0
-      modular-slider: 0.8.1
+      modular-slider: 0.8.2
       postcss: 8.4.12
       postcss-env-function: 4.0.6_postcss@8.4.12
       sass: 1.51.0
@@ -42,12 +42,12 @@ importers:
     specifiers:
       '@matb85/base-pack': workspace:^0.14.1
       '@sveltejs/vite-plugin-svelte': ^1.0.0-next.42
-      modular-slider: ^0.8.1
+      modular-slider: ^0.8.2
       svelte: ^3.47.0
       vite: ^2.9.6
     dependencies:
       '@matb85/base-pack': link:../base-pack
-      modular-slider: 0.8.1
+      modular-slider: 0.8.2
     devDependencies:
       '@sveltejs/vite-plugin-svelte': 1.0.0-next.42_svelte@3.47.0+vite@2.9.6
       svelte: 3.47.0
@@ -57,13 +57,13 @@ importers:
     specifiers:
       '@matb85/base-pack': workspace:^0.14.1
       '@vitejs/plugin-vue': ^2.3.1
-      modular-slider: ^0.8.1
+      modular-slider: ^0.8.2
       vite: ^2.9.6
       vue: ^3.2.33
       vuex: ^4.0.2
     dependencies:
       '@matb85/base-pack': link:../base-pack
-      modular-slider: 0.8.1
+      modular-slider: 0.8.2
     devDependencies:
       '@vitejs/plugin-vue': 2.3.1_vite@2.9.6+vue@3.2.33
       vite: 2.9.6
@@ -3039,8 +3039,8 @@ packages:
     resolution: {integrity: sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==}
     engines: {node: '>=0.10.0'}
 
-  /modular-slider/0.8.1:
-    resolution: {integrity: sha512-yhw1NSLe1rYAkRDCY9Gb/sr+IRJ8ZnQZpm3lNdYLqWzSP62XWxcJjlAoOgUv9/f3q1ufCmO2qgbbmKs/uHRnSA==}
+  /modular-slider/0.8.2:
+    resolution: {integrity: sha512-1JPEW7LFWNxQ3Z+xOZkDwXDrWpcDig8np6nNO2hdW5wlH9MWtQLr1KoKIi8Agb4ohbRqiwLMXUUfRisH+uwQKw==}
     optionalDependencies:
       sharp: 0.29.3
       standard-version: 9.3.2
