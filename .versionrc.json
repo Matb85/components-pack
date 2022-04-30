@@ -1,0 +1,24 @@
+{
+  "types": [
+    { "type": "feat", "section": "Enhancements" },
+    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "chore", "hidden": true },
+    { "type": "docs", "hidden": true },
+    { "type": "style", "hidden": true },
+    { "type": "refactor", "section": "Enhancements" },
+    { "type": "perf", "section": "Enhancements" },
+    { "type": "test", "hidden": true }
+  ],
+  "packageFiles": [
+    { "filename": "packages/base-pack/package.json", "type": "json" },
+    { "filename": "packages/svelte-pack/package.json", "type": "json" },
+    { "filename": "packages/vue-pack/package.json", "type": "json" }
+  ],
+  "bumpFiles": [
+    { "filename": "package.json", "type": "json" },
+
+    { "filename": "packages/base-pack/package.json", "type": "json" },
+    { "filename": "packages/svelte-pack/package.json", "type": "json" },
+    { "filename": "packages/vue-pack/package.json", "type": "json" }
+  ]
+}

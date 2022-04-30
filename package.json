@@ -2,15 +2,12 @@
   "name": "components-pack",
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
-    "release": "lerna version --conventional-commits --no-push",
-    "pub": "lerna run build && lerna publish from-package",
+    "release": "standard-version",
+    "pub": "pnpm run build -r && pnpm publish -r",
     "build": "pnpm run -r build"
   },
   "devDependencies": {
-    "sharp": "^0.28.3"
-  },
-  "peerDependencies": {
-    "lerna": "^4.0.0",
-    "pnpm": "^6.32.3"
+    "sharp": "^0.28.3",
+    "standard-version": "^9.3.2"
   }
 }
