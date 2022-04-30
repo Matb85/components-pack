@@ -1,7 +1,27 @@
-# Change Log
+# Changelog
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [0.14.0](https://github.com/Redinn-Pages/components-pack/compare/v0.13.4...v0.14.0) (2022-04-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* :fire: remove the footer component
+
+### Bug Fixes
+
+* **base-pack:** :wrench: build errors ([19b9f94](https://github.com/Redinn-Pages/components-pack/commit/19b9f947c26a492c2c5e377a7207a57ebfdfe504))
+
+
+### Enhancements
+
+* :fire: remove the footer component ([0dc453b](https://github.com/Redinn-Pages/components-pack/commit/0dc453b3b5b032c4084656e5f026fe371517b931))
+* :recycle: refactor PhotoMultiViewers ([5241167](https://github.com/Redinn-Pages/components-pack/commit/52411679244a4f1c970aa3f35d0460a744463eb3))
+* :wheelchair: polish aria labels ([e579c3c](https://github.com/Redinn-Pages/components-pack/commit/e579c3cc1ea225eff2d8c14f45a32f5dadcea93a))
+* **base-pack:** :recycle: mixin's setupimgs - add deafult value for index ([a919d90](https://github.com/Redinn-Pages/components-pack/commit/a919d90827f87a5fd483af52197f95435cd0d601))
+* **svelte-pack:** :recycle: migrate to vite ([bc7969e](https://github.com/Redinn-Pages/components-pack/commit/bc7969eabaf49dd4e0bf86846f10fc5667f22269))
+* **vue-pack:** :boom: migrate to vue 3, vux4 + vite ([c00a110](https://github.com/Redinn-Pages/components-pack/commit/c00a1102c4645bbbbc34b5deac5742bd53a31dee))
 
 ## [0.13.4](https://github.com/Redinn-Pages/components-pack/compare/v0.13.3...v0.13.4) (2022-04-14)
 

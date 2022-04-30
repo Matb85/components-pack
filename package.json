@@ -9,5 +9,6 @@
   "devDependencies": {
     "sharp": "^0.28.3",
     "standard-version": "^9.3.2"
-  }
+  },
+  "version": "0.14.0"
 }
