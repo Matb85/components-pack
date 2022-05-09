@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.5](https://github.com/Redinn-Pages/components-pack/compare/v0.14.4...v0.14.5) (2022-05-09)
+
+
+### Bug Fixes
+
+* **base-pack:** :bug: fix types ([f69a0ab](https://github.com/Redinn-Pages/components-pack/commit/f69a0abe7f4274026ed8790abd0f4d66581cb668))
+
 ### [0.14.4](https://github.com/Redinn-Pages/components-pack/compare/v0.14.3...v0.14.4) (2022-04-30)
 
 ### [0.14.3](https://github.com/Redinn-Pages/components-pack/compare/v0.14.2...v0.14.3) (2022-04-30)
