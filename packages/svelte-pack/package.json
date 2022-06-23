@@ -22,6 +22,6 @@
   },
   "dependencies": {
     "@matb85/base-pack": "workspace:^0.14.5",
-    "modular-slider": "^0.8.2"
+    "modular-slider": "^0.10.0"
   }
 }

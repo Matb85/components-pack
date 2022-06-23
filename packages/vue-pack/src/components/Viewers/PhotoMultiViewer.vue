@@ -43,9 +43,9 @@
 import Mixin from "./photoViewerMixin.js";
 import { mixin } from "@matb85/base-pack";
 
-import { setup, Slidehandler, Noloop, lazyloading } from "modular-slider";
+import { setup, SlideHandler, NoLoop, lazyloading } from "modular-slider";
 
-const Slider = setup(Slidehandler, Noloop);
+const Slider = setup(SlideHandler, NoLoop);
 export default {
   mixins: [Mixin],
   name: "PhotoMultiViewer",
@@ -79,7 +79,7 @@ export default {
         get: () => this.counter,
         set: val => (this.counter = val),
       });
-      setTimeout(() => this.slider.slideTo(result.index, 0), 0);
+      setTimeout(() => this.slider.goTo(result.index), 0);
     });
   },
   methods: {

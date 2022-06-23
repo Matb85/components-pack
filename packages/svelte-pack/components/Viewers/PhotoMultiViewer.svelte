@@ -39,9 +39,9 @@
 
 <script>
 import { mixin } from "@matb85/base-pack";
-import { setup, Slidehandler, Noloop, lazyloading, buttons } from "modular-slider";
+import { setup, SlideHandler, NoLoop, lazyloading } from "modular-slider";
 import { onMount } from "svelte";
-const Slider = setup(Slidehandler, Noloop);
+const Slider = setup(SlideHandler, NoLoop);
 let image;
 let el;
 const svgPath =
@@ -79,7 +79,7 @@ onMount(() => {
       get: () => counter,
       set: val => (counter = val),
     });
-    setTimeout(() => slider.slideTo(result.index, 0), 0);
+    setTimeout(() => slider.goTo(result.index), 0);
   });
 });
 

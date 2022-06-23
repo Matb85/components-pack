@@ -9,8 +9,8 @@
     "build": "pnpm run -r build"
   },
   "devDependencies": {
-    "sharp": "^0.28.3",
-    "standard-version": "^9.3.2"
+    "sharp": "^0.30.7",
+    "standard-version": "^9.5.0"
   },
   "standard-version": {
     "scripts": {
