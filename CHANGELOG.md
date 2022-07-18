@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.7](https://github.com/Redinn-Pages/components-pack/compare/v0.14.6...v0.14.7) (2022-07-18)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :bug: fix cannot read property 'naturalWidth' of null ([4bb3cc9](https://github.com/Redinn-Pages/components-pack/commit/4bb3cc9850848ab49f2a668b973e6a03418a2c9b))
+
 ### [0.14.6](https://github.com/Redinn-Pages/components-pack/compare/v0.14.5...v0.14.6) (2022-06-23)
 
 

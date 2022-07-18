@@ -1,6 +1,6 @@
 {
   "name": "@matb85/vue-pack",
-  "version": "0.14.6",
+  "version": "0.14.7",
   "author": "matb85",
   "scripts": {
     "dev": "vite dev --port 3000",
@@ -17,7 +17,7 @@
     "vuex": "^4.0.2"
   },
   "dependencies": {
-    "@matb85/base-pack": "workspace:^0.14.6",
+    "@matb85/base-pack": "workspace:^0.14.7",
     "modular-slider": "^0.10.0"
   },
   "devDependencies": {
