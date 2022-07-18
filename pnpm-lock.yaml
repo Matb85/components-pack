@@ -44,7 +44,7 @@ importers:
 
   packages/svelte-pack:
     specifiers:
-      '@matb85/base-pack': workspace:^0.14.6
+      '@matb85/base-pack': workspace:^0.14.7
       '@sveltejs/vite-plugin-svelte': ^1.0.1
       modular-slider: ^0.10.0
       svelte: ^3.49.0
@@ -59,7 +59,7 @@ importers:
 
   packages/vue-pack:
     specifiers:
-      '@matb85/base-pack': workspace:^0.14.6
+      '@matb85/base-pack': workspace:^0.14.7
       '@vitejs/plugin-vue': ^3.0.1
       modular-slider: ^0.10.0
       vite: ^3.0.1
