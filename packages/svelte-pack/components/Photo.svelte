@@ -57,18 +57,19 @@ function enlarge() {
 }
 // dispatching/adding to the store
 function dispatch() {
-  const detail = { src, srcset: enlargedsrcset, group, ratio: img.naturalWidth / img.naturalHeight, alt };
-  mutations.addphoto(window.sveltepack, detail);
-
+  if (img === null) return;
+  if (prevent.includes("addtolist") === false) {
+    const detail = { src, srcset: enlargedsrcset, group, ratio: img.naturalWidth / img.naturalHeight, alt };
+    mutations.addphoto(window.sveltepack, detail);
+  }
   window.sveltepack.observer.observe(img);
 }
 
 onMount(() => {
-  if (prevent.includes("addtolist")) return;
   if (img.complete) {
     dispatch();
   } else {
-    img.addEventListener("load", () => dispatch(), { once: true });
+    img.addEventListener("load", dispatch, { once: true });
   }
 });
 </script>
