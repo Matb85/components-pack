@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.8](https://github.com/Redinn-Pages/components-pack/compare/v0.14.7...v0.14.8) (2022-08-24)
+
+
+### Bug Fixes
+
+* :bug: fix the enlage actions when src is changed ([5f07677](https://github.com/Redinn-Pages/components-pack/commit/5f0767725b27f6ebecc279af3e6c85d286ccff0d))
+
+
+### Enhancements
+
+* **vue-pack:** :recycle: rewrite to vue setup scripts ([05ecb61](https://github.com/Redinn-Pages/components-pack/commit/05ecb61f5b6902b223a6585b3356040da71af0ed))
+
 ### [0.14.7](https://github.com/Redinn-Pages/components-pack/compare/v0.14.6...v0.14.7) (2022-07-18)
 
 

@@ -1,11 +1,11 @@
 {
   "name": "components-pack",
-  "version": "0.14.7",
+  "version": "0.14.8",
   "private": true,
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
     "release": "standard-version",
-    "pub": "pnpm run build -r && pnpm publish -r",
+    "pub": "pnpm run build && pnpm publish -r",
     "build": "pnpm run -r build"
   },
   "devDependencies": {
