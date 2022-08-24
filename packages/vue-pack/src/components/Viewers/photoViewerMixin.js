@@ -1,14 +1,11 @@
 import { mixin } from "@matb85/base-pack";
 
 export default {
-  mounted() {
-    const handler = mixin.mounted.bind({ ref: this.$refs.img, el: this.$el, getdimensions: mixin.getdimensions });
-    this.enlargeHandler = handler;
+  getHandler(imgEl, rootEl) {
+    return mixin.mounted.bind({ ref: imgEl, el: rootEl, getdimensions: mixin.getdimensions });
   },
-  methods: {
-    close() {
-      return mixin.close(this.$refs.img, this.$el);
-    },
-    getdimensions: mixin.getdimensions,
+  close(imgEl, rootEl) {
+    return mixin.close(imgEl, rootEl);
   },
+  getdimensions: mixin.getdimensions,
 };

@@ -1,21 +1,22 @@
 <template>
-  <section aria-label="Mapa Google" role="application" data-observerhandler="map"></section>
+  <section ref="root" aria-label="Mapa Google" role="application" data-observerhandler="map"></section>
 </template>
 
-<script>
+<script setup>
 import { maputil } from "@matb85/base-pack";
+import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
 
-export default {
-  props: {
-    apikey: String,
-    callback: Function,
-  },
-  mounted() {
-    this.$store.commit("vuepack/addhandler", {
-      name: "map",
-      handler: () => maputil(this.apikey, this.callback, this.$el),
-    });
-    this.$store.state.vuepack.observer.observe(this.$el);
-  },
-};
+const root = ref(null);
+
+const props = defineProps({ apikey: String, callback: Function });
+
+onMounted(() => {
+  store.commit("vuepack/addhandler", {
+    name: "map",
+    handler: () => maputil(props.apikey, props.callback, root.value),
+  });
+  store.state.vuepack.observer.observe(root.value);
+});
 </script>
