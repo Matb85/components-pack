@@ -36,19 +36,19 @@ let img, el;
  * @type {import('@matb85/base-pack').StoreDataI}  */
 const GlobalConfig = getContext("svelte-pack-sizes");
 
-const settings = photo(src, GlobalConfig.formats, sizes);
-let genSrcset = settings.genSrcset,
-  genSizes = settings.genSizes;
+let { genSrcset, genSizes } = photo(src, GlobalConfig.formats, sizes);
 
 // setup sizes & srcset when the photo is enlarged
-const enlargedsrcset = photo(src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
+let enlargedsrcset = photo(src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
 // update srcset on change
 function updateSrc() {
   if (typeof window == "undefined" || typeof img == "undefined") return;
+  enlargedsrcset = photo(src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
   genSrcset = photo(src, GlobalConfig.formats, sizes).genSrcset;
   if (img.classList.contains("loaded")) img.srcset = genSrcset;
+  dispatch(false);
 }
-$: updateSrc() || src;
+$: src, updateSrc();
 
 function enlarge() {
   if (!img.classList.contains("loaded") || prevent.includes("enlargeonclick")) return;
@@ -56,20 +56,17 @@ function enlarge() {
   window.dispatchEvent(new CustomEvent(enlarger, { detail: { rect: el.getBoundingClientRect(), img } }));
 }
 // dispatching/adding to the store
-function dispatch() {
+function dispatch(observe = true) {
   if (img === null) return;
   if (prevent.includes("addtolist") === false) {
     const detail = { src, srcset: enlargedsrcset, group, ratio: img.naturalWidth / img.naturalHeight, alt };
     mutations.addphoto(window.sveltepack, detail);
   }
-  window.sveltepack.observer.observe(img);
+  if (observe) window.sveltepack.observer.observe(img);
 }
 
 onMount(() => {
-  if (img.complete) {
-    dispatch();
-  } else {
-    img.addEventListener("load", dispatch, { once: true });
-  }
+  if (img.complete) dispatch();
+  else img.addEventListener("load", dispatch, { once: true });
 });
 </script>

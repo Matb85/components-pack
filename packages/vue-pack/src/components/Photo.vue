@@ -54,24 +54,24 @@ watch(
   () => props.src,
   () => {
     genSrcset.value = photo(props.src, store.state.vuepacksizes.formats, props.sizes).genSrcset;
+    enlargedsrcset.value = photo(props.src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
     if (img.value.classList.contains("loaded")) img.value.srcset = genSrcset;
+    dispatch(false);
   }
 );
-
-onMounted(() => {
+function dispatch(observe = true) {
   if (typeof dontaddtolist === "undefined")
-    img.value.addEventListener(
-      "load",
-      () =>
-        store.commit("vuepack/addphoto", {
-          src: props.src,
-          srcset: enlargedsrcset,
-          ratio: img.value.naturalWidth / img.value.naturalHeight,
-          group: props.group,
-          alt: props.alt,
-        }),
-      { once: true }
-    );
-  store.state.vuepack.observer.observe(img.value);
+    store.commit("vuepack/addphoto", {
+      src: props.src,
+      srcset: enlargedsrcset,
+      ratio: img.value.naturalWidth / img.value.naturalHeight,
+      group: props.group,
+      alt: props.alt,
+    });
+  if (observe) store.state.vuepack.observer.observe(img.value);
+}
+onMounted(() => {
+  if (img.value.complete) dispatch();
+  else img.value.addEventListener("load", dispatch, { once: true });
 });
 </script>
