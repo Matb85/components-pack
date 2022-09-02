@@ -7,7 +7,7 @@
   "main": "dist/svelte-pack.es.js",
   "svelte": "components/index.js",
   "files": [
-    "dist/svelte-pack.es.js",
+    "dist/svelte-pack.js",
     "index.d.ts",
     "components/**/*"
   ],
@@ -16,9 +16,9 @@
     "dev": "vite dev --port 3000"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.0.1",
-    "svelte": "^3.49.0",
-    "vite": "^3.0.1"
+    "@sveltejs/vite-plugin-svelte": "^1.0.4",
+    "svelte": "^3.50.0",
+    "vite": "^3.0.9"
   },
   "dependencies": {
     "@matb85/base-pack": "workspace:^0.14.8",
