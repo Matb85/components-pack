@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.9](https://github.com/Redinn-Pages/components-pack/compare/v0.14.7...v0.14.9) (2022-09-02)
+
+
+### Bug Fixes
+
+* :bug: fix the enlage actions when src is changed ([5f07677](https://github.com/Redinn-Pages/components-pack/commit/5f0767725b27f6ebecc279af3e6c85d286ccff0d))
+
+
+### Enhancements
+
+* :recycle: rename function to camelCase ([3d36db9](https://github.com/Redinn-Pages/components-pack/commit/3d36db93e0780bc1d64bd6c73804514f6addfba9))
+* **base-pack:** :heavy_minus_sign: forgo Gulp ([b677b62](https://github.com/Redinn-Pages/components-pack/commit/b677b6268641864a4cbfc424c5ae840616894cf8))
+* **vue-pack:** :recycle: rewrite to vue setup scripts ([05ecb61](https://github.com/Redinn-Pages/components-pack/commit/05ecb61f5b6902b223a6585b3356040da71af0ed))
+
 ### [0.14.8](https://github.com/Redinn-Pages/components-pack/compare/v0.14.7...v0.14.8) (2022-08-24)
 
 
