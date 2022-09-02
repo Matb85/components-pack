@@ -64,7 +64,7 @@ onMounted(async () => {
   window.addEventListener(trigger, async ({ detail: { img, rect } }) => {
     window.addEventListener("keyup", onKeyUp);
 
-    const result = mixin.setupimgs(store.state.vuepack, img);
+    const result = mixin.setupImgs(store.state.vuepack, img);
     imgs.value = result.photos;
 
     await enlargeHandler({ img, rect });

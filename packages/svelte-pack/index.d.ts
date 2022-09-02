@@ -15,5 +15,4 @@ export const Photo: SvelteComponent;
 export const PhotoViewer: SvelteComponent;
 export const PhotoMultiViewer: SvelteComponent;
 export const Navbar: SvelteComponent;
-export const Footer: SvelteComponent;
 export function init(): void;

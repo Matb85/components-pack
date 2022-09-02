@@ -56,11 +56,11 @@ function onKeyUp(e) {
   else if (e.key == "ArrowRight") slider.slideNext();
 }
 onMount(() => {
-  const hander = mixin.mounted.bind({ ref: image, el, getdimensions: mixin.getdimensions });
+  const hander = mixin.mounted.bind({ ref: image, el, getDimensions: mixin.getDimensions });
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
     window.addEventListener("keyup", onKeyUp);
 
-    const result = mixin.setupimgs(window.sveltepack, detail.img);
+    const result = mixin.setupImgs(window.sveltepack, detail.img);
 
     imgs = result.photos;
     await hander(detail);

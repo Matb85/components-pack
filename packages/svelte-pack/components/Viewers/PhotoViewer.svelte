@@ -10,7 +10,7 @@ let img;
 const close = () => mixin.close(img, img.parentElement);
 
 onMount(() => {
-  const hander = mixin.mounted.bind({ ref: img, el: img.parentElement, getdimensions: mixin.getdimensions });
+  const hander = mixin.mounted.bind({ ref: img, el: img.parentElement, getDimensions: mixin.getDimensions });
   window.addEventListener("enlargePhoto", event => hander(event.detail));
 
   window.addEventListener("keyup", e => {

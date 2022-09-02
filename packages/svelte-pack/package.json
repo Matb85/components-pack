@@ -4,7 +4,7 @@
   "author": "matb85",
   "type": "module",
   "types": "./index.d.ts",
-  "main": "dist/svelte-pack.es.js",
+  "main": "dist/svelte-pack.js",
   "svelte": "components/index.js",
   "files": [
     "dist/svelte-pack.js",

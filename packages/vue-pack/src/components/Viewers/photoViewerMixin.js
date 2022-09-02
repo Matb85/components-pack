@@ -2,10 +2,10 @@ import { mixin } from "@matb85/base-pack";
 
 export default {
   getHandler(imgEl, rootEl) {
-    return mixin.mounted.bind({ ref: imgEl, el: rootEl, getdimensions: mixin.getdimensions });
+    return mixin.mounted.bind({ ref: imgEl, el: rootEl, getDimensions: mixin.getDimensions });
   },
   close(imgEl, rootEl) {
     return mixin.close(imgEl, rootEl);
   },
-  getdimensions: mixin.getdimensions,
+  getDimensions: mixin.getDimensions,
 };
