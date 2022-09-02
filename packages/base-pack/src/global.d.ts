@@ -1,9 +1,1 @@
-declare global {
-  namespace NodeJS {
-    interface ProcessEnv {
-      VIEWER_TRANSITION_SPEED: number;
-    }
-  }
-}
-
-export {};
+declare const VIEWER_TRANSITION_SPEED: number;

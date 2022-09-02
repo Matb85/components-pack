@@ -7,7 +7,7 @@ const options = {
   outfile: "./dist/index.mjs",
   bundle: true,
   define: {
-    "process.env.VIEWER_TRANSITION_SPEED": settings.VIEWER_TRANSITION_SPEED,
+    VIEWER_TRANSITION_SPEED: settings.VIEWER_TRANSITION_SPEED,
   },
   incremental: true,
   format: "esm",
