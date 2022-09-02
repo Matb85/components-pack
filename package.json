@@ -1,6 +1,6 @@
 {
   "name": "components-pack",
-  "version": "0.14.9",
+  "version": "0.14.10",
   "private": true,
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
