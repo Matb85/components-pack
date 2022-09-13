@@ -6,16 +6,18 @@
   <Photo src="/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" />
 
   <Photo
-    src="/thumbnail_gorge.jpg"
+    :src="src"
     multiview
     :sizes="[720, 1290, 1920, 2400]"
     class="photo"
     group="mountains"
     alt="a photo of the Dunajec Gorge"
   />
+  <button @click="() => (src = '/thumbnail_gorge.jpg')">Gorge</button>
+  <button @click="() => (src = '/thumbnail_mountains.jpg')">Mountains</button>
   <Photo src="/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" alt="a bird" group="mountains" />
   <Photo
-    src="/thumbnail_mountains.jpg"
+    src="/thumbnail_gorge.jpg"
     :sizes="[2400]"
     class="photo"
     group="mountains"
@@ -28,25 +30,26 @@
   <Map class="map" apikey="gfsgdsgds" :callback="mapCallback" />
 </template>
 
-<script>
+<script setup>
+import { onMounted, ref } from "vue";
+import { useStore } from "vuex";
 import { PhotoMultiViewer, Navbar, PhotoViewer, Photo, Map } from "../src/index";
+const store = useStore();
 
-export default {
-  components: { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar },
-  mounted() {
-    this.$store.commit("vuepack/addhandler", {
-      name: "example",
-      handler: () => {
-        console.log("hi");
-      },
-    });
-  },
-  methods: {
-    mapCallback(m) {
-      console.log(m);
+const src = ref("/thumbnail_mountains.jpg");
+
+onMounted(() => {
+  store.commit("vuepack/addhandler", {
+    name: "example",
+    handler: () => {
+      console.log("hi");
     },
-  },
-};
+  });
+});
+
+function mapCallback(m) {
+  console.log(m);
+}
 </script>
 
 <style>

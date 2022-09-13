@@ -7,7 +7,6 @@
   <img
     bind:this="{img}"
     src="{src}"
-    data-src="{src}"
     data-srcset="{genSrcset}"
     data-enlargedsrcset="{enlargedsrcset}"
     sizes="{genSizes}"
@@ -43,10 +42,17 @@ let enlargedsrcset = photo(src, GlobalConfig.formats, GlobalConfig.enlarged).gen
 // update srcset on change
 function updateSrc() {
   if (typeof window == "undefined" || typeof img == "undefined") return;
-  enlargedsrcset = photo(src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
-  genSrcset = photo(src, GlobalConfig.formats, sizes).genSrcset;
-  if (img.classList.contains("loaded")) img.srcset = genSrcset;
-  dispatch(false);
+  img.classList.remove("loaded");
+  img.removeAttribute("srcset");
+  img.addEventListener(
+    "load",
+    () => {
+      enlargedsrcset = photo(src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
+      genSrcset = photo(src, GlobalConfig.formats, sizes).genSrcset;
+      dispatch();
+    },
+    { once: true }
+  );
 }
 $: src, updateSrc();
 

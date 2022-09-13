@@ -19,7 +19,7 @@ export function Store(): StoreI {
   /** handler for different needs */
   const handlers: Record<string, Handler> = {
     photo(img) {
-      (img as HTMLImageElement).addEventListener("load", () => img.classList.add("loaded"));
+      (img as HTMLImageElement).addEventListener("load", () => img.classList.toggle("loaded"), { once: true });
       (img as HTMLImageElement).srcset = img.dataset.srcset as string;
     },
   };

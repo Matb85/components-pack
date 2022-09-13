@@ -53,10 +53,18 @@ const enlargedsrcset = ref(photo(props.src, GlobalConfig.formats, GlobalConfig.e
 watch(
   () => props.src,
   () => {
-    genSrcset.value = photo(props.src, store.state.vuepacksizes.formats, props.sizes).genSrcset;
-    enlargedsrcset.value = photo(props.src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
-    if (img.value.classList.contains("loaded")) img.value.srcset = genSrcset;
-    dispatch(false);
+    if (typeof window == "undefined" || typeof img == "undefined") return;
+    img.value.classList.remove("loaded");
+    img.value.removeAttribute("srcset");
+    img.value.addEventListener(
+      "load",
+      () => {
+        enlargedsrcset.value = photo(props.src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
+        genSrcset.value = photo(props.src, GlobalConfig.formats, props.sizes).genSrcset;
+        dispatch();
+      },
+      { once: true }
+    );
   }
 );
 function dispatch(observe = true) {

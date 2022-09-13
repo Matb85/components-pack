@@ -12,13 +12,14 @@
   multiview
   alt="a portrait of a bird" />
 <Photo
-  src="/thumbnail_gorge.jpg"
+  src="{src}"
   multiview
   sizes="{[480, 720]}"
   className="photo"
   group="mountains"
   alt="a photo of the Dunajec Gorge" />
-
+<button on:click="{() => (src = '/thumbnail_gorge.jpg')}">Gorge</button>
+<button on:click="{() => (src = '/thumbnail_mountains.jpg')}">Mountains</button>
 <Photo src="/thumbnail_bird.jpg" sizes="{[480, 720]}" className="photo" group="mountains" />
 <Photo
   src="/thumbnail_mountains.jpg"
@@ -55,4 +56,6 @@ const config = {
 };
 
 setContext("svelte-pack-sizes", config);
+
+let src = "/thumbnail_bird.jpg";
 </script>
