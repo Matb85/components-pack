@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.11](https://github.com/Redinn-Pages/components-pack/compare/v0.14.10...v0.14.11) (2022-09-13)
+
+
+### Enhancements
+
+* :sparkles: temporarily blur the image when src is changed ([8ecb1e0](https://github.com/Redinn-Pages/components-pack/commit/8ecb1e09d57df3333daf2638c2a7ea0cb3ba38b8))
+
 ### [0.14.10](https://github.com/Redinn-Pages/components-pack/compare/v0.14.9...v0.14.10) (2022-09-02)
 
 
