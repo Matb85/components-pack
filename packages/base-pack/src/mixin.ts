@@ -59,7 +59,7 @@ export default {
   },
   // utility for photoMultiViewers
   setupImgs(state: StoreI, img: HTMLImageElement) {
-    const photos = state.photolist[img.dataset.group || "rest"];
+    const photos = state.photolist[img.dataset.group?.split("-")[0] || "rest"];
     let index = 0;
     for (let i = 0; i < photos.length; i++) {
       const photo = photos[i] as ExtendedPhoto;
@@ -67,7 +67,7 @@ export default {
         const { w, h } = this.getDimensions(photo.ratio);
         photo.width = w;
         photo.height = h;
-        if (photo.src == img.dataset.src) index = i;
+        if (photo.srcset == img.dataset.enlargedsrcset) index = i;
       }
     }
     return { photos, index };

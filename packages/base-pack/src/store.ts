@@ -49,8 +49,12 @@ export const mutations = {
     delete state.handlers[name];
   },
   addphoto(state: StoreI, payload: Photo) {
-    const group = payload.group || "rest";
+    const [group, id]: [string, number?] = (payload.group?.split("-") as [string, number?]) || ["rest", undefined];
+
     if (!state.photolist[group]) state.photolist[group] = [];
-    if (!state.photolist[group].map(x => x.src).includes(payload.src)) state.photolist[group].push(payload);
+    if (!state.photolist[group].map(x => x.src).includes(payload.src)) {
+      if (id) state.photolist[group][id] = payload;
+      else state.photolist[group].push(payload);
+    }
   },
 };
