@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.14.12](https://github.com/Redinn-Pages/components-pack/compare/v0.14.11...v0.14.12) (2022-10-21)
+
+
+### Enhancements
+
+* :bento: add an additional photo ([d513a39](https://github.com/Redinn-Pages/components-pack/commit/d513a39743f675448484fe8aa7e70311a7a94cbe))
+* :sparkles: enable manual photo sorting in multiview ([5016a8d](https://github.com/Redinn-Pages/components-pack/commit/5016a8d0c7575816ae4f169d20151a5dbf13ebc2))
+
 ### [0.14.11](https://github.com/Redinn-Pages/components-pack/compare/v0.14.10...v0.14.11) (2022-09-13)
 
 

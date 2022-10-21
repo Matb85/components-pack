@@ -1,6 +1,6 @@
 {
   "name": "@matb85/base-pack",
-  "version": "0.14.11",
+  "version": "0.14.12",
   "author": "matb85",
   "scripts": {
     "build": "rm -rf ./dist && pnpm run build:ts && pnpm run build:sass && pnpm run build:css",
