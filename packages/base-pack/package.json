@@ -2,6 +2,8 @@
   "name": "@matb85/base-pack",
   "version": "0.14.12",
   "author": "matb85",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rm -rf ./dist && pnpm run build:ts && pnpm run build:sass && pnpm run build:css",
     "build:ts": "node ./esbuild.config.js && tsc --emitDeclarationOnly --declaration --project tsconfig.json",
@@ -10,21 +12,19 @@
     "lint": "eslint ./src/**/*"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
-    "esbuild": "^0.15.6",
-    "eslint": "^8.23.0",
-    "modular-slider": "^0.10.0",
-    "postcss": "^8.4.16",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "@typescript-eslint/parser": "^5.40.1",
+    "esbuild": "^0.15.12",
+    "eslint": "^8.25.0",
+    "modular-slider": "^0.11.0",
+    "postcss": "^8.4.18",
     "postcss-cli": "^10.0.0",
     "postcss-env-function": "^4.0.6",
-    "sass": "^1.54.8",
-    "tailwindcss": "^3.1.8",
-    "typescript": "^4.8.2"
+    "sass": "^1.55.0",
+    "tailwindcss": "^3.2.1",
+    "typescript": "^4.8.4"
   },
   "files": [
     "dist/*"
-  ],
-  "main": "./dist/index.mjs",
-  "types": "./dist/index.d.ts"
+  ]
 }

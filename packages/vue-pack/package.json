@@ -2,28 +2,28 @@
   "name": "@matb85/vue-pack",
   "version": "0.14.12",
   "author": "matb85",
+  "main": "dist/vuepack.es.js",
+  "types": "./index.d.ts",
   "scripts": {
     "dev": "vite dev --port 3000",
     "build": "vite build"
   },
-  "main": "dist/vuepack.es.js",
-  "files": [
-    "dist/vuepack.es.js",
-    "index.d.ts"
-  ],
-  "types": "./index.d.ts",
+  "dependencies": {
+    "@matb85/base-pack": "^0.14.12",
+    "modular-slider": "^0.11.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.1.2",
+    "vite": "^3.1.8",
+    "vue": "^3.2.41",
+    "vuex": "^4.1.0"
+  },
   "peerDependencies": {
     "vue": "^3.2.25",
     "vuex": "^4.0.2"
   },
-  "dependencies": {
-    "@matb85/base-pack": "workspace:^0.14.12",
-    "modular-slider": "^0.10.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^3.0.3",
-    "vite": "^3.0.9",
-    "vue": "^3.2.38",
-    "vuex": "^4.0.2"
-  }
+  "files": [
+    "dist/vuepack.es.js",
+    "index.d.ts"
+  ]
 }
