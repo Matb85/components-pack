@@ -12,7 +12,7 @@
   multiview
   alt="a portrait of a bird" />
 
-<Photo src="{src}" multiview sizes="{[480, 720]}" className="photo" group="gallery" alt="Dunajec Gorge" />
+<Photo src="{src}" multiview sizes="{[480, 720]}" className="photo" group="mountains" alt="Dunajec Gorge" />
 <button on:click="{() => (src = '/thumbnail_gorge.jpg')}">Gorge</button>
 <button on:click="{() => (src = '/thumbnail_mountains.jpg')}">Mountains</button>
 

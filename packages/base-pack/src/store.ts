@@ -53,7 +53,7 @@ export const mutations = {
 
     if (!state.photolist[group]) state.photolist[group] = [];
     if (!state.photolist[group].map(x => x.src).includes(payload.src)) {
-      if (id) state.photolist[group][id] = payload;
+      if (typeof id !== "undefined") state.photolist[group][id] = payload;
       else state.photolist[group].push(payload);
     }
   },

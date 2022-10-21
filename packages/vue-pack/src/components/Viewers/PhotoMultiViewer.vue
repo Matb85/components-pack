@@ -1,15 +1,15 @@
 <template>
-  <section ref="root" class="photo-multi-viewer photo-viewer ms-outer-con width-in-percentage">
+  <section ref="root" class="photo-multi-viewer photo-viewer MS-wrapper">
     <div aria-hidden="true" class="first-slide">
       <img ref="photo" class="viewed-photo" />
     </div>
-    <div class="photo-slider ms-inner-con" id="photo-slider">
+    <div class="photo-slider MS-con" id="photo-slider">
       <div v-for="img of imgs" :key="img.src" class="other-slides">
         <div
           class="medium-pack-photo no-hover"
           :style="{ '--enlarged-photo-w': img.width, '--enlarged-photo-h': img.height }"
         >
-          <img class="ms-lazy" :src="img.src" :data-srcset="img.srcset" :alt="img.alt || 'zdjęcie bez podpisu'" />
+          <img class="MS-lazy" :src="img.src" :data-srcset="img.srcset" :alt="img.alt || 'zdjęcie bez podpisu'" />
         </div>
       </div>
     </div>
