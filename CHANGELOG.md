@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.15.0](https://github.com/Redinn-Pages/components-pack/compare/v0.14.12...v0.15.0) (2022-10-21)
+
+
+### Enhancements
+
+* :boom: migrate to modular-slider ^0.11.0 ([e053dcd](https://github.com/Redinn-Pages/components-pack/commit/e053dcdbc6367de96cfcef955b860c1208744a4b))
+
 ### [0.14.12](https://github.com/Redinn-Pages/components-pack/compare/v0.14.11...v0.14.12) (2022-10-21)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@matb85/vue-pack",
-  "version": "0.14.12",
+  "version": "0.15.0",
   "author": "matb85",
   "main": "dist/vuepack.es.js",
   "types": "./index.d.ts",
@@ -9,7 +9,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@matb85/base-pack": "^0.14.12",
+    "@matb85/base-pack": "workspace:^0.15.0",
     "modular-slider": "^0.11.0"
   },
   "devDependencies": {
