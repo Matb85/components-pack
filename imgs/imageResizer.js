@@ -8,6 +8,7 @@ const images = [
   { path: "/bird.jpg", name: "bird.jpg" },
   { path: "/mountains.jpg", name: "mountains.jpg" },
   { path: "/dunajecgorge.jpg", name: "gorge.jpg" },
+  { path: "/sokolica.jpg", name: "sokolica.jpg" },
 ];
 
 /** specify how to resize the images and how to name them */

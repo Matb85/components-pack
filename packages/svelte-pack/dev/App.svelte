@@ -11,23 +11,29 @@
   group="mountains"
   multiview
   alt="a portrait of a bird" />
-<Photo
-  src="{src}"
-  multiview
-  sizes="{[480, 720]}"
-  className="photo"
-  group="mountains"
-  alt="a photo of the Dunajec Gorge" />
+
+<Photo src="{src}" multiview sizes="{[480, 720]}" className="photo" group="gallery" alt="Dunajec Gorge" />
 <button on:click="{() => (src = '/thumbnail_gorge.jpg')}">Gorge</button>
 <button on:click="{() => (src = '/thumbnail_mountains.jpg')}">Mountains</button>
-<Photo src="/thumbnail_bird.jpg" sizes="{[480, 720]}" className="photo" group="mountains" />
-<Photo
-  src="/thumbnail_mountains.jpg"
-  sizes="{[480, 720]}"
-  className="photo"
-  group="mountains"
-  alt="a panorama of mountains" />
 
+<div class="gallery">
+  <Photo src="/thumbnail_bird.jpg" sizes="{[480, 720]}" multiview className="photo" group="gallery-0" />
+  <Photo
+    src="/thumbnail_mountains.jpg"
+    sizes="{[480, 720]}"
+    multiview
+    className="photo"
+    group="gallery-1"
+    alt="Island" />
+  <Photo src="/thumbnail_gorge.jpg" sizes="{[480, 720]}" multiview className="photo" group="gallery-2" alt="gorge" />
+  <Photo
+    src="/thumbnail_sokolica.jpg"
+    sizes="{[480, 720]}"
+    multiview
+    className="photo"
+    group="gallery-3"
+    alt="sokolica" />
+</div>
 <!---->
 
 <PhotoViewer />

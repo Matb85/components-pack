@@ -33,12 +33,19 @@ body,
 .photo:nth-of-type(2) {
   width: 60%;
 }
-.photo:nth-of-type(3) {
-  width: 20%;
+
+.gallery {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
 }
-.photo:nth-of-type(4) {
-  width: 50vw;
-  height: 50vw;
+
+.gallery .photo {
+  width: 30%;
+  flex: none;
 }
 
 .map {
