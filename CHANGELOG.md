@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.16.0](https://github.com/Redinn-Pages/components-pack/compare/v0.15.0...v0.16.0) (2022-10-31)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :pencil2: fix typos in PhotoViewer.svelte ([fae86e6](https://github.com/Redinn-Pages/components-pack/commit/fae86e6f3394722750980fcd96c2f68d3ad8d7a6))
+
+
+### Enhancements
+
+* :zap: improve the performance of PhotoViewers ([9df1341](https://github.com/Redinn-Pages/components-pack/commit/9df1341abb23201d284098c402a6ad794ea59309))
+
 ## [0.15.0](https://github.com/Redinn-Pages/components-pack/compare/v0.14.12...v0.15.0) (2022-10-21)
 
 
