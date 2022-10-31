@@ -10,8 +10,8 @@ let img;
 const close = () => mixin.close(img, img.parentElement);
 
 onMount(() => {
-  const hander = mixin.mounted.bind({ ref: img, el: img.parentElement, getDimensions: mixin.getDimensions });
-  window.addEventListener("enlargePhoto", event => hander(event.detail));
+  const handler = mixin.mounted.bind({ ref: img, el: img.parentElement, getDimensions: mixin.getDimensions });
+  window.addEventListener("enlargePhoto", event => handler(event.detail));
 
   window.addEventListener("keyup", e => {
     if (e.key == "Escape") close();
