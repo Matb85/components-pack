@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.1](https://github.com/Redinn-Pages/components-pack/compare/v0.16.0...v0.16.1) (2022-10-31)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :bug: fix package.json ([794616d](https://github.com/Redinn-Pages/components-pack/commit/794616dd87e4b1cba2adfe1254feeeffc890a807))
+
 ## [0.16.0](https://github.com/Redinn-Pages/components-pack/compare/v0.15.0...v0.16.0) (2022-10-31)
 
 
