@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@matb85/base-pack": "workspace:^0.15.0",
-    "modular-slider": "^0.11.0"
+    "modular-slider": "^0.11.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.1.2",
-    "vite": "^3.1.8",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "vite": "^3.2.2",
     "vue": "^3.2.41",
     "vuex": "^4.1.0"
   },
