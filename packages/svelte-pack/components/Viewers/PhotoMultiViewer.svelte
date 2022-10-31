@@ -4,13 +4,11 @@
   </div>
   <div class="photo-slider MS-con" id="photo-slider">
     {#each imgs as img}
-      <div class="other-slides">
-        <div
-          class="medium-pack-photo no-hover"
-          style="--enlarged-photo-w: {img.width}; --enlarged-photo-h: {img.height};">
-          <img class="MS-lazy" src="{img.src}" data-srcset="{img.srcset}" alt="{img.alt || 'zdjęcie bez podpisu'}" />
-        </div>
-      </div>
+      <img
+        class="other-slide MS-lazy"
+        src="{img.src}"
+        data-srcset="{img.srcset}"
+        alt="{img.alt || 'zdjęcie bez podpisu'}" />
     {/each}
   </div>
   <!-- navigation -->
@@ -67,7 +65,7 @@ onMount(() => {
       plugins: [lazyloading()],
     });
 
-    const chosen = slider.container.children[result.index].children[0].children[0];
+    const chosen = slider.container.children[result.index];
     window.sveltepack.handlers.photo(chosen);
 
     image.addEventListener("animationend", () => (image.parentElement.style.display = "none"), { once: true });

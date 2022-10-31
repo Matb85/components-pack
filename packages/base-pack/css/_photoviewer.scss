@@ -7,7 +7,7 @@
     transform: scale(1.05);
     @apply relative object-cover;
   }
-  img {
+  > img {
     pointer-events: none;
     user-drag: none;
     user-select: none;
@@ -33,7 +33,7 @@
 
     width: $w;
     height: $h;
-    top: calc((100vh - #{$h}) / 2);
+    top: calc((100% - #{$h}) / 2);
     left: calc((100% - #{$w}) / 2);
   }
 }

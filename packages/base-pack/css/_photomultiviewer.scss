@@ -21,13 +21,16 @@
     position: relative;
     @include wh;
   }
-  .other-slides {
+
+  img.other-slide {
+    filter: blur(24px);
+    transition: 0.4s filter;
+    pointer-events: all;
     @include wh;
-    @apply flex justify-center items-center;
-    .medium-pack-photo {
-      width: var(--enlarged-photo-w);
-      height: var(--enlarged-photo-h);
-    }
+    @apply object-contain p-2;
+  }
+  img.other-slide.loaded {
+    filter: blur(0px);
   }
 }
 .photo-multi-viewer {

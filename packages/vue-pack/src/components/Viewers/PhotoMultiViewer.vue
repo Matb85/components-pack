@@ -4,14 +4,14 @@
       <img ref="photo" class="viewed-photo" />
     </div>
     <div class="photo-slider MS-con" id="photo-slider">
-      <div v-for="img of imgs" :key="img.src" class="other-slides">
-        <div
-          class="medium-pack-photo no-hover"
-          :style="{ '--enlarged-photo-w': img.width, '--enlarged-photo-h': img.height }"
-        >
-          <img class="MS-lazy" :src="img.src" :data-srcset="img.srcset" :alt="img.alt || 'zdjęcie bez podpisu'" />
-        </div>
-      </div>
+      <img
+        v-for="img of imgs"
+        :key="img.src"
+        class="other-slide MS-lazy"
+        :src="img.src"
+        :data-srcset="img.srcset"
+        :alt="img.alt || 'zdjęcie bez podpisu'"
+      />
     </div>
     <!-- navigation -->
     <button aria-label="Poprzednie zdjęcie" id="multi-viewer-prev" @click="() => slider?.slidePrev()">
@@ -73,7 +73,7 @@ onMounted(async () => {
       transitionSpeed: 500,
       plugins: [lazyloading()],
     });
-    const chosen = slider.container.children[result.index].children[0].children[0];
+    const chosen = slider.container.children[result.index];
     store.state.vuepack.handlers.photo(chosen);
 
     photo.value.addEventListener("animationend", () => (photo.value.parentElement.style.display = "none"));
