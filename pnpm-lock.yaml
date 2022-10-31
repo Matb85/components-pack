@@ -41,14 +41,14 @@ importers:
       '@matb85/base-pack': workspace:^0.16.0
       '@sveltejs/vite-plugin-svelte': ^1.1.0
       modular-slider: ^0.11.1
-      svelte: ^3.50.0
+      svelte: ^3.52.0
       vite: ^3.2.2
     dependencies:
       '@matb85/base-pack': link:../base-pack
       modular-slider: 0.11.1
     devDependencies:
-      '@sveltejs/vite-plugin-svelte': 1.1.0_svelte@3.50.0+vite@3.2.2
-      svelte: 3.50.0
+      '@sveltejs/vite-plugin-svelte': 1.1.0_svelte@3.52.0+vite@3.2.2
+      svelte: 3.52.0
       vite: 3.2.2
 
   packages/vue-pack:
@@ -190,7 +190,7 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@sveltejs/vite-plugin-svelte/1.1.0_svelte@3.50.0+vite@3.2.2:
+  /@sveltejs/vite-plugin-svelte/1.1.0_svelte@3.52.0+vite@3.2.2:
     resolution: {integrity: sha512-cFRfEdztubtj1c/rYh7ArK7XCfFJn6wG6+J8/e9amFsKtEJILovoBrK0/mxt1AjPQg0vaX+fHPKvhx+q8mTPaQ==}
     engines: {node: ^14.18.0 || >= 16}
     peerDependencies:
@@ -205,8 +205,8 @@ packages:
       deepmerge: 4.2.2
       kleur: 4.1.5
       magic-string: 0.26.7
-      svelte: 3.50.0
-      svelte-hmr: 0.15.0_svelte@3.50.0
+      svelte: 3.52.0
+      svelte-hmr: 0.15.0_svelte@3.52.0
       vite: 3.2.2
     transitivePeerDependencies:
       - supports-color
@@ -2679,17 +2679,17 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /svelte-hmr/0.15.0_svelte@3.50.0:
+  /svelte-hmr/0.15.0_svelte@3.52.0:
     resolution: {integrity: sha512-Aw21SsyoohyVn4yiKXWPNCSW2DQNH/76kvUnE9kpt4h9hcg9tfyQc6xshx9hzgMfGF0kVx0EGD8oBMWSnATeOg==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
     peerDependencies:
       svelte: '>=3.19.0'
     dependencies:
-      svelte: 3.50.0
+      svelte: 3.52.0
     dev: true
 
-  /svelte/3.50.0:
-    resolution: {integrity: sha512-zXeOUDS7+85i+RxLN+0iB6PMbGH7OhEgjETcD1fD8ZrhuhNFxYxYEHU41xuhkHIulJavcu3PKbPyuCrBxdxskQ==}
+  /svelte/3.52.0:
+    resolution: {integrity: sha512-FxcnEUOAVfr10vDU5dVgJN19IvqeHQCS1zfe8vayTfis9A2t5Fhx+JDe5uv/C3j//bB1umpLJ6quhgs9xyUbCQ==}
     engines: {node: '>= 8'}
     dev: true
 
