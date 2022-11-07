@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.16.2](https://github.com/Redinn-Pages/components-pack/compare/v0.16.1...v0.16.2) (2022-11-07)
+
+
+### Enhancements
+
+* **svelte-pack:** :fire: remove the ratio prop from the photo store ([de2ae33](https://github.com/Redinn-Pages/components-pack/commit/de2ae33f8672fdb94c0982c131e4b0e8007275fe))
+
 ### [0.16.1](https://github.com/Redinn-Pages/components-pack/compare/v0.16.0...v0.16.1) (2022-10-31)
 
 
