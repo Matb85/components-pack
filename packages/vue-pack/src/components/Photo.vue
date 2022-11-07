@@ -69,17 +69,8 @@ watch(
 );
 function dispatch(observe = true) {
   if (typeof dontaddtolist === "undefined")
-    store.commit("vuepack/addphoto", {
-      src: props.src,
-      srcset: enlargedsrcset,
-      ratio: img.value.naturalWidth / img.value.naturalHeight,
-      group: props.group,
-      alt: props.alt,
-    });
+    store.commit("vuepack/addphoto", { src: props.src, srcset: enlargedsrcset, group: props.group, alt: props.alt });
   if (observe) store.state.vuepack.observer.observe(img.value);
 }
-onMounted(() => {
-  if (img.value.complete) dispatch();
-  else img.value.addEventListener("load", dispatch, { once: true });
-});
+onMounted(dispatch);
 </script>

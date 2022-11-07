@@ -65,14 +65,10 @@ function enlarge() {
 function dispatch(observe = true) {
   if (img === null) return;
   if (prevent.includes("addtolist") === false) {
-    const detail = { src, srcset: enlargedsrcset, group, ratio: img.naturalWidth / img.naturalHeight, alt };
-    mutations.addphoto(window.sveltepack, detail);
+    mutations.addphoto(window.sveltepack, { src, srcset: enlargedsrcset, group, alt });
   }
   if (observe) window.sveltepack.observer.observe(img);
 }
 
-onMount(() => {
-  if (img.complete) dispatch();
-  else img.addEventListener("load", dispatch, { once: true });
-});
+onMount(dispatch);
 </script>

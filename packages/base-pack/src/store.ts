@@ -3,7 +3,6 @@ type Handler = (target: HTMLImageElement | HTMLElement) => void;
 export interface Photo {
   src: string;
   srcset: string;
-  ratio: number;
   group: string;
   alt: string;
 }
