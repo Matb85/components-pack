@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/Redinn-Pages/components-pack/compare/v0.16.2...v1.0.0) (2023-02-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* :recycle: the css of the photo crosses
+
+### Enhancements
+
+* :lipstick: rename the css classes ([032fae4](https://github.com/Redinn-Pages/components-pack/commit/032fae40d89e24f9e5bdcb491fc4dd7e3a1b5f85))
+* :recycle: the css of the photo crosses ([43757a0](https://github.com/Redinn-Pages/components-pack/commit/43757a0589d9085ecd71f163edfc44df8eb917a8))
+* :zap: reduce twice the number of srcset generations ([a59326f](https://github.com/Redinn-Pages/components-pack/commit/a59326f229f67d4f6e4161562afa852faea5c25e))
+* **base-pack:** :zap: improve the photo viewer mixin ([9393b28](https://github.com/Redinn-Pages/components-pack/commit/9393b282f74a8e1e218dbc6adb1cc9df7d66ac0e))
+
 ### [0.16.2](https://github.com/Redinn-Pages/components-pack/compare/v0.16.1...v0.16.2) (2022-11-07)
 
 
