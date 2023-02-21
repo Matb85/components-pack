@@ -20,10 +20,10 @@ export let className = "";
 let isActive = false;
 
 onMount(() => {
-  if (typeof window != "undefined") window.addEventListener("medium-pack-navbar-mobile-close", () => close());
+  if (typeof window != "undefined") window.addEventListener("MP-navbar-mobile-close", () => close());
 });
 onDestroy(() => {
-  if (typeof window != "undefined") window.removeEventListener("medium-pack-navbar-mobile-close", () => close());
+  if (typeof window != "undefined") window.removeEventListener("MP-navbar-mobile-close", () => close());
 });
 
 function close() {

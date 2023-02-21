@@ -1,4 +1,4 @@
-.medium-pack-photo {
+.MP-photo {
   @apply relative overflow-hidden;
   > img {
     transition: 0.4s transform, 0.4s filter;
@@ -14,31 +14,30 @@
     cursor: zoom-in;
   }
   &:not(.no-hover):has(img.loaded):hover {
-    --medium-pack-cross-rotate: 90deg;
-    --medium-pack-cross-opacity: 1;
+    --MP-cross-rotate: 90deg;
+    --MP-cross-opacity: 1;
     > img.loaded {
       transform: scale(1.05);
       filter: blur(0px) brightness(60%);
     }
   }
-  --medium-pack-cross-rotate: 0deg;
-  --medium-pack-cross-opacity: 0;
+  --MP-cross-rotate: 0deg;
+  --MP-cross-opacity: 0;
 
   &::before,
   &::after {
-    $offset: calc(50% - calc(8rem / 2));
-    left: $offset;
-    top: $offset;
+    left: calc(50% - 4rem);
+    top: 50%;
     height: 0.8px;
     width: 8rem;
     transition: transform 0.4s, opacity 0.4s;
-    transform: rotate(var(--medium-pack-cross-rotate));
-    opacity: var(--medium-pack-cross-opacity);
+    transform: rotate(var(--MP-cross-rotate));
+    opacity: var(--MP-cross-opacity);
     background-color: #fff;
     content: "";
     @apply block absolute z-[1];
   }
   &::after {
-    transform: rotate(calc(var(--medium-pack-cross-rotate) + 90deg));
+    transform: rotate(calc(var(--MP-cross-rotate) + 90deg));
   }
 }

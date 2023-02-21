@@ -37,7 +37,7 @@ export default {
     return new Promise(resolve => {
       this.ref.style.cssText = `top:${rect.y}px;left:${rect.x}px;width:${img.offsetWidth}px;height:${img.offsetHeight}px;`;
       const onLoadCallback = () => {
-        this.el.classList.add("photo-viewer-open");
+        this.el.classList.add("MP-viewer-open");
 
         tempResizeListener = () => {
           const { w, h } = getDimensions(img.naturalWidth / img.naturalHeight);
@@ -61,12 +61,12 @@ export default {
   close(img: HTMLImageElement, el: HTMLElement): Promise<void> {
     return new Promise(resolve => {
       setTimeout(() => {
-        el.classList.remove("photo-viewer-close", "photo-viewer-open");
+        el.classList.remove("MP-viewer-close", "MP-viewer-open");
         img.removeAttribute("style");
         window.removeEventListener("resize", tempResizeListener);
         resolve();
       }, VIEWER_TRANSITION_SPEED);
-      el.classList.add("photo-viewer-close");
+      el.classList.add("MP-viewer-close");
     });
   },
 

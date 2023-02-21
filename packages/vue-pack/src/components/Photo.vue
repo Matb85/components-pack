@@ -1,5 +1,5 @@
 <template>
-  <div ref="root" class="medium-pack-photo" @click="enlarge" role="button">
+  <div ref="root" class="MP-photo" @click="enlarge" role="button">
     <img
       ref="img"
       :src="src"

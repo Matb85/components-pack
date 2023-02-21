@@ -1,4 +1,4 @@
-<section aria-label="Podgląd wielu zdjęć" bind:this="{el}" class="photo-multi-viewer photo-viewer MS-wrapper">
+<section aria-label="Podgląd wielu zdjęć" bind:this="{el}" class="MP-multi-viewer MP-viewer MS-wrapper">
   <div aria-hidden="true" class="first-slide">
     <img bind:this="{image}" class="viewed-photo" alt="main" />
   </div>
@@ -21,7 +21,7 @@
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path></svg>
   </button>
-  <div class="medium-pack-photo-viewer-navbar">
+  <div class="MP-viewer_navbar">
     <p>
       {#if slider != false}{Math.abs(counter) + 1}/{imgs.length}
         {imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : ""}

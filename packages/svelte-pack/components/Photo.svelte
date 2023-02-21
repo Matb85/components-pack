@@ -1,5 +1,5 @@
 <div
-  class="medium-pack-photo {className}"
+  class="MP-photo {className}"
   bind:this="{el}"
   role="button"
   aria-label="Zdjęcie - kliknij aby powiększyć"

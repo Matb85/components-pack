@@ -1,5 +1,5 @@
 <template>
-  <section ref="root" class="photo-multi-viewer photo-viewer MS-wrapper">
+  <section ref="root" class="MP-multi-viewer MP-viewer MS-wrapper">
     <div aria-hidden="true" class="first-slide">
       <img ref="photo" class="viewed-photo" />
     </div>
@@ -24,7 +24,7 @@
         <path :d="svgPath" />
       </svg>
     </button>
-    <div class="medium-pack-photo-viewer-navbar">
+    <div class="MP-viewer_navbar">
       <p v-if="slider != false">
         {{ Math.abs(counter) + 1 }}/{{ imgs.length }}
         {{ imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : "" }}

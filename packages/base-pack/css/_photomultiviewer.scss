@@ -2,7 +2,7 @@
   width: $dim;
   height: $dim;
 }
-.photo-viewer.photo-multi-viewer {
+.MP-viewer.MP-multi-viewer {
   --number-of-slides: 3;
   --slides-per-view: 1;
   cursor: grab;
@@ -33,12 +33,12 @@
     filter: blur(0px);
   }
 }
-.photo-multi-viewer {
-  .medium-pack-photo-viewer-navbar {
+.MP-multi-viewer {
+  .MP-viewer_navbar {
     transition: opacity env(--viewer-transtion-speed);
     @apply opacity-0 bg-primary bg-opacity-75 cursor-default whitespace-nowrap absolute top-0 left-0 w-full h-12 px-2 flex justify-between items-center;
   }
-  &.photo-viewer-open .medium-pack-photo-viewer-navbar {
+  &.MP-viewer-open .MP-viewer_navbar {
     @apply opacity-100;
   }
   button {

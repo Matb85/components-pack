@@ -1,4 +1,4 @@
-.photo-viewer {
+.MP-viewer {
   transition-property: opacity, background-color;
   transition-duration: env(--viewer-transtion-speed);
   top: 200vh;
@@ -13,10 +13,10 @@
     user-select: none;
   }
 }
-.photo-viewer.photo-viewer-close {
+.MP-viewer.MP-viewer-close {
   @apply opacity-0;
 }
-.photo-viewer-open {
+.MP-viewer-open {
   @apply top-0 bg-opacity-100;
   .viewed-photo {
     $h: var(--enlarged-photo-h);

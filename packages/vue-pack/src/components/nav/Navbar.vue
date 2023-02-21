@@ -16,10 +16,10 @@
 export default {
   data: () => ({ isActive: false }),
   mounted() {
-    if (typeof window != "undefined") window.addEventListener("medium-pack-navbar-mobile-close", () => this.close());
+    if (typeof window != "undefined") window.addEventListener("MP-navbar-mobile-close", () => this.close());
   },
   destroyed() {
-    if (typeof window != "undefined") window.removeEventListener("medium-pack-navbar-mobile-close", () => this.close());
+    if (typeof window != "undefined") window.removeEventListener("MP-navbar-mobile-close", () => this.close());
   },
   methods: {
     close() {

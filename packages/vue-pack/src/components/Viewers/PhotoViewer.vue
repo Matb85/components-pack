@@ -1,5 +1,5 @@
 <template>
-  <section ref="root" class="photo-viewer" role="button" @click="close">
+  <section ref="root" class="MP-viewer" role="button" @click="close">
     <img ref="img" class="viewed-photo" alt="Powiększone zdjęcie" />
   </section>
 </template>
