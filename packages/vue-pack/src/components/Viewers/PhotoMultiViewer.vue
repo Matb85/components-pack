@@ -40,7 +40,6 @@
 </template>
 
 <script setup>
-import Helpers from "./photoViewerMixin.js";
 import { mixin } from "@matb85/base-pack";
 import { onMounted, ref } from "vue";
 import { setup, SlideHandler, NoLoop, lazyloading } from "modular-slider";
@@ -60,16 +59,16 @@ const trigger = "vuepack-enlargemanyphotos";
 const imgs = ref([]);
 let slider = null;
 const counter = ref(0);
-
+let base;
 onMounted(async () => {
-  const enlargeHandler = Helpers.getHandler(photo.value, root.value, GlobalConfig);
+  base = new mixin(photo.value, root.value, GlobalConfig);
   window.addEventListener(trigger, async ({ detail: { img, rect } }) => {
     window.addEventListener("keyup", onKeyUp);
 
-    const result = mixin.setupImgs(store.state.vuepack, img, GlobalConfig);
+    const result = base.setupImgs(store.state.vuepack, img);
     imgs.value = result.photos;
 
-    await enlargeHandler({ img, rect });
+    await base.mounted({ img, rect });
     slider = new Slider({
       container: "photo-slider",
       transitionSpeed: 500,
@@ -88,7 +87,7 @@ onMounted(async () => {
   });
 });
 async function closeviewer() {
-  await Helpers.close(photo.value, root.value);
+  await base.close(photo.value, root.value);
   imgs.value = [];
   photo.value.parentElement.style.display = "block";
   if (!slider) return;

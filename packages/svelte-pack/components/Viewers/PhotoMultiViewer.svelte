@@ -55,15 +55,16 @@ function onKeyUp(e) {
   else if (e.key == "ArrowLeft") slider.slidePrev();
   else if (e.key == "ArrowRight") slider.slideNext();
 }
+let base;
 onMount(() => {
-  const handler = mixin.mounted.bind({ ref: image, el, GlobalConfig });
+  base = new mixin(image, el, GlobalConfig);
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
     window.addEventListener("keyup", onKeyUp);
 
-    const result = mixin.setupImgs(window.sveltepack, detail.img, GlobalConfig);
+    const result = base.setupImgs(window.sveltepack, detail.img);
 
     imgs = result.photos;
-    await handler(detail);
+    await base.mounted(detail);
     slider = new Slider({
       container: "photo-slider",
       transitionSpeed: 500,
@@ -84,7 +85,7 @@ onMount(() => {
 });
 
 async function closeviewer() {
-  await mixin.close(image, el);
+  await base.close(image, el);
   imgs = [];
   image.parentElement.style.display = "block";
   if (!slider) return;

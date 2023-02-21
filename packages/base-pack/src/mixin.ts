@@ -21,12 +21,6 @@ interface ExtendedPhoto extends Photo {
   height?: string;
 }
 
-interface Ambience {
-  ref: HTMLImageElement;
-  el: HTMLElement;
-  GlobalConfig: StoreDataI;
-}
-
 // get the dimensions of an enlarged image with the correct aspect ratio
 function getDimensions(aspectR: number): Position {
   const offset = parseFloat(getComputedStyle(document.documentElement).fontSize) * 2;
@@ -38,8 +32,18 @@ function getDimensions(aspectR: number): Position {
 
 let tempResizeListener: () => void;
 
-export default {
-  mounted(this: Ambience, { img, rect }: EnlargeDataEvent): Promise<void> {
+export default class {
+  el: HTMLElement; // the container of the photo viewer
+  ref: HTMLImageElement; // the main image that is enlarger
+  GlobalConfig: StoreDataI;
+
+  constructor(ref: HTMLImageElement, el: HTMLElement, GlobalConfig: StoreDataI) {
+    this.ref = ref;
+    this.el = el;
+    this.GlobalConfig = GlobalConfig;
+  }
+
+  mounted({ img, rect }: EnlargeDataEvent): Promise<void> {
     return new Promise(resolve => {
       this.ref.style.cssText = `top:${rect.y}px;left:${rect.x}px;width:${img.offsetWidth}px;height:${img.offsetHeight}px;`;
       const onLoadCallback = () => {
@@ -62,30 +66,34 @@ export default {
       this.ref.addEventListener("load", onLoadCallback, { once: true });
       this.ref.srcset = img.dataset.srcset as string;
     });
-  },
+  }
 
-  close(img: HTMLImageElement, el: HTMLElement): Promise<void> {
+  close(): Promise<void> {
     return new Promise(resolve => {
       setTimeout(() => {
-        el.classList.remove("MP-viewer-close", "MP-viewer-open");
-        img.removeAttribute("style");
+        this.el.classList.remove("MP-viewer-close", "MP-viewer-open");
+        this.ref.removeAttribute("style");
         window.removeEventListener("resize", tempResizeListener);
         resolve();
       }, VIEWER_TRANSITION_SPEED);
-      el.classList.add("MP-viewer-close");
+      this.el.classList.add("MP-viewer-close");
     });
-  },
+  }
 
   // utility for photoMultiViewers
-  setupImgs(state: StoreI, img: HTMLImageElement, GlobalConfig: StoreDataI) {
+  setupImgs(state: StoreI, img: HTMLImageElement) {
     const photos = state.photolist[img.dataset.group?.split("-")[0] || "rest"];
     let index = 0;
     for (let i = 0; i < photos.length; i++) {
       const p = photos[i] as ExtendedPhoto;
-      p.srcset = photo(p.srcset as string, GlobalConfig.formats as BaseSizes, GlobalConfig.enlarged).genSrcset;
+      p.srcset = photo(
+        p.srcset as string,
+        this.GlobalConfig.formats as BaseSizes,
+        this.GlobalConfig.enlarged
+      ).genSrcset;
       if (typeof img != "undefined" && p.src == img.dataset.minsrc) index = i;
     }
 
     return { photos, index };
-  },
-};
+  }
+}
