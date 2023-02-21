@@ -13,7 +13,6 @@
     alt="{alt}"
     data-group="{group}"
     data-observerhandler="photo" />
-  <span class="cross"></span>
 </div>
 
 <script>
