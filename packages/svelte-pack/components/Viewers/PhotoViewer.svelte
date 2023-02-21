@@ -4,14 +4,18 @@
 
 <script>
 import { mixin } from "@matb85/base-pack";
-import { onMount } from "svelte";
+import { onMount, getContext } from "svelte";
 
 let img;
 const close = () => mixin.close(img, img.parentElement);
 
+/** setup sizes & srcset
+ * @type {import('@matb85/base-pack').StoreDataI}  */
+const GlobalConfig = getContext("svelte-pack-sizes");
+
 onMount(() => {
-  const handler = mixin.mounted.bind({ ref: img, el: img.parentElement, getDimensions: mixin.getDimensions });
-  window.addEventListener("enlargePhoto", event => handler(event.detail));
+  const h = mixin.mounted.bind({ ref: img, el: img.parentElement, GlobalConfig });
+  window.addEventListener("enlargePhoto", event => h(event.detail));
 
   window.addEventListener("keyup", e => {
     if (e.key == "Escape") close();

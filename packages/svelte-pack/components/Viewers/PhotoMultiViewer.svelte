@@ -35,7 +35,12 @@
 <script>
 import { mixin } from "@matb85/base-pack";
 import { setup, SlideHandler, NoLoop, lazyloading } from "modular-slider";
-import { onMount } from "svelte";
+import { onMount, getContext } from "svelte";
+
+/** setup sizes & srcset
+ * @type {import('@matb85/base-pack').StoreDataI}  */
+const GlobalConfig = getContext("svelte-pack-sizes");
+
 const Slider = setup(SlideHandler, NoLoop);
 let image;
 let el;
@@ -51,14 +56,14 @@ function onKeyUp(e) {
   else if (e.key == "ArrowRight") slider.slideNext();
 }
 onMount(() => {
-  const hander = mixin.mounted.bind({ ref: image, el, getDimensions: mixin.getDimensions });
+  const handler = mixin.mounted.bind({ ref: image, el, GlobalConfig });
   window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
     window.addEventListener("keyup", onKeyUp);
 
-    const result = mixin.setupImgs(window.sveltepack, detail.img);
+    const result = mixin.setupImgs(window.sveltepack, detail.img, GlobalConfig);
 
     imgs = result.photos;
-    await hander(detail);
+    await handler(detail);
     slider = new Slider({
       container: "photo-slider",
       transitionSpeed: 500,

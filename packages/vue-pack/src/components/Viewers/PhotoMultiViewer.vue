@@ -49,6 +49,8 @@ import { useStore } from "vuex";
 const Slider = setup(SlideHandler, NoLoop);
 
 const store = useStore();
+const GlobalConfig = store.state.vuepacksizes;
+
 const photo = ref(null);
 const root = ref(null);
 
@@ -60,11 +62,11 @@ let slider = null;
 const counter = ref(0);
 
 onMounted(async () => {
-  const enlargeHandler = Helpers.getHandler(photo.value, root.value);
+  const enlargeHandler = Helpers.getHandler(photo.value, root.value, GlobalConfig);
   window.addEventListener(trigger, async ({ detail: { img, rect } }) => {
     window.addEventListener("keyup", onKeyUp);
 
-    const result = mixin.setupImgs(store.state.vuepack, img);
+    const result = mixin.setupImgs(store.state.vuepack, img, GlobalConfig);
     imgs.value = result.photos;
 
     await enlargeHandler({ img, rect });

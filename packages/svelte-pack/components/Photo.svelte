@@ -8,7 +8,7 @@
     bind:this="{img}"
     src="{src}"
     data-srcset="{genSrcset}"
-    data-enlargedsrcset="{enlargedsrcset}"
+    data-minsrc="{src}"
     sizes="{genSizes}"
     alt="{alt}"
     data-group="{group}"
@@ -16,9 +16,8 @@
 </div>
 
 <script>
-import { onMount } from "svelte";
+import { onMount, getContext } from "svelte";
 import { photo, mutations } from "@matb85/base-pack";
-import { getContext } from "svelte";
 
 export let src;
 export let alt = undefined;
@@ -36,8 +35,6 @@ const GlobalConfig = getContext("svelte-pack-sizes");
 
 let { genSrcset, genSizes } = photo(src, GlobalConfig.formats, sizes);
 
-// setup sizes & srcset when the photo is enlarged
-let enlargedsrcset = photo(src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
 // update srcset on change
 function updateSrc() {
   if (typeof window == "undefined" || typeof img == "undefined") return;
@@ -46,7 +43,6 @@ function updateSrc() {
   img.addEventListener(
     "load",
     () => {
-      enlargedsrcset = photo(src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
       genSrcset = photo(src, GlobalConfig.formats, sizes).genSrcset;
       dispatch();
     },
@@ -64,7 +60,7 @@ function enlarge() {
 function dispatch(observe = true) {
   if (img === null) return;
   if (prevent.includes("addtolist") === false) {
-    mutations.addphoto(window.sveltepack, { src, srcset: enlargedsrcset, group, alt });
+    mutations.addphoto(window.sveltepack, { src, srcset: src, group, alt });
   }
   if (observe) window.sveltepack.observer.observe(img);
 }

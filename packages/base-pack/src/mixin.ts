@@ -1,4 +1,10 @@
 import type { StoreI, Photo } from "./store";
+import photo, { type BaseSizes, Sizes } from "./photo";
+
+export interface StoreDataI {
+  formats: BaseSizes;
+  enlarged: Sizes;
+}
 
 interface EnlargeDataEvent {
   img: HTMLImageElement;
@@ -18,7 +24,7 @@ interface ExtendedPhoto extends Photo {
 interface Ambience {
   ref: HTMLImageElement;
   el: HTMLElement;
-  getDimensions(aspectR: number): Position;
+  GlobalConfig: StoreDataI;
 }
 
 // get the dimensions of an enlarged image with the correct aspect ratio
@@ -46,15 +52,15 @@ export default {
         };
         tempResizeListener();
         window.addEventListener("resize", tempResizeListener);
-        this.ref.srcset = img.dataset.enlargedsrcset as string;
+        this.ref.srcset = photo(
+          img.dataset.minsrc as string,
+          this.GlobalConfig.formats as BaseSizes,
+          this.GlobalConfig.enlarged
+        ).genSrcset;
         resolve();
       };
-      if (this.ref.srcset != (img.dataset.enlargedsrcset as string)) {
-        this.ref.addEventListener("load", onLoadCallback, { once: true });
-        this.ref.srcset = img.dataset.srcset as string; // src has been already loaded for the original image so it's cached
-      } else {
-        onLoadCallback();
-      }
+      this.ref.addEventListener("load", onLoadCallback, { once: true });
+      this.ref.srcset = img.dataset.srcset as string;
     });
   },
 
@@ -71,12 +77,13 @@ export default {
   },
 
   // utility for photoMultiViewers
-  setupImgs(state: StoreI, img: HTMLImageElement) {
+  setupImgs(state: StoreI, img: HTMLImageElement, GlobalConfig: StoreDataI) {
     const photos = state.photolist[img.dataset.group?.split("-")[0] || "rest"];
     let index = 0;
     for (let i = 0; i < photos.length; i++) {
-      const photo = photos[i] as ExtendedPhoto;
-      if (typeof img != "undefined" && photo.srcset == img.dataset.enlargedsrcset) index = i;
+      const p = photos[i] as ExtendedPhoto;
+      p.srcset = photo(p.srcset as string, GlobalConfig.formats as BaseSizes, GlobalConfig.enlarged).genSrcset;
+      if (typeof img != "undefined" && p.src == img.dataset.minsrc) index = i;
     }
 
     return { photos, index };

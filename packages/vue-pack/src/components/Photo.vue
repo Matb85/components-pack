@@ -5,7 +5,7 @@
       :src="src"
       :data-src="src"
       :data-srcset="genSrcset"
-      :data-enlargedsrcset="enlargedsrcset"
+      :data-minsrc="src"
       :sizes="genSizes"
       :alt="alt"
       :data-group="group"
@@ -47,7 +47,6 @@ const GlobalConfig = store.state.vuepacksizes;
 const settings = photo(props.src, GlobalConfig.formats, props.sizes);
 const genSrcset = ref(settings.genSrcset);
 const genSizes = ref(settings.genSrcset);
-const enlargedsrcset = ref(photo(props.src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset);
 
 watch(
   () => props.src,
@@ -58,7 +57,6 @@ watch(
     img.value.addEventListener(
       "load",
       () => {
-        enlargedsrcset.value = photo(props.src, GlobalConfig.formats, GlobalConfig.enlarged).genSrcset;
         genSrcset.value = photo(props.src, GlobalConfig.formats, props.sizes).genSrcset;
         dispatch();
       },
@@ -68,7 +66,7 @@ watch(
 );
 function dispatch(observe = true) {
   if (typeof dontaddtolist === "undefined")
-    store.commit("vuepack/addphoto", { src: props.src, srcset: enlargedsrcset, group: props.group, alt: props.alt });
+    store.commit("vuepack/addphoto", { src: props.src, srcset: props.src, group: props.group, alt: props.alt });
   if (observe) store.state.vuepack.observer.observe(img.value);
 }
 onMounted(dispatch);
