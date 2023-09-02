@@ -54,7 +54,7 @@ importers:
   packages/svelte-pack:
     dependencies:
       '@matb85/base-pack':
-        specifier: workspace:^1.0.1
+        specifier: workspace:^1.0.2
         version: link:../base-pack
       modular-slider:
         specifier: ^0.11.1
@@ -73,7 +73,7 @@ importers:
   packages/vue-pack:
     dependencies:
       '@matb85/base-pack':
-        specifier: workspace:^1.0.1
+        specifier: workspace:^1.0.2
         version: link:../base-pack
       modular-slider:
         specifier: ^0.11.1
