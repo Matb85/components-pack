@@ -4,7 +4,7 @@
     <p>nav{id}</p>
   {/each}
 </Navbar>
-<Photo src="/thumbnail_mountains.jpg" sizes="{[480]}" className="photo" group="mountains" alt="a portrait of a bird" />
+<Photo src="/thumbnail_mountains.jpg" sizes="{[1290]}" className="photo" group="mountains" alt="a portrait of a bird" />
 
 <Photo src="{src}" sizes="{[480, 720]}" className="photo" group="mountains" alt="Dunajec Gorge" />
 <button on:click="{() => (src = '/thumbnail_gorge.jpg')}">Gorge</button>

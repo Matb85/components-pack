@@ -1,4 +1,4 @@
-type Handler = (target: HTMLImageElement | HTMLElement) => void;
+type Handler = (target: HTMLImageElement) => void;
 
 export interface Photo {
   src: string;
@@ -17,9 +17,18 @@ export interface StoreI {
 export function Store(): StoreI {
   /** handler for different needs */
   const handlers: Record<string, Handler> = {
-    photo(img) {
-      (img as HTMLImageElement).addEventListener("load", () => img.classList.add("loaded"), { once: true });
-      (img as HTMLImageElement).srcset = img.dataset.srcset as string;
+    photo(img: HTMLImageElement) {
+      img.addEventListener(
+        "load",
+        () => {
+          if (img.srcset == "") {
+            img.addEventListener("load", () => img.classList.add("loaded"), { once: true });
+            img.srcset = img.dataset.srcset as string;
+          } else img.classList.add("loaded");
+        },
+        { once: true }
+      );
+      img.srcset = img.dataset.srcset as string;
     },
   };
   /** IntersectionObserver's logic */
@@ -27,7 +36,7 @@ export function Store(): StoreI {
   async function callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
     entries.forEach(entry => {
       if (entry.intersectionRatio <= 0) return;
-      const target = entry.target as HTMLElement;
+      const target = entry.target as HTMLImageElement;
       handlers[target.dataset.observerhandler as string](target);
       observer.unobserve(target);
     });
