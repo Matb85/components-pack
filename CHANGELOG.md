@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/Redinn-Pages/components-pack/compare/v1.0.1...v1.0.2) (2023-09-02)
+
+
+### Bug Fixes
+
+* **base-pack:** :ambulance: don't unblur images if the srcset is not ready ([e0fd996](https://github.com/Redinn-Pages/components-pack/commit/e0fd9966798fc381f5e54bd2104a6a054a74d01b))
+
 ### [1.0.1](https://github.com/Redinn-Pages/components-pack/compare/v1.0.0...v1.0.1) (2023-09-02)
 
 
