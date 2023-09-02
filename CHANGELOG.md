@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/Redinn-Pages/components-pack/compare/v1.0.0...v1.0.1) (2023-09-02)
+
+
+### Bug Fixes
+
+* **base-pack:** :ambulance: prevent "unloading" the images ([9642969](https://github.com/Redinn-Pages/components-pack/commit/9642969f18dba3eeb3318054b316801bffe3f8ae))
+
 ## [1.0.0](https://github.com/Redinn-Pages/components-pack/compare/v0.16.2...v1.0.0) (2023-02-21)
 
 
