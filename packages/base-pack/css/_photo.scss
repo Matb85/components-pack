@@ -26,10 +26,11 @@
 
   &::before,
   &::after {
-    left: calc(50% - 4rem);
+    --w: clamp(2rem, 40%, 6rem);
+    width: var(--w);
+    left: calc(50% - calc(var(--w) / 2));
     top: 50%;
     height: 0.8px;
-    width: 8rem;
     transition: transform 0.4s, opacity 0.4s;
     transform: rotate(var(--MP-cross-rotate));
     opacity: var(--MP-cross-opacity);
