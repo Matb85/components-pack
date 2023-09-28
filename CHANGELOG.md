@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/Redinn-Pages/components-pack/compare/v1.0.3...v1.0.4) (2023-09-28)
+
+
+### Bug Fixes
+
+* **vue-pack:** :wrench: npm package contents ([1ebe8ee](https://github.com/Redinn-Pages/components-pack/commit/1ebe8eeed45ef442ebd31360c3184bd0009de442))
+
 ### [1.0.3](https://github.com/Redinn-Pages/components-pack/compare/v1.0.2...v1.0.3) (2023-09-28)
 
 
