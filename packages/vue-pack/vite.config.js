@@ -14,7 +14,7 @@ export default defineConfig({
     lib: {
       entry,
       name,
-      formats: ["es"],
+      formats: ["esm"],
     },
     outDir: "dist",
   },
