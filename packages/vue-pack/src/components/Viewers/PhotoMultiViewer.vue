@@ -43,13 +43,13 @@
 import { mixin } from "@matb85/base-pack";
 import { onMounted, ref } from "vue";
 import { setup, SlideHandler, NoLoop, lazyloading } from "modular-slider";
-import { useStore } from "vuex";
+import { useVuePackStore } from "../../../src/index";
 
 const Slider = setup(SlideHandler, NoLoop);
 
-const store = useStore();
-const GlobalConfig = store.state.vuepacksizes;
-
+const store = useVuePackStore();
+const GlobalConfig = store.vuepacksizes;
+console.log(GlobalConfig);
 const photo = ref(null);
 const root = ref(null);
 
@@ -65,7 +65,7 @@ onMounted(async () => {
   window.addEventListener(trigger, async ({ detail: { img, rect } }) => {
     window.addEventListener("keyup", onKeyUp);
 
-    const result = base.setupImgs(store.state.vuepack, img);
+    const result = base.setupImgs(store, img);
     imgs.value = result.photos;
 
     await base.mounted({ img, rect });
@@ -75,7 +75,7 @@ onMounted(async () => {
       plugins: [lazyloading()],
     });
     const chosen = slider.container.children[result.index];
-    store.state.vuepack.handlers.photo(chosen);
+    store.handlers.photo(chosen);
 
     photo.value.addEventListener("animationend", () => (photo.value.parentElement.style.display = "none"));
     counter.value = slider.counter;

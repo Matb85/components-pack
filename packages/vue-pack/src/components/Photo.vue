@@ -17,9 +17,9 @@
 <script setup>
 import { photo } from "@matb85/base-pack";
 import { watch, ref, onMounted } from "vue";
-import { useStore } from "vuex";
+import { useVuePackStore } from "../../src/index";
 
-const store = useStore();
+const store = useVuePackStore();
 
 const img = ref(null);
 const root = ref(null);
@@ -43,7 +43,7 @@ function enlarge() {
 }
 
 /** @type {import('@matb85/base-pack').StoreDataI}  */
-const GlobalConfig = store.state.vuepacksizes;
+const GlobalConfig = store.vuepacksizes;
 const settings = photo(props.src, GlobalConfig.formats, props.sizes);
 const genSrcset = ref(settings.genSrcset);
 const genSizes = ref(settings.genSrcset);
@@ -66,8 +66,8 @@ watch(
 );
 function dispatch(observe = true) {
   if (typeof dontaddtolist === "undefined")
-    store.commit("vuepack/addphoto", { src: props.src, srcset: props.src, group: props.group, alt: props.alt });
-  if (observe) store.state.vuepack.observer.observe(img.value);
+    store.addphoto({ src: props.src, srcset: props.src, group: props.group, alt: props.alt });
+  if (observe) store.observer.observe(img.value);
 }
 onMounted(dispatch);
 </script>

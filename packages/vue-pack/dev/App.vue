@@ -32,19 +32,27 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-import { useStore } from "vuex";
-import { PhotoMultiViewer, Navbar, PhotoViewer, Photo, Map } from "../src/index";
-const store = useStore();
+import { PhotoMultiViewer, Navbar, PhotoViewer, Photo, Map, useVuePackStore } from "../src/index";
+const store = useVuePackStore();
 
 const src = ref("/thumbnail_mountains.jpg");
 
+const config = {
+  formats: {
+    thumbnail: "thumbnail_",
+    2400: "",
+    1920: "fhd_",
+    1290: "hd_",
+    720: "wvga_",
+    480: "hvga_",
+  },
+  enlarged: [1920, 2400],
+};
+
+store.init(config);
+
 onMounted(() => {
-  store.commit("vuepack/addhandler", {
-    name: "example",
-    handler: () => {
-      console.log("hi");
-    },
-  });
+  store.addHandler({ name: "example", handler: () => console.log("hi") });
 });
 
 function mapCallback(m) {

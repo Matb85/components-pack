@@ -7,10 +7,10 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { mixin } from "@matb85/base-pack";
-import { useStore } from "vuex";
+import { useVuePackStore } from "../../../src/index";
 
-const store = useStore();
-const GlobalConfig = store.state.vuepacksizes;
+const store = useVuePackStore();
+const GlobalConfig = store.vuepacksizes;
 
 const trigger = "vuepack-enlargephoto";
 const img = ref(null);

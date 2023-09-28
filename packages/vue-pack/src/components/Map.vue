@@ -5,18 +5,18 @@
 <script setup>
 import { maputil } from "@matb85/base-pack";
 import { onMounted, ref } from "vue";
-import { useStore } from "vuex";
-const store = useStore();
+import { useVuePackStore } from "../../src/index";
+const store = useVuePackStore();
 
 const root = ref(null);
 
 const props = defineProps({ apikey: String, callback: Function });
 
 onMounted(() => {
-  store.commit("vuepack/addhandler", {
+  store.addHandler({
     name: "map",
     handler: () => maputil(props.apikey, props.callback, root.value),
   });
-  store.state.vuepack.observer.observe(root.value);
+  store.observer.observe(root.value);
 });
 </script>

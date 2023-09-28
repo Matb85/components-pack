@@ -14,13 +14,13 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
+    "pinia": "^2.1.6",
     "vite": "^4.4.9",
-    "vue": "^3.3.4",
-    "vuex": "^4.1.0"
+    "vue": "^3.3.4"
   },
   "peerDependencies": {
     "vue": "^3.3.4",
-    "vuex": "^4.1.0"
+    "pinia": "^2.1.6"
   },
   "files": [
     "dist/vuepack.es.js",

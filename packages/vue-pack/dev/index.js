@@ -1,11 +1,11 @@
 import { createApp } from "vue";
-import store from "./store";
+import { createPinia } from "pinia";
 import App from "./App.vue";
 import "@matb85/base-pack/dist/index.css";
 import "@matb85/base-pack/dist/navbar.css";
 
+const pinia = createPinia();
 const app = createApp(App);
 
-app.use(store);
-
+app.use(pinia);
 app.mount("#app");
