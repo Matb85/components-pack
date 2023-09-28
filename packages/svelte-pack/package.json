@@ -1,6 +1,6 @@
 {
   "name": "@matb85/svelte-pack",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "matb85",
   "type": "module",
   "types": "./index.d.ts",
@@ -11,7 +11,7 @@
     "dev": "vite dev --port 3000"
   },
   "dependencies": {
-    "@matb85/base-pack": "workspace:^1.0.2",
+    "@matb85/base-pack": "workspace:^1.0.3",
     "modular-slider": "^0.11.1"
   },
   "devDependencies": {

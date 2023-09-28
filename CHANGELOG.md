@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.3](https://github.com/Redinn-Pages/components-pack/compare/v1.0.2...v1.0.3) (2023-09-28)
+
+
+### Bug Fixes
+
+* **base-pack:** :lipstick: the photo cross on smaller images ([7413845](https://github.com/Redinn-Pages/components-pack/commit/741384529aef8feb9a5cd6f77ea5cd33f6653060))
+
 ### [1.0.2](https://github.com/Redinn-Pages/components-pack/compare/v1.0.1...v1.0.2) (2023-09-02)
 
 
