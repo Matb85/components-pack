@@ -2,20 +2,26 @@ import { Store, mutations } from "@matb85/base-pack";
 import { defineStore } from "pinia";
 
 export const useVuePackStore = defineStore("vuepack", {
-  state: Store,
+  state: () => ({
+    vuepacksizes: null,
+    state: null,
+  }),
   actions: {
-    init(vuepacksizes) {
+    setSizes(vuepacksizes) {
       this.vuepacksizes = vuepacksizes;
+    },
+    initStore() {
+      this.state = Store();
     },
     /** @param {import('@matb85/base-pack').StoreDataI} payload */
     addphoto(payload) {
-      mutations.addphoto(this, payload);
+      mutations.addphoto(this.state, payload);
     },
     addHandler({ name, handler }) {
-      mutations.addhandler(this, { name, handler });
+      mutations.addhandler(this.state, { name, handler });
     },
     removeHandler(name) {
-      mutations.removeHandler(this, name);
+      mutations.removeHandler(this.state, name);
     },
   },
 });

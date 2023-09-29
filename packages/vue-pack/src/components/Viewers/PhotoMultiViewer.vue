@@ -65,7 +65,7 @@ onMounted(async () => {
   window.addEventListener(trigger, async ({ detail: { img, rect } }) => {
     window.addEventListener("keyup", onKeyUp);
 
-    const result = base.setupImgs(store, img);
+    const result = base.setupImgs(store.state, img);
     imgs.value = result.photos;
 
     await base.mounted({ img, rect });
@@ -75,7 +75,7 @@ onMounted(async () => {
       plugins: [lazyloading()],
     });
     const chosen = slider.container.children[result.index];
-    store.handlers.photo(chosen);
+    store.state.handlers.photo(chosen);
 
     photo.value.addEventListener("animationend", () => (photo.value.parentElement.style.display = "none"));
     counter.value = slider.counter;

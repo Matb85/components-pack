@@ -17,6 +17,6 @@ onMounted(() => {
     name: "map",
     handler: () => maputil(props.apikey, props.callback, root.value),
   });
-  store.observer.observe(root.value);
+  store.state.observer.observe(root.value);
 });
 </script>
