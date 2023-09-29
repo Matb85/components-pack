@@ -2,7 +2,7 @@
   "name": "@matb85/vue-pack",
   "version": "1.0.4",
   "author": "matb85",
-  "main": "dist/vue-pack.esm.js",
+  "main": "src/index.js",
   "types": "./index.d.ts",
   "scripts": {
     "dev": "vite dev --port 3000",
@@ -23,7 +23,7 @@
     "pinia": "^2.1.6"
   },
   "files": [
-    "dist/vue-pack.esm.js",
+    "src/**/*",
     "index.d.ts"
   ]
 }
