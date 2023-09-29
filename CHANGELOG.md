@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/Redinn-Pages/components-pack/compare/v1.0.4...v2.0.0) (2023-09-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* :boom: ship only the source code instead of bundles
+
+### Bug Fixes
+
+* **vue-pack:** :alien: Nuxt SSR issues ([a8dfa09](https://github.com/Redinn-Pages/components-pack/commit/a8dfa098624924f7d7d79b32e6b4ea55356ba25c))
+
+
+### Enhancements
+
+* :boom: ship only the source code instead of bundles ([a9d9d01](https://github.com/Redinn-Pages/components-pack/commit/a9d9d01ee1bdb755bf5ba24be293ed4410be10a1))
+
 ### [1.0.4](https://github.com/Redinn-Pages/components-pack/compare/v1.0.3...v1.0.4) (2023-09-28)
 
 
