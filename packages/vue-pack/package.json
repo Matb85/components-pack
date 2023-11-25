@@ -13,10 +13,10 @@
     "modular-slider": "^0.11.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.3.4",
-    "pinia": "^2.1.6",
-    "vite": "^4.4.9",
-    "vue": "^3.3.4"
+    "@vitejs/plugin-vue": "^4.5.0",
+    "pinia": "^2.1.7",
+    "vite": "^5.0.2",
+    "vue": "^3.3.9"
   },
   "peerDependencies": {
     "vue": "^3.3.4",
