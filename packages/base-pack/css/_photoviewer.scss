@@ -1,3 +1,4 @@
+/* Single Viewer's styles*/
 .MP-viewer {
   transition-property: opacity, background-color;
   transition-duration: env(--viewer-transtion-speed);
@@ -11,6 +12,14 @@
     pointer-events: none;
     user-drag: none;
     user-select: none;
+  }
+
+  button#close-viewer {
+    @apply absolute right-0 top-0 w-12 h-12;
+    &:before,
+    &:after {
+      @apply ml-4;
+    }
   }
 }
 .MP-viewer.MP-viewer-close {

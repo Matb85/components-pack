@@ -1,6 +1,7 @@
-<section class="MP-viewer" role="button" aria-label="Podgląd zdjęcia - kliknij by zamknąć">
+<div class="MP-viewer" role="button" tabindex="-1" title="Podgląd zdjęcia - kliknij by zamknąć">
+  <button title="Zamknij podgląd" id="close-viewer"></button>
   <img bind:this="{img}" class="viewed-photo" alt="Powiększone zdjęcie" />
-</section>
+</div>
 
 <script>
 import { mixin } from "@matb85/base-pack";

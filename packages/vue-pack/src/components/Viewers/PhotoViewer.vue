@@ -1,7 +1,8 @@
 <template>
-  <section class="MP-viewer" role="button">
+  <div class="MP-viewer" role="button" tabindex="-1" title="Podgląd zdjęcia - kliknij by zamknąć">
+    <button title="Zamknij podgląd" id="close-viewer"></button>
     <img ref="img" class="viewed-photo" alt="Powiększone zdjęcie" />
-  </section>
+  </div>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <section ref="root" class="MP-multi-viewer MP-viewer MS-wrapper">
+  <section ref="root" title="Podgląd wielu zdjęć" class="MP-multi-viewer MP-viewer MS-wrapper">
     <div aria-hidden="true" class="first-slide">
       <img ref="photo" class="viewed-photo" />
     </div>
@@ -25,16 +25,11 @@
       </svg>
     </button>
     <div class="MP-viewer_navbar">
-      <p v-if="slider != false">
+      <p v-if="slider">
         {{ Math.abs(counter) + 1 }}/{{ imgs.length }}
         {{ imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : "" }}
       </p>
-      <button
-        aria-label="Zamknij podgląd"
-        title="Zamknij podgląd"
-        @click="closeviewer"
-        id="close-multi-viewer"
-      ></button>
+      <button title="Zamknij podgląd" @click="closeviewer" id="close-multi-viewer"></button>
     </div>
   </section>
 </template>
@@ -49,7 +44,6 @@ const Slider = setup(SlideHandler, NoLoop);
 
 const store = useVuePackStore();
 const GlobalConfig = store.vuepacksizes;
-console.log(GlobalConfig);
 const photo = ref(null);
 const root = ref(null);
 
@@ -93,7 +87,7 @@ async function closeviewer() {
   if (!slider) return;
   slider.slideTo(0);
   slider.destroy();
-  slider = false;
+  slider = null;
   window.removeEventListener("keyup", onKeyUp);
 }
 function onKeyUp(e) {

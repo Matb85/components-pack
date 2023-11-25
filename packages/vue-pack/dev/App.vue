@@ -49,7 +49,8 @@ const config = {
   enlarged: [1920, 2400],
 };
 
-store.init(config);
+store.initStore();
+store.setSizes(config);
 
 onMounted(() => {
   store.addHandler({ name: "example", handler: () => console.log("hi") });

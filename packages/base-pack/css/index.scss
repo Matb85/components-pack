@@ -3,3 +3,28 @@
 @import "./photo";
 @import "./photoviewer";
 @import "./photomultiviewer";
+
+button#close-multi-viewer,
+button#close-viewer {
+  background: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0.7rem;
+    left: 0.4rem;
+    content: " ";
+    height: 1.5rem;
+    width: 2px;
+    border-radius: 1px;
+    @apply bg-secondary;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}

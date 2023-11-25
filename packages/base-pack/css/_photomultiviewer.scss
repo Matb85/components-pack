@@ -2,6 +2,7 @@
   width: $dim;
   height: $dim;
 }
+
 .MP-viewer.MP-multi-viewer {
   --number-of-slides: 3;
   --slides-per-view: 1;
@@ -33,6 +34,8 @@
     filter: blur(0px);
   }
 }
+
+/* Multi Viewer's styles*/
 .MP-multi-viewer {
   .MP-viewer_navbar {
     transition: opacity env(--viewer-transtion-speed);
@@ -76,23 +79,5 @@
   }
   button#close-multi-viewer {
     @apply relative w-5 h-12;
-    background: none;
-    &:before,
-    &:after {
-      position: absolute;
-      top: 0.7rem;
-      left: 0.4rem;
-      content: " ";
-      height: 1.5rem;
-      width: 2px;
-      border-radius: 1px;
-      @apply bg-secondary;
-    }
-    &:before {
-      transform: rotate(45deg);
-    }
-    &:after {
-      transform: rotate(-45deg);
-    }
   }
 }

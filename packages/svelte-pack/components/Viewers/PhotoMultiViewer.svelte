@@ -1,4 +1,4 @@
-<section aria-label="Podgląd wielu zdjęć" bind:this="{el}" class="MP-multi-viewer MP-viewer MS-wrapper">
+<section title="Podgląd wielu zdjęć" bind:this="{el}" class="MP-multi-viewer MP-viewer MS-wrapper">
   <div aria-hidden="true" class="first-slide">
     <img bind:this="{image}" class="viewed-photo" alt="main" />
   </div>
@@ -12,12 +12,12 @@
     {/each}
   </div>
   <!-- navigation -->
-  <button aria-label="Poprzednie zdjęcie" id="multi-viewer-prev" on:click="{() => slider?.slidePrev()}">
+  <button title="Poprzednie zdjęcie" id="multi-viewer-prev" on:click="{() => slider?.slidePrev()}">
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path>
     </svg>
   </button>
-  <button aria-label="Kolejne zdjęcie" id="multi-viewer-next" on:click="{() => slider?.slideNext()}">
+  <button title="Kolejne zdjęcie" id="multi-viewer-next" on:click="{() => slider?.slideNext()}">
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path></svg>
   </button>
