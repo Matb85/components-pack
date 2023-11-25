@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/Redinn-Pages/components-pack/compare/v2.0.0...v2.1.0) (2023-11-25)
+
+
+### Enhancements
+
+* :children_crossing: add a close button to the PhotoViewer ([2410247](https://github.com/Redinn-Pages/components-pack/commit/2410247ffd07d726bd493464fb2ac2ebb1354603))
+
 ## [2.0.0](https://github.com/Redinn-Pages/components-pack/compare/v1.0.4...v2.0.0) (2023-09-29)
 
 
