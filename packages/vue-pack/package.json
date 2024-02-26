@@ -1,6 +1,6 @@
 {
   "name": "@matb85/vue-pack",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "author": "matb85",
   "main": "./src/index.js",
   "types": "./index.d.ts",
@@ -16,7 +16,7 @@
     }
   },
   "dependencies": {
-    "@matb85/base-pack": "workspace:^2.1.0",
+    "@matb85/base-pack": "workspace:^2.1.1",
     "modular-slider": "^0.11.2"
   },
   "devDependencies": {
