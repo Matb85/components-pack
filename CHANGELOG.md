@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/Redinn-Pages/components-pack/compare/v2.1.1...v2.1.2) (2024-02-26)
+
+
+### Bug Fixes
+
+* :bug: move package.json export field from vue-pack to svelte-pack ([2932973](https://github.com/Redinn-Pages/components-pack/commit/2932973ae97260a5a77b76086abfcf6bdd44222f))
+
 ### [2.1.1](https://github.com/Redinn-Pages/components-pack/compare/v2.1.0...v2.1.1) (2024-02-26)
 
 
