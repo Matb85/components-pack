@@ -6,6 +6,13 @@
   "types": "./index.d.ts",
   "main": "components/index.js",
   "svelte": "components/index.js",
+  "exports": {
+    ".": {
+      "svelte": "./src/index.js",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
   "scripts": {
     "build": "vite build",
     "dev": "vite dev --port 3000"

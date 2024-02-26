@@ -8,13 +8,6 @@
     "dev": "vite dev --port 3000",
     "build": "vite build"
   },
-  "exports": {
-    ".": {
-      "svelte": "./src/index.js",
-      "import": "./src/index.js",
-      "default": "./src/index.js"
-    }
-  },
   "dependencies": {
     "@matb85/base-pack": "workspace:^2.1.1",
     "modular-slider": "^0.11.2"
