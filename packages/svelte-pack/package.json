@@ -8,9 +8,9 @@
   "svelte": "components/index.js",
   "exports": {
     ".": {
-      "svelte": "./src/index.js",
-      "import": "./src/index.js",
-      "default": "./src/index.js"
+      "svelte": "./components/index.js",
+      "import": "./components/index.js",
+      "default": "./components/index.js"
     }
   },
   "scripts": {
