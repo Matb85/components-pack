@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.4](https://github.com/Redinn-Pages/components-pack/compare/v2.1.3...v2.1.4) (2024-03-23)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :label: TS types ([4cc5ba4](https://github.com/Redinn-Pages/components-pack/commit/4cc5ba4be66549f11b6a41ffffb27e26a0eff060))
+
 ### [2.1.3](https://github.com/Redinn-Pages/components-pack/compare/v2.1.2...v2.1.3) (2024-02-26)
 
 

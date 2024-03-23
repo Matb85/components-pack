@@ -1,5 +1,5 @@
 {
-  "version": "2.1.3",
+  "version": "2.1.4",
   "name": "@matb85/base-pack",
   "author": "matb85",
   "main": "./dist/index.mjs",
