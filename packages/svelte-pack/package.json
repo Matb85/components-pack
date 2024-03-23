@@ -4,21 +4,26 @@
   "author": "matb85",
   "type": "module",
   "types": "./index.d.ts",
-  "main": "components/index.js",
-  "svelte": "components/index.js",
+  "main": "./index.js",
+  "svelte": "./index.js",
   "exports": {
     ".": {
-      "svelte": "./components/index.js",
-      "import": "./components/index.js",
-      "default": "./components/index.js"
+      "svelte": "./index.js",
+      "import": "./index.js",
+      "default": "./index.js"
     }
   },
   "scripts": {
     "build": "vite build",
-    "dev": "vite dev --port 3000"
+    "dev": "vite dev --port 3000",
+    "package": "svelte-package -i ./components && cp ./package.json ./dist"
+  },
+  "peerDependencies": {
+    "svelte": "^4.2.12"
   },
   "dependencies": {
     "@matb85/base-pack": "workspace:^2.1.3",
+    "@sveltejs/package": "^2.3.0",
     "modular-slider": "^0.11.2"
   },
   "devDependencies": {

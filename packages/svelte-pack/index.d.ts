@@ -1,18 +1,8 @@
-import { SvelteComponentTyped } from "svelte";
+import { SvelteComponent, ComponentType } from "svelte";
 
-type options = {
-  target: HTMLElement;
-  context?: Map<string, any>;
-  hydrate?: boolean;
-  intro?: boolean;
-  props?: Record<string, any>;
-};
-
-type SvelteComponent = new (options: options) => SvelteComponentTyped;
-
-export const Map: SvelteComponent;
-export const Photo: SvelteComponent;
-export const PhotoViewer: SvelteComponent;
-export const PhotoMultiViewer: SvelteComponent;
-export const Navbar: SvelteComponent;
+export const Map: ComponentType<SvelteComponent>;
+export const Photo: ComponentType<SvelteComponent>;
+export const PhotoViewer: ComponentType<SvelteComponent>;
+export const PhotoMultiViewer: ComponentType<SvelteComponent>;
+export const Navbar: ComponentType<SvelteComponent>;
 export function init(): void;

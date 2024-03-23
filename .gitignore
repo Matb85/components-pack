@@ -3,6 +3,7 @@ public
 node_modules
 dist
 docs
+.svelte-kit
 
 # local env files
 .env.local
