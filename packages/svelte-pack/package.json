@@ -3,20 +3,19 @@
   "version": "2.1.5",
   "author": "matb85",
   "type": "module",
-  "types": "./index.d.ts",
-  "main": "./index.js",
-  "svelte": "./index.js",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "svelte": "./dist/index.js",
   "exports": {
     ".": {
-      "svelte": "./index.js",
-      "import": "./index.js",
-      "default": "./index.js"
+      "svelte": "./dist/index.js",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     }
   },
   "scripts": {
-    "build": "vite build",
-    "dev": "vite dev --port 3000",
-    "package": "svelte-package -i ./components && cp ./package.json ./dist"
+    "build": "vite build && svelte-package -i ./components",
+    "dev": "vite dev --port 3000"
   },
   "peerDependencies": {
     "svelte": "^4.2.12"
@@ -32,7 +31,6 @@
     "vite": "^5.1.4"
   },
   "files": [
-    "index.d.ts",
-    "components/**/*"
+    "dist/**/*"
   ]
 }
