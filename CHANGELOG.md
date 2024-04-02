@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.6](https://github.com/Redinn-Pages/components-pack/compare/v2.1.5...v2.1.6) (2024-04-02)
+
+
+### Bug Fixes
+
+* **svelte-pack:** :ambulance: file paths in package.json ([7ae6f71](https://github.com/Redinn-Pages/components-pack/commit/7ae6f7118cfe49ed7d05193bac96c53baa76c8b5))
+
 ### [2.1.5](https://github.com/Redinn-Pages/components-pack/compare/v2.1.4...v2.1.5) (2024-04-02)
 
 ### [2.1.4](https://github.com/Redinn-Pages/components-pack/compare/v2.1.3...v2.1.4) (2024-03-23)
