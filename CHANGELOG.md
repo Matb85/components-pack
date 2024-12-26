@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/Redinn-Pages/components-pack/compare/v3.0.0...v3.0.1) (2024-12-26)
+
+
+### Enhancements
+
+* add better logs to IntersectionObserver's callback ([ae70da3](https://github.com/Redinn-Pages/components-pack/commit/ae70da37eecc5532fef90866dbc56e85c69e0785))
+
 ## [3.0.0](https://github.com/Redinn-Pages/components-pack/compare/v2.1.6...v3.0.0) (2024-12-26)
 
 
