@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/Redinn-Pages/components-pack/compare/v2.1.6...v3.0.0) (2024-12-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* use Svelte 6
+
+### Enhancements
+
+* update Navbar html ([0ad274a](https://github.com/Redinn-Pages/components-pack/commit/0ad274afc4c08ef94f2ab139a1be7a8199232940))
+* use Svelte 6 ([648dbf5](https://github.com/Redinn-Pages/components-pack/commit/648dbf59f6d11d5e7f810a2cd1323f558b08598f))
+
 ### [2.1.6](https://github.com/Redinn-Pages/components-pack/compare/v2.1.5...v2.1.6) (2024-04-02)
 
 
