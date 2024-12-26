@@ -4,11 +4,11 @@
     <div class="nav" :style="isActive ? 'transform: translateX(-100%)' : ''">
       <slot></slot>
     </div>
-    <div class="hamburger-container" @click="isActive = !isActive">
-      <div class="hamburger" :class="{ 'is-active': isActive }">
-        <div class="hamburger-inner"></div>
-      </div>
-    </div>
+    <button class="hamburger-container" @click="isActive = !isActive">
+      <span class="hamburger" :class="{ 'is-active': isActive }">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
   </nav>
 </template>
 

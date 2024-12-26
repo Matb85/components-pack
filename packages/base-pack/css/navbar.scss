@@ -7,13 +7,15 @@
 }
 
 .hamburger-container {
-  @apply h-full flex cursor-pointer lg:hidden;
+  appearance: none;
+  background: none;
+  @apply h-full block cursor-pointer lg:hidden outline-none border-none;
 }
 .hamburger {
   width: 1.75rem;
   transition-property: opacity, filter;
   color: inherit;
-  @apply duration-150 ease-linear relative inline-block lg:hidden;
+  @apply duration-150 ease-linear relative block lg:hidden;
   &:hover,
   &.is-active:hover {
     opacity: 0.7;
@@ -25,7 +27,7 @@
 .hamburger-inner::after {
   width: 100%;
   height: 3.4px;
-  @apply rounded-lg absolute bg-black transition-transform;
+  @apply rounded-lg absolute bg-black block transition-transform;
 }
 
 .hamburger-inner {
