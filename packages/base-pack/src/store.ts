@@ -37,7 +37,12 @@ export function Store(): StoreI {
     entries.forEach(entry => {
       if (entry.intersectionRatio <= 0) return;
       const target = entry.target as HTMLImageElement;
-      handlers[target.dataset.observerhandler as string](target);
+      const handler = target.dataset.observerhandler;
+      if(!handler || !handlers[handler]) {
+        console.error(`No handler for ${handler}, available handlers: ${Object.keys(handlers).join(", ")}, DOM element:`, target);
+        return;
+      }
+      handlers[handler](target);
       observer.unobserve(target);
     });
   }
