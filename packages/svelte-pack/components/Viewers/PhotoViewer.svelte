@@ -7,7 +7,7 @@
 import { mixin } from "@matb85/base-pack";
 import { onMount, getContext } from "svelte";
 
-let img;
+let img = $state();
 
 /** setup sizes & srcset
  * @type {import('@matb85/base-pack').StoreDataI}  */
@@ -18,7 +18,7 @@ onMount(() => {
   window.addEventListener("enlargePhoto", event => base.mounted(event.detail));
 
   window.addEventListener("keyup", e => {
-    if (e.key == "Escape") base.close();
+    if (e.key === "Escape") base.close();
   });
   img.parentElement.addEventListener("click", () => base.close());
 });

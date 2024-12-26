@@ -1,8 +1,8 @@
-import { SvelteComponent, ComponentType } from "svelte";
+import type {  Component } from "svelte";
 
-export const Map: ComponentType<SvelteComponent>;
-export const Photo: ComponentType<SvelteComponent>;
-export const PhotoViewer: ComponentType<SvelteComponent>;
-export const PhotoMultiViewer: ComponentType<SvelteComponent>;
-export const Navbar: ComponentType<SvelteComponent>;
+export const Map: Component;
+export const Photo: Component;
+export const PhotoViewer: Component;
+export const PhotoMultiViewer: Component;
+export const Navbar: Component;
 export function init(): void;

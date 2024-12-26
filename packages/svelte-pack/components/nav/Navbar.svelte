@@ -1,23 +1,32 @@
 <nav class="navbar {className}">
-  <slot name="logo" />
+  {@render logo?.()}
   <div class="nav" style="{isActive ? 'transform: translateX(-100%)' : ''}">
-    <slot />
+    {@render children?.()}
   </div>
-  <div
+  <button
     class="hamburger-container"
-    on:click="{() => {
+    aria-label="menu"
+    onclick={() => {
       isActive = !isActive;
-    }}">
-    <div class="hamburger {isActive ? 'is-active' : ''}">
-      <div class="hamburger-inner"></div>
-    </div>
-  </div>
+    }}>
+    <span class="hamburger {isActive ? 'is-active' : ''}">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
 </nav>
 
 <script>
 import { onMount, onDestroy } from "svelte";
-export let className = "";
-let isActive = false;
+  /**
+   * @typedef {Object} Props
+   * @property {string} [className]
+   * @property {import('svelte').Snippet} [logo]
+   * @property {import('svelte').Snippet} [children]
+   */
+
+  /** @type {Props} */
+  let { className = "", logo, children } = $props();
+let isActive = $state(false);
 
 onMount(() => {
   if (typeof window != "undefined") window.addEventListener("MP-navbar-mobile-close", () => close());

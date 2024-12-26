@@ -1,5 +1,7 @@
 <Navbar className="bg-white">
-  <h1 slot="logo">logo</h1>
+  {#snippet logo()}
+    <h1 >logo</h1>
+  {/snippet}
   {#each [1, 2, 3] as id}
     <p>nav{id}</p>
   {/each}
@@ -7,8 +9,8 @@
 <Photo src="/thumbnail_mountains.jpg" sizes="{[1290]}" className="photo" group="mountains" alt="a portrait of a bird" />
 
 <Photo src="{src}" sizes="{[480, 720]}" className="photo" group="mountains" alt="Dunajec Gorge" />
-<button on:click="{() => (src = '/thumbnail_gorge.jpg')}">Gorge</button>
-<button on:click="{() => (src = '/thumbnail_mountains.jpg')}">Mountains</button>
+<button onclick={() => (src = '/thumbnail_gorge.jpg')}>Gorge</button>
+<button onclick={() => (src = '/thumbnail_mountains.jpg')}>Mountains</button>
 
 <div class="gallery">
   <Photo src="/thumbnail_bird.jpg" sizes="{[480, 720]}" multiview className="photo" group="gallery-0" />
@@ -34,7 +36,7 @@
 <PhotoMultiViewer />
 <Map className="map" apikey="gdsfgdgfds" callback="{map => console.log(map)}" />
 
-<script context="module">
+<script module>
 init();
 </script>
 
@@ -57,5 +59,5 @@ const config = {
 
 setContext("svelte-pack-sizes", config);
 
-let src = "/thumbnail_bird.jpg";
+let src = $state("/thumbnail_bird.jpg");
 </script>

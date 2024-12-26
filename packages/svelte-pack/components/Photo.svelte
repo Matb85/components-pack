@@ -1,9 +1,9 @@
 <div
   class="MP-photo {className}"
-  bind:this="{el}"
+  bind:this={el}
   role="button"
   aria-label="Zdjęcie - kliknij aby powiększyć"
-  on:click="{enlarge}">
+  onclick={enlarge}>
   <img
     bind:this="{img}"
     src="{src}"
@@ -16,54 +16,77 @@
 </div>
 
 <script>
-import { onMount, getContext } from "svelte";
-import { photo, mutations } from "@matb85/base-pack";
+  import { getContext, onMount } from "svelte";
+  import { mutations, photo } from "@matb85/base-pack";
 
-export let src;
-export let alt = undefined;
-export let sizes = undefined;
-export let prevent = [];
-export let multiview = false;
-export let group = undefined;
-export let className = "";
-// bingings to DOM elements
-let img, el;
+  /**
+   * @typedef {Object} Props
+   * @property {string} src
+   * @property {string} [alt]
+   * @property {number[]} [sizes]
+   * @property {string[]} [prevent]
+   * @property {boolean} [multiview]
+   * @property {string} [group]
+   * @property {string} [className]
+   */
 
-/** setup sizes & srcset
- * @type {import('@matb85/base-pack').StoreDataI}  */
-const GlobalConfig = getContext("svelte-pack-sizes");
+  /** @type {Props} */
+  let {
+    src,
+    alt = undefined,
+    sizes = undefined,
+    prevent = [],
+    multiview = false,
+    group = undefined,
+    className = "",
+  } = $props();
 
-let { genSrcset, genSizes } = photo(src, GlobalConfig.formats, sizes);
+  // DOM bindings
+  let img = $state(), el = $state();
 
-// update srcset on change
-function updateSrc() {
-  if (typeof window == "undefined" || typeof img == "undefined") return;
-  img.classList.remove("loaded");
-  img.removeAttribute("srcset");
-  img.addEventListener(
-    "load",
-    () => {
-      genSrcset = photo(src, GlobalConfig.formats, sizes).genSrcset;
-      dispatch();
-    },
-    { once: true }
-  );
-}
-$: src, updateSrc();
+  /** setup sizes & srcset
+   * @type {import("@matb85/base-pack").StoreDataI}  */
+  const GlobalConfig = getContext("svelte-pack-sizes");
 
-function enlarge() {
-  if (!img.classList.contains("loaded") || prevent.includes("enlargeonclick")) return;
-  const enlarger = !multiview ? "enlargePhoto" : "enlargeManyPhotos";
-  window.dispatchEvent(new CustomEvent(enlarger, { detail: { rect: el.getBoundingClientRect(), img } }));
-}
-// dispatching/adding to the store
-function dispatch(observe = true) {
-  if (img === null) return;
-  if (prevent.includes("addtolist") === false) {
-    mutations.addphoto(window.sveltepack, { src, srcset: src, group, alt });
+  let { genSrcset, genSizes } = $state(photo(src, GlobalConfig.formats, sizes));
+
+  // update srcset on change
+  let already = false;
+
+  function updateSrc(_) {
+    if (!already) {
+      already = true;
+      return;
+    }
+    if (typeof window == "undefined" || !img) return;
+    img.classList.remove("loaded");
+    img.removeAttribute("srcset");
+    img.addEventListener(
+      "load",
+      () => {
+        genSrcset = photo(src, GlobalConfig.formats, sizes).genSrcset;
+        dispatch();
+      },
+      { once: true },
+    );
   }
-  if (observe) window.sveltepack.observer.observe(img);
-}
 
-onMount(dispatch);
+  $effect(() => updateSrc(src));
+
+  function enlarge() {
+    if (!img.classList.contains("loaded") || prevent.includes("enlargeOnClick")) return;
+    const enlarger = !multiview ? "enlargePhoto" : "enlargeManyPhotos";
+    window.dispatchEvent(new CustomEvent(enlarger, { detail: { rect: el.getBoundingClientRect(), img } }));
+  }
+
+  // dispatching/adding to the store
+  function dispatch(observe = true) {
+    if (!img) return;
+    if (prevent.includes("addToList") === false) {
+      mutations.addphoto(window.sveltepack, { src, srcset: src, group, alt });
+    }
+    if (observe) window.sveltepack.observer.observe(img);
+  }
+
+  onMount(dispatch);
 </script>

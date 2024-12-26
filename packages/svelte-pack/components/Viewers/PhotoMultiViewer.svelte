@@ -12,22 +12,22 @@
     {/each}
   </div>
   <!-- navigation -->
-  <button title="Poprzednie zdjęcie" id="multi-viewer-prev" on:click="{() => slider?.slidePrev()}">
+  <button title="Poprzednie zdjęcie" id="multi-viewer-prev" onclick={() => slider?.slidePrev()}>
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path>
     </svg>
   </button>
-  <button title="Kolejne zdjęcie" id="multi-viewer-next" on:click="{() => slider?.slideNext()}">
+  <button title="Kolejne zdjęcie" id="multi-viewer-next" onclick={() => slider?.slideNext()}>
     <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24"
       ><path d="{svgPath}"></path></svg>
   </button>
   <div class="MP-viewer_navbar">
     <p>
-      {#if slider != false}{Math.abs(counter) + 1}/{imgs.length}
+      {#if slider !== false}{Math.abs(counter) + 1}/{imgs.length}
         {imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : ""}
       {/if}
     </p>
-    <button aria-label="Zamknij podgląd" title="Zamknij podgląd" on:click="{closeviewer}" id="close-multi-viewer"
+    <button aria-label="Zamknij podgląd" title="Zamknij podgląd" onclick={closeViewer} id="close-multi-viewer"
     ></button>
   </div>
 </section>
@@ -42,18 +42,20 @@ import { onMount, getContext } from "svelte";
 const GlobalConfig = getContext("svelte-pack-sizes");
 
 const Slider = setup(SlideHandler, NoLoop);
-let image;
-let el;
+let image = $state();
+let el = $state();
 const svgPath =
   "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z";
-let imgs = [];
-let slider;
-let counter;
+let imgs = $state([]);
+/** slider
+ * @type {import('modular-slider').SliderI | boolean}  */
+let slider = $state(false);
+let counter = $state();
 function onKeyUp(e) {
   if (!slider) return;
-  if (e.key == "Escape") closeviewer();
-  else if (e.key == "ArrowLeft") slider.slidePrev();
-  else if (e.key == "ArrowRight") slider.slideNext();
+  if (e.key === "Escape") closeViewer();
+  else if (e.key === "ArrowLeft") slider.slidePrev();
+  else if (e.key === "ArrowRight") slider.slideNext();
 }
 let base;
 onMount(() => {
@@ -84,7 +86,7 @@ onMount(() => {
   });
 });
 
-async function closeviewer() {
+async function closeViewer() {
   await base.close(image, el);
   imgs = [];
   image.parentElement.style.display = "block";
