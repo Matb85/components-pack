@@ -1,11 +1,12 @@
-const settings = require("../../build.settings.json");
-const tailwind = require("tailwindcss");
-const postcssEnvFunction = require("postcss-env-function");
+import settings from "../../build.settings.json" with { type: "json" };
+import tailwind from "tailwindcss";
+import postcssEnvFunction from "postcss-env-function";
+
 console.log(settings.VIEWER_TRANSITION_SPEED);
 
-module.exports = {
+export default {
   plugins: [
-    tailwind(),
+    tailwind,
     postcssEnvFunction({
       importFrom: {
         environmentVariables: {

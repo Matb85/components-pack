@@ -1,8 +1,6 @@
-@import "modular-slider";
-
-@import "./photo";
-@import "./photoviewer";
-@import "./photomultiviewer";
+@use "./photo";
+@use "./photoviewer";
+@use "./photomultiviewer";
 
 button#close-multi-viewer,
 button#close-viewer {

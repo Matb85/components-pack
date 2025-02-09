@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { build } = require("esbuild");
-const settings = require("../../build.settings.json");
+import { build } from "esbuild";
+import settings from "../../build.settings.json" with { type: "json" };
 
 const options = {
   entryPoints: ["./src/index.ts"],

@@ -1,4 +1,4 @@
-/** overload window's and google's interface */
+/** overload window's and Google's interface */
 declare const google: { maps?: object };
 declare global {
   interface Window {
