@@ -45,8 +45,13 @@ Hotel websites:
 - [U Hryców](https://uhrycow.pl) - Svelte
 
 Business portfolios:
+- [FizjoPieniny](https://fizjopieniny.pl) - Vue
 - [Zakręceni](https://zakreceni.pl) - Svelte
 - [AmForest](https://amforest.pl) - Svelte
 - [Redinn Labs](https://redinnlabs.com) - Svelte
 
 Do you use this package? Open a PR to add your website to the list!
+
+## License
+
+This project is open source and available under the [ISC License](https://github.com/Matb85/components-pack/blob/master/LICENSE.txt).
