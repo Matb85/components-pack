@@ -1,21 +1,16 @@
 {
   "name": "components-pack",
   "version": "3.0.1",
-  "private": true,
-  "standard-version": {
-    "scripts": {
-      "postbump": "pnpm i && git add pnpm-lock.yaml && git commit -m 'chore: :wrench: update pnpm-lock.yaml'"
-    }
-  },
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
-    "release": "standard-version",
+    "release": "lerna version --conventional-commits --create-release github",
     "pub": "pnpm run build && pnpm publish -r",
     "build": "pnpm run -r build"
   },
   "devDependencies": {
-    "sharp": "^0.33.5",
-    "standard-version": "^9.5.0"
+    "@lerna-lite/cli": "^3.12.0",
+    "@lerna-lite/version": "^3.12.0",
+    "sharp": "^0.33.5"
   },
   "packageManager": "pnpm@10.2.1+sha512.398035c7bd696d0ba0b10a688ed558285329d27ea994804a52bad9167d8e3a72bcb993f9699585d3ca25779ac64949ef422757a6c31102c12ab932e5cbe5cc92"
 }
