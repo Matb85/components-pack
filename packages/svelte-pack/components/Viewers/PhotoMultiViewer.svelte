@@ -49,14 +49,14 @@ const svgPath =
 
 let photos = $state<any[]>([]);
 
-let slider: NoLoop | false = $state(false);
+let slider: NoLoop | undefined = $state(undefined);
 let counter = $state(0);
 
 function onKeyUp(e: KeyboardEvent) {
   if (!slider) return;
   if (e.key === "Escape") closeViewer();
-  else if (e.key === "ArrowLeft") slider.slidePrev();
-  else if (e.key === "ArrowRight") slider.slideNext();
+  else if (e.key === "ArrowLeft") slider!.slidePrev();
+  else if (e.key === "ArrowRight") slider!.slideNext();
 }
 
 let base: mixin;
@@ -78,7 +78,7 @@ onMount(() => {
     });
 
     const chosen = slider.container.children[result.index];
-    window.sveltepack.handlers.photo(chosen);
+    window.sveltepack.handlers.photo(chosen as HTMLImageElement);
 
    const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
     els.forEach(img => window.sveltepack.observer.observe(img));
@@ -89,7 +89,7 @@ onMount(() => {
       get: () => counter,
       set: val => (counter = val),
     });
-    setTimeout(() => slider.goTo(result.index), 0);
+    setTimeout(() => slider?.goTo(result.index), 0);
   });
 });
 
@@ -100,7 +100,7 @@ async function closeViewer() {
   if (!slider) return;
   slider.goTo(0);
   slider.destroy();
-  slider = false;
+  slider = undefined;
   window.removeEventListener("keyup", onKeyUp);
 }
 </script>

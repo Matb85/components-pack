@@ -21,8 +21,8 @@ importers:
   packages/base-pack:
     dependencies:
       modular-slider:
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.3
+        version: 1.0.3
     devDependencies:
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.23.0
@@ -61,8 +61,8 @@ importers:
         specifier: workspace:^3.0.1
         version: link:../base-pack
       modular-slider:
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.3
+        version: 1.0.3
     devDependencies:
       '@sveltejs/package':
         specifier: ^2.3.10
@@ -86,8 +86,8 @@ importers:
         specifier: workspace:^3.0.1
         version: link:../base-pack
       modular-slider:
-        specifier: ^1.0.2
-        version: 1.0.2
+        specifier: ^1.0.3
+        version: 1.0.3
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
@@ -2215,8 +2215,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  modular-slider@1.0.2:
-    resolution: {integrity: sha512-ntOJFi4Yj++XRtTEuCIq2Viksl5DlQrEJdzGAVZQ0THSGEvsDMtIk2gpeOyaWvo1JYqb/fBfMAd8eDQIgcTksA==}
+  modular-slider@1.0.3:
+    resolution: {integrity: sha512-A0vzbKGkpwoGJ0NNd8ohmOwn/HPvnuuusmWDjU0vjp6Tavf+JmcPGZVCu5TaS4l5WAemz9Hjjpex0B7j5gt7/g==}
 
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -5117,7 +5117,7 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  modular-slider@1.0.2: {}
+  modular-slider@1.0.3: {}
 
   mri@1.2.0: {}
 

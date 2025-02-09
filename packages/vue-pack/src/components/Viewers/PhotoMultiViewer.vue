@@ -50,7 +50,7 @@ const svgPath =
   "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z";
 const trigger = "vuepack-enlargemanyphotos";
 const photos = ref<StorePhotoI[]>([]);
-let slider: NoLoop | false = false;
+let slider: NoLoop | undefined = undefined;
 const counter = ref(0);
 let base: mixin;
 
@@ -70,7 +70,7 @@ onMounted(async () => {
     });
 
     const chosen = slider.container.children[result.index];
-    store.state!.handlers.photo(chosen);
+    store.state!.handlers.photo(chosen as HTMLImageElement);
 
     const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
     els.forEach(img => store.state!.observer.observe(img));
@@ -81,7 +81,7 @@ onMounted(async () => {
       get: () => counter.value,
       set: val => (counter.value = val),
     });
-    setTimeout(() => slider.goTo(result.index), 0);
+    setTimeout(() => slider?.goTo(result.index), 0);
   });
 });
 
@@ -90,16 +90,16 @@ async function closeViewer() {
   photos.value = [];
   photo.value!.parentElement!.style.display = "block";
   if (!slider) return;
-  slider.slideTo(0);
+  slider.goTo(0);
   slider.destroy();
-  slider = false;
+  slider = undefined;
   window.removeEventListener("keyup", onKeyUp);
 }
 
 function onKeyUp(e: KeyboardEvent) {
   if (!slider) return;
   if (e.key == "Escape") closeViewer();
-  else if (e.key == "ArrowLeft") slider.slidePrev();
-  else if (e.key == "ArrowRight") slider.slideNext();
+  else if (e.key == "ArrowLeft") slider!.slidePrev();
+  else if (e.key == "ArrowRight") slider!.slideNext();
 }
 </script>

@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@matb85/base-pack": "workspace:^3.0.1",
-    "modular-slider": "^1.0.2"
+    "modular-slider": "^1.0.3"
   },
   "devDependencies": {
     "@sveltejs/package": "^2.3.10",
