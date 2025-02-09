@@ -1,6 +1,6 @@
 {
   "name": "@matb85/vue-pack",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
   "main": "src/index.ts",
@@ -10,7 +10,7 @@
     "build": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {
-    "@matb85/base-pack": "workspace:^3.0.1",
+    "@matb85/base-pack": "workspace:^4.0.0",
     "modular-slider": "^1.0.3"
   },
   "devDependencies": {

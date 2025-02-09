@@ -1,16 +1,26 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [4.0.0](https://github.com/Matb85/components-pack/compare/v3.0.1...v4.0.0) (2025-02-09)
+
+### Bug Fixes
+
+* typescript errors ([ed4840c](https://github.com/Matb85/components-pack/commit/ed4840c81937d97cf5c55fb6838d38b9548aba56))
+* typescript issues ([9dda716](https://github.com/Matb85/components-pack/commit/9dda7161470cf642b6402c5d2855bfcc432ed5e8))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ### [3.0.1](https://github.com/Redinn-Pages/components-pack/compare/v3.0.0...v3.0.1) (2024-12-26)
 
-
 ### Enhancements
 
 * add better logs to IntersectionObserver's callback ([ae70da3](https://github.com/Redinn-Pages/components-pack/commit/ae70da37eecc5532fef90866dbc56e85c69e0785))
 
 ## [3.0.0](https://github.com/Redinn-Pages/components-pack/compare/v2.1.6...v3.0.0) (2024-12-26)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -23,7 +33,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.1.6](https://github.com/Redinn-Pages/components-pack/compare/v2.1.5...v2.1.6) (2024-04-02)
 
-
 ### Bug Fixes
 
 * **svelte-pack:** :ambulance: file paths in package.json ([7ae6f71](https://github.com/Redinn-Pages/components-pack/commit/7ae6f7118cfe49ed7d05193bac96c53baa76c8b5))
@@ -32,13 +41,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.1.4](https://github.com/Redinn-Pages/components-pack/compare/v2.1.3...v2.1.4) (2024-03-23)
 
-
 ### Bug Fixes
 
 * **svelte-pack:** :label: TS types ([4cc5ba4](https://github.com/Redinn-Pages/components-pack/commit/4cc5ba4be66549f11b6a41ffffb27e26a0eff060))
 
 ### [2.1.3](https://github.com/Redinn-Pages/components-pack/compare/v2.1.2...v2.1.3) (2024-02-26)
-
 
 ### Bug Fixes
 
@@ -46,13 +53,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.1.2](https://github.com/Redinn-Pages/components-pack/compare/v2.1.1...v2.1.2) (2024-02-26)
 
-
 ### Bug Fixes
 
 * :bug: move package.json export field from vue-pack to svelte-pack ([2932973](https://github.com/Redinn-Pages/components-pack/commit/2932973ae97260a5a77b76086abfcf6bdd44222f))
 
 ### [2.1.1](https://github.com/Redinn-Pages/components-pack/compare/v2.1.0...v2.1.1) (2024-02-26)
-
 
 ### Bug Fixes
 
@@ -60,13 +65,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2.1.0](https://github.com/Redinn-Pages/components-pack/compare/v2.0.0...v2.1.0) (2023-11-25)
 
-
 ### Enhancements
 
 * :children_crossing: add a close button to the PhotoViewer ([2410247](https://github.com/Redinn-Pages/components-pack/commit/2410247ffd07d726bd493464fb2ac2ebb1354603))
 
 ## [2.0.0](https://github.com/Redinn-Pages/components-pack/compare/v1.0.4...v2.0.0) (2023-09-29)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -76,13 +79,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **vue-pack:** :alien: Nuxt SSR issues ([a8dfa09](https://github.com/Redinn-Pages/components-pack/commit/a8dfa098624924f7d7d79b32e6b4ea55356ba25c))
 
-
 ### Enhancements
 
 * :boom: ship only the source code instead of bundles ([a9d9d01](https://github.com/Redinn-Pages/components-pack/commit/a9d9d01ee1bdb755bf5ba24be293ed4410be10a1))
 
 ### [1.0.4](https://github.com/Redinn-Pages/components-pack/compare/v1.0.3...v1.0.4) (2023-09-28)
-
 
 ### Bug Fixes
 
@@ -90,13 +91,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.3](https://github.com/Redinn-Pages/components-pack/compare/v1.0.2...v1.0.3) (2023-09-28)
 
-
 ### Bug Fixes
 
 * **base-pack:** :lipstick: the photo cross on smaller images ([7413845](https://github.com/Redinn-Pages/components-pack/commit/741384529aef8feb9a5cd6f77ea5cd33f6653060))
 
 ### [1.0.2](https://github.com/Redinn-Pages/components-pack/compare/v1.0.1...v1.0.2) (2023-09-02)
-
 
 ### Bug Fixes
 
@@ -104,13 +103,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.1](https://github.com/Redinn-Pages/components-pack/compare/v1.0.0...v1.0.1) (2023-09-02)
 
-
 ### Bug Fixes
 
 * **base-pack:** :ambulance: prevent "unloading" the images ([9642969](https://github.com/Redinn-Pages/components-pack/commit/9642969f18dba3eeb3318054b316801bffe3f8ae))
 
 ## [1.0.0](https://github.com/Redinn-Pages/components-pack/compare/v0.16.2...v1.0.0) (2023-02-21)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -125,13 +122,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.16.2](https://github.com/Redinn-Pages/components-pack/compare/v0.16.1...v0.16.2) (2022-11-07)
 
-
 ### Enhancements
 
 * **svelte-pack:** :fire: remove the ratio prop from the photo store ([de2ae33](https://github.com/Redinn-Pages/components-pack/commit/de2ae33f8672fdb94c0982c131e4b0e8007275fe))
 
 ### [0.16.1](https://github.com/Redinn-Pages/components-pack/compare/v0.16.0...v0.16.1) (2022-10-31)
-
 
 ### Bug Fixes
 
@@ -139,11 +134,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.16.0](https://github.com/Redinn-Pages/components-pack/compare/v0.15.0...v0.16.0) (2022-10-31)
 
-
 ### Bug Fixes
 
 * **svelte-pack:** :pencil2: fix typos in PhotoViewer.svelte ([fae86e6](https://github.com/Redinn-Pages/components-pack/commit/fae86e6f3394722750980fcd96c2f68d3ad8d7a6))
-
 
 ### Enhancements
 
@@ -151,13 +144,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.15.0](https://github.com/Redinn-Pages/components-pack/compare/v0.14.12...v0.15.0) (2022-10-21)
 
-
 ### Enhancements
 
 * :boom: migrate to modular-slider ^0.11.0 ([e053dcd](https://github.com/Redinn-Pages/components-pack/commit/e053dcdbc6367de96cfcef955b860c1208744a4b))
 
 ### [0.14.12](https://github.com/Redinn-Pages/components-pack/compare/v0.14.11...v0.14.12) (2022-10-21)
-
 
 ### Enhancements
 
@@ -166,13 +157,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.14.11](https://github.com/Redinn-Pages/components-pack/compare/v0.14.10...v0.14.11) (2022-09-13)
 
-
 ### Enhancements
 
 * :sparkles: temporarily blur the image when src is changed ([8ecb1e0](https://github.com/Redinn-Pages/components-pack/commit/8ecb1e09d57df3333daf2638c2a7ea0cb3ba38b8))
 
 ### [0.14.10](https://github.com/Redinn-Pages/components-pack/compare/v0.14.9...v0.14.10) (2022-09-02)
-
 
 ### Bug Fixes
 
@@ -180,11 +169,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.14.9](https://github.com/Redinn-Pages/components-pack/compare/v0.14.7...v0.14.9) (2022-09-02)
 
-
 ### Bug Fixes
 
 * :bug: fix the enlage actions when src is changed ([5f07677](https://github.com/Redinn-Pages/components-pack/commit/5f0767725b27f6ebecc279af3e6c85d286ccff0d))
-
 
 ### Enhancements
 
@@ -194,11 +181,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.14.8](https://github.com/Redinn-Pages/components-pack/compare/v0.14.7...v0.14.8) (2022-08-24)
 
-
 ### Bug Fixes
 
 * :bug: fix the enlage actions when src is changed ([5f07677](https://github.com/Redinn-Pages/components-pack/commit/5f0767725b27f6ebecc279af3e6c85d286ccff0d))
-
 
 ### Enhancements
 
@@ -206,20 +191,17 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.14.7](https://github.com/Redinn-Pages/components-pack/compare/v0.14.6...v0.14.7) (2022-07-18)
 
-
 ### Bug Fixes
 
 * **svelte-pack:** :bug: fix cannot read property 'naturalWidth' of null ([4bb3cc9](https://github.com/Redinn-Pages/components-pack/commit/4bb3cc9850848ab49f2a668b973e6a03418a2c9b))
 
 ### [0.14.6](https://github.com/Redinn-Pages/components-pack/compare/v0.14.5...v0.14.6) (2022-06-23)
 
-
 ### Bug Fixes
 
 * :bug: fix compliance errors with the lates version of modular-slider ([edd1a7d](https://github.com/Redinn-Pages/components-pack/commit/edd1a7d21a35cb62f70c8ac8aea55aa532cf32e6))
 
 ### [0.14.5](https://github.com/Redinn-Pages/components-pack/compare/v0.14.4...v0.14.5) (2022-05-09)
-
 
 ### Bug Fixes
 
@@ -228,7 +210,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### [0.14.4](https://github.com/Redinn-Pages/components-pack/compare/v0.14.3...v0.14.4) (2022-04-30)
 
 ### [0.14.3](https://github.com/Redinn-Pages/components-pack/compare/v0.14.2...v0.14.3) (2022-04-30)
-
 
 ### Bug Fixes
 
@@ -240,7 +221,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.14.0](https://github.com/Redinn-Pages/components-pack/compare/v0.13.4...v0.14.0) (2022-04-30)
 
-
 ### ⚠ BREAKING CHANGES
 
 * :fire: remove the footer component
@@ -248,7 +228,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * **base-pack:** :wrench: build errors ([19b9f94](https://github.com/Redinn-Pages/components-pack/commit/19b9f947c26a492c2c5e377a7207a57ebfdfe504))
-
 
 ### Enhancements
 
@@ -261,47 +240,27 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [0.13.4](https://github.com/Redinn-Pages/components-pack/compare/v0.13.3...v0.13.4) (2022-04-14)
 
-
 ### Bug Fixes
 
 * **svelte-pack:** :label: fix types ([ab8d4c0](https://github.com/Redinn-Pages/components-pack/commit/ab8d4c036b0c9308df181425176c6e903ee2f96f))
-
-
-
-
 
 ## [0.13.3](https://github.com/Redinn-Pages/components-pack/compare/v0.13.2...v0.13.3) (2022-04-08)
 
 **Note:** Version bump only for package components-pack
 
-
-
-
-
 ## [0.13.2](https://github.com/Redinn-Pages/components-pack/compare/v0.13.1...v0.13.2) (2022-03-23)
-
 
 ### Bug Fixes
 
 * **base-pack:** :wrench: export the lib in the .mjs format ([3df0f7f](https://github.com/Redinn-Pages/components-pack/commit/3df0f7fadea57f0434135dd1712d83dab5e3df1d))
 
-
-
-
-
 ## [0.13.1](https://github.com/Redinn-Pages/components-pack/compare/v0.13.0...v0.13.1) (2022-03-12)
-
 
 ### Features
 
 * :sparkles: push enlarged srcset to the store ([b8fe75a](https://github.com/Redinn-Pages/components-pack/commit/b8fe75a6d0c7107bdc58ba20d30028878640dfdd))
 
-
-
-
-
 # [0.13.0](https://github.com/Redinn-Pages/components-pack/compare/v0.12.2...v0.13.0) (2022-03-12)
-
 
 ### Bug Fixes
 
@@ -310,74 +269,43 @@ All notable changes to this project will be documented in this file. See [standa
 * **svelte-pack:** :bug: image section when enlarged ([e2aa77c](https://github.com/Redinn-Pages/components-pack/commit/e2aa77c1b556b5efc1c097efe291ece888643544))
 * **svelte-pack:** :heavy_plus_sign: add svelte-hmr - missing dep ([12acd93](https://github.com/Redinn-Pages/components-pack/commit/12acd933b901822f949f2036721ae22ee6512ccf))
 
-
 ### Features
 
 * :sparkles: standarise sizes for photo viewers ([4cec7a8](https://github.com/Redinn-Pages/components-pack/commit/4cec7a8e15f5391c35362e16b9e961a5947507bf))
 
-
-
-
-
 ## [0.12.2](https://github.com/Redinn-Pages/components-pack/compare/v0.12.1...v0.12.2) (2022-02-17)
-
 
 ### Bug Fixes
 
 * :alien: Navbar - ssr support ([65e2bb6](https://github.com/Redinn-Pages/components-pack/commit/65e2bb6a25cf5f000749a17f4fa44499a9daa4a8))
 
-
-
-
-
 ## [0.12.1](https://github.com/Redinn-Pages/components-pack/compare/v0.12.0...v0.12.1) (2022-02-17)
-
 
 ### Features
 
 * :sparkles: close the mobile navbar programmatically ([024aed9](https://github.com/Redinn-Pages/components-pack/commit/024aed9e48f4170595cd273e14e238490552802a))
 
-
-
-
-
 # [0.12.0](https://github.com/Redinn-Pages/components-pack/compare/v0.11.1...v0.12.0) (2022-02-16)
-
 
 ### Features
 
 * **base-pack:** :lipstick: make use of css variables ([8758e39](https://github.com/Redinn-Pages/components-pack/commit/8758e39795049ec7d50efc8df7268b501f85ba80))
 
-
-
-
-
 ## [0.11.1](https://github.com/Redinn-Pages/components-pack/compare/v0.11.0...v0.11.1) (2022-02-16)
 
 **Note:** Version bump only for package components-pack
 
-
-
-
-
 # [0.11.0](https://github.com/Redinn-Pages/components-pack/compare/v0.10.0...v0.11.0) (2022-02-16)
-
 
 ### Bug Fixes
 
 * :bug: prevent closing the multiviewer incorrectly ([02d938c](https://github.com/Redinn-Pages/components-pack/commit/02d938c6794f419d0dcd511f5df13824b3cd9a41))
 
-
-
-
-
 # [0.10.0](https://github.com/Redinn-Pages/components-pack/compare/v0.9.4...v0.10.0) (2022-01-14)
-
 
 ### Bug Fixes
 
 * :bug: result.index is not defined when opening the multiviewer ([282ec27](https://github.com/Redinn-Pages/components-pack/commit/282ec270f9c56b5db799118f48ab15e855e667cb))
-
 
 ### Features
 
@@ -385,12 +313,7 @@ All notable changes to this project will be documented in this file. See [standa
 * :sparkles: store alt text in the ssot ([94674c2](https://github.com/Redinn-Pages/components-pack/commit/94674c2527c8dee5e5f40f60b358926610980a6a))
 * **svelte-pack:** :sparkles: add keyboard events ([fa50983](https://github.com/Redinn-Pages/components-pack/commit/fa5098393da5cb8ba3356353432c81e708a2d494))
 
-
-
-
-
 ## [0.9.4](https://github.com/Redinn-Pages/components-pack/compare/v0.9.3...v0.9.4) (2021-10-31)
-
 
 ### Bug Fixes
 
@@ -398,135 +321,78 @@ All notable changes to this project will be documented in this file. See [standa
 * :lipstick: Photo's cross thickness ([8d1d7ce](https://github.com/Redinn-Pages/components-pack/commit/8d1d7ced3fddb3d18c481c27462c64fe0df97ca6))
 * **base-pack:** :rotating_light: linter warnings ([bcc2e33](https://github.com/Redinn-Pages/components-pack/commit/bcc2e3302848eee8750997917a76c665d196a34c))
 
-
 ### Features
 
 * **svelte-pack:** :rocket: publish a bundle version ([9536b83](https://github.com/Redinn-Pages/components-pack/commit/9536b83f63e3a45cfa5dac6c5dbc7b502bcdad05))
 
-
-
-
-
 ## [0.9.3](https://github.com/Redinn-Pages/components-pack/compare/v0.9.2...v0.9.3) (2021-09-25)
-
 
 ### Features
 
 * :sparkles: additional slot in Footer ([a59f86b](https://github.com/Redinn-Pages/components-pack/commit/a59f86b3147b7dc5e7ffa96638dbfc0ea9b47381))
 
-
-
-
-
 ## [0.9.2](https://github.com/Redinn-Pages/components-pack/compare/v0.9.1...v0.9.2) (2021-09-25)
-
 
 ### Bug Fixes
 
 * **svelte-pack:** :ambulance: Photo.svelte - Assignment to constant variable. ([8dea119](https://github.com/Redinn-Pages/components-pack/commit/8dea119c3bb7466145cbe8ed686a0cad788ce3c7))
 
-
-
-
-
 ## [0.9.1](https://github.com/Redinn-Pages/components-pack/compare/v0.9.0...v0.9.1) (2021-09-25)
-
 
 ### Bug Fixes
 
 * **svelte-pack:** :bug: Photo.svelte - watch for src changes ([3c61d12](https://github.com/Redinn-Pages/components-pack/commit/3c61d127911229a7d0af3773a5e8fae4ada33333))
 
-
-
-
-
 # [0.9.0](https://github.com/Redinn-Pages/components-pack/compare/v0.8.6...v0.9.0) (2021-09-17)
-
 
 ### Bug Fixes
 
 * **base-pack:** :ambulance: gulp css build ([b00442b](https://github.com/Redinn-Pages/components-pack/commit/b00442b64907c05d6b6dac39d865b12baf1a9253))
 
-
 ### Features
 
 * :sparkles: organise photos better in PhotoMultiViewer ([bbe100a](https://github.com/Redinn-Pages/components-pack/commit/bbe100aeecba3b41d721aa280f02716511501449))
 
-
-
-
-
 ## [0.8.6](https://github.com/Redinn-Pages/components-pack/compare/v0.8.5...v0.8.6) (2021-09-12)
-
 
 ### Bug Fixes
 
 * **svelte-pack:** :ambulance: usage with sveltekit ([e728801](https://github.com/Redinn-Pages/components-pack/commit/e728801c1757a93e56a0020d6b0bb7caeb223c1c))
 
-
-
-
-
 ## [0.8.5](https://github.com/Redinn-Pages/components-pack/compare/v0.8.4...v0.8.5) (2021-09-10)
-
 
 ### Bug Fixes
 
 * **svelte-pack:** :bug: types ([181138c](https://github.com/Redinn-Pages/components-pack/commit/181138c48509e75a5c3714c74edd780c491bf74d))
 
-
-
-
-
 ## [0.8.4](https://github.com/Redinn-Pages/components-pack/compare/v0.8.3...v0.8.4) (2021-08-29)
 
 **Note:** Version bump only for package components-pack
 
-
-
-
-
 ## [0.8.3](https://github.com/Redinn-Pages/components-pack/compare/v0.8.2...v0.8.3) (2021-08-29)
-
 
 ### Bug Fixes
 
 * **svelte-pack:** :label: export types ([5aef56a](https://github.com/Redinn-Pages/components-pack/commit/5aef56a9c436741ab10ce9cfbbddf7b244b7761b))
 
-
-
-
-
 ## [0.8.2](https://github.com/Redinn-Pages/components-pack/compare/v0.8.1...v0.8.2) (2021-08-28)
-
 
 ### Bug Fixes
 
 * **svelte-pack:** :bug: remove template tags ([f8cacb9](https://github.com/Redinn-Pages/components-pack/commit/f8cacb960d04583badf98117ef1da74a6d98ca19))
 
-
-
-
-
 ## [0.8.1](https://github.com/Redinn-Pages/components-pack/compare/v0.8.0...v0.8.1) (2021-08-28)
-
 
 ### Features
 
 * **svelte-pack:** :hammer: ssr build ([5de07bd](https://github.com/Redinn-Pages/components-pack/commit/5de07bd68fe6fbe75296cbab6f3be7b0c6073a4f))
 
-
-
-
-
 # [0.8.0](https://github.com/Redinn-Pages/components-pack/compare/v0.7.2...v0.8.0) (2021-08-27)
-
 
 ### Bug Fixes
 
 * **base-pack:** :ambulance: overflow hidden ([ec702c5](https://github.com/Redinn-Pages/components-pack/commit/ec702c5fbba634e1069e31a57e510917d4014279))
 * **base-pack:** :bug: modular-slider.css ([47f873f](https://github.com/Redinn-Pages/components-pack/commit/47f873f01723f4954fa24a41fb0267fafd255e60))
-
 
 ### Features
 
@@ -534,35 +400,19 @@ All notable changes to this project will be documented in this file. See [standa
 * :sparkles: add a navbar component ([477a24f](https://github.com/Redinn-Pages/components-pack/commit/477a24f20a8a643ef0e61194610bec2ae10db275))
 * **base-pack:** :heavy_plus_sign: use tailwindcss ([7abf291](https://github.com/Redinn-Pages/components-pack/commit/7abf291fa561c92fdbbeadc477b40233b222c24e))
 
-
-
-
-
 ## [0.7.2](https://github.com/Redinn-Pages/components-pack/compare/v0.7.1...v0.7.2) (2021-06-26)
-
 
 ### Bug Fixes
 
 * **vue-pack:** :bug: watch for src changes ([c02a4a5](https://github.com/Redinn-Pages/components-pack/commit/c02a4a5df959777df55f1a9b326f76b07523a4a0))
 
-
-
-
-
 ## [0.7.1](https://github.com/Redinn-Pages/components-pack/compare/v0.7.0...v0.7.1) (2021-06-26)
-
 
 ### Bug Fixes
 
 * :bug: load maps multiple times ([98e7548](https://github.com/Redinn-Pages/components-pack/commit/98e754886250ee4da0e393eee09db7b18f11ada9))
 
-
-
-
-
-
 # [0.7.0](https://github.com/Redinn-Pages/components-pack/compare/v0.6.0...v0.7.0) (2021-06-06)
-
 
 ### Bug Fixes
 
@@ -575,31 +425,19 @@ All notable changes to this project will be documented in this file. See [standa
 * **vue-pack:** :ambulance: compile to vue 2 + ssr support ([9cea463](https://github.com/Redinn-Pages/components-pack/commit/9cea463f321874749de06b947ea27ec4489a3add))
 * :pencil2: name ([adcb16a](https://github.com/Redinn-Pages/components-pack/commit/adcb16ae3198a9feaf7a5536757fdfe802718613))
 
-
 ### Performance Improvements
 
 * :art: remove unnecessary exports ([c163b53](https://github.com/Redinn-Pages/components-pack/commit/c163b536aec39f24245bded73d2a352d9442fa1c))
 * :zap: use function syntax for the Store ([037d8f4](https://github.com/Redinn-Pages/components-pack/commit/037d8f407dd59abc34c619f78ed85b74ecb6ed8e))
 
-
-
-
-
-
 ## [0.6.3](https://github.com/Redinn-Pages/components-pack/compare/v0.6.2...v0.6.3) (2021-05-11)
-
 
 ### Bug Fixes
 
 * **svelte-pack:** :ambulance: remove template tags ([ebf10ee](https://github.com/Redinn-Pages/components-pack/commit/ebf10ee47fecba27d55a9800d0ba1372cac7529b))
 * **svelte-pack:** :label: types ([40b01b0](https://github.com/Redinn-Pages/components-pack/commit/40b01b0832e3a9ffe87f8d92b79915069504d2c9))
 
-
-
-
-
 ## 0.6.2 (2021-05-11)
-
 
 ### Bug Fixes
 
@@ -619,7 +457,6 @@ All notable changes to this project will be documented in this file. See [standa
 * :bug: finish the multiviewer ([0a9cbf9](https://github.com/Redinn-Pages/components-pack/commit/0a9cbf9e7d95fa12f87c1e0adc882d300a0c4cba))
 * :zap: simplify the Viewer components with mixins ([2e84d3d](https://github.com/Redinn-Pages/components-pack/commit/2e84d3dc8f21df1d75b306601b605085dec96aa7))
 
-
 ### Features
 
 * **base-pack:** :hammer: env variables support ([4091c5a](https://github.com/Redinn-Pages/components-pack/commit/4091c5a13b3b7f631c7341b38377c26d084cce9f))
@@ -638,18 +475,12 @@ All notable changes to this project will be documented in this file. See [standa
 * :tada: initial commit ([b1456f4](https://github.com/Redinn-Pages/components-pack/commit/b1456f4ce061cd878c2eaf5fd7303ebcd8ee2f99))
 * :zap: add a global IntersectionObserver ([00d40b2](https://github.com/Redinn-Pages/components-pack/commit/00d40b2d780e85c9d8ecc8dcdda27c36404fb417))
 
-
 ### Performance Improvements
 
 * **svelte-pack:** :zap: simplify the project ([298186f](https://github.com/Redinn-Pages/components-pack/commit/298186f7464bf3babfd546fa1562a0adb0257d3f))
 * **vue-pack:** :zap: simplify the project ([6990643](https://github.com/Redinn-Pages/components-pack/commit/69906431e1522d6059fc6c9af172170b36881805))
 
-
-
-
-
 ## 0.6.1 (2021-05-09)
-
 
 ### Bug Fixes
 
@@ -667,7 +498,6 @@ All notable changes to this project will be documented in this file. See [standa
 * :lipstick: polish the hover amimation on the photo component ([658fcc0](https://github.com/Redinn-Pages/components-pack/commit/658fcc01247ad31f641ad4ebb2e52dc6156b336a))
 * :zap: simplify the Viewer components with mixins ([2e84d3d](https://github.com/Redinn-Pages/components-pack/commit/2e84d3dc8f21df1d75b306601b605085dec96aa7))
 
-
 ### Features
 
 * **base-pack:** :hammer: env variables support ([4091c5a](https://github.com/Redinn-Pages/components-pack/commit/4091c5a13b3b7f631c7341b38377c26d084cce9f))
@@ -686,40 +516,27 @@ All notable changes to this project will be documented in this file. See [standa
 * :tada: initial commit ([b1456f4](https://github.com/Redinn-Pages/components-pack/commit/b1456f4ce061cd878c2eaf5fd7303ebcd8ee2f99))
 * :zap: add a global IntersectionObserver ([00d40b2](https://github.com/Redinn-Pages/components-pack/commit/00d40b2d780e85c9d8ecc8dcdda27c36404fb417))
 
-
 ### Performance Improvements
 
 * **svelte-pack:** :zap: simplify the project ([298186f](https://github.com/Redinn-Pages/components-pack/commit/298186f7464bf3babfd546fa1562a0adb0257d3f))
 * **vue-pack:** :zap: simplify the project ([6990643](https://github.com/Redinn-Pages/components-pack/commit/69906431e1522d6059fc6c9af172170b36881805))
 
-
-
-
-
 # [0.6.0](/compare/v0.5.0...v0.6.0) (2021-05-03)
-
 
 ### Bug Fixes
 
 * **vue-pack:** :hammer: build setup 4813b7b
 * :art: improve photoviewers' open event hadlers a6b3c0f
 
-
 ### Features
 
 * **base-pack:** :hammer: env variables support 4091c5a
 
-
-
-
-
 # [0.5.0](/compare/v0.4.0...v0.5.0) (2021-04-30)
-
 
 ### Bug Fixes
 
 * :bug: minor details 7302010
-
 
 ### Features
 
@@ -728,22 +545,16 @@ All notable changes to this project will be documented in this file. See [standa
 * **svelte-pack:** :sparkles: port photoMultiViewer f1c2e7f
 * **svelte-pack:** :tada: bootstrap 76bb6ac
 
-
 ### Performance Improvements
 
 * **svelte-pack:** :zap: simplify the project 298186f
 * **vue-pack:** :zap: simplify the project 6990643
-
-
-
-
 
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ## [0.4.0](///compare/v0.3.1...v0.4.0) (2021-04-05)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -759,23 +570,19 @@ All notable changes to this project will be documented in this file. See [standa
 * :sparkles: add vuex mutations d39d46b
 * :zap: add a global IntersectionObserver 00d40b2
 
-
 ### Bug Fixes
 
 * :bug: css e6bd772
 
-
 * :boom: remove the data-src prop from Photo e215608
 
 ### [0.3.1](///compare/v0.3.0...v0.3.1) (2021-03-25)
-
 
 ### Bug Fixes
 
 * :ambulance: ts types 1121af4
 
 ## [0.3.0](///compare/v0.2.0...v0.3.0) (2021-03-25)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -786,11 +593,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 * :boom: move over to Modular Slider 223d507
 
-
 * :truck: move revelant files to /dev 8d92ab6
 
 ## [0.2.0](///compare/v0.1.1...v0.2.0) (2021-03-14)
-
 
 ### ⚠ BREAKING CHANGES
 
@@ -800,13 +605,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 * :boom: move over to rollup 8b8b5cf
 
-
 ### Bug Fixes
 
 * **multi-viewer:** :bug: the component no longer fails when triggered multiple times aec8dc7
 
 ### 0.1.1 (2021-03-10)
-
 
 ### Features
 
@@ -815,7 +618,6 @@ All notable changes to this project will be documented in this file. See [standa
 * :sparkles: add raw loader + polish photoMultiViewer ad5d995
 * :sparkles: paste components, adjust eslint c9483de
 * :tada: initial commit b1456f4
-
 
 ### Bug Fixes
 
