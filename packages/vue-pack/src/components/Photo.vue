@@ -66,7 +66,7 @@ watch(
 );
 function dispatch(observe = true) {
   if (typeof dontaddtolist === "undefined")
-    store.addphoto({ src: props.src, srcset: props.src, group: props.group, alt: props.alt });
+    store.addPhoto({ src: props.src, srcset: props.src, group: props.group, alt: props.alt });
   if (observe) store.state.observer.observe(img.value);
 }
 onMounted(dispatch);

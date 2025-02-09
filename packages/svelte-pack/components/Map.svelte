@@ -2,7 +2,7 @@
 
 <script>
 import { onMount } from "svelte";
-import { maputil, mutations } from "@matb85/base-pack";
+import { mapUtil, mutations } from "@matb85/base-pack";
 let map = $state();
 
   /**
@@ -16,9 +16,9 @@ let map = $state();
   let { className = null, apikey = "", callback = m => console.log(m) } = $props();
 
 onMount(() => {
-  mutations.addhandler(window.sveltepack, {
+  mutations.addHandler(window.sveltepack, {
     name: "map",
-    handler: () => maputil(apikey, callback, map),
+    handler: () => mapUtil(apikey, callback, map),
   });
   window.sveltepack.observer.observe(map);
 });

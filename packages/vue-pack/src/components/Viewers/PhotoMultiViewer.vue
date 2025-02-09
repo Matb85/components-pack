@@ -37,10 +37,8 @@
 <script setup>
 import { mixin } from "@matb85/base-pack";
 import { onMounted, ref } from "vue";
-import { setup, SlideHandler, NoLoop, lazyloading } from "modular-slider";
+import { swipeHandler, NoLoop, lazyLoading } from "modular-slider";
 import { useVuePackStore } from "../../../src/index";
-
-const Slider = setup(SlideHandler, NoLoop);
 
 const store = useVuePackStore();
 const GlobalConfig = store.vuepacksizes;
@@ -63,13 +61,15 @@ onMounted(async () => {
     imgs.value = result.photos;
 
     await base.mounted({ img, rect });
-    slider = new Slider({
+    slider = new NoLoop({
       container: "photo-slider",
       transitionSpeed: 500,
-      plugins: [lazyloading()],
+      plugins: [swipeHandler(), lazyLoading()],
     });
     const chosen = slider.container.children[result.index];
     store.state.handlers.photo(chosen);
+
+    slider.container.querySelectorAll(".MS-lazy").forEach(img => store.state.observer.observe(img));
 
     photo.value.addEventListener("animationend", () => (photo.value.parentElement.style.display = "none"));
     counter.value = slider.counter;

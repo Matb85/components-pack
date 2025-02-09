@@ -55,13 +55,13 @@ export function Store(): StoreI {
 }
 
 export const mutations = {
-  addhandler(state: StoreI, { name, handler }: { name: string; handler: Handler }) {
+  addHandler(state: StoreI, { name, handler }: { name: string; handler: Handler }) {
     state.handlers[name] = handler;
   },
   removeHandler(state: StoreI, name: string) {
     delete state.handlers[name];
   },
-  addphoto(state: StoreI, payload: Photo) {
+  addPhoto(state: StoreI, payload: Photo) {
     const [group, id]: [string, number?] = (payload.group?.split("-") as [string, number?]) || ["rest", undefined];
 
     if (!state.photolist[group]) state.photolist[group] = [];

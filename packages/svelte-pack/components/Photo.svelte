@@ -83,7 +83,7 @@
   function dispatch(observe = true) {
     if (!img) return;
     if (prevent.includes("addToList") === false) {
-      mutations.addphoto(window.sveltepack, { src, srcset: src, group, alt });
+      mutations.addPhoto(window.sveltepack, { src, srcset: src, group, alt });
     }
     if (observe) window.sveltepack.observer.observe(img);
   }

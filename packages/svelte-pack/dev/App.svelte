@@ -6,25 +6,25 @@
     <p>nav{id}</p>
   {/each}
 </Navbar>
-<Photo src="/thumbnail_mountains.jpg" sizes="{[1290]}" className="photo" group="mountains" alt="a portrait of a bird" />
+<Photo src="/thumbnail_mountains.jpg" sizes={[1290]} className="photo" group="mountains" alt="a portrait of a bird" />
 
-<Photo src="{src}" sizes="{[480, 720]}" className="photo" group="mountains" alt="Dunajec Gorge" />
+<Photo src={src} sizes={[480, 720]} className="photo" group="mountains" alt="Dunajec Gorge" />
 <button onclick={() => (src = '/thumbnail_gorge.jpg')}>Gorge</button>
 <button onclick={() => (src = '/thumbnail_mountains.jpg')}>Mountains</button>
 
 <div class="gallery">
-  <Photo src="/thumbnail_bird.jpg" sizes="{[480, 720]}" multiview className="photo" group="gallery-0" />
+  <Photo src="/thumbnail_bird.jpg" sizes={[480, 720]} multiview className="photo" group="gallery-0" />
   <Photo
     src="/thumbnail_mountains.jpg"
-    sizes="{[480, 720]}"
+    sizes={[480, 720]}
     multiview
     className="photo"
     group="gallery-1"
     alt="Island" />
-  <Photo src="/thumbnail_gorge.jpg" sizes="{[480, 720]}" multiview className="photo" group="gallery-2" alt="gorge" />
+  <Photo src="/thumbnail_gorge.jpg" sizes={[480, 720]} multiview className="photo" group="gallery-2" alt="gorge" />
   <Photo
     src="/thumbnail_sokolica.jpg"
-    sizes="{[480, 720]}"
+    sizes={[480, 720]}
     multiview
     className="photo"
     group="gallery-3"
@@ -34,7 +34,7 @@
 
 <PhotoViewer />
 <PhotoMultiViewer />
-<Map className="map" apikey="gdsfgdgfds" callback="{map => console.log(map)}" />
+<Map className="map" apikey="gdsfgdgfds" callback={map => console.log(map)} />
 
 <script module>
 init();

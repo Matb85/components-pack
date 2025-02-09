@@ -5,8 +5,8 @@ export interface BaseSizes extends Record<number, string | RegExp> {
 export type Sizes = Array<number> | Record<string | number, string | number>;
 
 export default function (src: string, baseSizes: BaseSizes, sizes: Sizes) {
-  let genSrcset = "",
-    genSizes = "";
+  let genSrcset = "";
+  let genSizes = "";
   // example: [480, 1920, 2400, integer, integer ...]
   if (Array.isArray(sizes)) {
     for (let i = 0; i < sizes.length; i++) {

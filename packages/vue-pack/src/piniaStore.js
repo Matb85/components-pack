@@ -14,11 +14,11 @@ export const useVuePackStore = defineStore("vuepack", {
       this.state = Store();
     },
     /** @param {import('@matb85/base-pack').StoreDataI} payload */
-    addphoto(payload) {
-      mutations.addphoto(this.state, payload);
+    addPhoto(payload) {
+      mutations.addPhoto(this.state, payload);
     },
     addHandler({ name, handler }) {
-      mutations.addhandler(this.state, { name, handler });
+      mutations.addHandler(this.state, { name, handler });
     },
     removeHandler(name) {
       mutations.removeHandler(this.state, name);
