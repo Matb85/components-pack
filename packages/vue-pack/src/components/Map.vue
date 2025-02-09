@@ -2,20 +2,24 @@
   <section ref="root" aria-label="Mapa Google" role="application" data-observerhandler="map"></section>
 </template>
 
-<script setup>
-import { maputil } from "@matb85/base-pack";
+<script setup lang="ts">
+import { type MapCallback, mapUtil } from "@matb85/base-pack";
 import { onMounted, ref } from "vue";
-import { useVuePackStore } from "../../src/index";
+import { useVuePackStore } from "../piniaStore";
+
 const store = useVuePackStore();
 
 const root = ref(null);
 
-const props = defineProps({ apikey: String, callback: Function });
+const props = defineProps<{
+  apikey: string;
+  callback: MapCallback;
+}>();
 
 onMounted(() => {
   store.addHandler({
     name: "map",
-    handler: () => maputil(props.apikey, props.callback, root.value),
+    handler: () => mapUtil(props.apikey, props.callback, root.value),
   });
   store.state.observer.observe(root.value);
 });

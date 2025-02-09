@@ -14,36 +14,35 @@
   </div>
 </template>
 
-<script setup>
-import { photo } from "@matb85/base-pack";
+<script setup lang="ts">
+import { photo, type GlobalConfigI } from "@matb85/base-pack";
 import { watch, ref, onMounted } from "vue";
-import { useVuePackStore } from "../../src/index";
+import { useVuePackStore } from "../piniaStore";
 
 const store = useVuePackStore();
 
 const img = ref(null);
 const root = ref(null);
 
-const props = defineProps({
-  src: String,
-  alt: String,
-  sizes: [Array, Object],
-  dontenlargeonclick: String,
-  dontaddtolist: String,
-  multiview: String,
-  group: String,
-});
+const props = defineProps<{
+  src: string;
+  alt: string;
+  sizes: number[] | Record<number, number>;
+  dontEnlargeOnClick?: string | undefined;
+  dontAddToList?: string | undefined;
+  multiview?: string | undefined;
+  group: string;
+}>();
 
 function enlarge() {
-  if (!img.value.classList.contains("loaded") || typeof props.dontenlargeonclick !== "undefined") return;
+  if (!img.value.classList.contains("loaded") || typeof props.dontEnlargeOnClick !== "undefined") return;
   const enlarger = typeof props.multiview === "undefined" ? "vuepack-enlargephoto" : "vuepack-enlargemanyphotos";
   window.dispatchEvent(
     new CustomEvent(enlarger, { detail: { rect: root.value.getBoundingClientRect(), img: img.value } })
   );
 }
 
-/** @type {import('@matb85/base-pack').StoreDataI}  */
-const GlobalConfig = store.vuepacksizes;
+const GlobalConfig: GlobalConfigI = store.vuepacksizes;
 const settings = photo(props.src, GlobalConfig.formats, props.sizes);
 const genSrcset = ref(settings.genSrcset);
 const genSizes = ref(settings.genSrcset);
@@ -64,8 +63,9 @@ watch(
     );
   }
 );
+
 function dispatch(observe = true) {
-  if (typeof dontaddtolist === "undefined")
+  if (typeof props.dontAddToList === "undefined")
     store.addPhoto({ src: props.src, srcset: props.src, group: props.group, alt: props.alt });
   if (observe) store.state.observer.observe(img.value);
 }

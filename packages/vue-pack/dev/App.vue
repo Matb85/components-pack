@@ -32,7 +32,7 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
-import { PhotoMultiViewer, Navbar, PhotoViewer, Photo, Map, useVuePackStore } from "../src/index";
+import { PhotoMultiViewer, Navbar, PhotoViewer, Photo, Map, useVuePackStore } from "../src";
 const store = useVuePackStore();
 
 const src = ref("/thumbnail_mountains.jpg");

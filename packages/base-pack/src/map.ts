@@ -1,12 +1,16 @@
+
+export type MapCallback = (map: HTMLElement) => void;
+
 /** overload window's and Google's interface */
 declare const google: { maps?: object };
 declare global {
   interface Window {
-    initMap: (map: HTMLElement) => void;
+    initMap: MapCallback;
   }
 }
 
-export default function (key: string, callback: (map: HTMLElement) => void, map: HTMLElement) {
+
+export default function (key: string, callback: MapCallback, map: HTMLElement) {
   if (typeof google != "undefined" && typeof google.maps != "undefined") return;
   /** Create the script tag, set the appropriate attributes */
   const script = document.createElement("script");

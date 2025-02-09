@@ -3,23 +3,22 @@
   <img bind:this="{img}" class="viewed-photo" alt="Powiększone zdjęcie" />
 </div>
 
-<script>
-import { mixin } from "@matb85/base-pack";
-import { onMount, getContext } from "svelte";
+<script lang="ts">
+  import { mixin, type GlobalConfigI } from "@matb85/base-pack";
+  import { getContext, onMount } from "svelte";
 
-let img = $state();
+  let img = $state<HTMLImageElement>()!;
 
-/** setup sizes & srcset
- * @type {import('@matb85/base-pack').StoreDataI}  */
-const GlobalConfig = getContext("svelte-pack-sizes");
+  const GlobalConfig: GlobalConfigI = getContext("svelte-pack-sizes");
 
-onMount(() => {
-  const base = new mixin(img, img.parentElement, GlobalConfig);
-  window.addEventListener("enlargePhoto", event => base.mounted(event.detail));
+  onMount(() => {
+    const base = new mixin(img, img.parentElement!, GlobalConfig);
+    window.addEventListener("enlargePhoto", event => base.mounted((event as CustomEvent).detail));
 
-  window.addEventListener("keyup", e => {
-    if (e.key === "Escape") base.close();
+    window.addEventListener("keyup", e => {
+      if (e.key === "Escape") base.close();
+    });
+
+    img.parentElement!.addEventListener("click", () => base.close());
   });
-  img.parentElement.addEventListener("click", () => base.close());
-});
 </script>

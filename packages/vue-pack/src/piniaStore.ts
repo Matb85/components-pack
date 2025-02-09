@@ -1,10 +1,13 @@
-import { Store, mutations } from "@matb85/base-pack";
+import { Store, mutations, type StoreI, type GlobalConfigI } from "@matb85/base-pack";
 import { defineStore } from "pinia";
 
 export const useVuePackStore = defineStore("vuepack", {
   state: () => ({
     vuepacksizes: null,
     state: null,
+  } as {
+    vuepacksizes: GlobalConfigI;
+    state: StoreI;
   }),
   actions: {
     setSizes(vuepacksizes) {
@@ -13,7 +16,7 @@ export const useVuePackStore = defineStore("vuepack", {
     initStore() {
       this.state = Store();
     },
-    /** @param {import('@matb85/base-pack').StoreDataI} payload */
+    /** @param {import('@matb85/base-pack').GlobalConfigI} payload */
     addPhoto(payload) {
       mutations.addPhoto(this.state, payload);
     },

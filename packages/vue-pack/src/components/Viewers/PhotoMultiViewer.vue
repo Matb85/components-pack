@@ -5,7 +5,7 @@
     </div>
     <div class="photo-slider MS-con" id="photo-slider">
       <img
-        v-for="img of imgs"
+        v-for="img of photos"
         :key="img.src"
         class="other-slide MS-lazy"
         :src="img.src"
@@ -26,39 +26,40 @@
     </button>
     <div class="MP-viewer_navbar">
       <p v-if="slider">
-        {{ Math.abs(counter) + 1 }}/{{ imgs.length }}
-        {{ imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : "" }}
+        {{ Math.abs(counter) + 1 }}/{{ photos.length }}
+        {{ photos[Math.abs(counter)] && photos[Math.abs(counter)].alt ? " | " + photos[Math.abs(counter)].alt : "" }}
       </p>
-      <button title="Zamknij podgląd" @click="closeviewer" id="close-multi-viewer"></button>
+      <button title="Zamknij podgląd" @click="closeViewer" id="close-multi-viewer"></button>
     </div>
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { mixin } from "@matb85/base-pack";
 import { onMounted, ref } from "vue";
 import { swipeHandler, NoLoop, lazyLoading } from "modular-slider";
-import { useVuePackStore } from "../../../src/index";
+import { useVuePackStore } from "../../piniaStore";
 
 const store = useVuePackStore();
 const GlobalConfig = store.vuepacksizes;
-const photo = ref(null);
-const root = ref(null);
+const photo = ref<HTMLImageElement>(null);
+const root = ref<HTMLElement>(null);
 
 const svgPath =
   "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z";
 const trigger = "vuepack-enlargemanyphotos";
-const imgs = ref([]);
-let slider = null;
+const photos = ref([]);
+let slider: NoLoop | false = false;
 const counter = ref(0);
-let base;
+let base: mixin;
+
 onMounted(async () => {
   base = new mixin(photo.value, root.value, GlobalConfig);
   window.addEventListener(trigger, async ({ detail: { img, rect } }) => {
     window.addEventListener("keyup", onKeyUp);
 
     const result = base.setupImgs(store.state, img);
-    imgs.value = result.photos;
+    photos.value = result.photos;
 
     await base.mounted({ img, rect });
     slider = new NoLoop({
@@ -66,10 +67,12 @@ onMounted(async () => {
       transitionSpeed: 500,
       plugins: [swipeHandler(), lazyLoading()],
     });
+
     const chosen = slider.container.children[result.index];
     store.state.handlers.photo(chosen);
 
-    slider.container.querySelectorAll(".MS-lazy").forEach(img => store.state.observer.observe(img));
+    const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
+    els.forEach(img => window.sveltepack.observer.observe(img));
 
     photo.value.addEventListener("animationend", () => (photo.value.parentElement.style.display = "none"));
     counter.value = slider.counter;
@@ -80,19 +83,21 @@ onMounted(async () => {
     setTimeout(() => slider.goTo(result.index), 0);
   });
 });
-async function closeviewer() {
-  await base.close(photo.value, root.value);
-  imgs.value = [];
+
+async function closeViewer() {
+  await base.close();
+  photos.value = [];
   photo.value.parentElement.style.display = "block";
   if (!slider) return;
   slider.slideTo(0);
   slider.destroy();
-  slider = null;
+  slider = false;
   window.removeEventListener("keyup", onKeyUp);
 }
-function onKeyUp(e) {
+
+function onKeyUp(e: KeyboardEvent) {
   if (!slider) return;
-  if (e.key == "Escape") closeviewer();
+  if (e.key == "Escape") closeViewer();
   else if (e.key == "ArrowLeft") slider.slidePrev();
   else if (e.key == "ArrowRight") slider.slideNext();
 }

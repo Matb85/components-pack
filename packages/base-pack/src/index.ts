@@ -1,8 +1,8 @@
-import mixin, { type StoreDataI } from "./mixin";
-import { Store, mutations } from "./store";
+import mixin, { type GlobalConfigI } from "./mixin";
+import { mutations, Store, type StoreI } from "./store";
 import photo from "./photo";
-import mapUtil from "./map";
+import mapUtil, { type MapCallback } from "./map";
 
 export { mixin, Store, mutations, photo, mapUtil };
 
-export { StoreDataI };
+export { GlobalConfigI, MapCallback, StoreI };

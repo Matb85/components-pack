@@ -3,7 +3,7 @@
     <img bind:this={image} class="viewed-photo" alt="main" />
   </div>
   <div class="photo-slider MS-con" id="photo-slider">
-    {#each imgs as img}
+    {#each photos as img}
       <img
         class="other-slide MS-lazy"
         src={img.src}
@@ -23,8 +23,8 @@
   </button>
   <div class="MP-viewer_navbar">
     <p>
-      {#if slider !== false}{Math.abs(counter) + 1}/{imgs.length}
-        {imgs[Math.abs(counter)] && imgs[Math.abs(counter)].alt ? " | " + imgs[Math.abs(counter)].alt : ""}
+      {#if slider !== false}{Math.abs(counter) + 1}/{photos.length}
+        {photos[Math.abs(counter)] && photos[Math.abs(counter)].alt ? " | " + photos[Math.abs(counter)].alt : ""}
       {/if}
     </p>
     <button aria-label="Zamknij podgląd" title="Zamknij podgląd" onclick={closeViewer} id="close-multi-viewer"
@@ -32,40 +32,43 @@
   </div>
 </section>
 
-<script>
-import { mixin } from "@matb85/base-pack";
-import { NoLoop, swipeHandler, lazyLoading } from "modular-slider";
+<script lang="ts">
+import { mixin, type GlobalConfigI } from "@matb85/base-pack";
+import { NoLoop, swipeHandler } from "modular-slider";
 import { onMount, getContext } from "svelte";
 
-/** setup sizes & srcset
- * @type {import('@matb85/base-pack').StoreDataI}  */
-const GlobalConfig = getContext("svelte-pack-sizes");
+/** setup sizes & srcset */
+const GlobalConfig: GlobalConfigI = getContext("svelte-pack-sizes");
 
-let image = $state();
-let el = $state();
+let image = $state<HTMLImageElement>()!;
+let el = $state<HTMLElement>()!
+;
 const svgPath =
   "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z";
-let imgs = $state([]);
-/** slider
- * @type {import('modular-slider').NoLoop | false}  */
-let slider = $state(false);
-let counter = $state();
 
-function onKeyUp(e) {
+let photos = $state<any[]>([]);
+
+let slider: NoLoop | false = $state(false);
+let counter = $state(0);
+
+function onKeyUp(e: KeyboardEvent) {
   if (!slider) return;
   if (e.key === "Escape") closeViewer();
   else if (e.key === "ArrowLeft") slider.slidePrev();
   else if (e.key === "ArrowRight") slider.slideNext();
 }
-let base;
+
+let base: mixin;
+
 onMount(() => {
   base = new mixin(image, el, GlobalConfig);
-  window.addEventListener("enlargeManyPhotos", async ({ detail }) => {
+  window.addEventListener("enlargeManyPhotos", async (e) => {
+    const { detail } = e as CustomEvent;
     window.addEventListener("keyup", onKeyUp);
 
     const result = base.setupImgs(window.sveltepack, detail.img);
 
-    imgs = result.photos;
+    photos = result.photos;
     await base.mounted(detail);
     slider = new NoLoop({
       container: "photo-slider",
@@ -76,9 +79,10 @@ onMount(() => {
     const chosen = slider.container.children[result.index];
     window.sveltepack.handlers.photo(chosen);
 
-    slider.container.querySelectorAll(".MS-lazy").forEach(img => window.sveltepack.observer.observe(img));
+   const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
+    els.forEach(img => window.sveltepack.observer.observe(img));
 
-    image.addEventListener("animationend", () => (image.parentElement.style.display = "none"), { once: true });
+    image.addEventListener("animationend", () => (image.parentElement!.style.display = "none"), { once: true });
     counter = slider.counter;
     Object.defineProperty(slider, "counter", {
       get: () => counter,
@@ -89,9 +93,9 @@ onMount(() => {
 });
 
 async function closeViewer() {
-  await base.close(image, el);
-  imgs = [];
-  image.parentElement.style.display = "block";
+  await base.close();
+  photos = [];
+  image.parentElement!.style.display = "block";
   if (!slider) return;
   slider.goTo(0);
   slider.destroy();

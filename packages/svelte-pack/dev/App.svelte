@@ -41,10 +41,10 @@ init();
 </script>
 
 <script>
-import { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, init } from "../components/index";
+import { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, init } from "../components/index.js";
 import { setContext } from "svelte";
 /** config
- * @type {import('@matb85/base-pack').StoreDataI}  */
+ * @type {import('@matb85/base-pack').GlobalConfigI}  */
 const config = {
   formats: {
     thumbnail: "thumbnail_",

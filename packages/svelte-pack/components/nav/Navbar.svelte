@@ -15,27 +15,26 @@
   </button>
 </nav>
 
-<script>
-import { onMount, onDestroy } from "svelte";
-  /**
-   * @typedef {Object} Props
-   * @property {string} [className]
-   * @property {import('svelte').Snippet} [logo]
-   * @property {import('svelte').Snippet} [children]
-   */
+<script lang="ts">
+  import { onDestroy, onMount, type Snippet } from "svelte";
 
-  /** @type {Props} */
-  let { className = "", logo, children } = $props();
-let isActive = $state(false);
+  interface Props {
+    className?: string;
+    logo?: Snippet;
+    children?: Snippet;
+  }
 
-onMount(() => {
-  if (typeof window != "undefined") window.addEventListener("MP-navbar-mobile-close", () => close());
-});
-onDestroy(() => {
-  if (typeof window != "undefined") window.removeEventListener("MP-navbar-mobile-close", () => close());
-});
+  let { className = "", logo, children }: Props = $props();
+  let isActive = $state(false);
 
-function close() {
-  isActive = false;
-}
+  onMount(() => {
+    if (typeof window != "undefined") window.addEventListener("MP-navbar-mobile-close", () => close());
+  });
+  onDestroy(() => {
+    if (typeof window != "undefined") window.removeEventListener("MP-navbar-mobile-close", () => close());
+  });
+
+  function close() {
+    isActive = false;
+  }
 </script>

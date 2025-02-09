@@ -15,38 +15,36 @@
     data-observerhandler="photo" />
 </div>
 
-<script>
+<script lang="ts">
   import { getContext, onMount } from "svelte";
-  import { mutations, photo } from "@matb85/base-pack";
+  import { mutations, photo, type GlobalConfigI } from "@matb85/base-pack";
 
-  /**
-   * @typedef {Object} Props
-   * @property {string} src
-   * @property {string} [alt]
-   * @property {number[]} [sizes]
-   * @property {string[]} [prevent]
-   * @property {boolean} [multiview]
-   * @property {string} [group]
-   * @property {string} [className]
-   */
+  interface Props {
+     src: string;
+     alt?: string;
+     sizes: number[];
+     prevent?: string[];
+     multiview?: boolean;
+     group?: string;
+     className?: string;
+   }
 
-  /** @type {Props} */
-  let {
-    src,
-    alt = undefined,
-    sizes = undefined,
-    prevent = [],
-    multiview = false,
-    group = undefined,
-    className = "",
-  } = $props();
+   let {
+     src,
+     alt = undefined,
+     sizes,
+     prevent = [],
+     multiview = false,
+     group = undefined,
+     className = "",
+   }: Props = $props();
 
   // DOM bindings
-  let img = $state(), el = $state();
+  let img = $state<HTMLImageElement>()!
+  let el = $state<HTMLElement>()!;
 
-  /** setup sizes & srcset
-   * @type {import("@matb85/base-pack").StoreDataI}  */
-  const GlobalConfig = getContext("svelte-pack-sizes");
+  /** setup sizes & srcset */
+  const GlobalConfig: GlobalConfigI = getContext("svelte-pack-sizes");
 
   let { genSrcset, genSizes } = $state(photo(src, GlobalConfig.formats, sizes));
 
@@ -83,7 +81,7 @@
   function dispatch(observe = true) {
     if (!img) return;
     if (prevent.includes("addToList") === false) {
-      mutations.addPhoto(window.sveltepack, { src, srcset: src, group, alt });
+      mutations.addPhoto(window.sveltepack, { src, srcset: src, group: group!, alt: alt! });
     }
     if (observe) window.sveltepack.observer.observe(img);
   }

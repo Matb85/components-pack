@@ -29,6 +29,7 @@
     "@sveltejs/package": "^2.3.10",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "svelte": "^5.19.9",
+    "typescript": "^5.7.3",
     "vite": "^6.1.0"
   },
   "files": [

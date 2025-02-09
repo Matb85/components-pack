@@ -1,7 +1,7 @@
 import type { StoreI, Photo } from "./store";
 import photo, { type BaseSizes, Sizes } from "./photo";
 
-export interface StoreDataI {
+export interface GlobalConfigI {
   formats: BaseSizes;
   enlarged: Sizes;
 }
@@ -35,9 +35,9 @@ let tempResizeListener: () => void;
 export default class {
   el: HTMLElement; // the container of the photo viewer
   ref: HTMLImageElement; // the main image that is enlarger
-  GlobalConfig: StoreDataI;
+  GlobalConfig: GlobalConfigI;
 
-  constructor(ref: HTMLImageElement, el: HTMLElement, GlobalConfig: StoreDataI) {
+  constructor(ref: HTMLImageElement, el: HTMLElement, GlobalConfig: GlobalConfigI) {
     this.ref = ref;
     this.el = el;
     this.GlobalConfig = GlobalConfig;

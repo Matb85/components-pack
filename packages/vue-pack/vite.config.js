@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 // https://vitejs.dev/config/
 const name = "vuepack";
-const entry = process.cwd() + "/src/index.js";
+const entry = process.cwd() + "/src/index.ts";
 const external = ["@matb85/base-pack"];
 const dedupe = [...external, "svelte"];
 

@@ -5,16 +5,16 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { mixin } from "@matb85/base-pack";
-import { useVuePackStore } from "../../../src/index";
+import { useVuePackStore } from "../../piniaStore";
 
 const store = useVuePackStore();
 const GlobalConfig = store.vuepacksizes;
 
 const trigger = "vuepack-enlargephoto";
-const img = ref(null);
+const img = ref<HTMLImageElement>(null);
 
 onMounted(() => {
   const base = new mixin(img.value, img.value.parentElement, GlobalConfig);
