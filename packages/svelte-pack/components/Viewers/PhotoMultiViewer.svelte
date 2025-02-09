@@ -8,7 +8,8 @@
         class="other-slide MS-lazy"
         src={img.src}
         data-srcset={img.srcset}
-        alt={img.alt || 'zdjęcie bez podpisu'} data-observerhandler="photo" />
+        alt={img.alt || 'zdjęcie bez podpisu'}
+        data-observerhandler="photo" />
     {/each}
   </div>
   <!-- navigation -->

@@ -1,6 +1,6 @@
 type Handler = (target: HTMLImageElement) => void;
 
-export interface Photo {
+export interface StorePhotoI {
   src: string;
   srcset: string;
   group: string;
@@ -11,7 +11,7 @@ export interface StoreI {
   callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver): void;
   observer: IntersectionObserver;
   handlers: Record<string, Handler>;
-  photolist: Record<string, Photo[]>;
+  photolist: Record<string, StorePhotoI[]>;
 }
 
 export function Store(): StoreI {
@@ -50,7 +50,7 @@ export function Store(): StoreI {
   const observer = new IntersectionObserver(callback, { rootMargin: "0px", threshold: 0.05 });
 
   /** list of photos on the page */
-  const photolist: Record<string, Photo[]> = {};
+  const photolist: Record<string, StorePhotoI[]> = {};
   return { callback, observer, photolist, handlers };
 }
 
@@ -61,7 +61,7 @@ export const mutations = {
   removeHandler(state: StoreI, name: string) {
     delete state.handlers[name];
   },
-  addPhoto(state: StoreI, payload: Photo) {
+  addPhoto(state: StoreI, payload: StorePhotoI) {
     const [group, id]: [string, number?] = (payload.group?.split("-") as [string, number?]) || ["rest", undefined];
 
     if (!state.photolist[group]) state.photolist[group] = [];

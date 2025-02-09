@@ -12,19 +12,24 @@
   </nav>
 </template>
 
-<script>
-export default {
-  data: () => ({ isActive: false }),
-  mounted() {
-    if (typeof window != "undefined") window.addEventListener("MP-navbar-mobile-close", () => this.close());
-  },
-  destroyed() {
-    if (typeof window != "undefined") window.removeEventListener("MP-navbar-mobile-close", () => this.close());
-  },
-  methods: {
-    close() {
-      this.isActive = false;
-    },
-  },
+<script lang="ts" setup>
+import { onMounted, onUnmounted, ref } from "vue";
+
+const isActive = ref(false);
+
+const close = () => {
+  isActive.value = false;
 };
+
+onMounted(() => {
+  if (typeof window !== "undefined") {
+    window.addEventListener("MP-navbar-mobile-close", close);
+  }
+});
+
+onUnmounted(() => {
+  if (typeof window !== "undefined") {
+    window.removeEventListener("MP-navbar-mobile-close", close);
+  }
+});
 </script>

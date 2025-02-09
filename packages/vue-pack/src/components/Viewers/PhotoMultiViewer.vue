@@ -11,6 +11,7 @@
         :src="img.src"
         :data-srcset="img.srcset"
         :alt="img.alt || 'zdjęcie bez podpisu'"
+        data-observerhandler="photo"
       />
     </div>
     <!-- navigation -->
@@ -35,33 +36,33 @@
 </template>
 
 <script setup lang="ts">
-import { mixin } from "@matb85/base-pack";
-import { onMounted, ref } from "vue";
-import { swipeHandler, NoLoop, lazyLoading } from "modular-slider";
+import { mixin, type StorePhotoI } from "@matb85/base-pack";
+import { onMounted, ref, useTemplateRef } from "vue";
+import { lazyLoading, NoLoop, swipeHandler } from "modular-slider";
 import { useVuePackStore } from "../../piniaStore";
 
 const store = useVuePackStore();
-const GlobalConfig = store.vuepacksizes;
-const photo = ref<HTMLImageElement>(null);
-const root = ref<HTMLElement>(null);
+const GlobalConfig = store.vuepacksizes!;
+const photo = useTemplateRef<HTMLImageElement>("photo");
+const root = useTemplateRef<HTMLElement>("root");
 
 const svgPath =
   "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z";
 const trigger = "vuepack-enlargemanyphotos";
-const photos = ref([]);
+const photos = ref<StorePhotoI[]>([]);
 let slider: NoLoop | false = false;
 const counter = ref(0);
 let base: mixin;
 
 onMounted(async () => {
-  base = new mixin(photo.value, root.value, GlobalConfig);
-  window.addEventListener(trigger, async ({ detail: { img, rect } }) => {
+  base = new mixin(photo.value!, root.value!, GlobalConfig);
+  window.addEventListener(trigger, async (e) => {
+    const { detail } = e as CustomEvent;
     window.addEventListener("keyup", onKeyUp);
 
-    const result = base.setupImgs(store.state, img);
+    const result = base.setupImgs(store.state!, detail.img);
     photos.value = result.photos;
-
-    await base.mounted({ img, rect });
+    await base.mounted(detail);
     slider = new NoLoop({
       container: "photo-slider",
       transitionSpeed: 500,
@@ -69,12 +70,12 @@ onMounted(async () => {
     });
 
     const chosen = slider.container.children[result.index];
-    store.state.handlers.photo(chosen);
+    store.state!.handlers.photo(chosen);
 
     const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
-    els.forEach(img => window.sveltepack.observer.observe(img));
+    els.forEach(img => store.state!.observer.observe(img));
 
-    photo.value.addEventListener("animationend", () => (photo.value.parentElement.style.display = "none"));
+    photo.value!.addEventListener("animationend", () => (photo.value!.parentElement!.style.display = "none"));
     counter.value = slider.counter;
     Object.defineProperty(slider, "counter", {
       get: () => counter.value,
@@ -87,7 +88,7 @@ onMounted(async () => {
 async function closeViewer() {
   await base.close();
   photos.value = [];
-  photo.value.parentElement.style.display = "block";
+  photo.value!.parentElement!.style.display = "block";
   if (!slider) return;
   slider.slideTo(0);
   slider.destroy();

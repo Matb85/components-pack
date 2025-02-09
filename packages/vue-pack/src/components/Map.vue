@@ -4,12 +4,12 @@
 
 <script setup lang="ts">
 import { type MapCallback, mapUtil } from "@matb85/base-pack";
-import { onMounted, ref } from "vue";
+import { onMounted, useTemplateRef } from "vue";
 import { useVuePackStore } from "../piniaStore";
 
 const store = useVuePackStore();
 
-const root = ref(null);
+const root = useTemplateRef<HTMLElement>("root");
 
 const props = defineProps<{
   apikey: string;
@@ -19,8 +19,8 @@ const props = defineProps<{
 onMounted(() => {
   store.addHandler({
     name: "map",
-    handler: () => mapUtil(props.apikey, props.callback, root.value),
+    handler: () => mapUtil(props.apikey, props.callback, root.value!),
   });
-  store.state.observer.observe(root.value);
+  store.state!.observer.observe(root.value!);
 });
 </script>

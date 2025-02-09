@@ -3,7 +3,7 @@
     <template v-slot:logo><h1>logo</h1></template>
     <p v-for="nav of [1, 2, 3]" :key="nav">nav</p>
   </Navbar>
-  <Photo src="/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" />
+  <Photo src="/thumbnail_bird.jpg" :sizes="{ 2400: 800, 480: 1000 }" class="photo" alt="a bird" />
 
   <Photo
     :src="src"
@@ -30,7 +30,7 @@
   <Map class="map" apikey="gfsgdsgds" :callback="mapCallback" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { PhotoMultiViewer, Navbar, PhotoViewer, Photo, Map, useVuePackStore } from "../src";
 const store = useVuePackStore();
@@ -56,7 +56,7 @@ onMounted(() => {
   store.addHandler({ name: "example", handler: () => console.log("hi") });
 });
 
-function mapCallback(m) {
+function mapCallback(m: HTMLElement) {
   console.log(m);
 }
 </script>

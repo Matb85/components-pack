@@ -6,23 +6,23 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, useTemplateRef } from "vue";
 import { mixin } from "@matb85/base-pack";
 import { useVuePackStore } from "../../piniaStore";
 
 const store = useVuePackStore();
-const GlobalConfig = store.vuepacksizes;
+const GlobalConfig = store.vuepacksizes!;
 
 const trigger = "vuepack-enlargephoto";
-const img = ref<HTMLImageElement>(null);
+const img = useTemplateRef<HTMLImageElement>("img");
 
 onMounted(() => {
-  const base = new mixin(img.value, img.value.parentElement, GlobalConfig);
-  window.addEventListener(trigger, data => base.mounted(data.detail));
+  const base = new mixin(img.value!, img.value!.parentElement!, GlobalConfig);
+  window.addEventListener(trigger, event => base.mounted((event as CustomEvent).detail));
 
   window.addEventListener("keyup", e => {
     if (e.key == "Escape") base.close();
   });
-  img.value.parentElement.addEventListener("click", () => base.close());
+  img.value!.parentElement!.addEventListener("click", () => base.close());
 });
 </script>

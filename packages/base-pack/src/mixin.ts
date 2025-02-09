@@ -1,4 +1,4 @@
-import type { StoreI, Photo } from "./store";
+import type { StoreI, StorePhotoI } from "./store";
 import photo, { type BaseSizes, Sizes } from "./photo";
 
 export interface GlobalConfigI {
@@ -16,7 +16,7 @@ interface Position {
   h: string;
 }
 
-interface ExtendedPhoto extends Photo {
+interface ExtendedPhoto extends StorePhotoI {
   width?: string;
   height?: string;
 }
