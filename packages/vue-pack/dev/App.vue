@@ -11,7 +11,7 @@
     :sizes="[720, 1290, 1920, 2400]"
     class="photo"
     group="mountains"
-    alt="a photo of the Dunajec Gorge"
+    alt="a panorama of mountains"
   />
   <button @click="() => (src = '/thumbnail_gorge.jpg')">Gorge</button>
   <button @click="() => (src = '/thumbnail_mountains.jpg')">Mountains</button>
@@ -21,7 +21,7 @@
     :sizes="[2400]"
     class="photo"
     group="mountains"
-    alt="a panorama of mountains"
+    alt="a photo of the Dunajec Gorge"
     multiview
   />
 

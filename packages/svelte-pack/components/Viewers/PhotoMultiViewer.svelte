@@ -97,9 +97,8 @@ async function closeViewer() {
   await base.close();
   photos = [];
   image.parentElement!.style.display = "block";
-  if (!slider) return;
-  slider.goTo(0);
-  slider.destroy();
+  slider?.goTo(0);
+  slider?.destroy();
   slider = undefined;
   window.removeEventListener("keyup", onKeyUp);
 }

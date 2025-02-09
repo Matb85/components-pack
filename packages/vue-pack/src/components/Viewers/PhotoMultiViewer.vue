@@ -50,7 +50,7 @@ const svgPath =
   "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z";
 const trigger = "vuepack-enlargemanyphotos";
 const photos = ref<StorePhotoI[]>([]);
-let slider: NoLoop | undefined = undefined;
+let slider = ref<NoLoop | undefined>(undefined);
 const counter = ref(0);
 let base: mixin;
 
@@ -63,25 +63,25 @@ onMounted(async () => {
     const result = base.setupImgs(store.state!, detail.img);
     photos.value = result.photos;
     await base.mounted(detail);
-    slider = new NoLoop({
+    slider.value = new NoLoop({
       container: "photo-slider",
       transitionSpeed: 500,
       plugins: [swipeHandler(), lazyLoading()],
     });
 
-    const chosen = slider.container.children[result.index];
+    const chosen = slider.value.container.children[result.index];
     store.state!.handlers.photo(chosen as HTMLImageElement);
 
-    const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
+    const els = slider.value.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
     els.forEach(img => store.state!.observer.observe(img));
 
     photo.value!.addEventListener("animationend", () => (photo.value!.parentElement!.style.display = "none"));
-    counter.value = slider.counter;
-    Object.defineProperty(slider, "counter", {
+    counter.value = slider.value.counter;
+    Object.defineProperty(slider.value, "counter", {
       get: () => counter.value,
       set: val => (counter.value = val),
     });
-    setTimeout(() => slider?.goTo(result.index), 0);
+    setTimeout(() => slider.value?.goTo(result.index), 0);
   });
 });
 
@@ -89,17 +89,16 @@ async function closeViewer() {
   await base.close();
   photos.value = [];
   photo.value!.parentElement!.style.display = "block";
-  if (!slider) return;
-  slider.goTo(0);
-  slider.destroy();
-  slider = undefined;
+  slider.value?.goTo(0);
+  slider.value?.destroy();
+  slider.value = undefined;
   window.removeEventListener("keyup", onKeyUp);
 }
 
 function onKeyUp(e: KeyboardEvent) {
   if (!slider) return;
   if (e.key == "Escape") closeViewer();
-  else if (e.key == "ArrowLeft") slider!.slidePrev();
-  else if (e.key == "ArrowRight") slider!.slideNext();
+  else if (e.key == "ArrowLeft") slider.value!.slidePrev();
+  else if (e.key == "ArrowRight") slider.value!.slideNext();
 }
 </script>
