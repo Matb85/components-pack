@@ -5,6 +5,9 @@
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/svelte-pack/.svelte-kit" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/svelte-pack/public" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/vue-pack/public" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
