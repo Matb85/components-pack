@@ -23,6 +23,9 @@ jobs:
       - name: Prepare photos
         run: pnpm run imgs
 
+      - name: Build packages
+        run: pnpm build
+
       - name: Build
         run: pnpm --filter @matb85/astro-pack run build:docs
 
