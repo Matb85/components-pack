@@ -1,7 +1,7 @@
 import Photo from "./components/Photo.vue";
 import Map from "./components/Map.vue";
-import PhotoViewer from "./components/Viewers/PhotoViewer.vue";
-import PhotoMultiViewer from "./components/Viewers/PhotoMultiViewer.vue";
+import PhotoViewer from "./components/viewers/PhotoViewer.vue";
+import PhotoMultiViewer from "./components/viewers/PhotoMultiViewer.vue";
 import { useVuePackStore } from "./piniaStore";
 import Navbar from "./components/nav/Navbar.vue";
 

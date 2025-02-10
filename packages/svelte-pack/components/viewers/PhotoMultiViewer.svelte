@@ -24,7 +24,7 @@
   </button>
   <div class="MP-viewer_navbar">
     <p>
-      {#if slider !== false}{Math.abs(counter) + 1}/{photos.length}
+      {#if slider}{Math.abs(counter) + 1}/{photos.length}
         {photos[Math.abs(counter)] && photos[Math.abs(counter)].alt ? " | " + photos[Math.abs(counter)].alt : ""}
       {/if}
     </p>

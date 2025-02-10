@@ -1,7 +1,7 @@
 import Map from "./Map.svelte";
 import Photo from "./Photo.svelte";
-import PhotoViewer from "./Viewers/PhotoViewer.svelte";
-import PhotoMultiViewer from "./Viewers/PhotoMultiViewer.svelte";
+import PhotoViewer from "./viewers/PhotoViewer.svelte";
+import PhotoMultiViewer from "./viewers/PhotoMultiViewer.svelte";
 import { Store, type StoreI } from "@matb85/base-pack";
 import Navbar from "./nav/Navbar.svelte";
 
