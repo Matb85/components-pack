@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import { astroPack } from "./dist/integration.js";
+import { astroPack } from "./out/integration.js";
 
 // https://astro.build/config
 export default defineConfig({

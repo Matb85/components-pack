@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build:docs": "astro build",
+    "build:docs": "pnpm build && astro build",
     "build": "tsc --project ./tsconfig.build.json",
     "preview": "astro preview",
     "astro": "astro"
@@ -19,7 +19,7 @@
   "devDependencies": {
     "@astrojs/starlight": "^0.31.1",
     "astro": "^5.1.5",
-    "sharp": "^0.32.5",
+    "sharp": "^0.33.5",
     "typescript": "^5.7.3",
     "vite": "^6.1.0"
   }
