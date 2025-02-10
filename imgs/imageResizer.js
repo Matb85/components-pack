@@ -13,7 +13,7 @@ const images = [
 ];
 
 /** specify how to resize the images and how to name them */
-/** assume that each photo has a 3/2 aspect ratio - of course it is not a requirement, just a reference  */
+/** assume that each photo has a 3/2 aspect ratio - of course it is not a requirement, just a base-pack  */
 const specification = [
   { height: 20, prefix: "thumbnail_" }, // width: 30
   { height: 320, prefix: "hvga_" }, // width: 480

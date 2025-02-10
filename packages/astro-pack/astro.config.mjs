@@ -18,22 +18,31 @@ export default defineConfig({
 			enlarged: [1290, 1920]
 		}),
 		starlight({
-			title: '@Matb85/components-pack',
+			title: '@matb85/components-pack',
 			social: {
 				github: 'https://github.com/Matb85/components-pack',
 			},
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+					label: 'Getting Started',
+					autogenerate: { directory: 'start' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'base-pack',
+					autogenerate: { directory: 'base-pack' },
 				},
+				{
+					label: 'astro-pack',
+					autogenerate: { directory: 'astro-pack' },
+				},
+				{
+					label: 'svelte-pack',
+					autogenerate: { directory: 'svelte-pack' },
+				},
+				{
+					label: 'vue-pack',
+					autogenerate: { directory: 'vue-pack' },
+				}
 			],
 		}),
 	],
