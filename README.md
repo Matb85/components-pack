@@ -1,6 +1,6 @@
 # Components Pack
 
-### Components for Svelte 5 & Vue 3
+### Photos-related UI components for Svelte 5, Vue 3, Astro 5 and vanilla JS
 
 Useful for:
 - :framed_picture: lazy loading and viewing photos (inspired by [Medium](https://medium.com/))
@@ -10,7 +10,7 @@ Useful for:
 ## Features
 
 - :wheelchair: **Accessible** 
-- :package: **Svelte 5** & **Vue 3** components
+- :package: **Svelte 5**, **Vue 3** and **Astro 5** components
 - :page_facing_up: **Typescript** support
 - :books: **Storybook** for documentation
 - :art: styles in plain CSS
