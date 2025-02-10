@@ -13,7 +13,7 @@ Useful for:
 - :package: **Svelte 5**, **Vue 3** and **Astro 5** components
 - :page_facing_up: **Typescript** support
 - :books: **Storybook** for documentation
-- :art: styles in plain CSS
+- :art: **plain CSS** for styling
 
 ## Installation
 

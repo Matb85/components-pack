@@ -8,7 +8,7 @@ hero:
     file: ../../assets/houston.webp
   actions:
     - text: Read the docs
-      link: /start/getting-started/
+      link: /components-pack/start/getting-started/
       icon: right-arrow
     - text: Read the Starlight docs
       link: https://starlight.astro.build
@@ -17,14 +17,13 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
-import Photo from '../../../components/Photo.astro';
-import PhotoViewer from '../../../components/viewers/PhotoViewer.astro';
-import PhotoMultiViewer from '../../../components/viewers/PhotoMultiViewer.astro';
+import Photo from '~/Photo.astro';
+import PhotoViewer from '~/viewers/PhotoViewer.astro';
+import PhotoMultiViewer from '~/viewers/PhotoMultiViewer.astro';
 
 import "modular-slider/modular-slider.css";
 import "@matb85/base-pack/dist/index.css";
-import "@matb85/base-pack/dist/navbar.css";
-import "../../index.css";
+import "@/index.css";
 
 ## Next steps
 

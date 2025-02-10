@@ -1,0 +1,47 @@
+---
+title: Demo
+description: See @matb85/astro-pack in action.
+sidebar:
+  order: 2
+---
+
+import Photo from '~/Photo.astro';
+import PhotoViewer from '~/viewers/PhotoViewer.astro';
+import PhotoMultiViewer from '~/viewers/PhotoMultiViewer.astro';
+
+import "modular-slider/modular-slider.css";
+import "@matb85/base-pack/dist/index.css";
+import "@/index.css";
+
+export const prefix = '/components-pack/';
+
+export const mountains = prefix + '/thumbnail_mountains.jpg';
+export const gorge = prefix + '/thumbnail_gorge.jpg';
+export const bird = prefix + '/thumbnail_bird.jpg';
+export const sokolica = prefix + '/thumbnail_sokolica.jpg';
+
+<Photo src={mountains} sizes={[1290]} className="photo" group="mountains" alt="a portrait of a bird" />
+
+<Photo src={gorge} sizes={[480, 720]} className="photo" group="mountains" alt="Dunajec Gorge" />
+
+<div class="gallery">
+  <Photo src={bird} sizes={[480, 720]} multi className="photo" group="gallery-0" />
+  <Photo
+    src={mountains}
+    sizes={[480, 720]}
+    multi
+    className="photo"
+    group="gallery-1"
+    alt="Island" />
+  <Photo src={gorge} sizes={[480, 720]} multi className="photo" group="gallery-2" alt="gorge" />
+  <Photo
+    src={sokolica}
+    sizes={[480, 720]}
+    multi
+    className="photo"
+    group="gallery-3"
+    alt="sokolica" />
+</div>
+
+<PhotoMultiViewer/>
+<PhotoViewer/>

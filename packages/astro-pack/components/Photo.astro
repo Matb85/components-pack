@@ -25,7 +25,7 @@ const {
 } = Astro.props;
 const TagName = tagName || "div";
 
-const { genSrcset } = photo(src, GlobalConfig.formats as any, sizes);
+const { genSrcset } = photo(src, GlobalConfig.formats, sizes);
 ---
 
 <TagName class={"MP-photo " + className} role="button" aria-label={ariaLabel}>

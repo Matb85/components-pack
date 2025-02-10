@@ -1,13 +1,9 @@
 ---
 title: Introduction
-description: Learn how to get started with @matb85/base-pack.
+description: Learn how to get started with Components Pack.
 ---
 
 [Components Packs](https://github.com/Matb85/components-pack) is a set of packages that aim to make photo loading and viewing easy yet performant.
-
-Astro - plain .astro components targeting Astro v5
-Svelte - .svelte components for svelte 5, supports SvelteKit 2
-Vue - .vue components
 
 ## Project structure
 
@@ -22,7 +18,7 @@ If you use vanilla js or a framework that is not currently supported (e.g.) you 
 
 ## Supported browsers
 
-Tested manually on:
+Tested on:
 - Chrome 132
 - Safari 18.3
 - Firefox 133
@@ -30,8 +26,6 @@ Tested manually on:
 ## Changelog
 
 You can read the changelog [here](https://github.com/Matb85/components-pack/blob/master/CHANGELOG.md)
-
-
 
 ## Further reading
 
