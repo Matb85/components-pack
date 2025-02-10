@@ -5,6 +5,7 @@ import { astroPack } from "./out/integration.js";
 
 // https://astro.build/config
 export default defineConfig({
+	base: '/components-pack',
 	integrations: [
 		astroPack({
 			formats: {
