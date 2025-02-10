@@ -3,6 +3,7 @@ const fs = require("fs").promises;
 const CWD = process.cwd();
 const FIRST_FOLDER = CWD + "/packages/vue-pack/public/";
 const SECOND_FOLDER = CWD + "/packages/svelte-pack/public/";
+const THIRD_FOLDER = CWD + "/packages/astro-pack/public/";
 
 const images = [
   { path: "/bird.jpg", name: "bird.jpg" },
@@ -12,7 +13,7 @@ const images = [
 ];
 
 /** specify how to resize the images and how to name them */
-/** assume that each photo has a 3/2 aspect ratio - of course it is not a requiremet, just a reference  */
+/** assume that each photo has a 3/2 aspect ratio - of course it is not a requirement, just a reference  */
 const specification = [
   { height: 20, prefix: "thumbnail_" }, // width: 30
   { height: 320, prefix: "hvga_" }, // width: 480
@@ -41,8 +42,10 @@ for (const img of images) {
 Promise.all(allProcesses).then(() => {
   fs.readdir(FIRST_FOLDER).then(files => {
     for (const file of files) {
-      if (file[0] !== ".")
+      if (file[0] !== ".") {
         fs.copyFile(FIRST_FOLDER + file, SECOND_FOLDER + file).then(() => console.log("Successfully copied " + file));
+        fs.copyFile(FIRST_FOLDER + file, THIRD_FOLDER + file).then(() => console.log("Successfully copied " + file));
+      }
     }
   });
 });

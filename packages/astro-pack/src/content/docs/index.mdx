@@ -17,6 +17,14 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import Photo from '../../../components/Photo.astro';
+import PhotoViewer from '../../../components/Viewers/PhotoViewer.astro';
+import PhotoMultiViewer from '../../../components/Viewers/PhotoMultiViewer.astro';
+
+import "modular-slider/modular-slider.css";
+import "@matb85/base-pack/dist/index.css";
+import "@matb85/base-pack/dist/navbar.css";
+import "../../index.css";
 
 ## Next steps
 
@@ -34,3 +42,29 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 		Learn more in [the Starlight Docs](https://starlight.astro.build/).
 	</Card>
 </CardGrid>
+
+<Photo src="/thumbnail_mountains.jpg" sizes={[1290]} className="photo" group="mountains" alt="a portrait of a bird" />
+
+<Photo src="/thumbnail_gorge.jpg" sizes={[480, 720]} className="photo" group="mountains" alt="Dunajec Gorge" />
+
+<div class="gallery">
+  <Photo src="/thumbnail_bird.jpg" sizes={[480, 720]} multi className="photo" group="gallery-0" />
+  <Photo
+    src="/thumbnail_mountains.jpg"
+    sizes={[480, 720]}
+    multi
+    className="photo"
+    group="gallery-1"
+    alt="Island" />
+  <Photo src="/thumbnail_gorge.jpg" sizes={[480, 720]} multi className="photo" group="gallery-2" alt="gorge" />
+  <Photo
+    src="/thumbnail_sokolica.jpg"
+    sizes={[480, 720]}
+    multi
+    className="photo"
+    group="gallery-3"
+    alt="sokolica" />
+</div>
+
+<PhotoMultiViewer/>
+<PhotoViewer/>

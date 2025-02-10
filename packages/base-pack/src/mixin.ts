@@ -88,10 +88,10 @@ export default class {
       const p = photos[i] as ExtendedPhoto;
       p.srcset = photo(
         p.srcset as string,
-        this.GlobalConfig.formats as BaseSizes,
+        this.GlobalConfig.formats,
         this.GlobalConfig.enlarged
       ).genSrcset;
-      if (typeof img != "undefined" && p.src == img.dataset.minsrc) index = i;
+      if (typeof img !== "undefined" && p.src == img.dataset.minsrc) index = i;
     }
 
     return { photos, index };

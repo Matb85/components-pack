@@ -23,6 +23,9 @@ importers:
       '@matb85/base-pack':
         specifier: workspace:^4.0.0
         version: link:../base-pack
+      modular-slider:
+        specifier: ^1.0.3
+        version: 1.0.3
     devDependencies:
       '@astrojs/starlight':
         specifier: ^0.31.1
