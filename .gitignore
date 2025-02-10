@@ -1,8 +1,8 @@
 .DS_Store
-public
+packages/svelte-pack/public/**/*.jpg
+packages/vue-pack/public/**/*.jpg
 node_modules
 dist
-docs
 .svelte-kit
 
 # local env files
