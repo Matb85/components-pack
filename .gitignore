@@ -9,4 +9,3 @@ dist
 # local env files
 .env.local
 .env.*.local
-
