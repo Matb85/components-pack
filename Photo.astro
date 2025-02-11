@@ -1,0 +1,42 @@
+---
+import { photo } from "@matb85/base-pack";
+import { GlobalConfig } from "virtual:@matb85/astro-pack";
+
+export interface Props {
+  className?: string;
+  src: string;
+  sizes: number[];
+  alt: string;
+  tagName?: "div" | "li";
+  group?: string;
+  multi?: boolean;
+  ariaLabel?: string;
+}
+
+const {
+  className,
+  src = "",
+  sizes,
+  alt,
+  tagName,
+  group,
+  multi = false,
+  ariaLabel = "Zobacz zdjęcie",
+} = Astro.props;
+const TagName = tagName || "div";
+
+const { genSrcset } = photo(src, GlobalConfig.formats, sizes);
+---
+
+<TagName class={"MP-photo " + className} role="button" aria-label={ariaLabel}>
+  <img
+    src={src}
+    data-srcset={genSrcset}
+    alt={alt}
+    data-minsrc={src}
+    data-group={group}
+    data-multi={multi}
+    data-observerhandler="photo"
+  />
+  <slot />
+</TagName>
