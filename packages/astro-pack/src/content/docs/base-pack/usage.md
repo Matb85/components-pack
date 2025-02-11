@@ -107,9 +107,13 @@ Utility functions for working with maps.
 ```
 
 ```ts
-import { mapUtil, type MapCallback } from "@matb85/base-pack";
+import { mapUtil, type MapCallbackT } from "@matb85/base-pack";
 
 const map = document.getElementById("your-map") as HTMLElement;
+
+const callback: MapCallbackT = (map: HTMLElement) => {
+  // The Goole Maps script has been loaded
+}
 
 mutations.addHandler(store, {
   name: "your-map-handler",

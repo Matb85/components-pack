@@ -36,16 +36,16 @@ body,
 
 .gallery {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   padding: 1rem;
-  flex-wrap: wrap;
 }
 
 .gallery .photo {
-  width: 30%;
-  flex: none;
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;
 }
 
 .map {

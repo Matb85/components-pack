@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { type MapCallback, mapUtil } from "@matb85/base-pack";
+import { type MapCallbackT, mapUtil } from "@matb85/base-pack";
 import { onMounted, useTemplateRef } from "vue";
 import { useVuePackStore } from "../piniaStore";
 
@@ -13,7 +13,7 @@ const root = useTemplateRef<HTMLElement>("root");
 
 const props = defineProps<{
   apikey: string;
-  callback: MapCallback;
+  callback: MapCallbackT;
 }>();
 
 onMounted(() => {

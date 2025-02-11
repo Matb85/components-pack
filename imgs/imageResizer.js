@@ -5,11 +5,18 @@ const FIRST_FOLDER = CWD + "/packages/vue-pack/public/";
 const SECOND_FOLDER = CWD + "/packages/svelte-pack/public/";
 const THIRD_FOLDER = CWD + "/packages/astro-pack/public/";
 
+function listPhotos(season) {
+  return Array.from(Array(4).keys()).map((_, i) => ({
+    path: `/${season}/${season}${i + 1}.jpg`,
+    name: `${season}${i + 1}.jpg`,
+  }));
+}
+
 const images = [
-  { path: "/bird.jpg", name: "bird.jpg" },
-  { path: "/mountains.jpg", name: "mountains.jpg" },
-  { path: "/dunajecgorge.jpg", name: "gorge.jpg" },
-  { path: "/sokolica.jpg", name: "sokolica.jpg" },
+  ...listPhotos("spring"),
+  ...listPhotos("summer"),
+  ...listPhotos("autumn"),
+  ...listPhotos("winter"),
 ];
 
 /** specify how to resize the images and how to name them */

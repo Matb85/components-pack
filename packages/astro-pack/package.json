@@ -18,9 +18,13 @@
   },
   "devDependencies": {
     "@astrojs/starlight": "^0.31.1",
+    "@astrojs/svelte": "^7.0.4",
+    "@astrojs/vue": "^5.0.6",
     "astro": "^5.1.5",
     "sharp": "^0.33.5",
     "typescript": "^5.7.3",
-    "vite": "^6.1.0"
+    "svelte": "^5.19.9",
+    "vite": "^6.1.0",
+    "vue": "^3.5.13"
   }
 }

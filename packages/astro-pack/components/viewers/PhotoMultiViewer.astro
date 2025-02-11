@@ -92,7 +92,7 @@ const svgPath =
         counterEl.innerText = `${Math.abs(val) + 1}/${result.photos.length} ${curPhoto && curPhoto.alt ? " | " + curPhoto.alt : ""}`;
       },
     });
-    console.log(result);
+
     setTimeout(() => slider?.goTo(result.index), 0);
   });
 

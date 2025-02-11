@@ -87,3 +87,31 @@ import PhotoMultiViewer from '@matb85/astro-pack/viewers/PhotoMultiViewer.astro'
   
 <PhotoMultiViewer/>
 ```
+
+
+### 5. Map
+
+Use the PhotoMultiViewer component to display full screen image sliders:
+
+```astro
+// YourMapComponent.astro
+
+<section id="map" class="your-map-class" data-observerhandler="map"></section>
+
+<script lang="ts">
+import { mapUtil, type MapCallbackT } from "@matb85/base-pack";
+
+const map = document.getElementById("map") as HTMLElement;
+
+const callback: MapCallbackT = (map: HTMLElement) => {
+  // The Goole Maps script has been loaded
+}
+
+mutations.addHandler(store, {
+  name: "map",
+  handler: () => mapUtil(apikey, callback, map),
+});
+
+store.observer.observe(map);
+</script>
+  ```

@@ -4,7 +4,6 @@
 
 Useful for:
 - :framed_picture: lazy loading and viewing photos (inspired by [Medium](https://medium.com/))
-- :compass: creating navigation bars 
 - :world_map: loading Google Maps 
 
 ## Features
