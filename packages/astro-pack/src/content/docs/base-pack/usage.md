@@ -27,6 +27,8 @@ const sizes = [480, 720, 1290]
 const src = "min_your-photo.jpg";
 
 const { genSrcset, genSizes } = photo(src, config.formats, sizes);
+// genSrcset: "min_your-photo.jpg 480w, hvga_your-photo.jpg 720w, hd_your-photo.jpg 1290w"
+// genSizes: "(max-width: 480px) 480px, (max-width: 720px) 720px, 1290px"
 ```
 
 ### Store
