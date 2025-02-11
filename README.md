@@ -16,32 +16,24 @@ Useful for:
 
 ## Installation
 
-For Svelte 5:
-
-```sh
-npm install @matb85/svelte-vack # or your package manager of choice
-```
-
-For Vue 3:
-
-```sh
-npm install @matb85/vue-vack  # or your package manager of choice
-```
+- [Svelte 5](https://matb85.github.io/components-pack/svelte-pack/introduction/)
+- [Vue 3](https://matb85.github.io/components-pack/vue-pack/introduction/)
+- [Astro 5](https://matb85.github.io/components-pack/astro-pack/introduction/)
 
 ## Documentation
 
-Work in progress, a Storybook will be available, soon.
+You can read the [documentation here](https://matb85.github.io/components-pack)
 
 ## Used By
 
 Hotel websites:
 - [Poznaj Góry](https://poznajgory.pl) - Svelte
-- [Zygmuntówka](https://zygmuntowkaknd.pl) - Svelte
-- [Echo Pienin](https://echopienin.pl) - Vue
 - [Domek u Wiktorka](https://domekuwiktorka.pl) - Svelte
 - [Pieniński Potok](https://pieninskipotok.pl) - Svelte
 - [Hamerscy](https://hamerscy.pl) - Svelte
-- [U Hryców](https://uhrycow.pl) - Svelte
+- [Zygmuntówka](https://zygmuntowkaknd.pl) - Astro
+- [U Hryców](https://uhrycow.pl) - Astro
+- [Echo Pienin](https://echopienin.pl) - Vue
 
 Business portfolios:
 - [FizjoPieniny](https://fizjopieniny.pl) - Vue
