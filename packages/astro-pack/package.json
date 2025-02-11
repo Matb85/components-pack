@@ -1,7 +1,7 @@
 {
   "name": "@matb85/astro-pack",
   "description": "UI components for Astro 5",
-  "version": "4.1.4",
+  "version": "4.1.6",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
   "private": false,
@@ -30,7 +30,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@matb85/base-pack": "workspace:^4.1.4",
+    "@matb85/base-pack": "workspace:^4.1.6",
     "modular-slider": "^1.0.3"
   },
   "devDependencies": {
