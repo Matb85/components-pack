@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 // https://vitejs.dev/config/
-const name = "sveltepack";
+const name = "svelte-pack";
 const entry = process.cwd() + "/components/index.ts";
 const external = ["@matb85/base-pack"];
 const dedupe = [...external, "svelte"];

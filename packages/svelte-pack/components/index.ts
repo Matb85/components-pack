@@ -2,12 +2,12 @@ import { Store, type StoreI } from "@matb85/base-pack";
 
 declare global {
   interface Window {
-    sveltepack: StoreI;
+    sveltePack: StoreI;
   }
 }
 
 function init() {
-  window.sveltepack = Store();
+  window.sveltePack = Store();
 }
 
 export { init };

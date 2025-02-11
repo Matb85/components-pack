@@ -67,7 +67,7 @@ onMount(() => {
     const { detail } = e as CustomEvent;
     window.addEventListener("keyup", onKeyUp);
 
-    const result = base.setupImgs(window.sveltepack, detail.img);
+    const result = base.setupImgs(window.sveltePack, detail.img);
 
     photos = result.photos;
     await base.mounted(detail);
@@ -78,10 +78,10 @@ onMount(() => {
     });
 
     const chosen = slider.container.children[result.index];
-    window.sveltepack.handlers.photo(chosen as HTMLImageElement);
+    window.sveltePack.handlers.photo(chosen as HTMLImageElement);
 
    const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
-    els.forEach(img => window.sveltepack.observer.observe(img));
+    els.forEach(img => window.sveltePack.observer.observe(img));
 
     image.addEventListener("animationend", () => (image.parentElement!.style.display = "none"), { once: true });
     counter = slider.counter;

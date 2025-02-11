@@ -81,9 +81,9 @@
   function dispatch(observe = true) {
     if (!img) return;
     if (prevent.includes("addToList") === false) {
-      mutations.addPhoto(window.sveltepack, { src, srcset: src, group: group!, alt: alt! });
+      mutations.addPhoto(window.sveltePack, { src, srcset: src, group: group!, alt: alt! });
     }
-    if (observe) window.sveltepack.observer.observe(img);
+    if (observe) window.sveltePack.observer.observe(img);
   }
 
   onMount(dispatch);
