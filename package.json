@@ -8,7 +8,8 @@
     "imgs": "node ./imgs/imageResizer.js",
     "release": "lerna version --conventional-commits --create-release github",
     "pub": "pnpm run build && pnpm -r --filter \"@matb85/*\" publish",
-    "build": "pnpm run -r build"
+    "build": "pnpm run -r build",
+    "version": "pnpm install"
   },
   "devDependencies": {
     "@lerna-lite/cli": "^3.12.0",
