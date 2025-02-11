@@ -3,6 +3,7 @@
   "name": "@matb85/base-pack",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
+  "private": false,
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "type": "module",

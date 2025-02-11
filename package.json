@@ -1,8 +1,8 @@
 {
   "name": "components-pack",
-  "private": true,
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
+  "private": false,
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
     "release": "lerna version --conventional-commits --create-release github",
