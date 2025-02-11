@@ -21,7 +21,7 @@ Import styles and PhotoViewer once, preferably in the layout file:
 // +layout.svelte
 <script lang="ts">
 import "@matb85/base-pack/dist/index.css"; // or your custom styles
-import PhotoViewer from '@matb85/svelte-pack/viewers/PhotoViewer.svelte';
+import PhotoViewer from '@matb85/svelte-pack/PhotoViewer.svelte';
 </script>
 
 <PhotoViewer/>
@@ -48,7 +48,7 @@ Use the PhotoMultiViewer component to display full screen image sliders:
 
 <script lang="ts">
 import "modular-slider/modular-slider.css"; // PhotoMultiViewer needs modular-slider styles
-import PhotoMultiViewer from '@matb85/svelte-pack/viewers/PhotoMultiViewer.svelte';
+import PhotoMultiViewer from '@matb85/svelte-pack/PhotoMultiViewer.svelte';
 </script>
   
 <PhotoMultiViewer/>

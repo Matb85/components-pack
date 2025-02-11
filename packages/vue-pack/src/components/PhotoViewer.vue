@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { onMounted, useTemplateRef } from "vue";
 import { mixin } from "@matb85/base-pack";
-import { useVuePackStore } from "../../piniaStore";
+import { useVuePackStore } from "../piniaStore";
 
 const store = useVuePackStore();
 const GlobalConfig = store.vuepacksizes!;

@@ -25,7 +25,7 @@ Import styles and PhotoViewer once, preferably in the layout file:
 
 <script setup lang="ts">
   import "@matb85/base-pack/dist/index.css"; // or your custom styles
-  import PhotoViewer from '@matb85/vue-pack/viewers/PhotoViewer.vue';
+  import PhotoViewer from '@matb85/vue-pack/PhotoViewer.vue';
 </script>
 ```
 
@@ -50,7 +50,7 @@ Use the PhotoMultiViewer component to display full screen image sliders:
 
 <script setup lang="ts">
 import "modular-slider/modular-slider.css"; // PhotoMultiViewer needs modular-slider styles
-import PhotoMultiViewer from '@matb85/vue-pack/viewers/PhotoMultiViewer.vue';
+import PhotoMultiViewer from '@matb85/vue-pack/PhotoMultiViewer.vue';
 </script>
   
 <PhotoMultiViewer/>

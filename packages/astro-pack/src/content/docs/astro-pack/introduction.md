@@ -54,7 +54,7 @@ Import styles and PhotoViewer once, preferably in the layout file:
 // layout.astro
 ---
 import "@matb85/base-pack/dist/index.css"; // or your custom styles
-import PhotoViewer from '@matb85/astro-pack/viewers/PhotoViewer.astro';
+import PhotoViewer from '@matb85/astro-pack/PhotoViewer.astro';
 ---
 
 <PhotoViewer/>
@@ -82,7 +82,7 @@ Use the PhotoMultiViewer component to display full screen image sliders:
 
 ---
 import "modular-slider/modular-slider.css"; // PhotoMultiViewer needs modular-slider styles
-import PhotoMultiViewer from '@matb85/astro-pack/viewers/PhotoMultiViewer.astro';
+import PhotoMultiViewer from '@matb85/astro-pack/PhotoMultiViewer.astro';
 ---
   
 <PhotoMultiViewer/>

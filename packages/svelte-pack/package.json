@@ -9,14 +9,14 @@
   "svelte": "./dist/index.js",
   "exports": {
     ".": {
-      "svelte": "./dist/index.js",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
     "./Map.svelte": "./dist/Map.svelte",
     "./Photo.svelte": "./dist/Photo.svelte",
-    "./viewers/PhotoViewer.svelte": "./dist/viewers/PhotoViewer.svelte",
-    "./viewers/PhotoMultiViewer.svelte": "./dist/viewers/PhotoMultiViewer.svelte"
+    "./PhotoViewer.svelte": "./dist/PhotoViewer.svelte",
+    "./PhotoMultiViewer.svelte": "./dist/PhotoMultiViewer.svelte"
   },
   "scripts": {
     "build": "vite build && svelte-package -i ./components",

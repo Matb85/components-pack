@@ -39,7 +39,7 @@
 import { mixin, type StorePhotoI } from "@matb85/base-pack";
 import { onMounted, ref, useTemplateRef } from "vue";
 import { lazyLoading, NoLoop, swipeHandler } from "modular-slider";
-import { useVuePackStore } from "../../piniaStore";
+import { useVuePackStore } from "../piniaStore";
 
 const store = useVuePackStore();
 const GlobalConfig = store.vuepacksizes!;
