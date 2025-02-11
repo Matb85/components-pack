@@ -1,18 +1,26 @@
 {
   "name": "components-pack",
+  "description": "UI components for Svelte 5, Vue 3, Astro 5 and vanilla JS",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
   "private": false,
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
     "release": "lerna version --conventional-commits --create-release github",
-    "pub": "pnpm run build && pnpm -r --filter \"@mathb85/*\" publish",
+    "pub": "pnpm run build && pnpm -r --filter \"@matb85/*\" publish",
     "build": "pnpm run -r build"
   },
   "devDependencies": {
     "@lerna-lite/cli": "^3.12.0",
     "@lerna-lite/version": "^3.12.0",
     "sharp": "^0.33.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Matb85/components-pack"
+  },
+  "bugs": {
+    "url": "https://github.com/Matb85/components-pack/issues"
   },
   "packageManager": "pnpm@10.2.1+sha512.398035c7bd696d0ba0b10a688ed558285329d27ea994804a52bad9167d8e3a72bcb993f9699585d3ca25779ac64949ef422757a6c31102c12ab932e5cbe5cc92"
 }

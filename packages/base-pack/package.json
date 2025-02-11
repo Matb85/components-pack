@@ -1,5 +1,6 @@
 {
   "version": "4.1.2",
+  "description": "UI component utilities for Components Pack and vanilla JS",
   "name": "@matb85/base-pack",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
@@ -28,6 +29,13 @@
   },
   "peerDependencies": {
     "modular-slider": "^1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Matb85/components-pack"
+  },
+  "bugs": {
+    "url": "https://github.com/Matb85/components-pack/issues"
   },
   "files": [
     "dist/*"
