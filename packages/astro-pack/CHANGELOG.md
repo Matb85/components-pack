@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.3](https://github.com/Matb85/components-pack/compare/v4.1.2...v4.1.3) (2025-02-11)
+
+### Bug Fixes
+
+* PhotoViewers ([d1f4239](https://github.com/Matb85/components-pack/commit/d1f4239f4f7822debd05fc3c4a067509dce01842))
+
 ## [4.1.2](https://github.com/Matb85/components-pack/compare/v4.1.1...v4.1.2) (2025-02-11)
 
 ### Bug Fixes
