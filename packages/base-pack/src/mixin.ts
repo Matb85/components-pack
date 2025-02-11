@@ -1,4 +1,4 @@
-import type { StoreI, StorePhotoI } from "./store";
+import type { BasePackStoreI, StorePhotoI } from "./store";
 import photo, { type BaseSizes, Sizes } from "./photo";
 
 export interface GlobalConfigI {
@@ -32,68 +32,56 @@ function getDimensions(aspectR: number): Position {
 
 let tempResizeListener: () => void;
 
-export default class {
-  private con: HTMLElement; // the container of the photo viewer
-  private img: HTMLImageElement; // the main image that is enlarger
-  private config: GlobalConfigI;
-
-  constructor(img: HTMLImageElement, con: HTMLElement, config: GlobalConfigI) {
-    this.img = img;
-    this.con = con;
-    this.config = config;
-  }
-
-  mounted({ img, rect }: EnlargeDataEvent): Promise<void> {
+export const mixin = {
+  mounted({ img, rect }: EnlargeDataEvent, con: HTMLElement, ref: HTMLImageElement, config: GlobalConfigI): Promise<void> {
     return new Promise(resolve => {
-      this.img.style.cssText = `top:${rect.y}px;left:${rect.x}px;width:${img.offsetWidth}px;height:${img.offsetHeight}px;`;
+      ref.style.cssText = `top:${rect.y}px;left:${rect.x}px;width:${img.offsetWidth}px;height:${img.offsetHeight}px;`;
       const onLoadCallback = () => {
-        this.con.classList.add("MP-viewer-open");
+        con.classList.add("MP-viewer-open");
 
         tempResizeListener = () => {
           const { w, h } = getDimensions(img.naturalWidth / img.naturalHeight);
-          this.img.style.setProperty("--enlarged-photo-w", w);
-          this.img.style.setProperty("--enlarged-photo-h", h);
+          ref.style.setProperty("--enlarged-photo-w", w);
+          ref.style.setProperty("--enlarged-photo-h", h);
         };
         tempResizeListener();
         window.addEventListener("resize", tempResizeListener);
-        this.img.srcset = photo(
+        ref.srcset = photo(
           img.dataset.minsrc as string,
-          this.config.formats as BaseSizes,
-          this.config.enlarged
+          config.formats as BaseSizes,
+          config.enlarged
         ).genSrcset;
         resolve();
       };
-      this.img.addEventListener("load", onLoadCallback, { once: true });
-      this.img.srcset = img.dataset.srcset as string;
+      ref.addEventListener("load", onLoadCallback, { once: true });
+      ref.srcset = img.dataset.srcset as string;
     });
-  }
-
-  close(): Promise<void> {
+  },
+  close(con: HTMLElement, ref: HTMLImageElement): Promise<void> {
     return new Promise(resolve => {
       setTimeout(() => {
-        this.con.classList.remove("MP-viewer-close", "MP-viewer-open");
-        this.img.removeAttribute("style");
+        con.classList.remove("MP-viewer-close", "MP-viewer-open");
+        ref.removeAttribute("style");
         window.removeEventListener("resize", tempResizeListener);
         resolve();
       }, VIEWER_TRANSITION_SPEED);
-      this.con.classList.add("MP-viewer-close");
+      con.classList.add("MP-viewer-close");
     });
-  }
-
+  },
   // utility for photoMultiViewers
-  setupImgs(state: StoreI, img: HTMLImageElement) {
+  setupPhotos(state: BasePackStoreI, img: HTMLImageElement, config: GlobalConfigI): { photos: ExtendedPhoto[]; index: number } {
     const photos = state.photolist[img.dataset.group?.split("-")[0] || "rest"];
     let index = 0;
     for (let i = 0; i < photos.length; i++) {
       const p = photos[i] as ExtendedPhoto;
       p.srcset = photo(
         p.srcset as string,
-        this.config.formats,
-        this.config.enlarged
+        config.formats,
+        config.enlarged
       ).genSrcset;
       if (typeof img !== "undefined" && p.src == img.dataset.minsrc) index = i;
     }
 
     return { photos, index };
   }
-}
+};

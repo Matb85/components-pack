@@ -9,7 +9,6 @@ declare global {
   }
 }
 
-
 export default function (key: string, callback: MapCallbackT, map: HTMLElement) {
   if (typeof google != "undefined" && typeof google.maps != "undefined") return;
   /** Create the script tag, set the appropriate attributes */

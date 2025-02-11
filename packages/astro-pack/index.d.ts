@@ -1,4 +1,4 @@
-import type { GlobalConfigI, StoreI } from "@matb85/base-pack";
+import type { GlobalConfigI, BasePackStoreI } from "@matb85/base-pack";
 
 declare module 'virtual:@matb85/astro-pack' {
   export const GlobalConfig: GlobalConfigI;
@@ -6,6 +6,6 @@ declare module 'virtual:@matb85/astro-pack' {
 
 declare global {
   interface Window {
-    astroPack: StoreI;
+    astroPack: BasePackStoreI;
   }
 }

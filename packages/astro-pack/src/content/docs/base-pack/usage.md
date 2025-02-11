@@ -38,19 +38,19 @@ an object with an IntersectionObserver keeps a record of lazy loaded images and 
 By default, store a one handler called "photo" that is used to lazy load photos. You can add your own handlers to the store using [mutations](#mutations).
 
 ```ts
-import { Store, type StoreI } from "@matb85/base-pack";
+import { createStore, type BasePackStoreI } from "@matb85/base-pack";
 
-const store: StoreI = Store();
+const store: BasePackStoreI = createStore();
 
 store.observer.observe(document.getElementById("your-photo")!);
 
 console.log(store.photolist, store.handlers);
 ```
 
-Store implements StoreI interface which is a set of methods that can be used to manage photos:
+Store implements BasePackStoreI interface which is a set of methods that can be used to manage photos:
 
 ```ts
-interface StoreI {
+interface BasePackStoreI {
   observer: IntersectionObserver;
   readonly handlers: Record<string, Handler>;
   readonly photolist: Record<string, StorePhotoI[]>;
@@ -90,9 +90,9 @@ Mutations contains a set of functions that can be used to modify the store:
 
 ```ts
 interface MutationsI {
-  addHandler(state: StoreI, { name, handler }: { name: string; handler: Handler });
-  removeHandler(state: StoreI, name: string);
-  addPhoto(state: StoreI, payload: StorePhotoI);
+  addHandler(state: BasePackStoreI, { name, handler }: { name: string; handler: Handler });
+  removeHandler(state: BasePackStoreI, name: string);
+  addPhoto(state: BasePackStoreI, payload: StorePhotoI);
 }
 ```
 
@@ -133,25 +133,21 @@ Parameters:
 
 ### Mixin
 
-Mixin is a class use by both PhotoViewer and PhotoMultiViewer to manage photos.
+Mixin is an object used by both PhotoViewer and PhotoMultiViewer to manage photos.
 
 ```ts
 import { mixin } from "@matb85/base-pack";
 
 const img = document.getElementById("MP-viewer-viewed-photo") as HTMLImageElement;
-
-const base = new mixin(img, img.parentElement!, GlobalConfig);
 ```
 
 Mixin contains methods for showing and hiding photos, as well as methods for preparing images before viewing.
 
 ```ts
 interface MixinI {
-  new (img: HTMLImageElement, con: HTMLElement, config: GlobalConfigI): MixinI
-  
-  mounted({ img, rect }: EnlargeDataEvent): Promise<void>;
-  close(): Promise<void>
-  setupImgs(state: StoreI, img: HTMLImageElement)
+  mounted({ img, rect }: EnlargeDataEvent, con: HTMLElement, ref: HTMLImageElement, config: GlobalConfigI): Promise<void>;
+  close(con: HTMLElement, ref: HTMLImageElement): Promise<void>
+  setupImgs(state: BasePackStoreI, img: HTMLImageElement, config: GlobalConfigI)
 }
 ```
 

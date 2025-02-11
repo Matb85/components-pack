@@ -7,14 +7,14 @@ export interface StorePhotoI {
   alt: string;
 }
 
-export interface StoreI {
+export interface BasePackStoreI {
   callback(entries: IntersectionObserverEntry[], observer: IntersectionObserver): void;
   observer: IntersectionObserver;
   handlers: Record<string, Handler>;
   photolist: Record<string, StorePhotoI[]>;
 }
 
-export function Store(): StoreI {
+export function createStore(): BasePackStoreI {
   /** handler for different needs */
   const handlers: Record<string, Handler> = {
     photo(img: HTMLImageElement) {
@@ -55,13 +55,13 @@ export function Store(): StoreI {
 }
 
 export const mutations = {
-  addHandler(state: StoreI, { name, handler }: { name: string; handler: Handler }) {
+  addHandler(state: BasePackStoreI, { name, handler }: { name: string; handler: Handler }) {
     state.handlers[name] = handler;
   },
-  removeHandler(state: StoreI, name: string) {
+  removeHandler(state: BasePackStoreI, name: string) {
     delete state.handlers[name];
   },
-  addPhoto(state: StoreI, payload: StorePhotoI) {
+  addPhoto(state: BasePackStoreI, payload: StorePhotoI) {
     const [group, id]: [string, number?] = (payload.group?.split("-") as [string, number?]) || ["rest", undefined];
 
     if (!state.photolist[group]) state.photolist[group] = [];

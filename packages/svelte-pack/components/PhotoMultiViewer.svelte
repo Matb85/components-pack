@@ -1,6 +1,6 @@
-<section title="Podgląd wielu zdjęć" bind:this={el} class="MP-multi-viewer MP-viewer MS-wrapper">
+<section title="Podgląd wielu zdjęć" bind:this={con} class="MP-multi-viewer MP-viewer MS-wrapper">
   <div aria-hidden="true" class="first-slide">
-    <img bind:this={image} class="viewed-photo" alt="main" />
+    <img bind:this={ref} class="viewed-photo" alt="main" />
   </div>
   <div class="photo-slider MS-con" id="photo-slider">
     {#each photos as img}
@@ -41,36 +41,25 @@ import { onMount, getContext } from "svelte";
 /** setup sizes & srcset */
 const GlobalConfig: GlobalConfigI = getContext("svelte-pack-sizes");
 
-let image = $state<HTMLImageElement>()!;
-let el = $state<HTMLElement>()!
-;
+let con = $state<HTMLElement>()!;
+let ref = $state<HTMLImageElement>()!;
+
 const svgPath =
   "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z";
 
 let photos = $state<any[]>([]);
-
 let slider: NoLoop | undefined = $state(undefined);
 let counter = $state(0);
 
-function onKeyUp(e: KeyboardEvent) {
-  if (!slider) return;
-  if (e.key === "Escape") closeViewer();
-  else if (e.key === "ArrowLeft") slider!.slidePrev();
-  else if (e.key === "ArrowRight") slider!.slideNext();
-}
-
-let base: mixin;
-
 onMount(() => {
-  base = new mixin(image, el, GlobalConfig);
   window.addEventListener("enlargeManyPhotos", async (e) => {
     const { detail } = e as CustomEvent;
     window.addEventListener("keyup", onKeyUp);
 
-    const result = base.setupImgs(window.sveltePack, detail.img);
-
+    const result = mixin.setupPhotos(window.sveltePack, detail.img, GlobalConfig);
     photos = result.photos;
-    await base.mounted(detail);
+    await mixin.mounted(detail, con, ref, GlobalConfig);
+
     slider = new NoLoop({
       container: "photo-slider",
       transitionSpeed: 500,
@@ -83,7 +72,7 @@ onMount(() => {
    const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
     els.forEach(img => window.sveltePack.observer.observe(img));
 
-    image.addEventListener("animationend", () => (image.parentElement!.style.display = "none"), { once: true });
+    ref.addEventListener("animationend", () => (ref.parentElement!.style.display = "none"), { once: true });
     counter = slider.counter;
     Object.defineProperty(slider, "counter", {
       get: () => counter,
@@ -93,10 +82,17 @@ onMount(() => {
   });
 });
 
+function onKeyUp(e: KeyboardEvent) {
+  if (!slider) return;
+  if (e.key === "Escape") closeViewer();
+  else if (e.key === "ArrowLeft") slider!.slidePrev();
+  else if (e.key === "ArrowRight") slider!.slideNext();
+}
+
 async function closeViewer() {
-  await base.close();
+  await mixin.close(con, ref);
   photos = [];
-  image.parentElement!.style.display = "block";
+  ref.parentElement!.style.display = "block";
   slider?.goTo(0);
   slider?.destroy();
   slider = undefined;

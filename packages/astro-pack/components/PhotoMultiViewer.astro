@@ -34,8 +34,8 @@ const svgPath =
   import { NoLoop, swipeHandler } from "modular-slider";
   import { GlobalConfig } from "virtual:@matb85/astro-pack";
 
-  const image = document.getElementById("MP-multi-viewer-viewed-photo") as HTMLImageElement;
-  const el = document.getElementById("MP-multi-viewer") as HTMLElement;
+  const ref = document.getElementById("MP-multi-viewer-viewed-photo") as HTMLImageElement;
+  const con = document.getElementById("MP-multi-viewer") as HTMLElement;
   const photoSlider = document.getElementById("photo-slider") as HTMLElement;
   const counterEl = document.getElementById("multi-viewer-counter") as HTMLElement;
 
@@ -45,20 +45,12 @@ const svgPath =
 
   let slider: NoLoop | undefined = undefined;
   let counter = 0;
-  const base = new mixin(image, el, GlobalConfig);
-
-  function onKeyUp(e: KeyboardEvent) {
-    if (!slider) return;
-    if (e.key === "Escape") closeViewer();
-    else if (e.key === "ArrowLeft") slider!.slidePrev();
-    else if (e.key === "ArrowRight") slider!.slideNext();
-  }
 
   window.addEventListener("enlargeManyPhotos", async (e) => {
     const { detail } = e as CustomEvent;
     window.addEventListener("keyup", onKeyUp);
 
-    const result = base.setupImgs(window.astroPack, detail.img);
+    const result = mixin.setupPhotos(window.astroPack, detail.img, GlobalConfig);
 
     photoSlider.innerHTML = result.photos.map((img) => `
     <img
@@ -69,7 +61,7 @@ const svgPath =
         data-observerhandler="photo" />
     `).join("");
 
-    await base.mounted(detail);
+    await mixin.mounted(detail, con, ref, GlobalConfig);
     slider = new NoLoop({
       container: "photo-slider",
       transitionSpeed: 500,
@@ -82,7 +74,7 @@ const svgPath =
     const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
     els.forEach(img => window.astroPack.observer.observe(img));
 
-    image.addEventListener("animationend", () => (image.parentElement!.style.display = "none"), { once: true });
+    ref.addEventListener("animationend", () => (ref.parentElement!.style.display = "none"), { once: true });
     counter = slider.counter;
     Object.defineProperty(slider, "counter", {
       get: () => counter,
@@ -100,10 +92,16 @@ const svgPath =
     }, 0);
   });
 
+  function onKeyUp(e: KeyboardEvent) {
+    if (!slider) return;
+    if (e.key === "Escape") closeViewer();
+    else if (e.key === "ArrowLeft") slider!.slidePrev();
+    else if (e.key === "ArrowRight") slider!.slideNext();
+  }
 
   async function closeViewer() {
-    await base.close();
-    image.parentElement!.style.display = "block";
+    await mixin.close(con, ref);
+    ref.parentElement!.style.display = "block";
     slider?.goTo(0);
     slider?.destroy();
     photoSlider.innerHTML = "";

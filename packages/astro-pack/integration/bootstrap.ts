@@ -1,6 +1,6 @@
-import { mutations, Store } from "@matb85/base-pack";
+import { mutations, createStore } from "@matb85/base-pack";
 
-window.astroPack = Store();
+window.astroPack = createStore();
 console.log("astroPack ready", window.astroPack);
 
 function addPhotos(

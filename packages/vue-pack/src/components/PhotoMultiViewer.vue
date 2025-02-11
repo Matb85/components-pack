@@ -1,5 +1,5 @@
 <template>
-  <section ref="root" title="Podgląd wielu zdjęć" class="MP-multi-viewer MP-viewer MS-wrapper">
+  <section ref="con" title="Podgląd wielu zdjęć" class="MP-multi-viewer MP-viewer MS-wrapper">
     <div aria-hidden="true" class="first-slide">
       <img ref="photo" class="viewed-photo" />
     </div>
@@ -43,26 +43,26 @@ import { useVuePackStore } from "../piniaStore";
 
 const store = useVuePackStore();
 const GlobalConfig = store.vuepacksizes!;
+
+const con = useTemplateRef<HTMLElement>("root");
 const photo = useTemplateRef<HTMLImageElement>("photo");
-const root = useTemplateRef<HTMLElement>("root");
 
 const svgPath =
   "M.52 24a.5.52 0 01-.35-.9L10.8 12 .17.93a.5.52 0 11.7-.74l10.99 11.46c.19.2.19.54 0 .73L.88 23.84a.5.5 0 01-.36.16z";
-const trigger = "vuepack-enlargemanyphotos";
+
 const photos = ref<StorePhotoI[]>([]);
 let slider = ref<NoLoop | undefined>(undefined);
 const counter = ref(0);
-let base: mixin;
 
 onMounted(async () => {
-  base = new mixin(photo.value!, root.value!, GlobalConfig);
-  window.addEventListener(trigger, async (e) => {
+  window.addEventListener("vuepack-enlargemanyphotos", async (e) => {
     const { detail } = e as CustomEvent;
     window.addEventListener("keyup", onKeyUp);
 
-    const result = base.setupImgs(store.state!, detail.img);
+    const result = mixin.setupPhotos(store.state!, detail.img, GlobalConfig);
     photos.value = result.photos;
-    await base.mounted(detail);
+    await mixin.mounted(detail, con.value!, photo.value!, GlobalConfig);
+
     slider.value = new NoLoop({
       container: "photo-slider",
       transitionSpeed: 500,
@@ -85,20 +85,20 @@ onMounted(async () => {
   });
 });
 
+function onKeyUp(e: KeyboardEvent) {
+  if (!slider) return;
+  if (e.key == "Escape") closeViewer();
+  else if (e.key == "ArrowLeft") slider.value!.slidePrev();
+  else if (e.key == "ArrowRight") slider.value!.slideNext();
+}
+
 async function closeViewer() {
-  await base.close();
+  await mixin.close(con.value!, photo.value!);
   photos.value = [];
   photo.value!.parentElement!.style.display = "block";
   slider.value?.goTo(0);
   slider.value?.destroy();
   slider.value = undefined;
   window.removeEventListener("keyup", onKeyUp);
-}
-
-function onKeyUp(e: KeyboardEvent) {
-  if (!slider) return;
-  if (e.key == "Escape") closeViewer();
-  else if (e.key == "ArrowLeft") slider.value!.slidePrev();
-  else if (e.key == "ArrowRight") slider.value!.slideNext();
 }
 </script>

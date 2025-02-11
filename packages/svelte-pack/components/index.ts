@@ -1,13 +1,13 @@
-import { Store, type StoreI } from "@matb85/base-pack";
+import { createStore, type BasePackStoreI } from "@matb85/base-pack";
 
 declare global {
   interface Window {
-    sveltePack: StoreI;
+    sveltePack: BasePackStoreI;
   }
 }
 
 function init() {
-  window.sveltePack = Store();
+  window.sveltePack = createStore();
 }
 
 export { init };
