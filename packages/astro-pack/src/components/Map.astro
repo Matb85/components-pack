@@ -17,7 +17,7 @@
       new google.maps.Marker({ position: center, map });
   }
 
-  const apikey = "AIzaSyCRVOdfJoP0vWLNO0wsp58jiHdg33q6Gxk";
+  const apikey = import.meta.env.PUBLIC_GMAPS_API_KEY || "";
 
   mutations.addHandler(window.astroPack, {
     name: "map",
