@@ -1,0 +1,186 @@
+---
+title: Vue - Demo
+description: See @matb85/vue-pack in action.
+sidebar:
+  order: 3
+---
+
+Each example:
+
+- has its code below its demo photos - you can copy and paste it into your Astro project,
+- assumes that you have already followed the [installation guide](/components-pack/vue-pack/introduction/),
+- imports PhotoViewer and PhotoMultiViewer for the purpose of demonstration, there should only one **PhotoViewer** and **PhotoMultiViewer** per page.
+
+import Demo from "@/components/Demo.astro";
+import Map from "@/components/Map.astro";
+
+## Spring - only PhotoViewer
+
+This example uses only **PhotoViewer**.
+
+<Demo season="spring" groups={[false, false, false, false]} />
+
+```vue
+// App.vue
+<template>
+  <div class="gallery">
+    {#each ["photo0.jpg", "photo1.jpg", "photo2.jpg", "photo3.jpg"] as name, i }
+      <Photo
+        src="/thumbnail_{name}"
+        sizes={[480, 720]}
+        className="photo"
+        alt="spring {i}" />
+    {/each}
+  </div>
+
+  <PhotoViewer/>
+</template>
+
+<script setup lang="ts">
+  import Photo from "@matb85/vue-pack/Photo.vue";
+  import PhotoViewer from "@matb85/vue-pack/viewers/PhotoViewer.vue";
+</script>
+```
+
+## Summer - only PhotoMultiViewer
+
+This example uses only **PhotoMultiViewer**.
+
+<Demo season="summer" groups={["summer-0","summer-1","summer-2","summer-3"]} />
+
+```vue
+// App.vue
+<template>
+  <div class="gallery">
+    {#each ["photo0.jpg", "photo1.jpg", "photo2.jpg", "photo3.jpg"] as name, i }
+      <Photo
+        src="/thumbnail_{name}"
+        sizes={[480, 720]}
+        className="photo"
+        multiview
+        group="summer-{i}"
+        alt="summer {i}" />
+    {/each}
+  </div>
+
+  <PhotoMultiViewer/>
+</template>
+
+<script setup lang="ts">
+  import Photo from "@matb85/vue-pack/Photo.vue";
+  import PhotoMultiViewer from "@matb85/vue-pack/viewers/PhotoMultiViewer.vue";
+</script>
+```
+
+## Autumn - both viewers
+
+This example uses only **PhotoMultiViewer**, but there are two different groups.
+
+<Demo season="autumn" groups={["first-0", "first-1", "second-0", "second-1"]} />
+
+```vue
+// App.vue
+<template>
+  <div class="gallery">
+    {#each ["photo0.jpg", "photo1.jpg"] as name, i }
+      <Photo
+        src="/thumbnail_{name}"
+        sizes={[480, 720]}
+        className="photo"
+        multiview
+        group="first-{i}"
+        alt="first summer {i}" />
+    {/each}
+    {#each ["photo2.jpg", "photo3.jpg"] as name, i }
+      <Photo
+        src="/thumbnail_{name}"
+        sizes={[480, 720]}
+        className="photo"
+        group="second-{i}"
+        alt="second summer {i}" />
+    {/each}
+  </div>
+
+  <PhotoMultiViewer/>
+</template>
+
+<script setup lang="ts">
+  import Photo from "@matb85/vue-pack/Photo.vue";
+  import PhotoMultiViewer from "@matb85/vue-pack/viewers/PhotoMultiViewer.vue";
+</script>
+```
+
+## Winter - both viewers
+
+<Demo season="winter" groups={[false, "winter-0", "winter-1", "winter2-0"]} />
+
+This example uses both  **PhotoViewer** and **PhotoMultiViewer** with two different groups.
+
+```vue
+// App.vue
+<template>
+  <div class="gallery">
+    <Photo
+        src="/thumbnail_photo1.jpg"
+        sizes={[480, 720]}
+        className="photo"
+        alt="winter" />
+    {#each ["photo1.jpg", "photo2.jpg"] as name, i }
+      <Photo
+        src="/thumbnail_{name}"
+        sizes={[480, 720]}
+        className="photo"
+        multiview
+        group="first-{i}"
+        alt="first winter {i}" />
+    {/each}
+    <Photo
+      src="/thumbnail_photo3.jpg"
+      sizes={[480, 720]}
+      className="photo"
+      multiview
+      group="winter"
+      alt="second winter" />
+  </div>
+
+  <PhotoViewer/>
+  <PhotoMultiViewer/>
+</template>
+
+<script setup lang="ts">
+  import Photo from "@matb85/vue-pack/Photo.vue";
+  import PhotoViewer from "@matb85/vue-pack/viewers/PhotoViewer.vue";
+  import PhotoMultiViewer from "@matb85/vue-pack/viewers/PhotoMultiViewer.vue";
+</script>
+```
+
+## Map
+
+Example of Map component usage.
+
+<Map/>
+
+```vue
+// YourMapComponent.vue
+<template>
+  <Map class="your-map-class" apikey="YOUR_API_KEY" :callback="mapCallback" />
+</template>
+
+<script setup lang="ts">
+import Map from '@matb85/vue-pack/Map.vue';
+import type { MapCallbackT } from '@matb85/base-pack';
+
+const mapCallback: MapCallbackT = (map: HTMLElement) => {
+    // The Goole Maps script has been loaded
+    // The map is ready to be initialized
+    const center = { lat: 49.42, lng: 20.48 };
+    const map = new google.maps.Map(domMap, {
+        center,
+        zoom: 16,
+        streetViewControl: false,
+        styles: [{ featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }] }]
+    });
+    new google.maps.Marker({ position: center, map });
+};
+</script>
+```

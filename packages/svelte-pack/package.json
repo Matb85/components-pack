@@ -12,7 +12,11 @@
       "svelte": "./dist/index.js",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
-    }
+    },
+    "./Map.svelte": "./dist/Map.svelte",
+    "./Photo.svelte": "./dist/Photo.svelte",
+    "./viewers/PhotoViewer.svelte": "./dist/viewers/PhotoViewer.svelte",
+    "./viewers/PhotoMultiViewer.svelte": "./dist/viewers/PhotoMultiViewer.svelte"
   },
   "scripts": {
     "build": "vite build && svelte-package -i ./components",

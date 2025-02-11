@@ -1,0 +1,28 @@
+<section id="google-map" class="map" data-observerhandler="map"></section>
+
+<script>
+  import { mapUtil, mutations, type MapCallbackT } from "@matb85/base-pack";
+
+  const map = document.getElementById("google-map") as HTMLElement;
+
+  const callback: MapCallbackT = (domMap: HTMLElement) => {
+    // The Goole Maps script has been loaded
+      const center = { lat: 49.42, lng: 20.48 };
+      const map = new google.maps.Map(domMap, {
+        center,
+        zoom: 16,
+        streetViewControl: false,
+        styles: [{ featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }] }]
+      });
+      new google.maps.Marker({ position: center, map });
+  }
+
+  const apikey = "AIzaSyCRVOdfJoP0vWLNO0wsp58jiHdg33q6Gxk";
+
+  mutations.addHandler(window.astroPack, {
+    name: "map",
+    handler: () => mapUtil(apikey, callback, map),
+  });
+
+  window.astroPack.observer.observe(map);
+</script>

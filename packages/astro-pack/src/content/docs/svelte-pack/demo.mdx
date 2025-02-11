@@ -1,81 +1,177 @@
 ---
-title: Demo
-description: See @matb85/astro-pack in action.
+title: Svelte - Demo
+description: See @matb85/svelte-pack in action.
 sidebar:
-  order: 2
+  order: 3
 ---
 
-import Photo from '~/Photo.astro';
-import PhotoViewer from '~/viewers/PhotoViewer.astro';
-import PhotoMultiViewer from '~/viewers/PhotoMultiViewer.astro';
+Each example:
 
-import "modular-slider/modular-slider.css";
-import "@matb85/base-pack/dist/index.css";
-import "@/index.css";
+- has its code below its demo photos - you can copy and paste it into your Astro project,
+- assumes that you have already followed the [installation guide](/components-pack/svelte-pack/introduction/),
+- imports PhotoViewer and PhotoMultiViewer for the purpose of demonstration, there should only one **PhotoViewer** and **PhotoMultiViewer** per page.
 
-export const prefix = '/components-pack/';
+import Demo from "@/components/Demo.astro";
+import Map from "@/components/Map.astro";
 
-export const mountains = prefix + '/thumbnail_mountains.jpg';
-export const gorge = prefix + '/thumbnail_gorge.jpg';
-export const bird = prefix + '/thumbnail_bird.jpg';
-export const sokolica = prefix + '/thumbnail_sokolica.jpg';
+## Spring - only PhotoViewer
 
-## Spring group
+This example uses only **PhotoViewer**.
+
+<Demo season="spring" groups={[false, false, false, false]} />
+
+```svelte
+// App.svelte
+<script lang="ts">
+  import Photo from "@matb85/svelte-pack/Photo.svelte";
+  import PhotoViewer from "@matb85/svelte-pack/viewers/PhotoViewer.svelte";
+</script>
 
 <div class="gallery">
-  {[1,2,3,4].map((i)=>(
+  {#each ["photo0.jpg", "photo1.jpg", "photo2.jpg", "photo3.jpg"] as name, i }
     <Photo
-      src={`${prefix}/thumbnail_spring${i}.jpg`}
+      src="/thumbnail_{name}"
       sizes={[480, 720]}
-      multi
       className="photo"
-      group={`spring-${i-1}`}
-      alt={`Spring ${i}`} />
-  ))}
+      alt="spring {i}" />
+  {/each}
 </div>
 
-## Summer group
+<PhotoViewer/>
+```
+
+## Summer - only PhotoMultiViewer
+
+This example uses only **PhotoMultiViewer**.
+
+<Demo season="summer" groups={["summer-0","summer-1","summer-2","summer-3"]} />
+
+```svelte
+// App.svelte
+<script lang="ts">
+  import Photo from "@matb85/svelte-pack/Photo.svelte";
+  import PhotoMultiViewer from "@matb85/svelte-pack/viewers/PhotoMultiViewer.svelte";
+</script>
 
 <div class="gallery">
-  {[1,2,3,4].map((i)=>(
+  {#each ["photo0.jpg", "photo1.jpg", "photo2.jpg", "photo3.jpg"] as name, i }
     <Photo
-      src={`${prefix}/thumbnail_summer${i}.jpg`}
+      src="/thumbnail_{name}"
       sizes={[480, 720]}
-      multi
       className="photo"
-      group={`summer-${i-1}`}
-      alt={`Summer ${i}`} />
-  ))}
-</div>
-
-## Autumn group
-
-<div class="gallery">
-  {[1,2,3,4].map((i)=>(
-    <Photo
-      src={`${prefix}/thumbnail_autumn${i}.jpg`}
-      sizes={[480, 720, 1290]}
-      multi
-      className="photo"
-      group={`autumn-${i-1}`}
-      alt={`Autumn ${i}`} />
-  ))}
-</div>
-
-
-## Winter group
-
-<div class="gallery">
-  {[1,2,3,4].map((i)=>(
-    <Photo
-      src={`${prefix}/thumbnail_winter${i}.jpg`}
-      sizes={[480, 720]}
-      multi
-      className="photo"
-      group={`winter-${i-1}`}
-      alt={`Winter ${i}`} />
-  ))}
+      multiview
+      group="summer-{i}"
+      alt="summer {i}" />
+  {/each}
 </div>
 
 <PhotoMultiViewer/>
+```
+
+## Autumn - both viewers
+
+This example uses only **PhotoMultiViewer**, but there are two different groups.
+
+<Demo season="autumn" groups={["first-0", "first-1", "second-0", "second-1"]} />
+
+```svelte
+// App.svelte
+<script lang="ts">
+  import Photo from "@matb85/svelte-pack/Photo.svelte";
+  import PhotoViewer from "@matb85/svelte-pack/viewers/PhotoViewer.svelte";
+  import PhotoMultiViewer from "@matb85/svelte-pack/viewers/PhotoMultiViewer.svelte";
+</script>
+
+<div class="gallery">
+  {#each ["photo0.jpg", "photo1.jpg"] as name, i }
+    <Photo
+      src="/thumbnail_{name}"
+      sizes={[480, 720]}
+      className="photo"
+      multiview
+      group="first-{i}"
+      alt="first summer {i}" />
+  {/each}
+  {#each ["photo2.jpg", "photo3.jpg"] as name, i }
+    <Photo
+      src="/thumbnail_{name}"
+      sizes={[480, 720]}
+      className="photo"
+      group="second-{i}"
+      alt="second summer {i}" />
+  {/each}
+</div>
+
+<PhotoMultiViewer/>
+```
+
+## Winter - both viewers
+
+<Demo season="winter" groups={[false, "winter-0", "winter-1", "winter2-0"]} />
+
+This example uses both  **PhotoViewer** and **PhotoMultiViewer** with two different groups.
+
+```svelte
+// App.svelte
+<script lang="ts">
+  import Photo from "@matb85/svelte-pack/Photo.svelte";
+  import PhotoViewer from "@matb85/svelte-pack/viewers/PhotoViewer.svelte";
+  import PhotoMultiViewer from "@matb85/svelte-pack/viewers/PhotoMultiViewer.svelte";
+</script>
+
+<div class="gallery">
+  <Photo
+      src="/thumbnail_photo1.jpg"
+      sizes={[480, 720]}
+      className="photo"
+      alt="winter" />
+  {#each ["photo1.jpg", "photo2.jpg"] as name, i }
+    <Photo
+      src="/thumbnail_{name}"
+      sizes={[480, 720]}
+      className="photo"
+      multiview
+      group="first-{i}"
+      alt="first winter {i}" />
+  {/each}
+  <Photo
+    src="/thumbnail_photo3.jpg"
+    sizes={[480, 720]}
+    className="photo"
+    multiview
+    group="winter"
+    alt="second winter" />
+</div>
+
 <PhotoViewer/>
+<PhotoMultiViewer/>
+```
+
+## Map
+
+Example of Map component usage.
+
+<Map/>
+
+```svelte
+// YourMapComponent.svelte
+<script lang="ts">
+import Map from '@matb85/svelte-pack/Map.svelte';
+import type { MapCallbackT } from '@matb85/base-pack';
+
+const mapCallback: MapCallbackT = (map: HTMLElement) => {
+    // The Goole Maps script has been loaded
+    // The map is ready to be initialized
+    const center = { lat: 49.42, lng: 20.48 };
+    const map = new google.maps.Map(domMap, {
+        center,
+        zoom: 16,
+        streetViewControl: false,
+        styles: [{ featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }] }]
+    });
+    new google.maps.Marker({ position: center, map });
+};
+</script>
+
+<Map class="your-map-class" apikey="YOUR_API_KEY" callback={mapCallback} />
+```

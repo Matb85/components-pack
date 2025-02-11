@@ -3,13 +3,11 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import { astroPack } from "./out/integration.js";
 
-import svelte from '@astrojs/svelte';
-
-import vue from '@astrojs/vue';
-
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://matb85.github.io/components-pack/',
     base: '/components-pack',
+    outDir: './docs',
     integrations: [astroPack({
         formats: {
             thumbnail: /min_|thumbnail_/,
@@ -25,14 +23,13 @@ export default defineConfig({
         social: {
             github: 'https://github.com/Matb85/components-pack',
         },
+        components: {
+            PageFrame: './src/components/PageFrame.astro',
+        },
         sidebar: [
             {
                 label: 'Getting Started',
                 autogenerate: { directory: 'start' },
-            },
-            {
-                label: 'base-pack',
-                autogenerate: { directory: 'base-pack' },
             },
             {
                 label: 'astro-pack',
@@ -45,7 +42,11 @@ export default defineConfig({
             {
                 label: 'vue-pack',
                 autogenerate: { directory: 'vue-pack' },
+            },
+            {
+                label: 'base-pack',
+                autogenerate: { directory: 'base-pack' },
             }
         ],
-        }), svelte(), vue()],
+        })],
 });

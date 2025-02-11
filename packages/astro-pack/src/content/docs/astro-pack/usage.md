@@ -1,52 +1,19 @@
 ---
-title: Astro - Installation
-description: Learn how to get started with @matb85/astro-pack.
+title: Astro - Usage
+description: Learn how to use @matb85/astro-pack.
 sidebar:
-  order: 1
+  order: 2
 ---
 
-### 1. Installation
+### The base-pack Store
 
-Use your favorite package manager to install the package:
-
-```bash
-$ npm i @matb85/astro-pack
-```
-
-### 2. Astro setup
-
-Add the astroPack integration to your Astro config file:
+In Astro Pack, the base-pack store is located at `window.astroPack`
 
 ```ts
-// astro.config.mjs
-import { defineConfig } from 'astro/config';
-import { astroPack } from "@matb85/astro-pack/integration";
-
-// https://astro.build/config
-export default defineConfig({
-  integrations: [
-    astroPack({
-      formats: {
-        thumbnail: /min_|thumbnail_/,
-        2400: '',
-        1920: 'fhd_',
-        1290: 'hd_',
-        720: 'wvga_',
-        480: 'hvga_'
-      },
-      enlarged: [1290, 1920]
-    }),
-    // other integrations...
-  ],
-});
+console.log(window.astroPack); // Here it is!
 ```
 
-Parameters:
-
-- `formats`: Object with the keys being the desired width and the values being the prefix to be added to the image name.
-- `enlarged`: Array with the desired widths for the enlarged images.
-
-### 3. Photo and PhotoViewer
+### 1. Photo and PhotoViewer
 
 Import styles and PhotoViewer once, preferably in the layout file:
 
@@ -73,9 +40,9 @@ import Photo from '@matb85/astro-pack/Photo.astro';
 <Photo src="/thumbnail_gorge.jpg" sizes={[480, 720]} className="your-class" group="mountains" alt="Dunajec Gorge" />
 ```
 
-### 4. PhotoMultiViewer 
+### 2. PhotoMultiViewer 
 
-Use the PhotoMultiViewer component to display full screen image sliders:
+Use the PhotoMultiViewer component to display full screen image gallery:
 
 ```astro
 // layout.astro
@@ -89,23 +56,24 @@ import PhotoMultiViewer from '@matb85/astro-pack/viewers/PhotoMultiViewer.astro'
 ```
 
 
-### 5. Map
+### 3. Map
 
-Use the PhotoMultiViewer component to display full screen image sliders:
+Use the mapUtil function to efficiently load [Google Maps JS SDK](https://developers.google.com/maps/documentation/javascript):
 
 ```astro
 // YourMapComponent.astro
 
 <section id="map" class="your-map-class" data-observerhandler="map"></section>
 
-<script lang="ts">
+<script>
 import { mapUtil, type MapCallbackT } from "@matb85/base-pack";
 
 const map = document.getElementById("map") as HTMLElement;
 
-const callback: MapCallbackT = (map: HTMLElement) => {
-  // The Goole Maps script has been loaded
-}
+const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
+    // The Goole Maps script has been loaded, the google object is available
+    // The map is ready to be initialized
+};
 
 mutations.addHandler(store, {
   name: "map",

@@ -1,0 +1,24 @@
+---
+import Photo from "~/Photo.astro";
+
+interface Props {
+  season: string;
+  groups: boolean[];
+}
+
+const { season, groups } = Astro.props
+
+const prefix = "/components-pack/";
+---
+
+<div class="gallery">
+  {groups.map((group, i) => (
+    <Photo
+      src={`${prefix}/thumbnail_${season}${i+1}.jpg`}
+      sizes={[480, 720]}
+      multi={Boolean(group)}
+      className="photo"
+      group={group}
+      alt={`${season} ${i}`} />
+  ))}
+</div>

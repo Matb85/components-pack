@@ -93,7 +93,11 @@ const svgPath =
       },
     });
 
-    setTimeout(() => slider?.goTo(result.index), 0);
+    setTimeout(() => {
+      slider?.goTo(result.index)
+      const curPhoto = result.photos[Math.abs(result.index)];
+      counterEl.innerText = `${Math.abs(result.index) + 1}/${result.photos.length} ${curPhoto && curPhoto.alt ? " | " + curPhoto.alt : ""}`;
+    }, 0);
   });
 
 
