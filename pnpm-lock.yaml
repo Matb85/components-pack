@@ -21,7 +21,7 @@ importers:
   packages/astro-pack:
     dependencies:
       '@matb85/base-pack':
-        specifier: workspace:^4.1.4
+        specifier: workspace:^4.1.6
         version: link:../base-pack
       modular-slider:
         specifier: ^1.0.3
@@ -83,7 +83,7 @@ importers:
   packages/svelte-pack:
     dependencies:
       '@matb85/base-pack':
-        specifier: workspace:^4.1.4
+        specifier: workspace:^4.1.6
         version: link:../base-pack
       modular-slider:
         specifier: ^1.0.3
@@ -108,7 +108,7 @@ importers:
   packages/vue-pack:
     dependencies:
       '@matb85/base-pack':
-        specifier: workspace:^4.1.4
+        specifier: workspace:^4.1.6
         version: link:../base-pack
       modular-slider:
         specifier: ^1.0.3
