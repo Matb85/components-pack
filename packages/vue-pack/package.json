@@ -7,17 +7,17 @@
   "private": false,
   "type": "module",
   "main": "./dist/index.js",
-  "types": "./dist/ndex.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./Map.vue": "./dist/Map.vue",
-    "./Photo.vue": "./dist/Photo.vue",
-    "./PhotoViewer.vue": "./dist/PhotoViewer.vue",
-    "./PhotoMultiViewer.vue": "./dist/PhotoMultiViewer.vue"
+    "./Map.vue": "./dist/components/Map.vue",
+    "./Photo.vue": "./dist/components/Photo.vue",
+    "./PhotoViewer.vue": "./dist/components/PhotoViewer.vue",
+    "./PhotoMultiViewer.vue": "./dist/components/PhotoMultiViewer.vue"
   },
   "scripts": {
     "dev": "vite dev --port 3000",
