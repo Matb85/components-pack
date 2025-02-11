@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/Matb85/components-pack/compare/v4.0.0...v4.1.0) (2025-02-11)
+
+### Features
+
+* convert Svelte components to Astro in astro-pack ([f4be058](https://github.com/Matb85/components-pack/commit/f4be058ce0f470c17319c3f1f093aa3f1aafc160))
+* remove Navbar components ([3ba7fc5](https://github.com/Matb85/components-pack/commit/3ba7fc56353f7ea46eabd1e5fdb6ddd824b9d7c0))
+
 # [4.0.0](https://github.com/Matb85/components-pack/compare/v3.0.1...v4.0.0) (2025-02-09)
 
 ### Bug Fixes

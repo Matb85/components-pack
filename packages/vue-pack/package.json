@@ -1,6 +1,6 @@
 {
   "name": "@matb85/vue-pack",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
   "type": "module",
@@ -22,7 +22,7 @@
     "build": "rm -rf ./dist && vue-tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly && tsc --project ./tsconfig.build.json && cp -r ./src/components/* ./dist/components"
   },
   "dependencies": {
-    "@matb85/base-pack": "workspace:^4.0.0",
+    "@matb85/base-pack": "workspace:^4.1.0",
     "modular-slider": "^1.0.3"
   },
   "devDependencies": {

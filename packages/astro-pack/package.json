@@ -1,6 +1,6 @@
 {
   "name": "@matb85/astro-pack",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
   "type": "module",
@@ -28,7 +28,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@matb85/base-pack": "workspace:^4.0.0",
+    "@matb85/base-pack": "workspace:^4.1.0",
     "modular-slider": "^1.0.3"
   },
   "devDependencies": {
