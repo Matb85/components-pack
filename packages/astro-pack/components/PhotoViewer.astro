@@ -9,12 +9,11 @@
 
   const img = document.getElementById("MP-viewer-viewed-photo") as HTMLImageElement;
 
-  const base = new mixin(img, img.parentElement!, GlobalConfig);
-  window.addEventListener("enlargePhoto", event => base.mounted((event as CustomEvent).detail));
+  window.addEventListener("enlargePhoto", event => mixin.mounted((event as CustomEvent).detail, img.parentElement!, img, GlobalConfig));
 
   window.addEventListener("keyup", e => {
-    if (e.key === "Escape") base.close();
+    if (e.key === "Escape") mixin.close(img.parentElement!, img);
   });
 
-  img.parentElement!.addEventListener("click", () => base.close());
+  img.parentElement!.addEventListener("click", () => mixin.close(img.parentElement!, img));
 </script>

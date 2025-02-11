@@ -4,7 +4,7 @@
 </div>
 
 <script lang="ts">
-  import { mixin, type GlobalConfigI } from "@matb85/base-pack";
+  import { type GlobalConfigI, mixin } from "@matb85/base-pack";
   import { getContext, onMount } from "svelte";
 
   let img = $state<HTMLImageElement>()!;
@@ -12,13 +12,12 @@
   const GlobalConfig: GlobalConfigI = getContext("svelte-pack-sizes");
 
   onMount(() => {
-    const base = new mixin(img, img.parentElement!, GlobalConfig);
-    window.addEventListener("enlargePhoto", event => base.mounted((event as CustomEvent).detail));
+    window.addEventListener("enlargePhoto", event => mixin.mounted((event as CustomEvent).detail, img.parentElement!, img, GlobalConfig));
 
     window.addEventListener("keyup", e => {
-      if (e.key === "Escape") base.close();
+      if (e.key === "Escape") mixin.close(img.parentElement!, img);
     });
 
-    img.parentElement!.addEventListener("click", () => base.close());
+    img.parentElement!.addEventListener("click", () => mixin.close(img.parentElement!, img));
   });
 </script>

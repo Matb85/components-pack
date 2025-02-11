@@ -17,12 +17,11 @@ const trigger = "vuepack-enlargephoto";
 const img = useTemplateRef<HTMLImageElement>("img");
 
 onMounted(() => {
-  const base = new mixin(img.value!, img.value!.parentElement!, GlobalConfig);
-  window.addEventListener(trigger, event => base.mounted((event as CustomEvent).detail));
+  window.addEventListener(trigger, event => mixin.mounted((event as CustomEvent).detail, img.value!.parentElement!, img.value!, GlobalConfig));
 
   window.addEventListener("keyup", e => {
-    if (e.key == "Escape") base.close();
+    if (e.key == "Escape") mixin.close(img.value!.parentElement!, img.value!);
   });
-  img.value!.parentElement!.addEventListener("click", () => base.close());
+  img.value!.parentElement!.addEventListener("click", () => mixin.close(img.value!.parentElement!, img.value!));
 });
 </script>
