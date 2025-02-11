@@ -113,7 +113,7 @@ import { mapUtil, type MapCallbackT } from "@matb85/base-pack";
 
 const map = document.getElementById("your-map") as HTMLElement;
 
-const callback: MapCallbackT = (map: HTMLElement) => {
+const callback: MapCallbackT = (domMap: HTMLElement) => {
   // The Goole Maps script has been loaded
 }
 

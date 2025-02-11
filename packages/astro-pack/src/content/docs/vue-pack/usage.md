@@ -69,17 +69,9 @@ Use the Map component to efficiently load [Google Maps JS SDK](https://developer
   import Map from '@matb85/vue-pack/Map.vue';
   import type { MapCallbackT } from '@matb85/base-pack';
 
-  const mapCallback: MapCallbackT = (map: HTMLElement) => {
-    // The Goole Maps script has been loaded
+  const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
+    // The Goole Maps script has been loaded, the google object is available
     // The map is ready to be initialized
-    const center = { lat: 49.42, lng: 20.48 };
-    const map = new google.maps.Map(domMap, {
-      center,
-      zoom: 16,
-      streetViewControl: false,
-      styles: [{ featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }] }]
-    });
-    new google.maps.Marker({ position: center, map });
   };
 </script>
 ```

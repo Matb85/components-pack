@@ -167,7 +167,7 @@ import { mapUtil, type MapCallbackT } from "@matb85/base-pack";
 
 const map = document.getElementById("map") as HTMLElement;
 
-const mapCallback: MapCallbackT = (map: HTMLElement) => {
+const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
     // The Goole Maps script has been loaded
     // The map is ready to be initialized
     const center = { lat: 50.061642912299185, lng: 19.939391711972192 };
