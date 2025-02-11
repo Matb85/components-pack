@@ -44,7 +44,7 @@ import { useVuePackStore } from "../piniaStore";
 const store = useVuePackStore();
 const GlobalConfig = store.vuepacksizes!;
 
-const con = useTemplateRef<HTMLElement>("root");
+const con = useTemplateRef<HTMLElement>("con");
 const photo = useTemplateRef<HTMLImageElement>("photo");
 
 const svgPath =

@@ -19,6 +19,7 @@ interface Position {
 interface ExtendedPhoto extends StorePhotoI {
   width?: string;
   height?: string;
+  srcsetReady?: boolean;
 }
 
 // get the dimensions of an enlarged image with the correct aspect ratio
@@ -74,11 +75,14 @@ export const mixin = {
     let index = 0;
     for (let i = 0; i < photos.length; i++) {
       const p = photos[i] as ExtendedPhoto;
-      p.srcset = photo(
-        p.srcset as string,
-        config.formats,
-        config.enlarged
-      ).genSrcset;
+      if (!p.srcsetReady) {
+        p.srcset = photo(
+          p.srcset as string,
+          config.formats,
+          config.enlarged,
+        ).genSrcset;
+        p.srcsetReady = true;
+      }
       if (typeof img !== "undefined" && p.src == img.dataset.minsrc) index = i;
     }
 
