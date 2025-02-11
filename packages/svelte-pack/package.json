@@ -1,7 +1,7 @@
 {
   "name": "@matb85/svelte-pack",
   "description": "UI components for Svelte 5",
-  "version": "4.1.3",
+  "version": "4.1.4",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
   "private": false,
@@ -28,7 +28,7 @@
     "svelte": "^5.19.9"
   },
   "dependencies": {
-    "@matb85/base-pack": "workspace:^4.1.2",
+    "@matb85/base-pack": "workspace:^4.1.4",
     "modular-slider": "^1.0.3"
   },
   "devDependencies": {

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.4](https://github.com/Matb85/components-pack/compare/v4.1.3...v4.1.4) (2025-02-11)
+
+**Note:** Version bump only for package @matb85/vue-pack
+
 ## [4.1.3](https://github.com/Matb85/components-pack/compare/v4.1.2...v4.1.3) (2025-02-11)
 
 ### Bug Fixes
