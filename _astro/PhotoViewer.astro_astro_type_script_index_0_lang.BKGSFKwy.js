@@ -1,0 +1,1 @@
+import{b as o}from"./index.f_5CzWzM.js";import{G as i}from"./astro-pack.C0yKslky.js";const t=document.getElementById("MP-viewer-viewed-photo"),n=new o(t,t.parentElement,i);window.addEventListener("enlargePhoto",e=>n.mounted(e.detail));window.addEventListener("keyup",e=>{e.key==="Escape"&&n.close()});t.parentElement.addEventListener("click",()=>n.close());
