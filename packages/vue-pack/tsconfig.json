@@ -13,5 +13,5 @@
     "emitDeclarationOnly": true,
     "baseUrl": ".",
   },
-    "include": ["src/**/*", "dev/**/*"],
+  "include": ["src/**/*", "dev/**/*"],
 }

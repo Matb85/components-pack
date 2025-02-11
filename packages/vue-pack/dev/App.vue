@@ -28,7 +28,12 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { PhotoMultiViewer, PhotoViewer, Photo, Map, useVuePackStore } from "../src";
+import { useVuePackStore } from "../src";
+import PhotoViewer from "../src/components/PhotoViewer.vue";
+import PhotoMultiViewer from "../src/components/PhotoMultiViewer.vue";
+import Photo from "../src/components/Photo.vue";
+import Map from "../src/components/Map.vue";
+
 const store = useVuePackStore();
 
 const src = ref("/thumbnail_mountains.jpg");

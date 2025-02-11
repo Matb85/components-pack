@@ -3,11 +3,23 @@
   "version": "4.0.0",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
-  "main": "src/index.ts",
-  "types": "./index.d.ts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/ndex.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./Map.vue": "./dist/Map.vue",
+    "./Photo.vue": "./dist/Photo.vue",
+    "./PhotoViewer.vue": "./dist/PhotoViewer.vue",
+    "./PhotoMultiViewer.vue": "./dist/PhotoMultiViewer.vue"
+  },
   "scripts": {
     "dev": "vite dev --port 3000",
-    "build": "vue-tsc --noEmit && vite build"
+    "build": "rm -rf ./dist && vue-tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly && tsc --project ./tsconfig.build.json && cp -r ./src/components/* ./dist/components"
   },
   "dependencies": {
     "@matb85/base-pack": "workspace:^4.0.0",
@@ -26,7 +38,6 @@
     "vue": "^3.5.13"
   },
   "files": [
-    "src/**/*",
-    "index.d.ts"
+    "dist/**/*"
   ]
 }

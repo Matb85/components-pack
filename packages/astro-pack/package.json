@@ -4,6 +4,21 @@
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/ndex.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./bootstrap": "./dist/bootstrap.js",
+    "./integration": "./dist/integration.js",
+    "./Map.astro": "./dist/Map.astro",
+    "./Photo.astro": "./dist/Photo.astro",
+    "./PhotoViewer.astro": "./dist/PhotoViewer.astro",
+    "./PhotoMultiViewer.astro": "./dist/PhotoMultiViewer.astro"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
