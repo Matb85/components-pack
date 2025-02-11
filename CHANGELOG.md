@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.2](https://github.com/Matb85/components-pack/compare/v4.1.1...v4.1.2) (2025-02-11)
+
+### Bug Fixes
+
+* naming issues in base-pack ([0917d1a](https://github.com/Matb85/components-pack/commit/0917d1a12e0a76cd1fa6422e5226da236fb3e9f5))
+
 ## [4.1.1](https://github.com/Matb85/components-pack/compare/v4.1.0...v4.1.1) (2025-02-11)
 
 ### Bug Fixes
