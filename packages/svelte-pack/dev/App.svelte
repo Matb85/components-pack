@@ -1,11 +1,3 @@
-<Navbar className="bg-white">
-  {#snippet logo()}
-    <h1 >logo</h1>
-  {/snippet}
-  {#each [1, 2, 3] as id}
-    <p>nav{id}</p>
-  {/each}
-</Navbar>
 <Photo src="/thumbnail_mountains.jpg" sizes={[1290]} className="photo" group="mountains" alt="a portrait of a bird" />
 
 <Photo src={src} sizes={[480, 720]} className="photo" group="mountains" alt="Dunajec Gorge" />
@@ -37,27 +29,32 @@
 <Map className="map" apikey="gdsfgdgfds" callback={map => console.log(map)} />
 
 <script module>
-init();
+  import { init } from "../components/index.js";
+
+  init();
 </script>
 
-<script>
-import { Map, Photo, PhotoViewer, PhotoMultiViewer, Navbar, init } from "../components/index.js";
-import { setContext } from "svelte";
-/** config
- * @type {import('@matb85/base-pack').GlobalConfigI}  */
-const config = {
-  formats: {
-    thumbnail: "thumbnail_",
-    2400: "",
-    1920: "fhd_",
-    1290: "hd_",
-    720: "wvga_",
-    480: "hvga_",
-  },
-  enlarged: [1920, 2400],
-};
+<script lang="ts">
+  import Map from "../components/Map.svelte";
+  import Photo from "../components/Photo.svelte";
+  import PhotoMultiViewer from "../components/PhotoMultiViewer.svelte";
+  import PhotoViewer from "../components/PhotoViewer.svelte";
+  import { setContext } from "svelte";
+  import type { GlobalConfigI } from "@matb85/base-pack";
 
-setContext("svelte-pack-sizes", config);
+  const config: GlobalConfigI = {
+    formats: {
+      thumbnail: "thumbnail_",
+      2400: "",
+      1920: "fhd_",
+      1290: "hd_",
+      720: "wvga_",
+      480: "hvga_",
+    },
+    enlarged: [1920, 2400],
+  };
 
-let src = $state("/thumbnail_bird.jpg");
+  setContext("svelte-pack-sizes", config);
+
+  let src = $state("/thumbnail_bird.jpg");
 </script>

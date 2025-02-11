@@ -9,8 +9,8 @@
   "scripts": {
     "build": "rm -rf ./dist && pnpm run build:ts && pnpm run build:sass && pnpm run build:css",
     "build:ts": "node ./esbuild.config.js && tsc --emitDeclarationOnly --declaration --project tsconfig.json",
-    "build:sass": "sass css/index.scss:dist/index.css css/navbar.scss:dist/navbar.css --load-path=node_modules/modular-slider/dist/ --no-source-map",
-    "build:css": "postcss dist/index.css -o dist/index.css && postcss dist/navbar.css -o dist/navbar.css",
+    "build:sass": "sass css/index.scss:dist/index.css --load-path=node_modules/modular-slider/dist/ --no-source-map",
+    "build:css": "postcss dist/index.css -o dist/index.css",
     "lint": "eslint ./src/**/*"
   },
   "devDependencies": {
