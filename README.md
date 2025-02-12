@@ -2,6 +2,8 @@
 
 ### UI components for Svelte 5, Vue 3, Astro 5 and vanilla JS
 
+Works great with images provided by [Strapi](https://strapi.io/)!
+
 Useful for:
 - :framed_picture: lazy loading and viewing photos (inspired by [Medium](https://medium.com/))
 - :world_map: loading Google Maps 
@@ -13,7 +15,8 @@ Useful for:
 - :package: **Svelte 5**, **Vue 3** and **Astro 5** components
 - :page_facing_up: **Typescript** support
 - :books: **Nice** documentation thanks to [Starlight](https://starlight.astro.build/)
-- :art: **plain CSS** for styling
+- :art: **plain CSS** for styling, easy to customise
+- :rocket: **works** out of the box with [Strapi](https://strapi.io/)
 
 ## Installation
 
