@@ -23,8 +23,8 @@ This example uses only **PhotoViewer**.
 ```astro
 // page.astro
 ---
-  import Photo from "@matb85/astro-pack/Photo.svelte";
-  import PhotoViewer from "@matb85/astro-pack/PhotoViewer.svelte";
+  import Photo from "@matb85/astro-pack/Photo.astro";
+  import PhotoViewer from "@matb85/astro-pack/PhotoViewer.astro";
 ---
 
 <div class="gallery">
@@ -49,8 +49,8 @@ This example uses only **PhotoMultiViewer**.
 ```astro
 // page.astro
 ---
-  import Photo from "@matb85/astro-pack/Photo.svelte";
-  import PhotoMultiViewer from "@matb85/astro-pack/PhotoMultiViewer.svelte";
+  import Photo from "@matb85/astro-pack/Photo.astro";
+  import PhotoMultiViewer from "@matb85/astro-pack/PhotoMultiViewer.astro";
 ---
 
 <div class="gallery">
@@ -77,9 +77,9 @@ This example uses only **PhotoMultiViewer**, but there are two different groups.
 ```astro
 // page.astro
 ---
-  import Photo from "@matb85/astro-pack/Photo.svelte";
-  import PhotoViewer from "@matb85/astro-pack/PhotoViewer.svelte";
-  import PhotoMultiViewer from "@matb85/astro-pack/PhotoMultiViewer.svelte";
+  import Photo from "@matb85/astro-pack/Photo.astro";
+  import PhotoViewer from "@matb85/astro-pack/PhotoViewer.astro";
+  import PhotoMultiViewer from "@matb85/astro-pack/PhotoMultiViewer.astro";
 ---
 
 <div class="gallery">
@@ -114,9 +114,9 @@ This example uses both  **PhotoViewer** and **PhotoMultiViewer** with two differ
 ```astro
 // page.astro
 ---
-  import Photo from "@matb85/astro-pack/Photo.svelte";
-  import PhotoViewer from "@matb85/astro-pack/PhotoViewer.svelte";
-  import PhotoMultiViewer from "@matb85/astro-pack/PhotoMultiViewer.svelte";
+  import Photo from "@matb85/astro-pack/Photo.astro";
+  import PhotoViewer from "@matb85/astro-pack/PhotoViewer.astro";
+  import PhotoMultiViewer from "@matb85/astro-pack/PhotoMultiViewer.astro";
 ---
 
 <div class="gallery">
@@ -156,7 +156,7 @@ Example of Map component usage.
 ```astro
 // YourMapComponent.astro
 ---
-import Map from '@matb85/svelte-pack/Map.svelte';
+import Map from '@matb85/astro-pack/Map.astro';
 import type { MapCallbackT } from '@matb85/base-pack';
 --
 
