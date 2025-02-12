@@ -22,6 +22,7 @@ export default defineConfig({
         }),
         starlight({
             title: "Components Pack",
+            description: "UI components for Svelte 5, Vue 3, Astro 5 and vanilla JS.",
             social: {
                 github: 'https://github.com/Matb85/components-pack',
             },
