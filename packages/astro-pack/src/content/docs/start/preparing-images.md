@@ -3,7 +3,7 @@ title: Preparing Images
 description: Learn how to prepare your images for Components Pack.
 ---
 
-If you use Strapi, you can skip this step and go directly to the [Usage with Strapi](/components-pack/start/usage-with-strapi/) section.
+If you use **Strapi**, you can **skip** this step and go directly to the [Usage with Strapi](/components-pack/start/usage-with-strapi/) section.
 
 Components Pack assumes that each image is stored in **multiple sizes**, with each size having a **prefix** that corresponds to its width.
 
@@ -29,22 +29,28 @@ const specification = [
   { height: 480, prefix: "wvga_" }, // width: 720
   { height: 860, prefix: "hd_" }, // width: 1290
   { height: 1280, prefix: "fhd_" }, // width: 1920
-  { height: 1600, prefix: "" }, // width: 2400 ~ similar to qhd - default
+  { height: 1600, prefix: "" }, // width: 2400 ~ similar to qhd - default, no prefix
 ];
 
 const defaults = {
   withoutEnlargement: true,
 };
 
+// sharp will process all the images in all specifications
 const allProcesses = [];
 for (const img of images) {
   for (const spec of specification) {
     allProcesses.push(
       sharp(__dirname + img.path)
+        // resize the image
         .resize(Object.assign(defaults, spec))
+        // save to file
         .toFile(FOLDER + spec.prefix + img.name)
+        // log the result
         .then(newFileInfo => console.log("Success", newFileInfo))
     );
   }
 }
 ```
+
+You can see this script in action [here](https://github.com/Matb85/components-pack/blob/master/imgs/imageResizer.js).

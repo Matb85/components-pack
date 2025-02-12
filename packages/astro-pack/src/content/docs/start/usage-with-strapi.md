@@ -7,7 +7,7 @@ description: Learn how to use Components Pack with Strapi.
 
 > Strapi is a headless CMS that allows you to create, manage and distribute content via a RESTful and GraphQL API.
 
-If you don't use Strapi, you can still use Components Pack by [manually generating images](/components-pack/start/preparing-images/) in appropriate sizes and adding a prefix to the image name that corresponds to its width.
+If you don't use Strapi, you can still use Components Pack by [manually generating images](/components-pack/start/preparing-images/).
 
 In Strapi, the user can define the sizes of the images that are generated:
 
