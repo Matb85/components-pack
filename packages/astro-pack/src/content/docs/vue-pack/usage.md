@@ -7,10 +7,12 @@ sidebar:
 
 ### The base-pack Store
 
-In Vue Pack, the base-pack store is located at `window.vuePack`
+In Vue Pack, the base-pack store has to be imported before use:
 
 ```ts
-console.log(window.vuePack); // Here it is!
+import { useVuePackStore } from '@matb85/vue-pack';
+const vuePackStore = useVuePackStore();
+console.log(vuePackStore); // Here it is!
 ```
 
 ### 1. Photo and PhotoViewer
