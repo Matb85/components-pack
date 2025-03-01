@@ -6,7 +6,7 @@
   const map = document.getElementById("google-map") as HTMLElement;
 
   const callback: MapCallbackT = (domMap: HTMLElement) => {
-    // The Goole Maps script has been loaded
+    // The Google Maps script has been loaded
       const center = { lat: 50.061642912299185, lng: 19.939391711972192 };
       const map = new google.maps.Map(domMap, {
         center,
@@ -19,10 +19,10 @@
 
   const apikey = import.meta.env.PUBLIC_GMAPS_API_KEY || "";
 
-  mutations.addHandler(window.astroPack, {
+  mutations.addHandler(window.cpStore, {
     name: "map",
     handler: () => mapUtil(apikey, callback, map),
   });
 
-  window.astroPack.observer.observe(map);
+  window.cpStore.observer.observe(map);
 </script>

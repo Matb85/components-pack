@@ -15,10 +15,10 @@
   let { className = null, apikey = "", callback = m => console.log(m) }: Props = $props();
 
   onMount(() => {
-    mutations.addHandler(window.sveltePack, {
+    mutations.addHandler(window.cpStore, {
       name: "map",
       handler: () => mapUtil(apikey, callback, map),
     });
-    window.sveltePack.observer.observe(map);
+    window.cpStore.observer.observe(map);
   });
 </script>

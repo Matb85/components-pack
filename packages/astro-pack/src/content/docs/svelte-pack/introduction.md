@@ -15,13 +15,14 @@ $ npm i @matb85/svelte-pack
 
 ### 2. SvelteKit setup
 
-Add configuration in your main layout file:
+Add the following code to your main layout file:
 
 ```svelte
 // +layout.svelte
 <script lang="ts">
-	import { setContext } from 'svelte';
+	import { setContext, onMount } from 'svelte';
 	import type { GlobalConfigI } from '@matb85/base-pack';
+	import { init } from '@matb85/svelte-pack';
 
 	const config: GlobalConfigI = {
 		formats: {
@@ -35,6 +36,10 @@ Add configuration in your main layout file:
 		enlarged: [1290, 1920]
 	};
 	setContext('svelte-pack-sizes', config);
+	
+	onMount(() => {
+        init();
+    });
 </script>
 ```
 

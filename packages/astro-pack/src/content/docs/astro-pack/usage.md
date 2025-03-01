@@ -7,10 +7,10 @@ sidebar:
 
 ### The base-pack Store
 
-In Astro Pack, the base-pack store is located at `window.astroPack`
+In Astro Pack, the base-pack store is located at `window.cpStore`
 
 ```ts
-console.log(window.astroPack); // Here it is!
+console.log(window.cpStore); // Here it is!
 ```
 
 ### 1. Photo and PhotoViewer
@@ -71,7 +71,7 @@ import { mapUtil, type MapCallbackT } from "@matb85/base-pack";
 const map = document.getElementById("map") as HTMLElement;
 
 const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
-    // The Goole Maps script has been loaded, the google object is available
+    // The Google Maps script has been loaded, the google object is available
     // The map is ready to be initialized
 };
 
@@ -82,4 +82,4 @@ mutations.addHandler(store, {
 
 store.observer.observe(map);
 </script>
-  ```
+```

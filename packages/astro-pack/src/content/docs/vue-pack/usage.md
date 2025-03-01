@@ -72,7 +72,7 @@ Use the Map component to efficiently load [Google Maps JS SDK](https://developer
   import type { MapCallbackT } from '@matb85/base-pack';
 
   const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
-    // The Goole Maps script has been loaded, the google object is available
+    // The Google Maps script has been loaded, the google object is available
     // The map is ready to be initialized
   };
 </script>

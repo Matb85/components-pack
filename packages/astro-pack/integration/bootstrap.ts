@@ -1,7 +1,7 @@
 import { mutations, createStore } from "@matb85/base-pack";
 
-window.astroPack = createStore();
-console.log("astroPack ready", window.astroPack);
+window.cpStore = createStore();
+console.log("astroPack ready", window.cpStore);
 
 function addPhotos(
   photos = document.querySelectorAll('.MP-photo:not(.MP-dont-load) > img') as NodeListOf<HTMLImageElement>
@@ -11,7 +11,7 @@ function addPhotos(
       img.addEventListener(
         'load',
         () =>
-          mutations.addPhoto(window.astroPack, {
+          mutations.addPhoto(window.cpStore, {
             src: img.dataset.minsrc!,
             srcset: img.dataset.minsrc!,
             group: img.dataset.group!,
@@ -19,7 +19,7 @@ function addPhotos(
           }),
         { once: true }
       );
-    window.astroPack.observer.observe(img);
+    window.cpStore.observer.observe(img);
     const parent = img.parentElement as HTMLElement;
     if (parent.classList.contains('no-hover') || img.dataset?.prevent?.includes('enlargeonclick'))
       return;

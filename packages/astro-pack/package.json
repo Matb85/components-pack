@@ -7,7 +7,7 @@
   "private": false,
   "type": "module",
   "main": "./dist/index.js",
-  "types": "./dist/ndex.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

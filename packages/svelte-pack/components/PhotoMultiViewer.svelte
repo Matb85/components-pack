@@ -56,7 +56,7 @@ onMount(() => {
     const { detail } = e as CustomEvent;
     window.addEventListener("keyup", onKeyUp);
 
-    const result = mixin.setupPhotos(window.sveltePack, detail.img, GlobalConfig);
+    const result = mixin.setupPhotos(window.cpStore, detail.img, GlobalConfig);
     photos = result.photos;
     await mixin.mounted(detail, con, ref, GlobalConfig);
 
@@ -67,10 +67,10 @@ onMount(() => {
     });
 
     const chosen = slider.container.children[result.index];
-    window.sveltePack.handlers.photo(chosen as HTMLImageElement);
+    window.cpStore.handlers.photo(chosen as HTMLImageElement);
 
    const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
-    els.forEach(img => window.sveltePack.observer.observe(img));
+    els.forEach(img => window.cpStore.observer.observe(img));
 
     ref.addEventListener("animationend", () => (ref.parentElement!.style.display = "none"), { once: true });
     counter = slider.counter;

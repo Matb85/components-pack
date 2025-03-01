@@ -50,7 +50,7 @@ const svgPath =
     const { detail } = e as CustomEvent;
     window.addEventListener("keyup", onKeyUp);
 
-    const result = mixin.setupPhotos(window.astroPack, detail.img, GlobalConfig);
+    const result = mixin.setupPhotos(window.cpStore, detail.img, GlobalConfig);
 
     photoSlider.innerHTML = result.photos.map((img) => `
     <img
@@ -69,10 +69,10 @@ const svgPath =
     });
 
     const chosen = slider.container.children[result.index];
-    window.astroPack.handlers.photo(chosen as HTMLImageElement);
+    window.cpStore.handlers.photo(chosen as HTMLImageElement);
 
     const els = slider.container.querySelectorAll(".MS-lazy") as NodeListOf<HTMLImageElement>;
-    els.forEach(img => window.astroPack.observer.observe(img));
+    els.forEach(img => window.cpStore.observer.observe(img));
 
     ref.addEventListener("animationend", () => (ref.parentElement!.style.display = "none"), { once: true });
     counter = slider.counter;

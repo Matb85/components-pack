@@ -6,6 +6,6 @@ declare module 'virtual:@matb85/astro-pack' {
 
 declare global {
   interface Window {
-    astroPack: BasePackStoreI;
+    cpStore: BasePackStoreI;
   }
 }
