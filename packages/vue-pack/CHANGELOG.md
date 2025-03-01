@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.2](https://github.com/Matb85/components-pack/compare/v5.0.1...v5.0.2) (2025-03-01)
+
+**Note:** Version bump only for package @matb85/vue-pack
+
 ## [5.0.1](https://github.com/Matb85/components-pack/compare/v5.0.0...v5.0.1) (2025-03-01)
 
 **Note:** Version bump only for package @matb85/vue-pack

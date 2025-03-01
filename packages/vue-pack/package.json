@@ -1,7 +1,7 @@
 {
   "name": "@matb85/vue-pack",
   "description": "UI components for Vue 3",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
   "private": false,
@@ -15,7 +15,7 @@
     "vue": "^3.5.13"
   },
   "dependencies": {
-    "@matb85/base-pack": "workspace:^5.0.1",
+    "@matb85/base-pack": "workspace:^5.0.2",
     "modular-slider": "^1.0.3"
   },
   "devDependencies": {
