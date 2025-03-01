@@ -6,10 +6,9 @@
   "private": false,
   "scripts": {
     "imgs": "node ./imgs/imageResizer.js",
-    "release": "lerna version --allow-peer-dependencies-update --conventional-commits --create-release github",
+    "release": "lerna version --allow-peer-dependencies-update --sync-workspace-lock --conventional-commits --create-release github",
     "pub": "pnpm run build && pnpm -r --filter \"@matb85/*\" --access=public publish",
-    "build": "pnpm run -r build",
-    "version": "pnpm install"
+    "build": "pnpm run -r build"
   },
   "devDependencies": {
     "@lerna-lite/cli": "^3.12.1",
