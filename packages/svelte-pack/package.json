@@ -8,7 +8,6 @@
   "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
-  "svelte": "./dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -47,5 +46,15 @@
   },
   "files": [
     "dist/**/*"
+  ],
+  "keywords": [
+    "svelte",
+    "components",
+    "ui",
+    "svelte-components",
+    "lightbox",
+    "lighbox-svelte",
+    "strapi",
+    "strapi-svelte"
   ]
 }

@@ -48,5 +48,15 @@
   },
   "files": [
     "dist/**/*"
+  ],
+  "keywords": [
+    "vue",
+    "components",
+    "ui",
+    "vue-components",
+    "lightbox",
+    "lighbox-vue",
+    "strapi",
+    "strapi-vue"
   ]
 }

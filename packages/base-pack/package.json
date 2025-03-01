@@ -38,6 +38,14 @@
     "url": "https://github.com/Matb85/components-pack/issues"
   },
   "files": [
-    "dist/*"
+    "dist/**/*"
+  ],
+  "keywords": [
+    "vanillajs",
+    "components",
+    "ui",
+    "vanillajs-components",
+    "lightbox",
+    "strapi"
   ]
 }

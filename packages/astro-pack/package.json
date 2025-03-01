@@ -49,5 +49,15 @@
   },
   "files": [
     "dist/**/*"
+  ],
+  "keywords": [
+    "astro",
+    "components",
+    "ui",
+    "astro-components",
+    "lightbox",
+    "lighbox-astro",
+    "strapi",
+    "strapi-astro"
   ]
 }
