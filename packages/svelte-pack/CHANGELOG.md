@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/Matb85/components-pack/compare/v4.1.7...v5.0.0) (2025-03-01)
+
+**Note:** Version bump only for package @matb85/svelte-pack
+
 ## [4.1.7](https://github.com/Matb85/components-pack/compare/v4.1.6...v4.1.7) (2025-02-11)
 
 **Note:** Version bump only for package @matb85/svelte-pack
