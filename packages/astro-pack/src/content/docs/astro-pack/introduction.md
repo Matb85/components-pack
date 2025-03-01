@@ -41,10 +41,7 @@ export default defineConfig({
 });
 ```
 
-Parameters:
-
-- `formats`: Object with the keys being the desired width and the values being the prefix to be added to the image name.
-- `enlarged`: Array with the desired widths for the enlarged images.
+Visit [Configuration Reference](/components-pack/start/prepare-images/) to see how to specify `formats` and `enlarged` sizes.
 
 ### 3. Photo and PhotoViewer
 

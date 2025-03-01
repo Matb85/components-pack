@@ -8,9 +8,9 @@ description: Learn how to get started with Components Pack.
 ## Project structure
 
 Components pack currently supports 3 frameworks:
-- Svelte 5 and SvelteKit 2 with @matb85/svelte-pack
-- Vue 3 and Nuxt 3 with @matb85/vue-pack
-- Astro 5 with @matb85/astro-pack
+- **Svelte 5** and **SvelteKit 2** with @matb85/svelte-pack
+- **Vue 3** and **Nuxt 3** with @matb85/vue-pack
+- **Astro 5** with @matb85/astro-pack
 
 Each of the above Packages have shared logic which is stored in base.
 
