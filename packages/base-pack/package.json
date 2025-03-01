@@ -5,8 +5,6 @@
   "author": "Mateusz Bis <mateuszbis85@gmail.com> (https://matb85.github.io/)",
   "license": "ISC",
   "private": false,
-  "main": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
     "build": "rm -rf ./dist && pnpm run build:ts && pnpm run build:sass && pnpm run build:css",
@@ -15,21 +13,23 @@
     "build:css": "postcss dist/index.css -o dist/index.css",
     "lint": "eslint ./src/**/*"
   },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.23.0",
-    "@typescript-eslint/parser": "^8.23.0",
-    "esbuild": "^0.25.0",
-    "eslint": "^9.20.0",
-    "postcss": "^8.5.1",
-    "postcss-cli": "^11.0.0",
-    "postcss-env-function": "^7.0.0",
-    "sass": "^1.84.0",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
-  },
   "peerDependencies": {
     "modular-slider": "^1.0.3"
   },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.21.0",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.0",
+    "postcss-env-function": "^7.0.0",
+    "sass": "^1.85.1",
+    "tailwindcss": "^4.0.9",
+    "typescript": "^5.8.2"
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/Matb85/components-pack"

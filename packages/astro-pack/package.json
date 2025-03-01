@@ -6,6 +6,28 @@
   "license": "ISC",
   "private": false,
   "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build:docs": "pnpm build && astro build",
+    "build": "rm -rf ./dist && tsc --project ./tsconfig.build.json && cp -r ./components/* ./dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "peerDependencies": {
+    "astro": "^5.4.1"
+  },
+  "dependencies": {
+    "@matb85/base-pack": "workspace:^5.0.1",
+    "modular-slider": "^1.0.3"
+  },
+  "devDependencies": {
+    "@astrojs/starlight": "^0.32.2",
+    "astro": "^5.4.1",
+    "sharp": "^0.33.5",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -20,25 +42,6 @@
     "./Photo.astro": "./dist/Photo.astro",
     "./PhotoViewer.astro": "./dist/PhotoViewer.astro",
     "./PhotoMultiViewer.astro": "./dist/PhotoMultiViewer.astro"
-  },
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build:docs": "pnpm build && astro build",
-    "build": "rm -rf ./dist && tsc --project ./tsconfig.build.json && cp -r ./components/* ./dist",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@matb85/base-pack": "workspace:^5.0.1",
-    "modular-slider": "^1.0.3"
-  },
-  "devDependencies": {
-    "@astrojs/starlight": "^0.31.1",
-    "astro": "^5.1.5",
-    "sharp": "^0.33.5",
-    "typescript": "^5.7.3",
-    "vite": "^6.1.0"
   },
   "repository": {
     "type": "git",

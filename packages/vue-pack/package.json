@@ -6,6 +6,26 @@
   "license": "ISC",
   "private": false,
   "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "build": "rm -rf ./dist && vue-tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly && tsc --project ./tsconfig.build.json && cp -r ./src/components/* ./dist/components"
+  },
+  "peerDependencies": {
+    "pinia": "^3.0.1",
+    "vue": "^3.5.13"
+  },
+  "dependencies": {
+    "@matb85/base-pack": "workspace:^5.0.1",
+    "modular-slider": "^1.0.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "pinia": "^3.0.1",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.0",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.6"
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -18,26 +38,6 @@
     "./Photo.vue": "./dist/components/Photo.vue",
     "./PhotoViewer.vue": "./dist/components/PhotoViewer.vue",
     "./PhotoMultiViewer.vue": "./dist/components/PhotoMultiViewer.vue"
-  },
-  "scripts": {
-    "dev": "vite dev --port 3000",
-    "build": "rm -rf ./dist && vue-tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly && tsc --project ./tsconfig.build.json && cp -r ./src/components/* ./dist/components"
-  },
-  "dependencies": {
-    "@matb85/base-pack": "workspace:^5.0.1",
-    "modular-slider": "^1.0.3"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.1",
-    "pinia": "^2.3.1",
-    "typescript": "^5.7.3",
-    "vite": "^6.1.0",
-    "vue": "^3.5.13",
-    "vue-tsc": "^2.2.0"
-  },
-  "peerDependencies": {
-    "pinia": "^2.3.0",
-    "vue": "^3.5.13"
   },
   "repository": {
     "type": "git",
