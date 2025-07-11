@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/Matb85/components-pack/compare/v5.0.2...v5.1.0) (2025-07-11)
+
+### Bug Fixes
+
+* **astro-pack:** :label: issue with missing TS types in production ([126d1a1](https://github.com/Matb85/components-pack/commit/126d1a1d0b565e985af2a11f008a30319e837905))
+* **astro-pack:** :label: TS types again ([6889245](https://github.com/Matb85/components-pack/commit/6889245705e18dc5bf8b5f2abee5407c30c9abf6))
+
+### Features
+
+* :sparkles: create emailform utils and export new functions ([76ad63c](https://github.com/Matb85/components-pack/commit/76ad63c95a9e8ce7029fb9ee1e9979138b76d128))
+* :sparkles: improve mapUtil + change it's name to setUpGoogleMap ([535ba00](https://github.com/Matb85/components-pack/commit/535ba00e4c606cef4f84f12d08f4f5457cd847db))
+
 ## [5.0.2](https://github.com/Matb85/components-pack/compare/v5.0.1...v5.0.2) (2025-03-01)
 
 **Note:** Version bump only for package components-pack

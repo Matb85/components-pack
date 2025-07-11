@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/Matb85/components-pack/compare/v5.0.2...v5.1.0) (2025-07-11)
+
+### Features
+
+* :sparkles: create emailform utils and export new functions ([76ad63c](https://github.com/Matb85/components-pack/commit/76ad63c95a9e8ce7029fb9ee1e9979138b76d128))
+* :sparkles: improve mapUtil + change it's name to setUpGoogleMap ([535ba00](https://github.com/Matb85/components-pack/commit/535ba00e4c606cef4f84f12d08f4f5457cd847db))
+
 ## [5.0.2](https://github.com/Matb85/components-pack/compare/v5.0.1...v5.0.2) (2025-03-01)
 
 **Note:** Version bump only for package @matb85/base-pack
