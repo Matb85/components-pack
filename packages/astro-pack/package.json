@@ -10,7 +10,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build:docs": "pnpm build && astro build",
-    "build": "rm -rf ./dist && tsc --project ./tsconfig.build.json && cp -r ./components/* ./dist",
+    "build": "rm -rf ./dist && tsc --project ./tsconfig.build.json && cp -r ./components/* ./dist && pnpm build:fix-types",
+    "build:fix-types": "cat ./index.d.ts >> ./dist/temp && cat ./dist/index.d.ts >> ./dist/temp && mv ./dist/temp ./dist/index.d.ts",
     "preview": "astro preview",
     "astro": "astro"
   },
