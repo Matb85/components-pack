@@ -1,8 +1,9 @@
 import { mixin, type GlobalConfigI } from "./mixin";
 import { mutations, createStore, type BasePackStoreI, type StorePhotoI } from "./store";
 import photo from "./photo";
-import mapUtil, { type MapCallbackT } from "./map";
+import { setUpGoogleMap, type MapCallbackT } from "./map";
+import { setUpForm, FormCallbackT, FormFieldConfigI } from "./emailform";
 
-export { mixin, createStore, mutations, photo, mapUtil };
+export { mixin, createStore, mutations, photo, setUpGoogleMap, setUpForm };
 
-export { GlobalConfigI, MapCallbackT, BasePackStoreI, StorePhotoI };
+export { GlobalConfigI, MapCallbackT, BasePackStoreI, StorePhotoI, FormCallbackT, FormFieldConfigI };
