@@ -44,7 +44,7 @@ This example uses only **PhotoViewer**.
 
 This example uses only **PhotoMultiViewer**.
 
-<Demo season="summer" groups={["summer-0","summer-1","summer-2","summer-3"]} />
+<Demo season="summer" groups={["summer-0", "summer-1", "summer-2", "summer-3"]} />
 
 ```astro
 // page.astro
@@ -109,7 +109,7 @@ This example uses only **PhotoMultiViewer**, but there are two different groups.
 
 <Demo season="winter" groups={[false, "winter-0", "winter-1", "winter2-0"]} />
 
-This example uses both  **PhotoViewer** and **PhotoMultiViewer** with two different groups.
+This example uses both **PhotoViewer** and **PhotoMultiViewer** with two different groups.
 
 ```astro
 // page.astro
@@ -149,42 +149,25 @@ This example uses both  **PhotoViewer** and **PhotoMultiViewer** with two differ
 
 ## Map
 
-Example of Map component usage.
+There is not a dedicated Map component for Astro, just use the utility function from `@matb85/base-pack` to load Google Maps JS SDK and initialize the map.
 
-<Map/>
+<Map />
 
 ```astro
 // YourMapComponent.astro
----
-import Map from '@matb85/astro-pack/Map.astro';
-import type { MapCallbackT } from '@matb85/base-pack';
---
 
-<Map class="your-map-class" apikey="YOUR_API_KEY" callback={mapCallback} />
+<section id="map" class="your-map-class" data-observerhandler="map"></section>
 
 <script>
-import { mapUtil, type MapCallbackT } from "@matb85/base-pack";
+  import { setUpGoogleMap, type MapCallbackT } from "@matb85/base-pack";
 
-const map = document.getElementById("map") as HTMLElement;
+  const map = document.getElementById("map") as HTMLElement;
 
-const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
-    // The Google Maps script has been loaded
-    // The map is ready to be initialized
-    const center = { lat: 50.061642912299185, lng: 19.939391711972192 };
-    const map = new google.maps.Map(domMap, {
-        center,
-        zoom: 16,
-        streetViewControl: false,
-        styles: [{ featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }] }]
-    });
-    new google.maps.Marker({ position: center, map });
-};
+  const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
+      // The Google Maps script has been loaded, the google object is available
+      // The map is ready to be initialized
+  };
 
-mutations.addHandler(store, {
-  name: "map",
-  handler: () => mapUtil(apikey, callback, map),
-});
-
-store.observer.observe(map);
+  setUpGoogleMap(apikey, callback, map, window.cpStore);
 </script>
 ```

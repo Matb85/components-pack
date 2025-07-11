@@ -40,7 +40,7 @@ import Photo from '@matb85/astro-pack/Photo.astro';
 <Photo src="/thumbnail_gorge.jpg" sizes={[480, 720]} className="your-class" group="mountains" alt="Dunajec Gorge" />
 ```
 
-### 2. PhotoMultiViewer 
+### 2. PhotoMultiViewer
 
 Use the PhotoMultiViewer component to display full screen image gallery:
 
@@ -51,35 +51,29 @@ Use the PhotoMultiViewer component to display full screen image gallery:
 import "modular-slider/modular-slider.css"; // PhotoMultiViewer needs modular-slider styles
 import PhotoMultiViewer from '@matb85/astro-pack/PhotoMultiViewer.astro';
 ---
-  
+
 <PhotoMultiViewer/>
 ```
-
 
 ### 3. Map
 
 Use the mapUtil function to efficiently load [Google Maps JS SDK](https://developers.google.com/maps/documentation/javascript):
 
-```astro
+```html
 // YourMapComponent.astro
 
 <section id="map" class="your-map-class" data-observerhandler="map"></section>
 
 <script>
-import { mapUtil, type MapCallbackT } from "@matb85/base-pack";
+  import { setUpGoogleMap, type MapCallbackT } from "@matb85/base-pack";
 
-const map = document.getElementById("map") as HTMLElement;
+  const map = document.getElementById("map") as HTMLElement;
 
-const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
-    // The Google Maps script has been loaded, the google object is available
-    // The map is ready to be initialized
-};
+  const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
+      // The Google Maps script has been loaded, the google object is available
+      // The map is ready to be initialized
+  };
 
-mutations.addHandler(store, {
-  name: "map",
-  handler: () => mapUtil(apikey, callback, map),
-});
-
-store.observer.observe(map);
+  setUpGoogleMap(apikey, callback, map, window.cpStore);
 </script>
 ```

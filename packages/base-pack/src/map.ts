@@ -1,3 +1,4 @@
+import { type BasePackStoreI, mutations } from "./store";
 
 export type MapCallbackT = (map: HTMLElement) => void;
 
@@ -9,7 +10,7 @@ declare global {
   }
 }
 
-export default function (key: string, callback: MapCallbackT, map: HTMLElement) {
+export function setUpGoogleMap(key: string, callback: MapCallbackT, el: HTMLElement, store: BasePackStoreI) {
   if (typeof google != "undefined" && typeof google.maps != "undefined") return;
   /** Create the script tag, set the appropriate attributes */
   const script = document.createElement("script");
@@ -17,8 +18,11 @@ export default function (key: string, callback: MapCallbackT, map: HTMLElement) 
   script.async = true;
 
   /** Attach your callback function to the `window` object */
-  window.initMap = () => callback(map);
+  window.initMap = () => callback(el);
 
   /** Append the 'script' element to 'head' */
   document.head.appendChild(script);
+
+  mutations.addHandler(store, { name: "map", handler: () => callback(el) });
+  store.observer.observe(el);
 }

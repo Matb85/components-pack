@@ -13,16 +13,16 @@ import { photo, type GlobalConfigI } from "@matb85/base-pack";
 const config: GlobalConfigI = {
   formats: {
     thumbnail: /min_|thumbnail_/,
-    2400: '',
-    1920: 'fhd_',
-    1290: 'hd_',
-    720: 'wvga_',
-    480: 'hvga_'
+    2400: "",
+    1920: "fhd_",
+    1290: "hd_",
+    720: "wvga_",
+    480: "hvga_",
   },
-  enlarged: [1290, 1920]
-}
+  enlarged: [1290, 1920],
+};
 
-const sizes = [480, 720, 1290]
+const sizes = [480, 720, 1290];
 
 const src = "min_your-photo.jpg";
 
@@ -64,7 +64,7 @@ interface BasePackStoreI {
 When a tracked element is handled by the observer, the handler is triggered. The handler is selected based on the `data-observerhandler` attribute of the element.
 
 ```html
-<div id="map" data-observerhandler="your-map-handler">
+<div id="map" data-observerhandler="your-map-handler"></div>
 ```
 
 ### Mutations
@@ -79,7 +79,7 @@ const storePhoto: StorePhotoI = {
   srcset: "your-photo.jpg",
   group: "your-group",
   alt: "your-alt",
-}
+};
 
 mutations.addHandler(store, { name: "your-handler", handler: () => {} });
 
@@ -105,24 +105,20 @@ interface MutationsI {
 Utility functions for working with maps.
 
 ```html
-<div id="your-map" data-observerhandler="your-map-handler">
+<div id="your-map" data-observerhandler="your-map-handler"></div>
 ```
 
 ```ts
-import { mapUtil, type MapCallbackT } from "@matb85/base-pack";
+import { setUpGoogleMap, type MapCallbackT } from "@matb85/base-pack";
 
-const map = document.getElementById("your-map") as HTMLElement;
+const map = document.getElementById("map") as HTMLElement;
 
-const callback: MapCallbackT = (domMap: HTMLElement) => {
-  // The Google Maps script has been loaded
-}
+const mapCallback: MapCallbackT = (domMap: HTMLElement) => {
+  // The Google Maps script has been loaded, the google object is available
+  // The map is ready to be initialized
+};
 
-mutations.addHandler(store, {
-  name: "your-map-handler",
-  handler: () => mapUtil(apikey, callback, map),
-});
-
-store.observer.observe(map);
+setUpGoogleMap(apikey, callback, map, store);
 ```
 
 Parameters:
@@ -130,6 +126,7 @@ Parameters:
 - `apikey` - your Google Maps API key
 - `callback` - a function that is called when the map is loaded
 - `map` - the map element
+- `store` - the base-pack store, usually `window.cpStore`
 
 ### Mixin
 
@@ -145,9 +142,14 @@ Mixin contains methods for showing and hiding photos, as well as methods for pre
 
 ```ts
 interface MixinI {
-  mounted({ img, rect }: EnlargeDataEvent, con: HTMLElement, ref: HTMLImageElement, config: GlobalConfigI): Promise<void>;
-  close(con: HTMLElement, ref: HTMLImageElement): Promise<void>
-  setupImgs(state: BasePackStoreI, img: HTMLImageElement, config: GlobalConfigI)
+  mounted(
+    { img, rect }: EnlargeDataEvent,
+    con: HTMLElement,
+    ref: HTMLImageElement,
+    config: GlobalConfigI
+  ): Promise<void>;
+  close(con: HTMLElement, ref: HTMLImageElement): Promise<void>;
+  setupImgs(state: BasePackStoreI, img: HTMLImageElement, config: GlobalConfigI);
 }
 ```
 

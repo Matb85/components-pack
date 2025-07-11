@@ -1,28 +1,25 @@
 <section id="google-map" class="map not-content" data-observerhandler="map"></section>
 
 <script>
-  import { mapUtil, mutations, type MapCallbackT } from "@matb85/base-pack";
+  import { setUpGoogleMap, mutations, type MapCallbackT } from "@matb85/base-pack";
+
+  declare var google: any; // Google Maps API global object
 
   const map = document.getElementById("google-map") as HTMLElement;
 
   const callback: MapCallbackT = (domMap: HTMLElement) => {
     // The Google Maps script has been loaded
-      const center = { lat: 50.061642912299185, lng: 19.939391711972192 };
-      const map = new google.maps.Map(domMap, {
-        center,
-        zoom: 15,
-        streetViewControl: false,
-        styles: [{ featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }] }]
-      });
-      new google.maps.Marker({ position: center, map });
-  }
+    const center = { lat: 50.061642912299185, lng: 19.939391711972192 };
+    const map = new google.maps.Map(domMap, {
+      center,
+      zoom: 15,
+      streetViewControl: false,
+      styles: [{ featureType: "poi", elementType: "all", stylers: [{ visibility: "off" }] }],
+    });
+    new google.maps.Marker({ position: center, map });
+  };
 
   const apikey = import.meta.env.PUBLIC_GMAPS_API_KEY || "";
 
-  mutations.addHandler(window.cpStore, {
-    name: "map",
-    handler: () => mapUtil(apikey, callback, map),
-  });
-
-  window.cpStore.observer.observe(map);
+  setUpGoogleMap(apikey, callback, map, window.cpStore);
 </script>
